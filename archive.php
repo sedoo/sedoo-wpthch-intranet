@@ -7,7 +7,7 @@
  * @package labs_by_Sedoo
  */
 
-get_header();
+get_header();   
 
 // get the current taxonomy term
 $term = get_queried_object();
