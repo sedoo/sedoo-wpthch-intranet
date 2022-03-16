@@ -12,5 +12,42 @@ Text Domain: sedoo-wpthch-intranet
 Domain Path: /languages
 Tags: 
 */
+/*************    TABS    **************/
+.tabs {
+  list-style-type: none;
+  position: relative;
+  max-width: 1200px;
+  overflow: hidden; }
+  .tabs nav[role="tablist"] {
+    border-bottom: 1px solid #EEE; }
+    .tabs nav[role="tablist"] button[role="tab"] {
+      padding: 5px 20px;
+      margin-top: 5px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 600;
+      animation-name: border_slide_in_left;
+      animation-duration: 0.7s;
+      animation-timing-function: linear;
+      /* animation-delay: 0s; */
+      animation-iteration-count: 1;
+      animation-direction: alternate;
+      animation-fill-mode: none;
+      animation-play-state: running;
+      transition: border-bottom 0.2s ease-in-out; }
+    .tabs nav[role="tablist"] button[aria-selected="true"] {
+      border-bottom: 2px solid var(--theme-color); }
+    .tabs nav[role="tablist"] button:hover {
+      background: #DDD;
+      border-bottom: 2px solid var(--theme-color); }
+  .tabs > section {
+    animation-name: slide_in_left;
+    animation-duration: 0.4s;
+    animation-timing-function: linear;
+    /* animation-delay: 0s; */
+    animation-iteration-count: 1;
+    animation-direction: alternate;
+    animation-fill-mode: none;
+    animation-play-state: running; }
 
 /*# sourceMappingURL=style.css.map */

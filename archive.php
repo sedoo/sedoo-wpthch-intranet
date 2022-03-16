@@ -28,10 +28,6 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 		<?php
 		if ( !empty($cover)) {
 				$coverStyle = "background-image:url(".$cover['url'].")";
-			 
-			// else {
-			// 	$coverStyle = "border-top:5px solid ".$code_color.";height:auto;";
-			// }
 			?>
 			
 			<header id="cover" class="page-header" style="<?php echo $coverStyle;?>;animation: cover_homepage 2s linear 1 alternate;">
