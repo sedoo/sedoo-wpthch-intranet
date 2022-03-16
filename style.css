@@ -49,5 +49,7 @@ Tags:
     animation-direction: alternate;
     animation-fill-mode: none;
     animation-play-state: running; }
+  .tabs section[hidden] {
+    display: none; }
 
 /*# sourceMappingURL=style.css.map */

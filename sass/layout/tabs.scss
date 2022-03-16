@@ -44,4 +44,9 @@
         animation-fill-mode: none;
         animation-play-state: running;
     }    
+    section[hidden] {
+        display:none;
+    }
 }
+
+// 
