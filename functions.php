@@ -14,6 +14,7 @@ function sedoo_wpthch_intranet_categories_to_pages() {
     }
 add_action( 'init', 'sedoo_wpthch_intranet_categories_to_pages' );
 
+require 'inc/intranet-backoffice-config.php';
 require 'inc/intranet-acf-fields.php';
 require 'inc/intranet-acf-config.php';
 
