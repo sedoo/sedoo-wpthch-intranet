@@ -1,79 +1,39 @@
 <?php
 /**
- * Template part for displaying page content in page.php
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package labs_by_Sedoo
  */
 
-// ACF fields Sigle contact
-// $contact_name = get_field('intranet_contact_name');
-
-// Taxonomy terms for application
-// $instances = get_the_terms( get_the_ID(), $taxo_names_instance );
-
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
-    <section class="sedoo-intranet-page">
-        <?php 
-            $product = get_field('id'); // get product id and name
-            $breadcrumb = get_field('name'); // get product id and name
-            $type_produit = get_field('type');
 
-            $campaign = get_field('nom_de_la_campagne', 'option');   
-
-            // get service url and package url from option page
-            while( have_rows('field_6056902922fe1', 'option') ) : the_row();
-            if(get_sub_field('type_de_produit') == $type_produit) {
-                $service_url = get_sub_field('url_du_service');
-                $package_url = get_sub_field('url_du_package');
-            }
-            endwhile;
-
-        ?>
-        <h1> <?php echo get_the_title(); ?> </h1>
-        <?php
-        if ( ! post_password_required() ) {
-        ?>
-        <div class="tabs">
-            <nav role="tablist" aria-label="Description et informations">
-
-                <button role="tab" aria-selected="true" aria-controls="intranet-page-content" id="tab-1" tabindex="0">
-                    Informations
-                </button>
-                <button role="tab" aria-selected="false" aria-controls="intranet-contacts" id="tab-2" tabindex="-1">
-                    Contacts
-                </button>
-                <button role="tab" aria-selected="false" aria-controls="intranet-page-files" id="tab-3" tabindex="-1">
-                    Documents
-                </button>
-                
-            </nav>
-            <section id="intranet-page-content" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
-                <?php the_content() ?>
-            </section>
-            <section id="intranet-contacts" role="tabpanel" tabindex="0" aria-labelledby="tab-2" hidden>
-                <p>Contact</p>
-            </section>
-            <section id="intranet-page-files" role="tabpanel" tabindex="0" aria-labelledby="tab-3" hidden>
-                <p>File</p>
-            </section>
-            
-        </div>
-        <?php
-        // if ( ! post_password_required() ) {
-        ?>
-        
-        <?php
-        } else {
-            the_content();
-        }
-        ?>
+  <h1> <?php echo get_the_title(); ?> </h1>
+  <div class="sedoo-intranet-page">
+    <section data-role="sedoo-intranet-page-content">
+      <?php the_content() ?>
     </section> 
+    <aside class="contextual-sidebar">
+        <section>
+          <h2>Contacts</h2>
+          <ul>
+            <li></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Fichiers en relation</h2>
+          <ul>
+            <li></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Arborescence</h2>
+          <campaign-product viewer="tree" service="<?php echo $service_url; ?>" campaign="<?php echo $campaign; ?>" product="<?php echo $product; ?>" breadcrumb='<?php echo $breadcrumb; ?>' vce-ready="">
+          </campaign-product>
+        </section>
+    </aside>
+</div>  
 </article>
-<script>
 
+<script>
 /**
  *  TABS ON FRONT
  */

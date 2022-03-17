@@ -1,0 +1,12 @@
+.sedoo-intranet-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &> section[data-role="sedoo-intranet-page-content"] {
+        max-width: 60%;
+    }
+    &> aside.contextual-sidebar {
+        padding:0;
+    }
+}
