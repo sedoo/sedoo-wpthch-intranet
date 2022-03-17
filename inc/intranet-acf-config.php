@@ -20,4 +20,29 @@ if( function_exists('acf_add_options_page') ) {
 }
 // END THE SERVICES SETTINGS ADMINISTRATION PAGE
 //////
+
+if( function_exists('acf_add_options_page') ) {
+	
+	// acf_add_options_page(array(
+	// 	'page_title' 	=> 'Theme General Settings',
+	// 	'menu_title'	=> 'Theme Settings',
+	// 	'menu_slug' 	=> 'theme-general-settings',
+	// 	'capability'	=> 'edit_posts',
+	// 	'redirect'		=> false
+	// ));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Applications externes',
+		'menu_title'	=> 'Applications externes',
+		'parent_slug'	=> 'sedoo-intranet-admin-main-page',
+	));
+	
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Adresses génériques des services',
+		'menu_title'	=> 'Adresses génériques',
+		'parent_slug'	=> 'sedoo-intranet-admin-main-page',
+	));
+	
+}
+
 ?>

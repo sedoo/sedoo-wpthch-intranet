@@ -1,6 +1,7 @@
 <?php
 if( function_exists('acf_add_local_field_group') ):
 
+// SERVICE REST SEDOO
 acf_add_local_field_group(array(
     'key' => 'group_60548a8e93475',
     'title' => 'Url de services',
@@ -103,7 +104,7 @@ acf_add_local_field_group(array(
     'description' => '',
 ));
 
-
+// Contact / fichiers
 acf_add_local_field_group(array(
     'key' => 'group_6231ff4e5fc5e',
     'title' => 'Contacts / Fichiers en relation',
@@ -223,6 +224,236 @@ acf_add_local_field_group(array(
     'description' => '',
     'show_in_rest' => 0,
 ));
+
+// Adresses génériques de service
+acf_add_local_field_group(array(
+	'key' => 'group_62330e13209bb',
+	'title' => 'Ajouter une adresse générique de service',
+	'fields' => array(
+		array(
+			'key' => 'field_62330e2ae2563',
+			'label' => 'Adresses génériques de service',
+			'name' => 'intranet_ags',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_62330e7ce2564',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'table',
+			'button_label' => 'Ajouter une adresse générique de service',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_62330e7ce2564',
+					'label' => 'nom du service',
+					'name' => 'intranet_ags_service_nom',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
+					'key' => 'field_62330e9ee2565',
+					'label' => 'Mail de contact',
+					'name' => 'intranet_ags_service_mail',
+					'type' => 'email',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+				),
+				array(
+					'key' => 'field_62330eb4e2566',
+					'label' => 'Catégorie',
+					'name' => 'intranet_ags_service_categorie',
+					'type' => 'taxonomy',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'taxonomy' => 'category',
+					'field_type' => 'multi_select',
+					'allow_null' => 0,
+					'add_term' => 0,
+					'save_terms' => 0,
+					'load_terms' => 0,
+					'return_format' => 'id',
+					'multiple' => 0,
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-adresses-generiques',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
+// Applications externes
+acf_add_local_field_group(array(
+	'key' => 'group_62332d0123e8c',
+	'title' => 'Ajouter une application',
+	'fields' => array(
+		array(
+			'key' => 'field_62332d013232a',
+			'label' => 'Application en ligne externe',
+			'name' => 'intranet_apiext',
+			'type' => 'repeater',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'collapsed' => 'field_62332d0133ab5',
+			'min' => 0,
+			'max' => 0,
+			'layout' => 'table',
+			'button_label' => 'Ajouter un service externe',
+			'sub_fields' => array(
+				array(
+					'key' => 'field_62332d0133ab5',
+					'label' => 'nom de l\'application',
+					'name' => 'intranet_apiext_application_nom',
+					'type' => 'text',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+					'prepend' => '',
+					'append' => '',
+					'maxlength' => '',
+				),
+				array(
+					'key' => 'field_62332d0133abf',
+					'label' => 'URL du service',
+					'name' => 'intranet_apiext_application_url',
+					'type' => 'url',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'default_value' => '',
+					'placeholder' => '',
+				),
+				array(
+					'key' => 'field_62332d0133adb',
+					'label' => 'Catégorie',
+					'name' => 'intranet_apiext_application_categorie',
+					'type' => 'taxonomy',
+					'instructions' => '',
+					'required' => 1,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'taxonomy' => 'category',
+					'field_type' => 'multi_select',
+					'allow_null' => 0,
+					'add_term' => 0,
+					'save_terms' => 0,
+					'load_terms' => 0,
+					'return_format' => 'id',
+					'multiple' => 0,
+				),
+				array(
+					'key' => 'field_62332eb41c13d',
+					'label' => 'Icône SVG',
+					'name' => 'intranet_apiext_application_icone',
+					'type' => 'file',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'return_format' => 'array',
+					'library' => 'all',
+					'min_size' => '',
+					'max_size' => '',
+					'mime_types' => 'svg',
+				),
+			),
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'options_page',
+				'operator' => '==',
+				'value' => 'acf-options-applications-externes',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+    
 
 endif;		
 
