@@ -2,27 +2,98 @@
 /**
  * @package labs_by_Sedoo
  */
-
+$themes = get_the_terms( $post->ID, 'category');  
+$themeSlugRewrite = "category";
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 
   <h1> <?php echo get_the_title(); ?> </h1>
+  <div>
+      <?php 
+      if( function_exists('sedoo_show_categories') ){
+          sedoo_show_categories($themes, $themeSlugRewrite);
+      }
+      // <p class="post-meta"><?php the_date(); </p>
+      ?>
+     
+  </div>
   <div class="sedoo-intranet-page">
     <section data-role="sedoo-intranet-page-content">
       <?php the_content() ?>
     </section> 
     <aside class="contextual-sidebar">
-        <section>
+        <section id="contact">
           <h2>Contacts</h2>
-          <ul>
-            <li></li>
-          </ul>
+          <?php
+          // var_dump($term);
+          if( have_rows('intranet_service', 'option') ) {
+            while( have_rows('intranet_service', 'option') ) : the_row();
+              // Load sub field value.
+              $serviceCategory = get_sub_field('intranet_service_categorie');
+              // echo $themes[0]->slug ."=";
+              // var_dump($themes);
+              foreach ($serviceCategory as $service) {
+                // echo $service->slug.' ';
+                if ($service->slug === $themes[0]->slug) {	
+                  $intranet_service_nom= get_sub_field('intranet_service_nom');
+                  $intranet_service_mail= get_sub_field('intranet_service_mail');
+                  $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
+                  // echo "<h2>".$intranet_service_nom ."</h2>";
+                  echo "<h3>Adresse générique de contact</h3>";
+                  echo "<p>".$intranet_service_mail."</p>";
+                  echo "<h3>Vos gestionnaires</h3>";
+                  echo "<ul id=\"gestionnaires\">";
+                  foreach ($intranet_service_gestionnaires as $gestionnaire) {
+                    // var_dump($gestionnaire);	
+                    ?>
+                    <li>
+                      <figure> 
+                      <?php 
+                        $img_id = get_user_meta($gestionnaire->ID, 'photo_auteur', true);
+                        $img_url=wp_get_attachment_image_url( $img_id, 'thumbnail' );
+                        // var_dump($img_url);
+                        if($img_url) {
+                        ?>
+                          <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo get_user_meta( $gestionnaire->ID,'first_name', true). ' '.get_user_meta( $gestionnaire->ID,'last_name', true); ?>" />
+                          <?php	
+                          } else {
+                          echo "<span class=\"userLetters\">".substr($gestionnaire->last_name, 0, 1).substr($gestionnaire->first_name, 0, 1)."</span>";
+                        }
+                        ?>
+                      </figure> 
+                      <p>
+                        <?php echo $gestionnaire->first_name." ".$gestionnaire->last_name;?>
+                      </p>
+                  <?php
+                  }
+                  echo "</ul>";
+                  
+                }
+              }
+              // var_dump($serviceCategory);			
+              // echo"<br>";	
+              // echo $serviceCategory[0]->slug;
+              // echo"<hr>";	
+            endwhile;
+          
+          // No value.
+          }
+          else {
+            // Do something...
+          }
+          ?>
         </section>
         <section>
           <h2>Fichiers en relation</h2>
-          <ul>
-            <li></li>
-          </ul>
+          <?php
+          if( get_field('intranet_relatedfile') ) {
+              echo '<ul>';
+              while( the_repeater_field('intranet_relatedfile') ) {
+                  echo '<li><a href="'.get_sub_field('intranet_relatedfile_url').'" >'.get_sub_field('intranet_relatedfile_name').'</a></li>';
+              }
+              echo '</ul>';
+          }
+          ?>
         </section>
         <section>
           <h2>Arborescence</h2>
@@ -32,73 +103,3 @@
     </aside>
 </div>  
 </article>
-
-<script>
-/**
- *  TABS ON FRONT
- */
-/*
- *   This content is licensed according to the W3C Software License at
- *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
- */
-window.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('[role="tab"]');
-    const tabList = document.querySelector('[role="tablist"]');
-    console.log("YOOO");
-    // Add a click event handler to each tab
-    tabs.forEach(tab => {
-      tab.addEventListener('click', changeTabs);
-    });
-  
-    // Enable arrow navigation between tabs in the tab list
-    let tabFocus = 0;
-  
-    tabList.addEventListener('keydown', e => {
-      // Move right
-      if (e.keyCode === 39 || e.keyCode === 37) {
-        tabs[tabFocus].setAttribute('tabindex', -1);
-        if (e.keyCode === 39) {
-          tabFocus++;
-          // If we're at the end, go to the start
-          if (tabFocus >= tabs.length) {
-            tabFocus = 0;
-          }
-          // Move left
-        } else if (e.keyCode === 37) {
-          tabFocus--;
-          // If we're at the start, move to the end
-          if (tabFocus < 0) {
-            tabFocus = tabs.length - 1;
-          }
-        }
-  
-        tabs[tabFocus].setAttribute('tabindex', 0);
-        tabs[tabFocus].focus();
-      }
-    });
-  });
-  
-  function changeTabs(e) {
-    const target = e.target;
-    const parent = target.parentNode;
-    const grandparent = parent.parentNode;
-  
-    // Remove all current selected tabs
-    parent
-      .querySelectorAll('[aria-selected="true"]')
-      .forEach(t => t.setAttribute('aria-selected', false));
-  
-    // Set this tab as selected
-    target.setAttribute('aria-selected', true);
-  
-    // Hide all tab panels
-    grandparent
-      .querySelectorAll('[role="tabpanel"]')
-      .forEach(p => p.setAttribute('hidden', true));
-  
-    // Show the selected panel
-    grandparent.parentNode
-      .querySelector(`#${target.getAttribute('aria-controls')}`)
-      .removeAttribute('hidden');
-  }
-</script>
