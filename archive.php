@@ -11,6 +11,8 @@ get_header();
 
 // get the current taxonomy term
 $term = get_queried_object();
+$termchildren = get_term_children( $term->term_id, $term->taxonomy );
+
 $code_color=labs_by_sedoo_main_color();
 if (( function_exists( 'get_field' ) ) && (get_field('tax_layout', $term))) {
 	$tax_layout = get_field('tax_layout', $term);
@@ -44,59 +46,151 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					the_archive_title(); 
 				}?>
 			</h1>
-			<?php
-			if (get_the_archive_description()) {
-				the_archive_description( '<div class="archive-description">', '</div>' );
-			}
-		?>
-		<?php
-		
-			if($affichage_portfolio != true) { // if portfolio then display it, if not just do the normal script
-				/**
-				 * WP_Query pour lister tous les types de posts
-				 */
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-				if ($term) {				
-				/* sedoo_wpth_labs_get_queried_content_arguments(post_types, taxonomy, slug, display, paged) */
-				sedoo_wpth_labs_get_queried_content_arguments(array('any'), $term->taxonomy, $term->slug, $tax_layout, $paged);
-				}
-				else {
-					// Case for archive by month (back to default wordpress config)
-					if ( have_posts() ) {
+			<div class="sedoo-intranet-page">
+				<section data-role="sedoo-intranet-page-content">
+					<?php
+					if ($termchildren) {
 					?>
-					<section role="listNews" class="post-wrapper noimage">
+					<nav id="subterms">
+						<ul>
+						
+						<?php					
+						foreach ( $termchildren as $child ) {
+							$childTerm = get_term_by( 'id', $child, $term->taxonomy );
+							if ($childTerm->count > 0) {
+							echo '<li class="tag"><a href="' . get_term_link( $child, $term->taxonomy ) . '">' . $childTerm->name .' ('. $childTerm->count .')</a></li>';
+							}
+						}
+						?> 
+						</ul>
+					</nav>
 					<?php
-						while ( have_posts() ) : the_post();
-							get_template_part( 'template-parts/content', 'grid-noimage' );
-						?>
-						<?php
-						endwhile; // End of the loop.
-						?>
-					<?php
-					} 
+					}
+					/////////
+
+
+					////////
+
+					?>
+					
+				<?php
+				if (get_the_archive_description()) {
+					the_archive_description( '<div class="archive-description">', '</div>' );
 				}
-
-			} else {
 				?>
-				<script>
-					ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
-				</script>
-				<style>
-					.sedoo_port_action_btn li:hover {
-						background-color: <?php echo $code_color; ?> !important;
+				<?php
+		
+				if($affichage_portfolio != true) { // if portfolio then display it, if not just do the normal script
+					/**
+					 * WP_Query pour lister tous les types de posts
+					 */
+					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+					if ($term) {				
+					/* sedoo_wpth_labs_get_queried_content_arguments(post_types, taxonomy, slug, display, paged) */
+					sedoo_wpth_labs_get_queried_content_arguments(array('any'), $term->taxonomy, $term->slug, $tax_layout, $paged);
+					}
+					else {
+						// Case for archive by month (back to default wordpress config)
+						if ( have_posts() ) {
+						?>
+						<section role="listNews" class="post-wrapper noimage">
+						<?php
+							while ( have_posts() ) : the_post();
+								get_template_part( 'template-parts/content', 'grid-noimage' );
+							?>
+							<?php
+							endwhile; // End of the loop.
+							?>
+						<?php
+						} 
 					}
 
-					.sedoo_port_action_btn li.active {
-						background-color: <?php echo $code_color; ?> !important;
+				} else {
+					?>
+					<script>
+						ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
+					</script>
+					<style>
+						.sedoo_port_action_btn li:hover {
+							background-color: <?php echo $code_color; ?> !important;
+						}
+
+						.sedoo_port_action_btn li.active {
+							background-color: <?php echo $code_color; ?> !important;
+						}
+					</style>
+					<?php 
+					
+					archive_do_portfolio_display($term);
+				}
+			
+			?>
+				</section> 
+				<aside class="contextual-sidebar">
+					<section id="contact">
+					<?php
+					// var_dump($term);
+					if( have_rows('intranet_service', 'option') ) {
+						while( have_rows('intranet_service', 'option') ) : the_row();
+							// Load sub field value.
+							$serviceCategory = get_sub_field('intranet_service_categorie');
+							// echo $serviceCategory->slug ."=".$term->slug;
+							// var_dump($serviceCategory);
+							foreach ($serviceCategory as $service) {
+								if ($service->slug === $term->slug) {	
+									$intranet_service_nom= get_sub_field('intranet_service_nom');
+									$intranet_service_mail= get_sub_field('intranet_service_mail');
+									$intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
+									echo "<h2>".$intranet_service_nom ."</h2>".
+									"<h3>Adresse générique de contact</h3>".
+									"<p>".$intranet_service_mail."</p>";
+									echo "<h3>Vos gestionnaires</h3>";
+									echo "<ul id=\"gestionnaires\">";
+									foreach ($intranet_service_gestionnaires as $gestionnaire) {
+										// var_dump($gestionnaire);	
+										?>
+										<li>
+											<figure> 
+											<?php 
+												$img_id = get_user_meta($gestionnaire->ID, 'photo_auteur', true);
+												$img_url=wp_get_attachment_image_url( $img_id, 'thumbnail' );
+												// var_dump($img_url);
+												if($img_url) {
+												?>
+													<img src="<?php echo esc_url($img_url); ?>" alt="<?php echo get_user_meta( $gestionnaire->ID,'first_name', true). ' '.get_user_meta( $gestionnaire->ID,'last_name', true); ?>" />
+													<?php	
+													} else {
+													echo "<span class=\"userLetters\">".substr($gestionnaire->last_name, 0, 1).substr($gestionnaire->first_name, 0, 1)."</span>";
+												}
+												?>
+											</figure> 
+											<p>
+												<?php echo $gestionnaire->first_name." ".$gestionnaire->last_name;?>
+											</p>
+									<?php
+									}
+									echo "</ul>";
+									
+								}
+							}
+							// var_dump($serviceCategory);			
+							// echo"<br>";	
+							// echo $serviceCategory[0]->slug;
+							// echo"<hr>";	
+						endwhile;
+					
+					// No value.
 					}
-				</style>
-				<?php 
-				
-				archive_do_portfolio_display($term);
-			}
-        
-		?>
+					else {
+						// Do something...
+					}
+					?>
+					</section>
+				</aside>
+			</div>
+			
+		
 		</main><!-- #main -->
 	</div><!-- #primary -->
 

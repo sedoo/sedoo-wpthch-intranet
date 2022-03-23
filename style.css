@@ -5,13 +5,19 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.3.0
+Version:      0.4.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
 Domain Path: /languages
 Tags: 
 */
+nav[id="subterms"] ul {
+  display: flex;
+  flex-wrap: wrap; }
+  nav[id="subterms"] ul li {
+    margin-right: 20px; }
+
 .sedoo-intranet-page {
   display: flex;
   flex-wrap: wrap;
@@ -20,6 +26,33 @@ Tags:
     max-width: 60%; }
   .sedoo-intranet-page > aside.contextual-sidebar {
     padding: 0; }
+    .sedoo-intranet-page > aside.contextual-sidebar h3 {
+      font-size: 1rem; }
+    .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul {
+      font-size: calc(1rem / 1.2);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly; }
+      .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] li {
+        margin-right: 20px; }
+      .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        overflow: hidden;
+        background: #CCC;
+        line-height: 100px;
+        text-align: center; }
+        .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure img {
+          margin: 0;
+          object-fit: cover; }
+        .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure .userLetters {
+          width: 100%;
+          height: 100%;
+          font-size: 1.8rem;
+          text-transform: uppercase; }
+      .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] p {
+        text-align: center; }
 
 /*************    TABS    **************/
 .tabs {
@@ -60,5 +93,8 @@ Tags:
     animation-play-state: running; }
   .tabs section[hidden] {
     display: none; }
+
+.archive-description {
+  margin-bottom: 30px; }
 
 /*# sourceMappingURL=style.css.map */
