@@ -9,8 +9,8 @@ if( function_exists('acf_add_options_page') ) {
 
 	// the page
 	acf_add_options_page(array(
-		'page_title' 	=> 'Paramètres de services',
-		'menu_title'	=> 'Paramètres de services',
+		'page_title' 	=> 'Paramètres API',
+		'menu_title'	=> 'Paramètres des servics REST',
 		'menu_slug' 	=> 'sedoo-intranet-services-admin-page',
 		'parent_slug'	=> 'sedoo-intranet-admin-main-page',
 		'capability'	=> $capability,
@@ -38,8 +38,8 @@ if( function_exists('acf_add_options_page') ) {
 	));
 	
 	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Adresses génériques des services',
-		'menu_title'	=> 'Adresses génériques',
+		'page_title' 	=> 'Gestion des services',
+		'menu_title'	=> 'Gestion des services',
 		'parent_slug'	=> 'sedoo-intranet-admin-main-page',
 	));
 	
