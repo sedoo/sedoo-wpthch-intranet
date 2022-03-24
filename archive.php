@@ -130,7 +130,6 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 				<aside class="contextual-sidebar">
 					<section id="contact">
 					<?php
-					// var_dump($term);
 					if( have_rows('intranet_service', 'option') ) {
 						while( have_rows('intranet_service', 'option') ) : the_row();
 							// Load sub field value.
@@ -145,10 +144,10 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 									echo "<h2>".$intranet_service_nom ."</h2>".
 									"<h3>Adresse générique de contact</h3>".
 									"<p>".$intranet_service_mail."</p>";
+									if ($intranet_service_gestionnaires) {
 									echo "<h3>Vos gestionnaires</h3>";
 									echo "<ul id=\"gestionnaires\">";
-									foreach ($intranet_service_gestionnaires as $gestionnaire) {
-										// var_dump($gestionnaire);	
+										foreach ($intranet_service_gestionnaires as $gestionnaire) {
 										?>
 										<li>
 											<figure> 
@@ -166,26 +165,34 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 												?>
 											</figure> 
 											<p>
-												<?php echo $gestionnaire->first_name." ".$gestionnaire->last_name;?>
+												<?php echo $gestionnaire->last_name." ".$gestionnaire->first_name;?>
 											</p>
-									<?php
+										<?php
+										}
 									}
 									echo "</ul>";
 									
 								}
 							}
-							// var_dump($serviceCategory);			
-							// echo"<br>";	
-							// echo $serviceCategory[0]->slug;
-							// echo"<hr>";	
 						endwhile;
 					
 					// No value.
 					}
 					else {
-						// Do something...
+						?>
+						<p>Aucune adresse de contact actuellement</p>
+						<?php
 					}
 					?>
+					</section>
+					<section>
+						<h2>Arborescence</h2>
+						<?php
+						$baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $term->term_id);
+						?>
+						<script src="https://services.aeris-data.fr/cdn/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
+						<campaign-product viewer="tree" service="https://api.sedoo.fr/intranet-omp-service-rest/data/v1_0" campaign="intranetomp" base-folder="<?php echo $baseFolder;?>" product="intranet-filetree">
+						</campaign-product>
 					</section>
 				</aside>
 			</div>
