@@ -2,6 +2,12 @@
 @import "sidebar.scss";
 @import "tabs.scss";
 
-.archive-description {
-    margin-bottom:30px;
+.sedoo-intranet-page {
+    [role="listNews"] {
+        margin-top:30px;
+    
+        &.post-wrapper .post {
+            flex: 0 1 250px;
+        }
+    }
 }

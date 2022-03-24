@@ -4,6 +4,8 @@
  */
 $themes = get_the_terms( $post->ID, 'category');  
 $themeSlugRewrite = "category";
+// var_dump($themes);
+echo $themes[0]->term_id;
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 
@@ -62,7 +64,7 @@ $themeSlugRewrite = "category";
                         ?>
                       </figure> 
                       <p>
-                        <?php echo $gestionnaire->first_name." ".$gestionnaire->last_name;?>
+                        <?php echo $gestionnaire->last_name." ".$gestionnaire->first_name;?>
                       </p>
                   <?php
                   }
@@ -97,7 +99,11 @@ $themeSlugRewrite = "category";
         </section>
         <section>
           <h2>Arborescence</h2>
-          <campaign-product viewer="tree" service="<?php echo $service_url; ?>" campaign="<?php echo $campaign; ?>" product="<?php echo $product; ?>" breadcrumb='<?php echo $breadcrumb; ?>' vce-ready="">
+          <?php
+          $baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id);
+          ?>
+          <script src="https://services.aeris-data.fr/cdn/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
+          <campaign-product viewer="tree" service="https://api.sedoo.fr/intranet-omp-service-rest/data/v1_0" campaign="intranetomp" base-folder="<?php echo $baseFolder;?>" product="intranet-filetree">
           </campaign-product>
         </section>
     </aside>
