@@ -9,5 +9,56 @@
         &.post-wrapper .post {
             flex: 0 1 250px;
         }
+
+        &.content-list {
+            article.post {
+                // box-shadow: 0 3px 5px rgba(0,0,0,0.3);
+                // margin-bottom:20px;
+                padding: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+
+                .entry-header {
+                    max-width: 120px;
+                    ul {
+                        position: static;
+
+                        .tag a {
+                            padding-top:0;
+                        }
+                    }
+                    p {
+                        position: static;
+                        background-color: transparent;
+                        color:inherit;
+                        margin:0;
+                        padding: 0 10px;
+                    }
+                }
+
+                .group-content {
+                    max-width: 80%;
+                    .entry-content {
+                        h2 {
+                            margin-top: 0px;
+                            font-size: 1rem;
+                        }
+                        .date {
+                            font-weight: normal;
+                        }
+                    }
+                }
+                
+                &::after {
+                    content: "";
+                    height: 1px;
+                    margin-left: 120px;
+                    width: 80%;
+                    background: #CCC;
+                }
+            }
+        }
     }
 }
+
