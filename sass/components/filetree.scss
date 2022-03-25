@@ -1,0 +1,35 @@
+.sedoo-intranet-page {
+    [id="filetree"] {
+        width: 100%;
+        h2 {
+            text-transform: uppercase;
+            font-size: calc(1.875rem / 2);
+            color: #000;
+            padding: 0 0 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #333;
+        }
+        > p em {
+            background-color: var(--theme-color);
+            color: var(--hover-textcolor);
+            font-size: .75rem;
+            padding: 0 5px;
+        }
+        campaign-product {
+            .container,
+            .container>div,
+            .container>div>div {
+                padding-top:0;
+
+            }
+
+            .v-application--wrap {
+                height: auto;
+                min-height: 100px;
+            }
+            
+        }
+        
+ 
+    }
+}

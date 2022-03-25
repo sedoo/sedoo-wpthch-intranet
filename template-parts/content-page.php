@@ -5,7 +5,6 @@
 $themes = get_the_terms( $post->ID, 'category');  
 $themeSlugRewrite = "category";
 // var_dump($themes);
-echo $themes[0]->term_id;
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 
@@ -86,26 +85,37 @@ echo $themes[0]->term_id;
           ?>
         </section>
         <section>
-          <h2>Fichiers en relation</h2>
+          <h2>Fichiers / liens en relation</h2>
           <?php
           if( get_field('intranet_relatedfile') ) {
               echo '<ul>';
               while( the_repeater_field('intranet_relatedfile') ) {
-                  echo '<li><a href="'.get_sub_field('intranet_relatedfile_url').'" >'.get_sub_field('intranet_relatedfile_name').'</a></li>';
+                  if (get_sub_field('intranet_relatedfile_internal_url')) {
+                    $file= get_sub_field('intranet_relatedfile_internal_url');
+                    $api_getfile_url=get_field('intranet_API_getfile_url', 'options');
+                    $file_url=$api_getfile_url.$file;
+                  }
+                  if (get_sub_field('intranet_relatedfile_external_url')) {
+                    $file_url= get_sub_field('intranet_relatedfile_external_url');
+                  }
+                  // echo $api_getfile_url;
+                  echo '<li><a href="'.$file_url.'" target="_blank">'.get_sub_field('intranet_relatedfile_name').'</a></li>';
               }
               echo '</ul>';
           }
           ?>
         </section>
-        <section>
-          <h2>Arborescence</h2>
-          <?php
-          $baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id);
-          ?>
-          <script src="https://services.aeris-data.fr/cdn/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
-          <campaign-product viewer="tree" service="https://api.sedoo.fr/intranet-omp-service-rest/data/v1_0" campaign="intranetomp" base-folder="<?php echo $baseFolder;?>" product="intranet-filetree">
-          </campaign-product>
-        </section>
+        
     </aside>
+    <section id="filetree">
+        <h2>Tous les fichiers de la catégorie <?php echo $themes[0]->name;?></h2>
+        <p><em>Ne concerne que les documents internes hors officiels des tutelles</em></p>
+        <?php
+        $baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id);
+        ?>
+        <script src="https://services.aeris-data.fr/cdn/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
+        <campaign-product viewer="tree" service="https://api.sedoo.fr/intranet-omp-service-rest/data/v1_0" campaign="intranetomp" base-folder="<?php echo $baseFolder;?>" product="intranet-filetree">
+        </campaign-product>
+      </section>
 </div>  
 </article>
