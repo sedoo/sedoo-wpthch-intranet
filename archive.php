@@ -66,10 +66,6 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					</nav>
 					<?php
 					}
-					/////////
-
-
-					////////
 
 					?>
 					
@@ -185,8 +181,9 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					}
 					?>
 					</section>
-					<section>
-						<h2>Arborescence</h2>
+					<section id="filetree">
+						<h2>Tous les fichiers de la catégorie <?php echo $term->name;?></h2>
+						<p><em>Ne concerne que les documents internes hors officiels des tutelles</em></p>
 						<?php
 						$baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $term->term_id);
 						?>
