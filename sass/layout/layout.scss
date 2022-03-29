@@ -1,9 +1,10 @@
+@import "accordion.scss";
 @import "subterms-nav.scss";
 @import "sidebar.scss";
 @import "tabs.scss";
 
 .sedoo-intranet-page {
-    [role="listNews"] {
+    [role="listNews"], [class*="apiext"] {
         margin-top:30px;
     
         &.post-wrapper .post {
@@ -14,7 +15,7 @@
             article.post {
                 // box-shadow: 0 3px 5px rgba(0,0,0,0.3);
                 // margin-bottom:20px;
-                padding: 10px;
+                padding: 10px 10px 20px;
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: flex-start;
@@ -39,6 +40,8 @@
 
                 .group-content {
                     max-width: 80%;
+                    padding-left: 20px ;
+                    border-left: 2px solid var(--theme-color);
                     .entry-content {
                         h2 {
                             margin-top: 0px;
@@ -50,13 +53,13 @@
                     }
                 }
                 
-                &::after {
-                    content: "";
-                    height: 1px;
-                    margin-left: 120px;
-                    width: 80%;
-                    background: #CCC;
-                }
+                // &::after {
+                //     content: "";
+                //     height: 1px;
+                //     margin-left: 120px;
+                //     width: 80%;
+                //     background: #CCC;
+                // }
             }
         }
     }
