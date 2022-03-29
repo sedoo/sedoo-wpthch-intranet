@@ -27,15 +27,29 @@ $themeSlugRewrite = "category";
     <?php
     if (!is_front_page()){
     ?>
-    <aside class="contextual-sidebar">
+    <aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
       <?php
       // var_dump($term);
       if( have_rows('intranet_service', 'option') ) {
       ?>
       <section id="contact">
-        <h2>Contacts</h2>
-        <?php
-        // var_dump($term);
+        <h2>
+          <button aria-expanded="true"
+                class="Accordion-trigger"
+                aria-controls="sectionContacts"
+                id="accordionContact">
+          <span class="Accordion-title">
+            Contacts
+            <span class="Accordion-icon"></span>
+          </span>
+          </button>
+        </h2>
+        <div id="sectionContacts"
+         role="region"
+         aria-labelledby="accordionContact"
+         class="Accordion-panel">
+          <?php
+          // var_dump($term);
           while( have_rows('intranet_service', 'option') ) : the_row();
             // Load sub field value.
             $serviceCategory = get_sub_field('intranet_service_categorie');
@@ -84,10 +98,8 @@ $themeSlugRewrite = "category";
             // echo $serviceCategory[0]->slug;
             // echo"<hr>";	
           endwhile;
-        
-        // No value.
-        
         ?>
+        </div>
       </section>
       <?php
       }
@@ -96,24 +108,38 @@ $themeSlugRewrite = "category";
       if( get_field('intranet_relatedfile') ) {
       ?>
       <section>
-        <h2>Fichiers / liens en relation</h2>
-        <?php
-        
-            echo '<ul>';
-            while( the_repeater_field('intranet_relatedfile') ) {
-                if (get_sub_field('intranet_relatedfile_internal_url')) {
-                  $file= get_sub_field('intranet_relatedfile_internal_url');
-                  $api_getfile_url=get_field('intranet_API_getfile_url', 'options');
-                  $file_url=$api_getfile_url.$file;
-                }
-                if (get_sub_field('intranet_relatedfile_external_url')) {
-                  $file_url= get_sub_field('intranet_relatedfile_external_url');
-                }
-                // echo $api_getfile_url;
-                echo '<li><a href="'.$file_url.'" target="_blank">'.get_sub_field('intranet_relatedfile_name').'</a></li>';
-            }
-            echo '</ul>';
-        ?>
+        <h2>
+          <button aria-expanded="false"
+                class="Accordion-trigger"
+                aria-controls="sectionFiles"
+                id="accordionFiles">
+          <span class="Accordion-title">
+            Fichiers / liens en relation
+            <span class="Accordion-icon"></span>
+          </span>
+          </button>
+        </h2>
+        <div id="sectionFiles"
+         role="region"
+         aria-labelledby="accordionFiles"
+         class="Accordion-panel">
+          <?php
+          echo '<ul>';
+          while( the_repeater_field('intranet_relatedfile') ) {
+              if (get_sub_field('intranet_relatedfile_internal_url')) {
+                $file= get_sub_field('intranet_relatedfile_internal_url');
+                $api_getfile_url=get_field('intranet_API_getfile_url', 'options');
+                $file_url=$api_getfile_url.$file;
+              }
+              if (get_sub_field('intranet_relatedfile_external_url')) {
+                $file_url= get_sub_field('intranet_relatedfile_external_url');
+              }
+              // echo $api_getfile_url;
+              echo '<li><a href="'.$file_url.'" target="_blank">'.get_sub_field('intranet_relatedfile_name').'</a></li>';
+          }
+          echo '</ul>';
+          ?>
+        </div>
       </section>
       <?php
       }

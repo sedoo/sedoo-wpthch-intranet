@@ -27,7 +27,7 @@ if( !empty($block['align']) ) {
 // Load values and assign defaults.
 $title = get_field('intranet_apiext_block_title');
 $categories = get_field('intranet_apiext_block_category');
-$description = get_field(' intranet_apiext_block_description');
+$description = get_field('intranet_apiext_block_description');
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> content-list">
     <h2><?php echo $title;?></h2>
@@ -51,7 +51,6 @@ $description = get_field(' intranet_apiext_block_description');
             // var_dump($intranet_apiext_application_categorie);
             ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-            <?php //the_permalink(); ?>
                 <header class="entry-header">
                     <ul>
                     <?php
@@ -68,7 +67,7 @@ $description = get_field(' intranet_apiext_block_description');
                 <div class="group-content">
                     <div class="entry-content">
                         <h2><a href="<?php echo $intranet_apiext_url; ?>" target="_blank"><?php echo $intranet_apiext_nom; ?></a></h2>
-                        <?php echo $intranet_apiext_application_description; ?>
+                        <p><?php echo $intranet_apiext_application_description; ?></p>
                         
                     </div><!-- .entry-content -->
                 </div>

@@ -11,7 +11,6 @@ $categories = get_the_category();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-<?php //the_permalink(); ?>
 	<header class="entry-header">
         <ul>
         <?php
