@@ -181,17 +181,18 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					}
 					?>
 					</section>
-					<section id="filetree">
-						<h2>Tous les fichiers de la catégorie <?php echo $term->name;?></h2>
-						<p><em>Ne concerne que les documents internes hors officiels des tutelles</em></p>
-						<?php
-						$baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $term->term_id);
-						?>
-						<script src="https://services.aeris-data.fr/cdn/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
-						<campaign-product viewer="tree" service="https://api.sedoo.fr/intranet-omp-service-rest/data/v1_0" campaign="intranetomp" base-folder="<?php echo $baseFolder;?>" product="intranet-filetree">
-						</campaign-product>
-					</section>
+					
 				</aside>
+				<section id="filetree">
+					<h2>Tous les fichiers de la catégorie <?php echo $term->name;?></h2>
+					<p><em>Ne concerne que les documents internes hors officiels des tutelles</em></p>
+					<?php
+					$baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $term->term_id);
+					?>
+					<script src="https://services.aeris-data.fr/cdn/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
+					<campaign-product viewer="tree" service="https://api.sedoo.fr/intranet-omp-service-rest/data/v1_0" campaign="intranetomp" base-folder="<?php echo $baseFolder;?>" product="intranet-filetree">
+					</campaign-product>
+				</section>
 			</div>
 			
 		

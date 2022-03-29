@@ -45,4 +45,28 @@ if( function_exists('acf_add_options_page') ) {
 	
 }
 
+/**
+ * ACF BLOCKS
+ * 
+ */
+
+add_action('acf/init', 'sedoo_wpthch_intranet_block_types');
+function sedoo_wpthch_intranet_block_types() {
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+        // register a testimonial block.
+        acf_register_block_type(array(
+            'name'              => 'intranet_apiext_block',
+            'title'             => __('Applications externes'),
+            'description'       => __('Liste des applications externes.'),
+            'render_template'   => 'template-parts/blocks/apiext/apiext.php',
+            'category'          => 'widgets',
+            'icon'              => 'cloud',
+            'keywords'          => array( 'testimonial', 'quote' ),
+        ));
+    }
+}
+
 ?>

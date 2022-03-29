@@ -12,143 +12,44 @@ Text Domain: sedoo-wpthch-intranet
 Domain Path: /languages
 Tags: 
 */
-nav[id="subterms"] ul {
-  display: flex;
-  flex-wrap: wrap; }
-  nav[id="subterms"] ul li {
-    margin-right: 20px; }
+nav[id="subterms"] ul { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+nav[id="subterms"] ul li { margin-right: 20px; }
 
-.sedoo-intranet-page {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; }
-  .sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] {
-    max-width: 60%; }
-  .sedoo-intranet-page > aside.contextual-sidebar {
-    padding: 0; }
-    .sedoo-intranet-page > aside.contextual-sidebar h3 {
-      font-size: 1rem; }
-    .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul {
-      font-size: calc(1rem / 1.2);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-evenly; }
-      .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] li {
-        margin-right: 20px; }
-      .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure {
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
-        overflow: hidden;
-        background: #CCC;
-        line-height: 100px;
-        text-align: center; }
-        .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure img {
-          margin: 0;
-          object-fit: cover; }
-        .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure .userLetters {
-          width: 100%;
-          height: 100%;
-          font-size: 1.8rem;
-          text-transform: uppercase; }
-      .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] p {
-        text-align: center; }
+.sedoo-intranet-page { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
+.sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { max-width: 60%; }
+.sedoo-intranet-page > aside.contextual-sidebar { padding: 0; }
+.sedoo-intranet-page > aside.contextual-sidebar h3 { font-size: 1rem; }
+.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul { font-size: calc(1rem / 1.2); display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
+.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] li { margin-right: 20px; }
+.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure { width: 100px; height: 100px; border-radius: 10px; overflow: hidden; background: #CCC; line-height: 100px; text-align: center; }
+.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure img { margin: 0; -o-object-fit: cover; object-fit: cover; }
+.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure .userLetters { width: 100%; height: 100%; font-size: 1.8rem; text-transform: uppercase; }
+.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] p { text-align: center; }
 
 /*************    TABS    **************/
-.tabs {
-  list-style-type: none;
-  position: relative;
-  max-width: 1200px;
-  overflow: hidden; }
-  .tabs nav[role="tablist"] {
-    border-bottom: 1px solid #EEE; }
-    .tabs nav[role="tablist"] button[role="tab"] {
-      padding: 5px 20px;
-      margin-top: 5px;
-      cursor: pointer;
-      font-size: 0.875rem;
-      font-weight: 600;
-      animation-name: border_slide_in_left;
-      animation-duration: 0.7s;
-      animation-timing-function: linear;
-      /* animation-delay: 0s; */
-      animation-iteration-count: 1;
-      animation-direction: alternate;
-      animation-fill-mode: none;
-      animation-play-state: running;
-      transition: border-bottom 0.2s ease-in-out; }
-    .tabs nav[role="tablist"] button[aria-selected="true"] {
-      border-bottom: 2px solid var(--theme-color); }
-    .tabs nav[role="tablist"] button:hover {
-      background: #DDD;
-      border-bottom: 2px solid var(--theme-color); }
-  .tabs > section {
-    animation-name: slide_in_left;
-    animation-duration: 0.4s;
-    animation-timing-function: linear;
-    /* animation-delay: 0s; */
-    animation-iteration-count: 1;
-    animation-direction: alternate;
-    animation-fill-mode: none;
-    animation-play-state: running; }
-  .tabs section[hidden] {
-    display: none; }
+.tabs { list-style-type: none; position: relative; max-width: 1200px; overflow: hidden; }
+.tabs nav[role="tablist"] { border-bottom: 1px solid #EEE; }
+.tabs nav[role="tablist"] button[role="tab"] { padding: 5px 20px; margin-top: 5px; cursor: pointer; font-size: 0.875rem; font-weight: 600; -webkit-animation-name: border_slide_in_left; animation-name: border_slide_in_left; -webkit-animation-duration: 0.7s; animation-duration: 0.7s; -webkit-animation-timing-function: linear; animation-timing-function: linear; /* animation-delay: 0s; */ -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; -webkit-transition: border-bottom 0.2s ease-in-out; transition: border-bottom 0.2s ease-in-out; }
+.tabs nav[role="tablist"] button[aria-selected="true"] { border-bottom: 2px solid var(--theme-color); }
+.tabs nav[role="tablist"] button:hover { background: #DDD; border-bottom: 2px solid var(--theme-color); }
+.tabs > section { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; /* animation-delay: 0s; */ -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
+.tabs section[hidden] { display: none; }
 
-.sedoo-intranet-page [role="listNews"] {
-  margin-top: 30px; }
-  .sedoo-intranet-page [role="listNews"].post-wrapper .post {
-    flex: 0 1 250px; }
-  .sedoo-intranet-page [role="listNews"].content-list article.post {
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start; }
-    .sedoo-intranet-page [role="listNews"].content-list article.post .entry-header {
-      max-width: 120px; }
-      .sedoo-intranet-page [role="listNews"].content-list article.post .entry-header ul {
-        position: static; }
-        .sedoo-intranet-page [role="listNews"].content-list article.post .entry-header ul .tag a {
-          padding-top: 0; }
-      .sedoo-intranet-page [role="listNews"].content-list article.post .entry-header p {
-        position: static;
-        background-color: transparent;
-        color: inherit;
-        margin: 0;
-        padding: 0 10px; }
-    .sedoo-intranet-page [role="listNews"].content-list article.post .group-content {
-      max-width: 80%; }
-      .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content h2 {
-        margin-top: 0px;
-        font-size: 1rem; }
-      .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content .date {
-        font-weight: normal; }
-    .sedoo-intranet-page [role="listNews"].content-list article.post::after {
-      content: "";
-      height: 1px;
-      margin-left: 120px;
-      width: 80%;
-      background: #CCC; }
+.sedoo-intranet-page [role="listNews"], .sedoo-intranet-page [class*="apiext"] { margin-top: 30px; }
+.sedoo-intranet-page [role="listNews"].post-wrapper .post, .sedoo-intranet-page [class*="apiext"].post-wrapper .post { -webkit-box-flex: 0; -ms-flex: 0 1 250px; flex: 0 1 250px; }
+.sedoo-intranet-page [role="listNews"].content-list article.post, .sedoo-intranet-page [class*="apiext"].content-list article.post { padding: 10px 10px 20px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .entry-header, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header { max-width: 120px; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .entry-header ul, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header ul { position: static; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .entry-header ul .tag a, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header ul .tag a { padding-top: 0; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .entry-header p, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header p { position: static; background-color: transparent; color: inherit; margin: 0; padding: 0 10px; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .group-content, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content { max-width: 80%; padding-left: 20px; border-left: 2px solid var(--theme-color); }
+.sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content h2, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content h2 { margin-top: 0px; font-size: 1rem; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content .date, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content .date { font-weight: normal; }
 
-.sedoo-intranet-page [id="filetree"] {
-  width: 100%; }
-  .sedoo-intranet-page [id="filetree"] h2 {
-    text-transform: uppercase;
-    font-size: calc(1.875rem / 2);
-    color: #000;
-    padding: 0 0 5px;
-    margin-bottom: 5px;
-    border-bottom: 1px solid #333; }
-  .sedoo-intranet-page [id="filetree"] > p em {
-    background-color: var(--theme-color);
-    color: var(--hover-textcolor);
-    font-size: .75rem;
-    padding: 0 5px; }
-  .sedoo-intranet-page [id="filetree"] campaign-product .container,
-  .sedoo-intranet-page [id="filetree"] campaign-product .container > div,
-  .sedoo-intranet-page [id="filetree"] campaign-product .container > div > div {
-    padding-top: 0; }
-  .sedoo-intranet-page [id="filetree"] campaign-product .v-application--wrap {
-    height: auto;
-    min-height: 100px; }
+.sedoo-intranet-page [id="filetree"] { width: 100%; }
+.sedoo-intranet-page [id="filetree"] h2 { text-transform: uppercase; font-size: calc(1.875rem / 2); color: #000; padding: 0 0 5px; margin-bottom: 5px; border-bottom: 1px solid #333; }
+.sedoo-intranet-page [id="filetree"] > p em { background-color: var(--theme-color); color: var(--hover-textcolor); font-size: .75rem; padding: 0 5px; }
+.sedoo-intranet-page [id="filetree"] campaign-product .container, .sedoo-intranet-page [id="filetree"] campaign-product .container > div, .sedoo-intranet-page [id="filetree"] campaign-product .container > div > div { padding-top: 0; }
+.sedoo-intranet-page [id="filetree"] campaign-product .v-application--wrap { height: auto; min-height: 100px; }
 
 /*# sourceMappingURL=style.css.map */
