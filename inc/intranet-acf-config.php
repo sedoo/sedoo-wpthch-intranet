@@ -56,7 +56,6 @@ function sedoo_wpthch_intranet_block_types() {
     // Check function exists.
     if( function_exists('acf_register_block_type') ) {
 
-        // register a testimonial block.
         acf_register_block_type(array(
             'name'              => 'intranet_apiext_block',
             'title'             => __('Applications externes'),
@@ -64,9 +63,21 @@ function sedoo_wpthch_intranet_block_types() {
             'render_template'   => 'template-parts/blocks/apiext/apiext.php',
             'category'          => 'widgets',
             'icon'              => 'cloud',
-            'keywords'          => array( 'testimonial', 'quote' ),
+            'keywords'          => array( 'application', 'utile', 'intranet' ),
         ));
+
+        acf_register_block_type(array(
+            'name'              => 'intranet_filetree_block',
+            'title'             => __('Arborescence de fichiers'),
+            'description'       => __('Arborescence de fichiers à partir d\'un emplacement donné.'),
+            'render_template'   => 'template-parts/blocks/filetree/filetree.php',
+            'category'          => 'widgets',
+            'icon'              => 'networking',
+            'keywords'          => array( 'file', 'quote', 'intranet' ),
+		));
     }
 }
+
+
 
 ?>
