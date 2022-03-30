@@ -24,6 +24,8 @@
                     max-width: 120px;
                     ul {
                         position: static;
+                        list-style: none;
+                        margin-left:0;
 
                         .tag a {
                             padding-top:0;
