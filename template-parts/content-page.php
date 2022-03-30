@@ -30,79 +30,7 @@ $themeSlugRewrite = "category";
     <aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
       <?php
       // var_dump($term);
-      if( have_rows('intranet_service', 'option') ) {
-      ?>
-      <section id="contact">
-        <h2>
-          <button aria-expanded="true"
-                class="Accordion-trigger"
-                aria-controls="sectionContacts"
-                id="accordionContact">
-          <span class="Accordion-title">
-            Contacts
-            <span class="Accordion-icon"></span>
-          </span>
-          </button>
-        </h2>
-        <div id="sectionContacts"
-         role="region"
-         aria-labelledby="accordionContact"
-         class="Accordion-panel">
-          <?php
-          // var_dump($term);
-          while( have_rows('intranet_service', 'option') ) : the_row();
-            // Load sub field value.
-            $serviceCategory = get_sub_field('intranet_service_categorie');
-            // echo $themes[0]->slug ."=";
-            // var_dump($themes);
-            foreach ($serviceCategory as $service) {
-              // echo $service->slug.' ';
-              if ($service->slug === $themes[0]->slug) {	
-                $intranet_service_nom= get_sub_field('intranet_service_nom');
-                $intranet_service_mail= get_sub_field('intranet_service_mail');
-                $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
-                // echo "<h2>".$intranet_service_nom ."</h2>";
-                echo "<h3>Adresse générique de contact</h3>";
-                echo "<p>".$intranet_service_mail."</p>";
-                echo "<h3>Vos gestionnaires</h3>";
-                echo "<ul id=\"gestionnaires\">";
-                foreach ($intranet_service_gestionnaires as $gestionnaire) {
-                  // var_dump($gestionnaire);	
-                  ?>
-                  <li>
-                    <figure> 
-                    <?php 
-                      $img_id = get_user_meta($gestionnaire->ID, 'photo_auteur', true);
-                      $img_url=wp_get_attachment_image_url( $img_id, 'thumbnail' );
-                      // var_dump($img_url);
-                      if($img_url) {
-                      ?>
-                        <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo get_user_meta( $gestionnaire->ID,'first_name', true). ' '.get_user_meta( $gestionnaire->ID,'last_name', true); ?>" />
-                        <?php	
-                        } else {
-                        echo "<span class=\"userLetters\">".substr($gestionnaire->last_name, 0, 1).substr($gestionnaire->first_name, 0, 1)."</span>";
-                      }
-                      ?>
-                    </figure> 
-                    <p>
-                      <?php echo $gestionnaire->last_name." ".$gestionnaire->first_name;?>
-                    </p>
-                <?php
-                }
-                echo "</ul>";
-                
-              }
-            }
-            // var_dump($serviceCategory);			
-            // echo"<br>";	
-            // echo $serviceCategory[0]->slug;
-            // echo"<hr>";	
-          endwhile;
-        ?>
-        </div>
-      </section>
-      <?php
-      }
+        sedoo_wpthch_intranet_contact_section($themes[0]->slug);
       ?>
       <?php
       if( get_field('intranet_relatedfile') ) {
@@ -114,7 +42,7 @@ $themeSlugRewrite = "category";
                 aria-controls="sectionFiles"
                 id="accordionFiles">
           <span class="Accordion-title">
-            Fichiers / liens en relation
+          <span class="material-icons">cloud</span> Fichiers / liens en relation
             <span class="Accordion-icon"></span>
           </span>
           </button>
@@ -130,12 +58,14 @@ $themeSlugRewrite = "category";
                 $file= get_sub_field('intranet_relatedfile_internal_url');
                 $api_getfile_url=get_field('intranet_API_getfile_url', 'options');
                 $file_url=$api_getfile_url.$file;
+                $icon="insert_drive_file";
               }
               if (get_sub_field('intranet_relatedfile_external_url')) {
                 $file_url= get_sub_field('intranet_relatedfile_external_url');
+                $icon="open_in_browser";
               }
               // echo $api_getfile_url;
-              echo '<li><a href="'.$file_url.'" target="_blank">'.get_sub_field('intranet_relatedfile_name').'</a></li>';
+              echo '<li><a href="'.$file_url.'" target="_blank"><span class="material-icons">'.$icon.'</span> '.get_sub_field('intranet_relatedfile_name').'</a></li>';
           }
           echo '</ul>';
           ?>
@@ -150,7 +80,7 @@ $themeSlugRewrite = "category";
     if (get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id)) {
     ?>
     <section id="filetree">
-      <h2>Tous les fichiers de la catégorie <?php echo $themes[0]->name;?></h2>
+      <h2><span class="material-icons">account_tree</span> Tous les fichiers internes de la catégorie <?php echo $themes[0]->name;?></h2>
       <p><em>Ne concerne que les documents internes hors officiels des tutelles</em></p>
       <?php
       $baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id);

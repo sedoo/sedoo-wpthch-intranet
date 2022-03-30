@@ -57,7 +57,7 @@ $description = get_field('intranet_apiext_block_description');
                     if ( ! empty( $intranet_apiext_application_categorie ) ) {
                         foreach ($intranet_apiext_application_categorie as $category) {
                             // var_dump($category);
-                            echo '<li class="tag"><a href="' . get_term_link( $category->term_id, $category->taxonomy ) . '">' . $category->name .'</a></li>'; 
+                            echo '<li class="tag"><a href="' . get_term_link( $category->term_id, $category->taxonomy ) . '">'. $category->name .'</a></li>'; 
                         }   
                     }; 
                     ?>
@@ -66,7 +66,7 @@ $description = get_field('intranet_apiext_block_description');
                 </header><!-- .entry-header -->
                 <div class="group-content">
                     <div class="entry-content">
-                        <h2><a href="<?php echo $intranet_apiext_url; ?>" target="_blank"><?php echo $intranet_apiext_nom; ?></a></h2>
+                        <h2><a href="<?php echo $intranet_apiext_url; ?>" target="_blank"><span class="material-icons"><?php echo $intranet_apiext_application_icone;?></span> <?php echo $intranet_apiext_nom; ?></a></h2>
                         <p><?php echo $intranet_apiext_application_description; ?></p>
                         
                     </div><!-- .entry-content -->

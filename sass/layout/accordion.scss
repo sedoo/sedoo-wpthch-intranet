@@ -57,9 +57,9 @@
   .Accordion-title {
     display: block;
     pointer-events: none;
-    border: transparent 2px solid;
-    border-radius: 5px;
-    padding: 0.25em;
+    // border: transparent 2px solid;
+    // border-radius: 5px;
+    // padding: 0.25em;
     outline: none;
   }
   
@@ -98,4 +98,15 @@
     display: none;
   }
 
+  /**
+  * display content
+  */ 
+
+#sectionFiles {
+  ul {
+    li {
+      font-size: .9rem;
+    }
+  }
+}
   

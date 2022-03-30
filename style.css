@@ -5,13 +5,15 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.7.0
+Version:      0.8.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
 Domain Path: /languages
 Tags: 
 */
+[data-role="sedoo-intranet-page-content"] { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
+
 .Accordion h3 { margin: 0; padding: 0; }
 
 .Accordion.focus { border-color: #79adfb; }
@@ -28,7 +30,7 @@ button { border-style: none; }
 
 .Accordion button::-moz-focus-inner { border: 0; }
 
-.Accordion-title { display: block; pointer-events: none; border: transparent 2px solid; border-radius: 5px; padding: 0.25em; outline: none; }
+.Accordion-title { display: block; pointer-events: none; outline: none; }
 
 .Accordion-trigger:focus .Accordion-title { border-color: #79adfb; }
 
@@ -41,12 +43,17 @@ button { border-style: none; }
 /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
 .Accordion-panel[hidden] { display: none; }
 
+/**
+* display content
+*/
+#sectionFiles ul li { font-size: .9rem; }
+
 nav[id="subterms"] ul { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 nav[id="subterms"] ul li { margin-right: 20px; }
 
 .sedoo-intranet-page { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-.sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { max-width: 60%; }
-.sedoo-intranet-page > aside.contextual-sidebar { padding: 0; }
+.sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { -webkit-box-flex: 1; -ms-flex: 1 1 500px; flex: 1 1 500px; margin-right: 40px; }
+.sedoo-intranet-page > aside.contextual-sidebar { padding: 0; -webkit-box-flex: 1; -ms-flex: 1 1 200px; flex: 1 1 200px; }
 .sedoo-intranet-page > aside.contextual-sidebar h3 { font-size: 1rem; }
 .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul { font-size: calc(1rem / 1.2); display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
 .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] li { margin-right: 20px; }
@@ -68,17 +75,19 @@ nav[id="subterms"] ul li { margin-right: 20px; }
 .sedoo-intranet-page [role="listNews"].post-wrapper .post, .sedoo-intranet-page [class*="apiext"].post-wrapper .post { -webkit-box-flex: 0; -ms-flex: 0 1 250px; flex: 0 1 250px; }
 .sedoo-intranet-page [role="listNews"].content-list article.post, .sedoo-intranet-page [class*="apiext"].content-list article.post { padding: 10px 10px 20px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .entry-header, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header { max-width: 120px; }
-.sedoo-intranet-page [role="listNews"].content-list article.post .entry-header ul, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header ul { position: static; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .entry-header ul, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header ul { position: static; list-style: none; margin-left: 0; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .entry-header ul .tag a, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header ul .tag a { padding-top: 0; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .entry-header p, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header p { position: static; background-color: transparent; color: inherit; margin: 0; padding: 0 10px; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content { max-width: 80%; padding-left: 20px; border-left: 2px solid var(--theme-color); }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content h2, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content h2 { margin-top: 0px; font-size: 1rem; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content .date, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content .date { font-weight: normal; }
 
-.sedoo-intranet-page [id="filetree"] { width: 100%; }
-.sedoo-intranet-page [id="filetree"] h2 { text-transform: uppercase; font-size: calc(1.875rem / 2); color: #000; padding: 0 0 5px; margin-bottom: 5px; border-bottom: 1px solid #333; }
-.sedoo-intranet-page [id="filetree"] > p em { background-color: var(--theme-color); color: var(--hover-textcolor); font-size: .75rem; padding: 0 5px; }
-.sedoo-intranet-page [id="filetree"] campaign-product .container, .sedoo-intranet-page [id="filetree"] campaign-product .container > div, .sedoo-intranet-page [id="filetree"] campaign-product .container > div > div { padding-top: 0; }
-.sedoo-intranet-page [id="filetree"] campaign-product .v-application--wrap { height: auto; min-height: 100px; }
+.sedoo-intranet-page [id*="filetree"] { width: 100%; }
+.sedoo-intranet-page [id*="filetree"] h2 { text-transform: uppercase; font-size: calc(1.875rem / 2); color: #000; padding: 0 0 5px; margin-bottom: 5px; border-bottom: 1px solid #333; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; vertical-align: middle; }
+.sedoo-intranet-page [id*="filetree"] > p em { background-color: var(--theme-color); color: var(--hover-textcolor); font-size: .75rem; padding: 0 5px; }
+.sedoo-intranet-page [id*="filetree"] campaign-product .container, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div > div { padding-top: 0; }
+.sedoo-intranet-page [id*="filetree"] campaign-product .v-application--wrap { height: auto; min-height: 100px; }
+
+.material-icons { color: rgba(0, 0, 0, 0.54); }
 
 /*# sourceMappingURL=style.css.map */

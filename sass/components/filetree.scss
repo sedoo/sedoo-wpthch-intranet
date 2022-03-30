@@ -1,5 +1,5 @@
 .sedoo-intranet-page {
-    [id="filetree"] {
+    [id*="filetree"] {
         width: 100%;
         h2 {
             text-transform: uppercase;
@@ -8,6 +8,8 @@
             padding: 0 0 5px;
             margin-bottom: 5px;
             border-bottom: 1px solid #333;
+            display:inline-flex;
+            vertical-align: middle;
         }
         > p em {
             background-color: var(--theme-color);
@@ -29,7 +31,5 @@
             }
             
         }
-        
- 
     }
 }
