@@ -30,7 +30,7 @@ button { border-style: none; }
 
 .Accordion button::-moz-focus-inner { border: 0; }
 
-.Accordion-title { display: block; pointer-events: none; outline: none; }
+.Accordion-title { display: block; pointer-events: none; outline: none; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 
 .Accordion-trigger:focus .Accordion-title { border-color: #79adfb; }
 

@@ -42,7 +42,15 @@ $themeSlugRewrite = "category";
                 aria-controls="sectionFiles"
                 id="accordionFiles">
           <span class="Accordion-title">
-          <span class="material-icons">cloud</span> Fichiers / liens en relation
+            <span>
+              <span class="material-icons">insert_drive_file</span> Fichiers internes
+            </span>
+            <span>
+              <span class="material-icons">feed</span> Formulaires internes
+            </span>
+            <span>
+              <span class="material-icons">open_in_browser</span> Liens externes
+            </span>
             <span class="Accordion-icon"></span>
           </span>
           </button>
@@ -54,18 +62,29 @@ $themeSlugRewrite = "category";
           <?php
           echo '<ul>';
           while( the_repeater_field('intranet_relatedfile') ) {
-              if (get_sub_field('intranet_relatedfile_internal_url')) {
+            $source=get_sub_field('intranet_relatedfile_source');
+            // var_dump($source);
+              if (get_sub_field('intranet_relatedfile_internal_url') && ($source["value"] == "interne"))  {
                 $file= get_sub_field('intranet_relatedfile_internal_url');
                 $api_getfile_url=get_field('intranet_API_getfile_url', 'options');
                 $file_url=$api_getfile_url.$file;
+                $target="_self";
                 $icon="insert_drive_file";
               }
-              if (get_sub_field('intranet_relatedfile_external_url')) {
+              if (get_sub_field('intranet_relatedfile_internal_url_form') && ($source["value"] == "interneForm"))  {
+                $file_url_form= get_sub_field('intranet_relatedfile_internal_url_form');
+                $file_url=$file_url_form[0]->guid;
+                $target="_self";
+                $icon="feed";
+              }
+              if (get_sub_field('intranet_relatedfile_external_url') && ($source["value"] == "externe"))  {  
                 $file_url= get_sub_field('intranet_relatedfile_external_url');
+                $target="_blank";
                 $icon="open_in_browser";
               }
-              // echo $api_getfile_url;
-              echo '<li><a href="'.$file_url.'" target="_blank"><span class="material-icons">'.$icon.'</span> '.get_sub_field('intranet_relatedfile_name').'</a></li>';
+              if (!empty(get_sub_field('intranet_relatedfile_name'))){
+              echo '<li><a href="'.$file_url.'" target="'.$target.'"><span class="material-icons">'.$icon.'</span> '.get_sub_field('intranet_relatedfile_name').'</a></li>';
+            }
           }
           echo '</ul>';
           ?>

@@ -61,6 +61,11 @@
     // border-radius: 5px;
     // padding: 0.25em;
     outline: none;
+    display: flex;
+    justify-content: space-between;
+    // span {
+
+    // }
   }
   
   .Accordion-trigger:focus .Accordion-title {

@@ -232,7 +232,7 @@ acf_add_local_field_group(array(
 					'allow_null' => 0,
 					'multiple' => 0,
 					'ui' => 0,
-					'return_format' => 'label',
+					'return_format' => 'array',
 					'ajax' => 0,
 					'placeholder' => '',
 				),
@@ -265,7 +265,7 @@ acf_add_local_field_group(array(
 				),
 				array(
 					'key' => 'field_62456e056cc49',
-					'label' => 'Pages des formulaires en relation',
+					'label' => 'Page de formulaire en relation',
 					'name' => 'intranet_relatedfile_internal_url_form',
 					'type' => 'relationship',
 					'instructions' => '',
@@ -294,7 +294,7 @@ acf_add_local_field_group(array(
 					),
 					'elements' => '',
 					'min' => '',
-					'max' => '',
+					'max' => '1',
 					'return_format' => 'object',
 				),
 				array(
