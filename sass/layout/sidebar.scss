@@ -1,7 +1,4 @@
 .sedoo-intranet-page {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
 
     &> section[data-role="sedoo-intranet-page-content"] {
         flex:1 1 500px;

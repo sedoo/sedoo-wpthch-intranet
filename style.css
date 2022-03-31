@@ -5,7 +5,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.8.0
+Version:      0.9.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -51,7 +51,6 @@ button { border-style: none; }
 nav[id="subterms"] ul { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 nav[id="subterms"] ul li { margin-right: 20px; }
 
-.sedoo-intranet-page { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 .sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { -webkit-box-flex: 1; -ms-flex: 1 1 500px; flex: 1 1 500px; margin-right: 40px; }
 .sedoo-intranet-page > aside.contextual-sidebar { padding: 0; -webkit-box-flex: 1; -ms-flex: 1 1 200px; flex: 1 1 200px; }
 .sedoo-intranet-page > aside.contextual-sidebar h3 { font-size: 1rem; }
@@ -71,7 +70,7 @@ nav[id="subterms"] ul li { margin-right: 20px; }
 .tabs > section { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; /* animation-delay: 0s; */ -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
 .tabs section[hidden] { display: none; }
 
-.sedoo-intranet-page [role="listNews"], .sedoo-intranet-page [class*="apiext"] { margin-top: 30px; }
+.sedoo-intranet-page { margin-top: 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 .sedoo-intranet-page [role="listNews"].post-wrapper .post, .sedoo-intranet-page [class*="apiext"].post-wrapper .post { -webkit-box-flex: 0; -ms-flex: 0 1 250px; flex: 0 1 250px; }
 .sedoo-intranet-page [role="listNews"].content-list article.post, .sedoo-intranet-page [class*="apiext"].content-list article.post { padding: 10px 10px 20px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .entry-header, .sedoo-intranet-page [class*="apiext"].content-list article.post .entry-header { max-width: 120px; }
