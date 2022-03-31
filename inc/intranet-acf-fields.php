@@ -170,11 +170,11 @@ acf_add_local_field_group(array(
 //fichiers en relation sur filebrowser
 acf_add_local_field_group(array(
 	'key' => 'group_623b3e7e0a9c3',
-	'title' => 'Ajout de fichiers en relation',
+	'title' => 'Ajout de ressources en relation',
 	'fields' => array(
 		array(
 			'key' => 'field_623b3e8a0aa3a',
-			'label' => 'Fichiers',
+			'label' => 'Fichiers/liens',
 			'name' => 'intranet_relatedfile',
 			'type' => 'repeater',
 			'instructions' => '',
@@ -189,11 +189,11 @@ acf_add_local_field_group(array(
 			'min' => 0,
 			'max' => 0,
 			'layout' => 'row',
-			'button_label' => 'Ajouter un fichier',
+			'button_label' => 'Ajouter un fichier/lien',
 			'sub_fields' => array(
 				array(
 					'key' => 'field_623b3f460aa3c',
-					'label' => 'Nom explicite du fichier',
+					'label' => 'Nom explicite',
 					'name' => 'intranet_relatedfile_name',
 					'type' => 'text',
 					'instructions' => '',
@@ -212,7 +212,7 @@ acf_add_local_field_group(array(
 				),
 				array(
 					'key' => 'field_623dde4c5e696',
-					'label' => 'Source du fichier',
+					'label' => 'Source',
 					'name' => 'intranet_relatedfile_source',
 					'type' => 'select',
 					'instructions' => '',
@@ -224,7 +224,8 @@ acf_add_local_field_group(array(
 						'id' => '',
 					),
 					'choices' => array(
-						'interne' => 'Interne (déposé sur filebrowser)',
+						'interne' => 'Interne: Fichier déposé sur filebrowser',
+						'interneForm' => 'Interne: formulaires en ligne',
 						'externe' => 'Externe (page intranet tutelle, autres)',
 					),
 					'default_value' => false,
@@ -261,6 +262,40 @@ acf_add_local_field_group(array(
 					'prepend' => 'https://fb2.sedoo.fr/files/',
 					'append' => '',
 					'maxlength' => '',
+				),
+				array(
+					'key' => 'field_62456e056cc49',
+					'label' => 'Pages des formulaires en relation',
+					'name' => 'intranet_relatedfile_internal_url_form',
+					'type' => 'relationship',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => array(
+						array(
+							array(
+								'field' => 'field_623dde4c5e696',
+								'operator' => '==',
+								'value' => 'interneForm',
+							),
+						),
+					),
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'post_type' => array(
+						0 => 'page',
+					),
+					'taxonomy' => '',
+					'filters' => array(
+						0 => 'search',
+						1 => 'taxonomy',
+					),
+					'elements' => '',
+					'min' => '',
+					'max' => '',
+					'return_format' => 'object',
 				),
 				array(
 					'key' => 'field_623ddf213b2ee',
@@ -721,7 +756,91 @@ acf_add_local_field_group(array(
 	'show_in_rest' => 0,
 ));
 
-// liste services
+// liste services extérieur
+acf_add_local_field_group(array(
+	'key' => 'group_6241d783272d1',
+	'title' => 'Block apiext',
+	'fields' => array(
+		array(
+			'key' => 'field_6241d79ea8e46',
+			'label' => 'Titre',
+			'name' => 'intranet_apiext_block_title',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_6241d7b8a8e47',
+			'label' => 'Catégorie',
+			'name' => 'intranet_apiext_block_category',
+			'type' => 'taxonomy',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'taxonomy' => 'category',
+			'field_type' => 'checkbox',
+			'add_term' => 1,
+			'save_terms' => 0,
+			'load_terms' => 0,
+			'return_format' => 'object',
+			'multiple' => 0,
+			'allow_null' => 0,
+		),
+		array(
+			'key' => 'field_6241d8622a428',
+			'label' => 'Description',
+			'name' => 'intranet_apiext_block_description',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => '',
+			'new_lines' => 'wpautop',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'block',
+				'operator' => '==',
+				'value' => 'acf/intranet-apiext-block',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+));
 
 endif;		
 
