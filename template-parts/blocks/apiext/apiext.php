@@ -25,65 +25,57 @@ if( !empty($block['align']) ) {
 }
 
 // Load values and assign defaults.
+if (get_field('intranet_apiext_block_title')) {
 $title = get_field('intranet_apiext_block_title');
+}
+if (get_field('intranet_apiext_block_category')) {
 $categories = get_field('intranet_apiext_block_category');
+}
+
+if (get_field('intranet_apiext_block_description')) {
 $description = get_field('intranet_apiext_block_description');
+} else {
+    $description=false;
+}
+
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> content-list">
-    <h2><?php echo $title;?></h2>
-    <div><?php echo $description;?></div>
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> content-list Accordion" data-allow-multiple>
+
     <?php
-    // if ($categories) {
-        
-    // }else {
-
-    // }
-    if( have_rows('intranet_apiext', 'option') ) {
-        while( have_rows('intranet_apiext', 'option') ) : the_row();
-            // Load sub field value.
-            $intranet_apiext_nom= get_sub_field('intranet_apiext_application_nom');
-            $intranet_apiext_application_description= get_sub_field('intranet_apiext_application_description');
-            $intranet_apiext_url= get_sub_field('intranet_apiext_application_url');
-            $intranet_apiext_application_categorie= get_sub_field('intranet_apiext_application_categorie');
-            $intranet_apiext_application_icone= get_sub_field('intranet_apiext_application_icone');
-
-            // echo $apiextCategory->slug ."=".$term->slug;
-            // var_dump($intranet_apiext_application_categorie);
-            ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
-                <header class="entry-header">
-                    <ul>
-                    <?php
-                    if ( ! empty( $intranet_apiext_application_categorie ) ) {
-                        foreach ($intranet_apiext_application_categorie as $category) {
-                            // var_dump($category);
-                            echo '<li class="tag"><a href="' . get_term_link( $category->term_id, $category->taxonomy ) . '">'. $category->name .'</a></li>'; 
-                        }   
-                    }; 
-                    ?>
-                    </ul>
-                    
-                </header><!-- .entry-header -->
-                <div class="group-content">
-                    <div class="entry-content">
-                        <h2><a href="<?php echo $intranet_apiext_url; ?>" target="_blank"><span class="material-icons"><?php echo $intranet_apiext_application_icone;?></span> <?php echo $intranet_apiext_nom; ?></a></h2>
-                        <p><?php echo $intranet_apiext_application_description; ?></p>
-                        
-                    </div><!-- .entry-content -->
-                </div>
-            </article><!-- #post-->
-
-        <?php
-        endwhile;
-    
-    // No value.
-    }
-    else {
+    ob_start(); // création d'un buffer
+    // var_dump($categories);
+    if ($categories) {
+        // foreach ($categories as $category) {
+            
+        // }
         ?>
-        <p>Aucune application actuellement</p>
+
         <?php
+        foreach ($categories as $category) {
+            echo "<h4>".$category->name. "</h4>";
+            // var_dump($category);
+            sedoo_wpthch_intranet_apiext_list($category->term_id);
+
+        }
+        
+    }else {
+        $category="none";
+        // echo $category;
+        sedoo_wpthch_intranet_apiext_list($category);
     }
     ?>
+
+
+<?php
+    // copie du buffer dans $content
+    $content = ob_get_contents();
+    ob_end_clean(); //Stops saving things and discards whatever was saved
+    
+    sedoo_wpthch_intranet_accordion_panel('apiext-' . $block['id'], 'false', $title, 'miscellaneous_services',  $description, $content);
+    // ob_end_flush(); 
+    // ob_flush();// vidage buffer
+?>
 </section>
+
 
 
