@@ -85,7 +85,7 @@ $themeSlugRewrite = "category";
           $content = ob_get_contents();
           ob_end_clean(); //Stops saving things and discards whatever was saved
           ob_flush();// vidage buffer
-          sedoo_wpthch_intranet_accordion_panel('Files', 'false', 'Liens externes', 'open_in_browser',  $description, $content);
+          sedoo_wpthch_intranet_accordion_panel('Files', 'false', 'Liens externes', 'source',  $description, $content);
         ?>
 
       </section>

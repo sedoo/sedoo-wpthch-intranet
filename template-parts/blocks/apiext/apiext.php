@@ -43,24 +43,15 @@ $description = get_field('intranet_apiext_block_description');
 
     <?php
     ob_start(); // création d'un buffer
-    // var_dump($categories);
     if ($categories) {
-        // foreach ($categories as $category) {
-            
-        // }
-        ?>
 
-        <?php
         foreach ($categories as $category) {
             echo "<h4>".$category->name. "</h4>";
-            // var_dump($category);
             sedoo_wpthch_intranet_apiext_list($category->term_id);
-
         }
         
     }else {
         $category="none";
-        // echo $category;
         sedoo_wpthch_intranet_apiext_list($category);
     }
     ?>
@@ -72,8 +63,7 @@ $description = get_field('intranet_apiext_block_description');
     ob_end_clean(); //Stops saving things and discards whatever was saved
     
     sedoo_wpthch_intranet_accordion_panel('apiext-' . $block['id'], 'false', $title, 'miscellaneous_services',  $description, $content);
-    // ob_end_flush(); 
-    // ob_flush();// vidage buffer
+
 ?>
 </section>
 

@@ -5,7 +5,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.9.1
+Version:      0.10.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -49,7 +49,7 @@ button { border-style: none; }
 /**
 * display content
 */
-#sectionFiles ul li { font-size: .9rem; }
+#section-Files ul li { font-size: .9rem; }
 
 nav[id="subterms"] ul { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 nav[id="subterms"] ul li { margin-right: 20px; }
@@ -85,7 +85,7 @@ nav[id="subterms"] ul li { margin-right: 20px; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content .date, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content .date { font-weight: normal; }
 
 .sedoo-intranet-page [id*="filetree"] { width: 100%; }
-.sedoo-intranet-page [id*="filetree"] h2 { text-transform: uppercase; font-size: calc(1.875rem / 2); color: #000; padding: 0 0 5px; margin-bottom: 5px; border-bottom: 1px solid #333; display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; vertical-align: middle; }
+.sedoo-intranet-page [id*="filetree"] h2 { text-transform: uppercase; font-size: calc(1.875rem / 2); color: #000; padding: 0 0 5px; margin-bottom: 5px; border-bottom: 1px solid #333; }
 .sedoo-intranet-page [id*="filetree"] > p em { background-color: var(--theme-color); color: var(--hover-textcolor); font-size: .75rem; padding: 0 5px; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .container, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div > div { padding-top: 0; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .v-application--wrap { height: auto; min-height: 100px; }

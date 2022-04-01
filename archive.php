@@ -125,9 +125,34 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 				</section> 
 				<aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
 					<?php
-					sedoo_wpthch_intranet_contact_section($term->slug);
+					/////////////   CONTACTS    ////////////
+					if( have_rows('intranet_service', 'option') ) {
+						?>
+						<section id="contact">
+						<?php
+						ob_start(); // création d'un buffer
+						sedoo_wpthch_intranet_contact_list($term->slug);
+						$content = ob_get_contents();
+						ob_end_clean(); //Stops saving things and discards whatever was saved
+
+						sedoo_wpthch_intranet_accordion_panel('Contacts', 'false', 'Contacts', 'contacts',  $description, $content);
+						?>
+						</section>
+					<?php
+					}
 					?>
+
+					<section id="apiext" class="content-list" role="listNews">
+					<?php
+					/////////////   Applications externes    ////////////
+					ob_start(); // création d'un buffer
+					sedoo_wpthch_intranet_apiext_list($term->term_id);
+					$content = ob_get_contents();
+					ob_end_clean(); //Stops saving things and discards whatever was saved
 					
+					sedoo_wpthch_intranet_accordion_panel('apiext', 'false', 'Applications', 'miscellaneous_services',  $description, $content);
+					?>
+					</section>
 				</aside>
 
 				<?php
@@ -135,10 +160,16 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 				if ( !empty($baseFolder)) {
 				?>
 				<section id="filetree">
-					<h2>Tous les fichiers de la catégorie <?php echo $term->name;?></h2>
-					<p><em>Ne concerne que les documents internes hors officiels des tutelles</em></p>
 					<?php
-						sedoo_wpthch_intranet_filetree_section($baseFolder);
+					/////////////   Applications externes    ////////////
+					ob_start(); // création d'un buffer
+					sedoo_wpthch_intranet_filetree_section($baseFolder);
+					$content = ob_get_contents();
+					ob_end_clean(); //Stops saving things and discards whatever was saved
+					
+					$title="Tous les fichiers de la catégorie ". $term->name;
+					$description="<em>Ne concerne que les documents internes hors officiels des tutelles</em>";
+					sedoo_wpthch_intranet_accordion_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
 					?>
 				</section>
 				<?php
