@@ -36,30 +36,23 @@ $themeSlugRewrite = "category";
       if( get_field('intranet_relatedfile') ) {
       ?>
       <section>
-        <h2>
-          <button aria-expanded="false"
-                class="Accordion-trigger"
-                aria-controls="sectionFiles"
-                id="accordionFiles">
-          <span class="Accordion-title">
+        <?php
+          ob_start(); // création d'un buffer
+            ///
+            $description="
+            <div class=\"legend\">
             <span>
-              <span class="material-icons">insert_drive_file</span> Fichiers internes
+              <span class=\"material-icons\">insert_drive_file</span> Fichiers internes
             </span>
             <span>
-              <span class="material-icons">feed</span> Formulaires internes
+              <span class=\"material-icons\">feed</span> Formulaires internes
             </span>
             <span>
-              <span class="material-icons">open_in_browser</span> Liens externes
+              <span class=\"material-icons\">open_in_browser</span> Liens externes
             </span>
-            <span class="Accordion-icon"></span>
-          </span>
-          </button>
-        </h2>
-        <div id="sectionFiles"
-         role="region"
-         aria-labelledby="accordionFiles"
-         class="Accordion-panel">
-          <?php
+          </div>";
+            ///
+            /// CONTENT
           echo '<ul>';
           while( the_repeater_field('intranet_relatedfile') ) {
             $source=get_sub_field('intranet_relatedfile_source');
@@ -87,8 +80,14 @@ $themeSlugRewrite = "category";
             }
           }
           echo '</ul>';
-          ?>
-        </div>
+          //// END CONTENT
+          // copie du buffer dans $content
+          $content = ob_get_contents();
+          ob_end_clean(); //Stops saving things and discards whatever was saved
+          ob_flush();// vidage buffer
+          sedoo_wpthch_intranet_accordion_panel('Files', 'false', 'Liens externes', 'open_in_browser',  $description, $content);
+        ?>
+
       </section>
       <?php
       }
