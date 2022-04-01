@@ -8,3 +8,14 @@
     animation-fill-mode: none;
     animation-play-state: running;
 }
+
+.legend {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:20px;
+    font-size: .75rem;
+
+    .material-icons {
+        font-size: .75rem;
+    }
+}

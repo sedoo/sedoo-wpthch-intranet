@@ -14,6 +14,9 @@ Tags:
 */
 [data-role="sedoo-intranet-page-content"] { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
 
+.legend { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 20px; font-size: .75rem; }
+.legend .material-icons { font-size: .75rem; }
+
 .Accordion h3 { margin: 0; padding: 0; }
 
 .Accordion.focus { border-color: #79adfb; }
@@ -30,7 +33,7 @@ button { border-style: none; }
 
 .Accordion button::-moz-focus-inner { border: 0; }
 
-.Accordion-title { display: block; pointer-events: none; outline: none; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; padding-right: 4em; }
+.Accordion-title { display: block; pointer-events: none; outline: none; }
 
 .Accordion-trigger:focus .Accordion-title { border-color: #79adfb; }
 
