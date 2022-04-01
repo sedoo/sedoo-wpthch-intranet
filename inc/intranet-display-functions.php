@@ -34,25 +34,9 @@ function sedoo_wpthch_intranet_accordion_panel($id,$ariaExpanded, $title, $icon,
 }
 
 // Contact par services
-function sedoo_wpthch_intranet_contact_section($termSlug) {
+function sedoo_wpthch_intranet_contact_list($termSlug) {
     if( have_rows('intranet_service', 'option') ) {
     ?>
-    <section id="contact">
-    <h2>
-      <button aria-expanded="true"
-            class="Accordion-trigger"
-            aria-controls="sectionContacts"
-            id="accordionContact">
-      <span class="Accordion-title"><span class="material-icons">contacts</span>
-        Contacts
-        <span class="Accordion-icon"></span>
-      </span>
-      </button>
-    </h2>
-    <div id="sectionContacts"
-     role="region"
-     aria-labelledby="accordionContact"
-     class="Accordion-panel">
       <?php
       while( have_rows('intranet_service', 'option') ) : the_row();
         // Load sub field value.
@@ -95,14 +79,8 @@ function sedoo_wpthch_intranet_contact_section($termSlug) {
             
           }
         }
-        // var_dump($serviceCategory);			
-        // echo"<br>";	
-        // echo $serviceCategory[0]->slug;
-        // echo"<hr>";	
       endwhile;
     ?>
-    </div>
-  </section>
   <?php
     }else {
         ?>
