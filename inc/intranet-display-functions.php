@@ -6,7 +6,7 @@
 // ne pas oublier d'ajouter sur l'élément parent class="Accordion" data-allow-multiple
 function sedoo_wpthch_intranet_accordion_panel($id,$ariaExpanded, $title, $icon, $description, $content) {
   ?>
-  <h2>
+  <!-- <h3> -->
       <button aria-expanded="<?php echo $ariaExpanded;?>"
             class="Accordion-trigger"
             aria-controls="section-<?php echo $id;?>"
@@ -16,7 +16,7 @@ function sedoo_wpthch_intranet_accordion_panel($id,$ariaExpanded, $title, $icon,
         <span class="Accordion-icon"></span>
       </span>
       </button>
-    </h2>
+    <!-- </h3> -->
     <?php
     if ($description) {
     ?>

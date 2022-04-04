@@ -10,7 +10,7 @@
 
     ul {
         margin-left:40px;
-        li {
+        li:not(.tag) {
             list-style-type: disc;
         }
     }
@@ -28,7 +28,10 @@
 }
 
 .content-area {
-    p {
+    main {
+        padding-left:20px;
+    }
+    p, table {
         a {
             color:var(--theme-color);
             display: inline-block;
@@ -60,3 +63,7 @@
     }
     
 }  
+
+aside[id="stickyMenu"] {
+    border:none;
+}
