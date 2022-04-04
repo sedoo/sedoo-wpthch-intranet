@@ -85,7 +85,7 @@ $themeSlugRewrite = "category";
           $content = ob_get_contents();
           ob_end_clean(); //Stops saving things and discards whatever was saved
           ob_flush();// vidage buffer
-          sedoo_wpthch_intranet_accordion_panel('Files', 'false', 'Liens externes', 'source',  $description, $content);
+          sedoo_wpthch_intranet_accordion_panel('Files', 'false', 'Liens', 'source',  $description, $content);
         ?>
 
       </section>
@@ -96,17 +96,25 @@ $themeSlugRewrite = "category";
     </aside>
     <?php
     if (get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id)) {
-    ?>
-    <section id="filetree">
-      <h2><span class="material-icons">account_tree</span> Tous les fichiers internes de la catégorie <?php echo $themes[0]->name;?></h2>
-      <p><em>Ne concerne que les documents internes hors officiels des tutelles</em></p>
-      <?php
       $baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id);
+      if ( !empty($baseFolder)) {
       ?>
-      <script src="https://services.aeris-data.fr/cdn/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
-      <campaign-product viewer="tree" service="https://api.sedoo.fr/intranet-omp-service-rest/data/v1_0" campaign="intranetomp" base-folder="<?php echo $baseFolder;?>" product="intranet-filetree">
-      </campaign-product>
-    </section>
+      <section id="filetree">
+        <?php
+        /////////////   Applications externes    ////////////
+        ob_start(); // création d'un buffer
+        sedoo_wpthch_intranet_filetree_section($baseFolder);
+        $content = ob_get_contents();
+        ob_end_clean(); //Stops saving things and discards whatever was saved
+        
+        $title="Tous les fichiers de la catégorie ". $themes[0]->name;
+        $description="<em>Ne concerne que les documents internes hors officiels des tutelles</em>";
+        sedoo_wpthch_intranet_accordion_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
+        ?>
+      </section>
+      <?php
+      }
+      ?>
     <?php
     }
     ?>
