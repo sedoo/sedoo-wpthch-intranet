@@ -5,7 +5,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.10.0
+Version:      0.10.1
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -13,9 +13,15 @@ Domain Path: /languages
 Tags: 
 */
 [data-role="sedoo-intranet-page-content"] { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
+[data-role="sedoo-intranet-page-content"] ul { margin-left: 40px; }
+[data-role="sedoo-intranet-page-content"] ul li { list-style-type: disc; }
 
 .legend { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 20px; font-size: .75rem; }
 .legend .material-icons { font-size: .75rem; }
+
+.content-area p a { color: var(--theme-color); display: inline-block; position: relative; z-index: 0; }
+.content-area p a::after { content: ""; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: var(--theme-color); -webkit-transition: all .2s; transition: all .2s; z-index: 1; }
+.content-area p a:hover { color: var(--hover-textcolor); background-color: var(--theme-color); }
 
 .Accordion h3 { margin: 0; padding: 0; }
 
