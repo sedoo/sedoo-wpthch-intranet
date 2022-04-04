@@ -30,7 +30,7 @@ $themeSlugRewrite = "category";
     <aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
       <?php
       // var_dump($term);
-        sedoo_wpthch_intranet_contact_section($themes[0]->slug);
+        sedoo_wpthch_intranet_contact_list($themes[0]->slug);
       ?>
       <?php
       if( get_field('intranet_relatedfile') ) {
