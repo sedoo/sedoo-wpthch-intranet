@@ -5,7 +5,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.10.1
+Version:      0.10.2
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -14,23 +14,23 @@ Tags:
 */
 [data-role="sedoo-intranet-page-content"] { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
 [data-role="sedoo-intranet-page-content"] ul { margin-left: 40px; }
-[data-role="sedoo-intranet-page-content"] ul li { list-style-type: disc; }
+[data-role="sedoo-intranet-page-content"] ul li:not(.tag) { list-style-type: disc; }
 
 .legend { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; margin-bottom: 20px; font-size: .75rem; }
 .legend .material-icons { font-size: .75rem; }
 
-.content-area p a { color: var(--theme-color); display: inline-block; position: relative; z-index: 0; }
-.content-area p a::after { content: ""; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: var(--theme-color); -webkit-transition: all .2s; transition: all .2s; z-index: 1; }
-.content-area p a:hover { color: var(--hover-textcolor); background-color: var(--theme-color); }
+.content-area main { padding-left: 20px; }
+.content-area p a, .content-area table a { color: var(--theme-color); display: inline-block; position: relative; z-index: 0; }
+.content-area p a::after, .content-area table a::after { content: ""; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: var(--theme-color); -webkit-transition: all .2s; transition: all .2s; z-index: 1; }
+.content-area p a:hover, .content-area table a:hover { color: var(--hover-textcolor); background-color: var(--theme-color); }
+
+aside[id="stickyMenu"] { border: none; }
 
 .Accordion h3 { margin: 0; padding: 0; }
 
 .Accordion.focus { border-color: #79adfb; }
 
-.Accordion.focus h3 { background-color: #f7f7f7; }
-
-.Accordion-trigger { background: none; color: #212121; display: block; margin: 0; position: relative; text-align: left; width: 100%; outline: none; }
-
+.Accordion-trigger { background: none; color: #333; display: block; font-size: 1.5rem; margin: 20px 0 0; padding: 10px 20px; position: relative; text-align: left; width: 100%; outline: none; }
 .Accordion-trigger:focus, .Accordion-trigger:hover { background: #e1edfe; }
 
 .Accordion *:first-child .Accordion-trigger { border-radius: 5px 5px 0 0; }
@@ -49,7 +49,7 @@ button { border-style: none; }
 
 .Accordion-trigger[aria-expanded="true"] .Accordion-icon { -webkit-transform: translateY(-50%) rotate(-135deg); transform: translateY(-50%) rotate(-135deg); }
 
-/* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
+.Accordion-panel { margin: 0; padding: 1em 1.5em; /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */ }
 .Accordion-panel[hidden] { display: none; }
 
 /**
