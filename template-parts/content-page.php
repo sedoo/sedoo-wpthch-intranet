@@ -89,6 +89,18 @@ $themeSlugRewrite = "category";
         ?>
 
       </section>
+      <section id="apiext" class="content-list" role="listNews">
+					<?php
+					/////////////   Applications externes    ////////////
+					ob_start(); // création d'un buffer
+					sedoo_wpthch_intranet_apiext_list($themes[0]->term_id);
+          $description="";
+					$content = ob_get_contents();
+					ob_end_clean(); //Stops saving things and discards whatever was saved
+					
+					sedoo_wpthch_intranet_accordion_panel('apiext', 'false', 'Applications en relation', 'miscellaneous_services',  $description, $content);
+					?>
+					</section>
       <?php
       }
       ?>
