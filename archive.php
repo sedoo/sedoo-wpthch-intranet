@@ -135,7 +135,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						$content = ob_get_contents();
 						ob_end_clean(); //Stops saving things and discards whatever was saved
 
-						sedoo_wpthch_intranet_accordion_panel('Contacts', 'false', 'Contacts', 'contacts',  $description, $content);
+						sedoo_wpthch_intranet_simple_panel('Contacts', 'false', 'Contacts', 'contacts',  $description, $content);
 						?>
 						</section>
 					<?php
@@ -150,7 +150,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					$content = ob_get_contents();
 					ob_end_clean(); //Stops saving things and discards whatever was saved
 					
-					sedoo_wpthch_intranet_accordion_panel('apiext', 'false', 'Applications', 'miscellaneous_services',  $description, $content);
+					sedoo_wpthch_intranet_simple_panel('apiext', 'false', 'Applications', 'miscellaneous_services',  $description, $content);
 					?>
 					</section>
 				</aside>
@@ -169,7 +169,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					
 					$title="Tous les fichiers de la catégorie ". $term->name;
 					$description="<em>Ne concerne que les documents internes hors officiels des tutelles</em>";
-					sedoo_wpthch_intranet_accordion_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
+					sedoo_wpthch_intranet_simple_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
 					?>
 				</section>
 				<?php
