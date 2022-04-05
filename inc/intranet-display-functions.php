@@ -1,6 +1,30 @@
 <?php
 
 /**
+ *  simple panel
+ */
+// ne pas oublier d'ajouter sur l'élément parent class="Accordion" data-allow-multiple
+function sedoo_wpthch_intranet_simple_panel($id,$ariaExpanded, $title, $icon, $description, $content) {
+  ?>
+  <h3>
+        <span class="material-icons"><?php echo $icon;?></span>
+        <?php echo $title;?>
+      <!-- </button> -->
+    </h3>
+    <?php
+    if ($description) {
+    ?>
+    <div><?php echo $description;?></div>
+    <?php
+    }
+    ?>
+    <div id="section-<?php echo $id;?>">
+      <?php echo $content;?>
+    </div>
+<?php
+}
+
+/**
  *  accordion panel
  */
 // ne pas oublier d'ajouter sur l'élément parent class="Accordion" data-allow-multiple
@@ -49,7 +73,7 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
             $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
 
             // echo "<h3>Adresse générique de contact</h3>";
-            echo "<h3>".$intranet_service_nom ."</h3>";
+            echo "<h4>".$intranet_service_nom ."</h4>";
             echo "<p><span class=\"material-icons\">mail</span> ".$intranet_service_mail."</p>";
             echo "<h3><span class=\"material-icons\">contact_mail</span></h3>";
             echo "<ul id=\"gestionnaires\">";
