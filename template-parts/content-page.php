@@ -12,7 +12,7 @@ $themeSlugRewrite = "category";
   <?php 
   if( function_exists('sedoo_show_categories') && $themes){
   ?>
-  <div>
+  <div id="catList">
     <?php 
     sedoo_show_categories($themes, $themeSlugRewrite);
     ?> 
@@ -28,12 +28,23 @@ $themeSlugRewrite = "category";
     if (!is_front_page()){
     ?>
     <aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
-      <section id="contact">
+    <?php
+      /////////////   CONTACTS    ////////////
+      if( have_rows('intranet_service', 'option') ) {
+        ?>
+        <section id="contact">
+        <?php
+        ob_start(); // création d'un buffer
+        sedoo_wpthch_intranet_contact_list($term->slug);
+        $content = ob_get_contents();
+        ob_end_clean(); //Stops saving things and discards whatever was saved
+
+        sedoo_wpthch_intranet_simple_panel('Contacts', 'false', 'Contacts', 'contacts',  $description, $content);
+        ?>
+        </section>
       <?php
-      // var_dump($term);
-        sedoo_wpthch_intranet_contact_list($themes[0]->slug);
+      }
       ?>
-      </section>
       <?php
       if( get_field('intranet_relatedfile') ) {
       ?>
