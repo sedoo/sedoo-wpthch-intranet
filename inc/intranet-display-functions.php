@@ -75,7 +75,7 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
             // echo "<h3>Adresse générique de contact</h3>";
             echo "<h4>".$intranet_service_nom ."</h4>";
             echo "<p><span class=\"material-icons\">mail</span> ".$intranet_service_mail."</p>";
-            echo "<h3><span class=\"material-icons\">contact_mail</span></h3>";
+            echo "<h5><span class=\"material-icons\">contact_mail</span></h5>";
             echo "<ul id=\"gestionnaires\">";
             foreach ($intranet_service_gestionnaires as $gestionnaire) {	
               ?>

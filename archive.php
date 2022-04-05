@@ -46,28 +46,28 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					the_archive_title(); 
 				}?>
 			</h1>
+			<?php
+				if ($termchildren) {
+				?>
+				<nav id="subterms">
+					<ul>
+					
+					<?php					
+					foreach ( $termchildren as $child ) {
+						$childTerm = get_term_by( 'id', $child, $term->taxonomy );
+						if ($childTerm->count > 0) {
+						echo '<li class="tag"><a href="' . get_term_link( $child, $term->taxonomy ) . '">' . $childTerm->name .' ('. $childTerm->count .')</a></li>';
+						}
+					}
+					?> 
+					</ul>
+				</nav>
+				<?php
+				}
+			?>
 			<div class="sedoo-intranet-page">
 				<section data-role="sedoo-intranet-page-content">
-					<?php
-					if ($termchildren) {
-					?>
-					<nav id="subterms">
-						<ul>
-						
-						<?php					
-						foreach ( $termchildren as $child ) {
-							$childTerm = get_term_by( 'id', $child, $term->taxonomy );
-							if ($childTerm->count > 0) {
-							echo '<li class="tag"><a href="' . get_term_link( $child, $term->taxonomy ) . '">' . $childTerm->name .' ('. $childTerm->count .')</a></li>';
-							}
-						}
-						?> 
-						</ul>
-					</nav>
-					<?php
-					}
-
-					?>
+					
 					
 				<?php
 				if (get_the_archive_description()) {
