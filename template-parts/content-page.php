@@ -28,10 +28,12 @@ $themeSlugRewrite = "category";
     if (!is_front_page()){
     ?>
     <aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
+      <section id="contact">
       <?php
       // var_dump($term);
         sedoo_wpthch_intranet_contact_list($themes[0]->slug);
       ?>
+      </section>
       <?php
       if( get_field('intranet_relatedfile') ) {
       ?>
@@ -85,7 +87,7 @@ $themeSlugRewrite = "category";
           $content = ob_get_contents();
           ob_end_clean(); //Stops saving things and discards whatever was saved
           ob_flush();// vidage buffer
-          sedoo_wpthch_intranet_accordion_panel('Files', 'false', 'Liens', 'source',  $description, $content);
+          sedoo_wpthch_intranet_simple_panel('Files', 'false', 'Liens', 'source',  $description, $content);
         ?>
 
       </section>
@@ -98,7 +100,7 @@ $themeSlugRewrite = "category";
 					$content = ob_get_contents();
 					ob_end_clean(); //Stops saving things and discards whatever was saved
 					
-					sedoo_wpthch_intranet_accordion_panel('apiext', 'false', 'Applications en relation', 'miscellaneous_services',  $description, $content);
+					sedoo_wpthch_intranet_simple_panel('apiext', 'false', 'Applications en relation', 'miscellaneous_services',  $description, $content);
 					?>
 					</section>
       <?php
@@ -121,7 +123,7 @@ $themeSlugRewrite = "category";
         
         $title="Tous les fichiers de la catégorie ". $themes[0]->name;
         $description="<em>Ne concerne que les documents internes hors officiels des tutelles</em>";
-        sedoo_wpthch_intranet_accordion_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
+        sedoo_wpthch_intranet_simple_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
         ?>
       </section>
       <?php

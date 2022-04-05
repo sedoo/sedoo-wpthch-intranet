@@ -5,7 +5,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.11.0
+Version:      0.12.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -62,7 +62,8 @@ nav[id="subterms"] ul li { margin-right: 20px; }
 
 .sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { -webkit-box-flex: 1; -ms-flex: 1 1 500px; flex: 1 1 500px; margin-right: 40px; }
 .sedoo-intranet-page > aside.contextual-sidebar { padding: 0; -webkit-box-flex: 1; -ms-flex: 1 1 200px; flex: 1 1 200px; }
-.sedoo-intranet-page > aside.contextual-sidebar h3 { font-size: 1rem; }
+.sedoo-intranet-page > aside.contextual-sidebar > section:not(:last-child)::after { content: ""; display: block; height: 3px; width: 25%; background: var(--theme-color); margin: 30px 0; }
+.sedoo-intranet-page > aside.contextual-sidebar h3 { font-size: 1.5rem; color: #333; font-family: "Open Sans", sans-serif; }
 .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul { font-size: calc(1rem / 1.2); display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
 .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] li { margin-right: 20px; }
 .sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure { width: 100px; height: 100px; border-radius: 10px; overflow: hidden; background: #CCC; line-height: 100px; text-align: center; }

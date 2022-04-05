@@ -8,9 +8,27 @@
         padding:0;
         flex:1 1 200px;
 
-        h3 {
-            font-size: 1rem;
+        > section:not(:last-child) {
+            // margin-bottom:20px;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 3px;
+                width: 25%;
+                background: var(--theme-color);
+                margin: 30px 0;
+            }
         }
+
+        h3 {
+            font-size: 1.5rem;
+            color:#333;
+            // margin: 20px 0 0;
+            // padding: 10px 0;
+            font-family: "Open Sans", sans-serif;
+        }
+
         section[id="contact"] {
             ul {
                 font-size: calc(1rem / 1.2);
