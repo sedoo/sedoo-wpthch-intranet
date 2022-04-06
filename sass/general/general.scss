@@ -19,11 +19,12 @@
 .legend {
     display: flex;
     justify-content: space-between;
-    margin-bottom:20px;
+    // margin-bottom:20px;
     font-size: .75rem;
+    font-style: italic;
 
     .material-icons {
-        font-size: .75rem;
+        font-size: .8rem;
     }
 }
 

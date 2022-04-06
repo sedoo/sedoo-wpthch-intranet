@@ -1,0 +1,18 @@
+section#relatedApiext,
+section[id^="relatedApiext"] {
+    article {
+        border-bottom: 1px solid #CCC;
+        padding: 10px 0;
+
+        ul {
+            margin:0;
+            li {
+                display: inline-block;
+                &.tag a {
+                    font-size: .65rem;
+                }
+                
+            }
+        }
+    }
+}
