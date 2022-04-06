@@ -142,7 +142,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					}
 					?>
 
-					<section id="apiext" class="content-list" role="listNews">
+					<section id="relatedApiext" class="content-list" role="listNews">
 					<?php
 					/////////////   Applications externes    ////////////
 					ob_start(); // création d'un buffer

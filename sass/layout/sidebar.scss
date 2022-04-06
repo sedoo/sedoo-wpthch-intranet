@@ -10,7 +10,7 @@
         padding: 0;
 
         > section {
-            background-color: #DDD;
+            background-color: #F0F0F0;
             > div {
                 padding:20px;
             }
@@ -27,12 +27,13 @@
         //     }
         // }
 
-        h3 {
+        .h3 {
             font-size: 1.5rem;
             color:#FFF;
             font-family: "Open Sans", sans-serif;
             background-color: var(--theme-color);
             padding: 9px 10px 5px;
+            margin-bottom: 0;
 
             .material-icons {
                 color:#FFF;

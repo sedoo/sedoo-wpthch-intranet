@@ -48,7 +48,7 @@ $themeSlugRewrite = "category";
       <?php
       if( get_field('intranet_relatedfile') ) {
       ?>
-      <section>
+      <section id="relatedFiles">
         <?php
           ob_start(); // création d'un buffer
             ///
@@ -102,7 +102,7 @@ $themeSlugRewrite = "category";
         ?>
 
       </section>
-      <section id="apiext" class="content-list" role="listNews">
+      <section id="relatedApiext" class="content-list" role="listNews">
 					<?php
 					/////////////   Applications externes    ////////////
 					ob_start(); // création d'un buffer
