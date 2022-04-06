@@ -72,30 +72,38 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
             $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
 
             // echo "<h3>Adresse générique de contact</h3>";
-            echo "<h4>".$intranet_service_nom ."</h4>";
-            echo "<p><span class=\"material-icons\">mail</span> ".$intranet_service_mail."</p>";
-            echo "<h5><span class=\"material-icons\">contact_mail</span></h5>";
-            echo "<ul id=\"gestionnaires\">";
+            ?>
+            <div class="h4">
+              <strong><?php echo $intranet_service_mail;?></strong> <small>(<?php echo $intranet_service_nom;?> )</small>
+              <!--<span class="material-icons">mail</span>-->
+            </div>
+            <ul id="gestionnaires">
+            <?php
             foreach ($intranet_service_gestionnaires as $gestionnaire) {	
               ?>
-              <li>
-                <figure> 
-                <?php 
-                  $img_id = get_user_meta($gestionnaire->ID, 'photo_auteur', true);
-                  $img_url=wp_get_attachment_image_url( $img_id, 'thumbnail' );
+              <li><form method="POST" id="searchInDirectory" action="<?php echo get_site_url();?>/recherche-dans-lannuaire/">
+                      <input type="hidden" name="searchUser" value="<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
+                </form>
+                  <a href='#' onclick='document.getElementById("searchInDirectory").submit()'>
+                  <figure> 
+                  <?php 
+                    $img_id = get_user_meta($gestionnaire->ID, 'photo_auteur', true);
+                    $img_url=wp_get_attachment_image_url( $img_id, 'thumbnail' );
 
-                  if($img_url) {
-                  ?>
-                    <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo get_user_meta( $gestionnaire->ID,'first_name', true). ' '.get_user_meta( $gestionnaire->ID,'last_name', true); ?>" />
-                    <?php	
-                    } else {
-                    echo "<span class=\"userLetters\">".substr($gestionnaire->last_name, 0, 1).substr($gestionnaire->first_name, 0, 1)."</span>";
-                  }
-                  ?>
-                </figure> 
-                <p>
-                  <?php echo $gestionnaire->last_name." ".$gestionnaire->first_name;?>
-                </p>
+                    if($img_url) {
+                    ?>
+                      <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo get_user_meta( $gestionnaire->ID,'first_name', true). ' '.get_user_meta( $gestionnaire->ID,'last_name', true); ?>" />
+                      <?php	
+                      } else {
+                      echo "<span class=\"userLetters\">".substr($gestionnaire->last_name, 0, 1).substr($gestionnaire->first_name, 0, 1)."</span>";
+                    }
+                    ?>
+                  </figure> 
+                  <p>
+                    <?php echo $gestionnaire->last_name." ".$gestionnaire->first_name;?>
+                  </p>
+                </a>
+              </li>
             <?php
             }
             echo "</ul>";

@@ -5,7 +5,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.14.0
+Version:      0.15.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -68,12 +68,6 @@ div#catList div.tag a:hover { color: #333; }
 .sedoo-intranet-page > aside.contextual-sidebar > section > div { padding: 20px; }
 .sedoo-intranet-page > aside.contextual-sidebar .h3 { font-size: 1.5rem; color: #FFF; font-family: "Open Sans", sans-serif; background-color: var(--theme-color); padding: 9px 10px 5px; margin-bottom: 0; }
 .sedoo-intranet-page > aside.contextual-sidebar .h3 .material-icons { color: #FFF; }
-.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul { font-size: calc(1rem / 1.2); display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
-.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] li { margin-right: 20px; }
-.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure { width: 100px; height: 100px; border-radius: 10px; overflow: hidden; background: #CCC; line-height: 100px; text-align: center; }
-.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure img { margin: 0; -o-object-fit: cover; object-fit: cover; }
-.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] figure .userLetters { width: 100%; height: 100%; font-size: 1.8rem; text-transform: uppercase; }
-.sedoo-intranet-page > aside.contextual-sidebar section[id="contact"] ul[id="gestionnaires"] p { text-align: center; }
 
 /*************    TABS    **************/
 .tabs { list-style-type: none; position: relative; max-width: 1200px; overflow: hidden; }
@@ -84,6 +78,9 @@ div#catList div.tag a:hover { color: #333; }
 .tabs > section { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; /* animation-delay: 0s; */ -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
 .tabs section[hidden] { display: none; }
 
+/**
+* https://www.w3schools.com/css/css_tooltip.asp
+**/
 .tooltip { position: relative; display: inline-block; /* Show the tooltip text when you mouse over the tooltip container */ }
 .tooltip .material-icons { cursor: pointer; font-size: 1rem; color: var(--theme-color); }
 .tooltip .tooltiptext { visibility: hidden; display: block; background-color: black; color: #fff; text-align: center; padding: 5px; border-radius: 4px; /* Position the tooltip text*/ position: absolute; z-index: 1; top: -5px; left: 105%; }
@@ -110,6 +107,16 @@ section#relatedApiext article ul, section[id^="relatedApiext"] article ul { marg
 section#relatedApiext article ul li, section[id^="relatedApiext"] article ul li { display: inline-block; }
 section#relatedApiext article ul li.tag a, section[id^="relatedApiext"] article ul li.tag a { font-size: .65rem; }
 
+section#contact ul { font-size: calc(1rem / 1.2); display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+section#contact ul[id="gestionnaires"] { margin: 10px 0 20px; }
+section#contact ul[id="gestionnaires"]:not(:last-child) { border-bottom: 1px solid #CCC; }
+section#contact ul[id="gestionnaires"] li { margin-right: 20px; margin-bottom: 10px; -webkit-box-flex: 1; -ms-flex: 1 0 150px; flex: 1 0 150px; }
+section#contact ul[id="gestionnaires"] li a { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+section#contact ul[id="gestionnaires"] li a figure { width: 50px; height: 50px; margin-right: 10px; border-radius: 10px; overflow: hidden; background: #CCC; line-height: 50px; text-align: center; }
+section#contact ul[id="gestionnaires"] li a figure img { margin: 0; -o-object-fit: cover; object-fit: cover; }
+section#contact ul[id="gestionnaires"] li a figure .userLetters { width: 100%; height: 100%; font-size: 1.8rem; text-transform: uppercase; }
+section#contact ul[id="gestionnaires"] li a p { text-align: center; }
+
 .sedoo-intranet-page [id*="filetree"] { width: 100%; }
 .sedoo-intranet-page [id*="filetree"] h2 { text-transform: uppercase; font-size: calc(1.875rem / 2); color: #000; padding: 0 0 5px; margin-bottom: 5px; border-bottom: 1px solid #333; }
 .sedoo-intranet-page [id*="filetree"] > p em { background-color: var(--theme-color); color: var(--hover-textcolor); font-size: .75rem; padding: 0 5px; }
@@ -118,5 +125,3 @@ section#relatedApiext article ul li.tag a, section[id^="relatedApiext"] article 
 
 .material-icons { color: rgba(0, 0, 0, 0.54); }
 .material-icons .tooltiptext { font-family: "Open Sans",sans-serif; font-size: .8rem; }
-
-/*# sourceMappingURL=style.css.map */
