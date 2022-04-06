@@ -3,24 +3,23 @@
 /**
  *  simple panel
  */
-// ne pas oublier d'ajouter sur l'élément parent class="Accordion" data-allow-multiple
 function sedoo_wpthch_intranet_simple_panel($id,$ariaExpanded, $title, $icon, $description, $content) {
   ?>
-  <h3>
-        <span class="material-icons"><?php echo $icon;?></span>
-        <?php echo $title;?>
-      <!-- </button> -->
-    </h3>
-    <?php
-    if ($description) {
-    ?>
-    <div><?php echo $description;?></div>
-    <?php
-    }
-    ?>
-    <div id="section-<?php echo $id;?>">
-      <?php echo $content;?>
-    </div>
+  <div class="h3">
+      <span class="material-icons"><?php echo $icon;?></span>
+      <?php echo $title;?>
+    <!-- </button> -->
+  </div class="h3">
+  <?php
+  if ($description) {
+  ?>
+  <div class="description"><?php echo $description;?></div>
+  <?php
+  }
+  ?>
+  <div id="section-<?php echo $id;?>">
+    <?php echo $content;?>
+  </div>
 <?php
 }
 
@@ -147,12 +146,40 @@ function sedoo_wpthch_intranet_apiext_display($intranet_apiext_nom, $intranet_ap
     </header><!-- .entry-header -->
     <div class="group-content">
         <div class="entry-content">
-            <h3><a href="<?php echo $intranet_apiext_url; ?>" target="_blank"><span class="material-icons"><?php echo $intranet_apiext_application_icone;?></span> <?php echo $intranet_apiext_nom; ?></a></h3>
-            <p><?php echo $intranet_apiext_application_description; ?></p>
+            <h3><a href="<?php echo $intranet_apiext_url; ?>" target="_blank"><span class="material-icons"><?php echo $intranet_apiext_application_icone;?></span> <?php echo $intranet_apiext_nom; ?></a>
+              <span class="tooltip"><span class="material-icons"> info
+                <span class="tooltiptext"><?php echo $intranet_apiext_application_description; ?></span>
+              </span>
+            </h3>
             
         </div><!-- .entry-content -->
     </div>
 </article><!-- #post-->
+<?php
+}
+/*************** */
+// display apiext
+function sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ) {
+  ?>
+  <article>
+    <ul>
+      <?php
+      if ( ! empty( $intranet_apiext_application_categorie ) ) {
+          foreach ($intranet_apiext_application_categorie as $apiext_category) {
+              // var_dump($apiext_category);
+              echo '<li class="tag"><a href="' . get_term_link( $apiext_category->term_id, $apiext_category->taxonomy ) . '">'. $apiext_category->name .'</a></li>'; 
+          }   
+      }; 
+      ?>
+    </ul>
+    <div class="entry-content">
+        <a href="<?php echo $intranet_apiext_url; ?>" target="_blank"><span class="material-icons"><?php echo $intranet_apiext_application_icone;?></span> <?php echo $intranet_apiext_nom; ?></a>
+          <span class="tooltip"><span class="material-icons"> info
+            <span class="tooltiptext"><?php echo $intranet_apiext_application_description; ?></span>
+          </span>
+        
+    </div><!-- .entry-content -->
+  </article><!-- #post-->
 <?php
 }
 // list apiext
@@ -178,11 +205,11 @@ function sedoo_wpthch_intranet_apiext_list($categoryTermID) {
         if ($categoryTermID!=="none") {
           if ((in_array($categoryTermID, $get_term_value)) && ($categoryTermID!=="none")) {
             // display
-            sedoo_wpthch_intranet_apiext_display($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
+            sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
           }
         }
          else {
-          sedoo_wpthch_intranet_apiext_display($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
+          sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
         }
 
     endwhile;

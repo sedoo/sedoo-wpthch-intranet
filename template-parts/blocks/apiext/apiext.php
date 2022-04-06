@@ -10,7 +10,7 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'apiext-' . $block['id'];
+$id = 'relatedApiext-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
@@ -62,7 +62,7 @@ $description = get_field('intranet_apiext_block_description');
     $content = ob_get_contents();
     ob_end_clean(); //Stops saving things and discards whatever was saved
     
-    sedoo_wpthch_intranet_accordion_panel('apiext-' . $block['id'], 'false', $title, 'miscellaneous_services',  $description, $content);
+    sedoo_wpthch_intranet_simple_panel('apiext-' . $block['id'], 'false', $title, 'miscellaneous_services',  $description, $content);
 
 ?>
 </section>
