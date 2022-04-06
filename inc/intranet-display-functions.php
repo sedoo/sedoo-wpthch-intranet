@@ -81,10 +81,8 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
             <?php
             foreach ($intranet_service_gestionnaires as $gestionnaire) {	
               ?>
-              <li><form method="POST" id="searchInDirectory" action="<?php echo get_site_url();?>/recherche-dans-lannuaire/">
-                      <input type="hidden" name="searchUser" value="<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
-                </form>
-                  <a href='#' onclick='document.getElementById("searchInDirectory").submit()'>
+              <li>
+                  <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
                   <figure> 
                   <?php 
                     $img_id = get_user_meta($gestionnaire->ID, 'photo_auteur', true);
