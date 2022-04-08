@@ -127,6 +127,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					<?php
 					/////////////   CONTACTS    ////////////
 					if( have_rows('intranet_service', 'option') ) {
+						if (sedoo_wpthch_intranet_dataOption_exist('intranet_service', 'intranet_service_categorie', $term->slug)) {
 						?>
 						<section id="contact">
 						<?php
@@ -139,20 +140,28 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						?>
 						</section>
 					<?php
+						}
 					}
 					?>
-
-					<section id="relatedApiext" class="content-list" role="listNews">
 					<?php
-					/////////////   Applications externes    ////////////
-					ob_start(); // création d'un buffer
-					sedoo_wpthch_intranet_apiext_list($term->term_id);
-					$content = ob_get_contents();
-					ob_end_clean(); //Stops saving things and discards whatever was saved
-					
-					sedoo_wpthch_intranet_simple_panel('apiext', 'false', 'Applications', 'miscellaneous_services',  $description, $content);
+					if( have_rows('intranet_apiext', 'option') ) {
+						if (sedoo_wpthch_intranet_dataOption_exist('intranet_apiext', 'intranet_apiext_application_categorie', $term->term_id)) {
+						?>
+						<section id="relatedApiext" class="content-list" role="listNews">
+						<?php
+						/////////////   Applications externes    ////////////
+						ob_start(); // création d'un buffer
+						sedoo_wpthch_intranet_apiext_list($term->term_id);
+						$content = ob_get_contents();
+						ob_end_clean(); //Stops saving things and discards whatever was saved
+						
+						sedoo_wpthch_intranet_simple_panel('apiext', 'false', 'Applications', 'miscellaneous_services',  $description, $content);
+						?>
+						</section>
+						<?php
+						}
+					}
 					?>
-					</section>
 				</aside>
 
 				<?php

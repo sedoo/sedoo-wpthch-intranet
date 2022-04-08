@@ -31,21 +31,25 @@ $themeSlugRewrite = "category";
     <?php
       /////////////   CONTACTS    ////////////
       if( have_rows('intranet_service', 'option') ) {
-        ?>
-        <section id="contact">
-        <?php
-        ob_start(); // création d'un buffer
-        sedoo_wpthch_intranet_contact_list($themes[0]->slug);
-        $content = ob_get_contents();
-        ob_end_clean(); //Stops saving things and discards whatever was saved
+        if (sedoo_wpthch_intranet_dataOption_exist('intranet_service', 'intranet_service_categorie', $themes[0]->slug)) {
+          ?>
+          
+          <section id="contact">
+          <?php
+          ob_start(); // création d'un buffer
+          sedoo_wpthch_intranet_contact_list($themes[0]->slug);
+          $content = ob_get_contents();
+          ob_end_clean(); //Stops saving things and discards whatever was saved
 
-        sedoo_wpthch_intranet_simple_panel('Contacts', 'false', 'Contacts', 'contacts',  $description, $content);
-        ?>
-        </section>
+          sedoo_wpthch_intranet_simple_panel('Contacts', 'false', 'Contacts', 'contacts',  $description, $content);
+          ?>
+          </section>
       <?php
+        }
       }
       ?>
       <?php
+      /////////////   RELATED FILES / LINK    ////////////
       if( get_field('intranet_relatedfile') ) {
       ?>
       <section id="relatedFiles">
@@ -102,7 +106,15 @@ $themeSlugRewrite = "category";
         ?>
 
       </section>
-      <section id="relatedApiext" class="content-list" role="listNews">
+      <?php
+      }
+      ?>
+      <?php
+      if( have_rows('intranet_apiext', 'option') ) {
+        // var_dump(sedoo_wpthch_intranet_dataOption_exist('intranet_apiext', 'intranet_apiext_application_categorie', $themes[0]->term_id));
+        if (sedoo_wpthch_intranet_dataOption_exist('intranet_apiext', 'intranet_apiext_application_categorie', $themes[0]->term_id)) {
+        ?>
+        <section id="relatedApiext" class="content-list" role="listNews">
 					<?php
 					/////////////   Applications externes    ////////////
 					ob_start(); // création d'un buffer
@@ -115,6 +127,7 @@ $themeSlugRewrite = "category";
 					?>
 					</section>
       <?php
+        }
       }
       ?>
         
