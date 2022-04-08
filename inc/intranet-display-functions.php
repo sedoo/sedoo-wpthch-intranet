@@ -56,68 +56,95 @@ function sedoo_wpthch_intranet_accordion_panel($id,$ariaExpanded, $title, $icon,
 <?php
 }
 
-// Contact par services
-function sedoo_wpthch_intranet_contact_list($termSlug) {
-    if( have_rows('intranet_service', 'option') ) {
-    ?>
-      <?php
-      while( have_rows('intranet_service', 'option') ) : the_row();
-        // Load sub field value.
-        $serviceCategory = get_sub_field('intranet_service_categorie');
+// Test d'existance de valeurs dans ACF repeater field pour une catégorie donnée
+// utilisé sur apiExt et contact des services
+function sedoo_wpthch_intranet_dataOption_exist($acfField, $acfSubField, $attributeValue) {
+  $exist=false;
+  while( have_rows($acfField, 'option') ) : the_row();
+    // Load sub field value.
+    $serviceCategory = get_sub_field($acfSubField);
+
+    switch ($acfField) {
+      case 'intranet_service':
         foreach ($serviceCategory as $service) {
           // echo $service->slug.' ';
-          if ($service->slug === $termSlug) {	
-            $intranet_service_nom= get_sub_field('intranet_service_nom');
-            $intranet_service_mail= get_sub_field('intranet_service_mail');
-            $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
-
-            // echo "<h3>Adresse générique de contact</h3>";
-            ?>
-            <div class="h4">
-              <strong><?php echo $intranet_service_mail;?></strong> <small>(<?php echo $intranet_service_nom;?> )</small>
-              <!--<span class="material-icons">mail</span>-->
-            </div>
-            <ul id="gestionnaires">
-            <?php
-            foreach ($intranet_service_gestionnaires as $gestionnaire) {	
-              ?>
-              <li>
-                  <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
-                  <figure> 
-                  <?php 
-                    $img_id = get_user_meta($gestionnaire->ID, 'photo_auteur', true);
-                    $img_url=wp_get_attachment_image_url( $img_id, 'thumbnail' );
-
-                    if($img_url) {
-                    ?>
-                      <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo get_user_meta( $gestionnaire->ID,'first_name', true). ' '.get_user_meta( $gestionnaire->ID,'last_name', true); ?>" />
-                      <?php	
-                      } else {
-                      echo "<span class=\"userLetters\">".substr($gestionnaire->last_name, 0, 1).substr($gestionnaire->first_name, 0, 1)."</span>";
-                    }
-                    ?>
-                  </figure> 
-                  <p>
-                    <?php echo $gestionnaire->last_name." ".$gestionnaire->first_name;?>
-                  </p>
-                </a>
-              </li>
-            <?php
-            }
-            echo "</ul>";
-            
+          if ($service->slug === $attributeValue) {	
+            $exist=true;
           }
         }
-      endwhile;
-    ?>
-  <?php
-    }else {
+        break;
+      case 'intranet_apiext':
+        if ( ! empty( $serviceCategory ) ) {
+          $get_term_value=array();
+          $toto="YES";
+          foreach ($serviceCategory as $apiext_category) {
+            // echo "Term ID : ".$apiext_category->term_id." / Parent term ID :".$apiext_category->parent."<br>";
+            array_push($get_term_value, $apiext_category->term_id, $apiext_category->parent);
+          }
+        }
+        // echo "CAT=".$categoryTermID;
+        if ($attributeValue!=="none") {
+          if ((in_array($attributeValue, $get_term_value)) && ($attributeValue!=="none")) {
+            $exist=true;
+          }
+        }        
+        break;
+    }
+    
+    endwhile;
+    return $exist;  
+}
+
+// Liste Contact par services
+function sedoo_wpthch_intranet_contact_list($termSlug) {
+  while( have_rows('intranet_service', 'option') ) : the_row();
+    // Load sub field value.
+    $serviceCategory = get_sub_field('intranet_service_categorie');
+    foreach ($serviceCategory as $service) {
+      // echo $service->slug.' ';
+      if ($service->slug === $termSlug) {	
+        $intranet_service_nom= get_sub_field('intranet_service_nom');
+        $intranet_service_mail= get_sub_field('intranet_service_mail');
+        $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
+
+        // echo "<h3>Adresse générique de contact</h3>";
         ?>
-        <p>Aucune adresse de contact actuellement</p>
+        <div class="h4">
+          <strong><?php echo $intranet_service_mail;?></strong> <small>(<?php echo $intranet_service_nom;?> )</small>
+          <!--<span class="material-icons">mail</span>-->
+        </div>
+        <ul id="gestionnaires">
         <?php
+        foreach ($intranet_service_gestionnaires as $gestionnaire) {	
+          ?>
+          <li>
+              <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
+              <figure> 
+              <?php 
+                $img_id = get_user_meta($gestionnaire->ID, 'photo_auteur', true);
+                $img_url=wp_get_attachment_image_url( $img_id, 'thumbnail' );
+
+                if($img_url) {
+                ?>
+                  <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo get_user_meta( $gestionnaire->ID,'first_name', true). ' '.get_user_meta( $gestionnaire->ID,'last_name', true); ?>" />
+                  <?php	
+                  } else {
+                  echo "<span class=\"userLetters\">".substr($gestionnaire->last_name, 0, 1).substr($gestionnaire->first_name, 0, 1)."</span>";
+                }
+                ?>
+              </figure> 
+              <p>
+                <?php echo $gestionnaire->last_name." ".$gestionnaire->first_name;?>
+              </p>
+            </a>
+          </li>
+        <?php
+        }
+        echo "</ul>";
+        
       }
-      ?>
-<?php
+    }
+  endwhile;
 }
 
 // Filetree 
@@ -133,7 +160,8 @@ function sedoo_wpthch_intranet_filetree_section($baseFolder) {
  * API EXT
  * 
  */
-// display apiext
+
+// display apiext  OBSOLETE A PRIORI
 function sedoo_wpthch_intranet_apiext_display($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ) {
   ?>
   <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
@@ -160,11 +188,11 @@ function sedoo_wpthch_intranet_apiext_display($intranet_apiext_nom, $intranet_ap
             
         </div><!-- .entry-content -->
     </div>
-</article><!-- #post-->
+  </article><!-- #post-->
 <?php
 }
 /*************** */
-// display apiext
+// display apiext 2  
 function sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ) {
   ?>
   <article>
@@ -190,43 +218,35 @@ function sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_a
 }
 // list apiext
 function sedoo_wpthch_intranet_apiext_list($categoryTermID) {
-  // echo 
 
-  if( have_rows('intranet_apiext', 'option') ) {
-    while( have_rows('intranet_apiext', 'option') ) : the_row();
-        // Load sub field value.
-        $intranet_apiext_nom= get_sub_field('intranet_apiext_application_nom');
-        $intranet_apiext_application_description= get_sub_field('intranet_apiext_application_description');
-        $intranet_apiext_url= get_sub_field('intranet_apiext_application_url');
-        $intranet_apiext_application_categorie= get_sub_field('intranet_apiext_application_categorie');
-        $intranet_apiext_application_icone= get_sub_field('intranet_apiext_application_icone');
-        $get_term_value=array();
-        if ( ! empty( $intranet_apiext_application_categorie ) ) {
-          foreach ($intranet_apiext_application_categorie as $apiext_category) {
-            // echo "Term ID : ".$apiext_category->term_id." / Parent term ID :".$apiext_category->parent."<br>";
-            array_push($get_term_value, $apiext_category->term_id, $apiext_category->parent);
-          }
-        }
-        // echo "CAT=".$categoryTermID;
-        if ($categoryTermID!=="none") {
-          if ((in_array($categoryTermID, $get_term_value)) && ($categoryTermID!=="none")) {
-            // display
-            sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
-          }
-        }
-         else {
-          sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
-        }
+  while( have_rows('intranet_apiext', 'option') ) : the_row();
+    // Load sub field value.
+    $intranet_apiext_nom= get_sub_field('intranet_apiext_application_nom');
+    $intranet_apiext_application_description= get_sub_field('intranet_apiext_application_description');
+    $intranet_apiext_url= get_sub_field('intranet_apiext_application_url');
+    $intranet_apiext_application_categorie= get_sub_field('intranet_apiext_application_categorie');
+    $intranet_apiext_application_icone= get_sub_field('intranet_apiext_application_icone');
+    $get_term_value=array();
+    if ( ! empty( $intranet_apiext_application_categorie ) ) {
+      foreach ($intranet_apiext_application_categorie as $apiext_category) {
+        // echo "Term ID : ".$apiext_category->term_id." / Parent term ID :".$apiext_category->parent."<br>";
+        array_push($get_term_value, $apiext_category->term_id, $apiext_category->parent);
+      }
+    }
+    // echo "CAT=".$categoryTermID;
+    if ($categoryTermID!=="none") {
+      if ((in_array($categoryTermID, $get_term_value)) && ($categoryTermID!=="none")) {
+        // display
+        sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
+      }
+    }
+    else {
+      sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
+    }
 
-    endwhile;
-    // var_dump($get_term_value);
+endwhile;
+// var_dump($get_term_value);
 
-  // No value.
-  }
-  else {
-      ?>
-      <p>Aucune application actuellement</p>
-      <?php
-  }
+  
 }
 ?>
