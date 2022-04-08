@@ -104,13 +104,13 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
       // echo $service->slug.' ';
       if ($service->slug === $termSlug) {	
         $intranet_service_nom= get_sub_field('intranet_service_nom');
-        $intranet_service_mail= get_sub_field('intranet_service_mail');
+        $intranet_service_mail= explode('@', get_sub_field('intranet_service_mail'));
         $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
 
         // echo "<h3>Adresse générique de contact</h3>";
         ?>
         <div class="h4">
-          <strong><?php echo $intranet_service_mail;?></strong> <small>(<?php echo $intranet_service_nom;?> )</small>
+          <strong><?php echo $intranet_service_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$intranet_service_mail[1];?></strong> <small>(<?php echo $intranet_service_nom;?> )</small>
           <!--<span class="material-icons">mail</span>-->
         </div>
         <ul id="gestionnaires">
