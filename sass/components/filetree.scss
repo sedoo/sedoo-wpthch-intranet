@@ -1,4 +1,5 @@
-.sedoo-intranet-page {
+.sedoo-intranet-page,
+[data-role="homepageIntranet"] {
     [id*="filetree"] {
         width: 100%;
         h2 {
