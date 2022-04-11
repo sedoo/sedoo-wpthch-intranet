@@ -3,13 +3,12 @@
 /**
  *  simple panel
  */
-function sedoo_wpthch_intranet_simple_panel($id,$ariaExpanded, $title, $icon, $description, $content) {
+function sedoo_wpthch_intranet_simple_panel($id, $term, $title, $icon, $description, $content) {
   ?>
-  <div class="h3">
+  <div class="h3 <?php echo $term;?>-bg">
       <span class="material-icons"><?php echo $icon;?></span>
       <?php echo $title;?>
-    <!-- </button> -->
-  </div class="h3">
+  </div>
   <?php
   if ($description) {
   ?>
@@ -145,6 +144,37 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
       }
     }
   endwhile;
+}
+
+// Liste de page / catégories
+function sedoo_wpthch_intranet_page_list($termSlug) {
+  $args = array(
+    'post_type' => array( 'page' ),
+    'orderby' => 'date',
+    'posts_per_page' => 5,
+    'tax_query' => array(
+      array(
+          'taxonomy' => 'category',
+          'field'    => 'slug',
+          'terms'    => $termSlug,
+      ),
+    ),
+  );
+  $the_query = new WP_Query( $args );
+  if ( $the_query->have_posts() ) {
+    echo '<ul>';
+    while ( $the_query->have_posts() ) {
+        $the_query->the_post();
+        echo '<li><a href="'.get_permalink().'">' . get_the_title() . '</a></li>';
+        // the_permalink();
+    }
+    echo '</ul>';
+  } else {
+      // no posts found
+  }
+  /* Restore original Post Data */
+  wp_reset_postdata();
+
 }
 
 // Filetree 
