@@ -41,7 +41,9 @@ $terms = get_terms( $args );
             <?php
             }
             ?>
-
+            <section id="content">
+                <?php the_content();?>
+            </section>
             <?php
             foreach ($terms as $term) {
                 // var_dump($term);
