@@ -1,0 +1,38 @@
+[data-role="homepageIntranet"] {
+    > main {
+        padding:0;
+        #catList {
+            position: sticky;
+            top: 80px;
+            z-index: 3000;
+        }
+    
+        > section {
+        min-height: 100vh;
+        padding:100px 2% 30px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        // align-items: ;
+
+            h2 {
+                height: 80px;
+                width: 100%;
+                padding:10px 20px;
+                font-size: 3rem;
+            }
+            > .row1 {
+                // display: flex;
+                // flex-wrap: wrap;
+                // justify-content: space-evenly;
+                > section {
+                    margin-bottom: 30px;
+
+                }
+            }
+            > .row2 {
+                
+            }
+        }
+    }
+}

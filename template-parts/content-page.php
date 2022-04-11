@@ -41,7 +41,7 @@ $themeSlugRewrite = "category";
           $content = ob_get_contents();
           ob_end_clean(); //Stops saving things and discards whatever was saved
 
-          sedoo_wpthch_intranet_simple_panel('Contacts', 'false', 'Contacts', 'contacts',  $description, $content);
+          sedoo_wpthch_intranet_simple_panel('Contacts', $themes[0]->slug, 'Contacts', 'contacts',  $description, $content);
           ?>
           </section>
       <?php
