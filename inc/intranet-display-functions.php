@@ -151,7 +151,7 @@ function sedoo_wpthch_intranet_page_list($termSlug) {
   $args = array(
     'post_type' => array( 'page' ),
     'orderby' => 'date',
-    'posts_per_page' => 5,
+    'posts_per_page' => 10,
     'tax_query' => array(
       array(
           'taxonomy' => 'category',
