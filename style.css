@@ -5,7 +5,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.17.2
+Version:      0.18.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -88,9 +88,10 @@ div#catList div.tag a:hover { color: #333; }
 
 [data-role="homepageIntranet"] > main { padding: 0; }
 [data-role="homepageIntranet"] > main #catList { position: -webkit-sticky; position: sticky; top: 80px; z-index: 3000; }
-[data-role="homepageIntranet"] > main > section { min-height: 100vh; padding: 100px 2% 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
-[data-role="homepageIntranet"] > main > section h2 { height: 80px; width: 100%; padding: 10px 20px; font-size: 3rem; }
-[data-role="homepageIntranet"] > main > section > .row1 > section { margin-bottom: 30px; }
+[data-role="homepageIntranet"] > main > section { min-height: 80vh; margin: 20px; padding: 60px 2% 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; border: 1px solid #CCC; border-radius: 20px; background: #F0F0F0; }
+[data-role="homepageIntranet"] > main > section h2 { height: 80px; width: 100%; padding: 10px 20px; font-size: 3rem; margin-bottom: 20px; }
+[data-role="homepageIntranet"] > main > section > .row1 > section { border: 1px solid #CCC; border-radius: 20px; padding: 20px; margin-bottom: 30px; }
+[data-role="homepageIntranet"] > main > section > .row1 > section .h3 { font-size: 1.7rem; }
 
 .sedoo-intranet-page { margin-top: 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
 .sedoo-intranet-page [role="listNews"].post-wrapper .post, .sedoo-intranet-page [class*="apiext"].post-wrapper .post { -webkit-box-flex: 0; -ms-flex: 0 1 250px; flex: 0 1 250px; }
@@ -131,19 +132,5 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 
 .material-icons { color: rgba(0, 0, 0, 0.54); }
 .material-icons .tooltiptext { font-family: "Open Sans",sans-serif; font-size: .8rem; }
-
-.finances-bg { background: #90BCD1; color: #FFFFFF; }
-
-.rh-bg { background: #B6CC49; color: #FFFFFF; }
-
-.logistique-bg { background: #DD9946; color: #FFFFFF; }
-
-.communication-bg { background: #7DBF3B; color: #FFFFFF; }
-
-.service-bg { background: #E57E10; color: #FFFFFF; }
-
-.informatique-bg { background: #2D4F59; color: #FFFFFF; }
-
-.compte-rendu-bg { background: #118DA0; color: #FFFFFF; }
 
 /*# sourceMappingURL=style.css.map */
