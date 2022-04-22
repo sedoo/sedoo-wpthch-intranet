@@ -82,7 +82,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 
 				if ($term) {				
 				/* sedoo_wpth_labs_get_queried_content_arguments(post_types, taxonomy, slug, display, paged) */
-				sedoo_wpth_labs_get_queried_content_arguments(array('any'), $term->taxonomy, $term->slug, $tax_layout, $paged);
+				sedoo_wpth_labs_get_queried_content_arguments(array('page'), $term->taxonomy, $term->slug, $tax_layout, $paged);
 				}
 				else {
 					// Case for archive by month (back to default wordpress config)
