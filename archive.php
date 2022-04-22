@@ -67,39 +67,38 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 			?>
 			<div class="sedoo-intranet-page">
 				<section data-role="sedoo-intranet-page-content">
-					
-					
-				<?php
-				if (get_the_archive_description()) {
-					the_archive_description( '<div class="archive-description">', '</div>' );
-				}
-				?>
-				<?php
-				/**
-				 * WP_Query pour lister tous les types de posts
-				 */
-				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-				if ($term) {				
-				/* sedoo_wpth_labs_get_queried_content_arguments(post_types, taxonomy, slug, display, paged) */
-				sedoo_wpth_labs_get_queried_content_arguments(array('page'), $term->taxonomy, $term->slug, $tax_layout, $paged);
-				}
-				else {
-					// Case for archive by month (back to default wordpress config)
-					if ( have_posts() ) {
+								
+					<?php
+					if (get_the_archive_description()) {
+						the_archive_description( '<div class="archive-description">', '</div>' );
+					}
 					?>
-					<section role="listNews" class="post-wrapper noimage">
 					<?php
-						while ( have_posts() ) : the_post();
-							get_template_part( 'template-parts/content', 'grid-noimage' );
+					/**
+					 * WP_Query pour lister tous les types de posts
+					 */
+					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+					if ($term) {				
+					/* sedoo_wpth_labs_get_queried_content_arguments(post_types, taxonomy, slug, display, paged) */
+					sedoo_wpth_labs_get_queried_content_arguments(array('page'), $term->taxonomy, $term->slug, $tax_layout, $paged);
+					}
+					else {
+						// Case for archive by month (back to default wordpress config)
+						if ( have_posts() ) {
 						?>
+						<section role="listNews" class="post-wrapper noimage">
 						<?php
-						endwhile; // End of the loop.
-						?>
-					<?php
-					} 
-				}
-				?>
+							while ( have_posts() ) : the_post();
+								get_template_part( 'template-parts/content', 'grid-noimage' );
+							?>
+							<?php
+							endwhile; // End of the loop.
+							?>
+						<?php
+						} 
+					}
+					?>
 				</section> 
 				<aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
 					<?php
@@ -162,12 +161,12 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					}
 					?>
 				</aside>
-				<div>
+				<div id="taxoNews">
 				<?php
 				$args = array(
 					'post_type'             => 'post',
 					'post_status'           => array( 'publish' ),
-					'posts_per_page'        => '3',           
+					'posts_per_page'        => '4',     
 					// 'post__not_in'          => array(get_the_ID()), 
 					'orderby'               => 'date',
 					'order'                 => 'DESC',
@@ -183,7 +182,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 		
 				if ($postsList){       
 				?>
-				<h2><?php echo __('News', 'sedoo-wpth-labs') ?></h2>
+				<h2>Actus de la catégorie <?php echo $term->name;?></h2>
 				<section role="listNews" class="post-wrapper">
 					
 					<?php
