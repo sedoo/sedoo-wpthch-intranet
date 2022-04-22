@@ -152,7 +152,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						$content = ob_get_contents();
 						ob_end_clean(); //Stops saving things and discards whatever was saved
 						
-						$title="Tous les fichiers de la catégorie ". $term->name;
+						$title="Fichiers de la catégorie ". $term->name;
 						$description="<em>Ne concerne que les documents internes hors officiels des tutelles</em>";
 						sedoo_wpthch_intranet_simple_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
 						?>
