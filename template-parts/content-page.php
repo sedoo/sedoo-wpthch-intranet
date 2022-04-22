@@ -131,30 +131,7 @@ $themeSlugRewrite = "category";
       ?>
         
     </aside>
-    <?php
-    if (get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id)) {
-      $baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $themes[0]->term_id);
-      if ( !empty($baseFolder)) {
-      ?>
-      <section id="filetree">
-        <?php
-        /////////////   Applications externes    ////////////
-        ob_start(); // création d'un buffer
-        sedoo_wpthch_intranet_filetree_section($baseFolder);
-        $content = ob_get_contents();
-        ob_end_clean(); //Stops saving things and discards whatever was saved
-        
-        $title="Tous les fichiers de la catégorie ". $themes[0]->name;
-        $description="<em>Ne concerne que les documents internes hors officiels des tutelles</em>";
-        sedoo_wpthch_intranet_simple_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
-        ?>
-      </section>
-      <?php
-      }
-      ?>
-    <?php
-    }
-    ?>
+    
   <?php
   }
   ?>

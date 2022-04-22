@@ -17,10 +17,14 @@
             padding: 0 5px;
         }
         campaign-product {
+            .theme--light.v-application {
+                background-color: transparent;
+            }
             .container,
             .container>div,
-            .container>div>div {
-                padding-top:0;
+            .container>div>div,
+            .col {
+                padding:0;
 
             }
 
