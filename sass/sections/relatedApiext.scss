@@ -1,8 +1,11 @@
 section#relatedApiext,
 section[id^="relatedApiext"] {
     article {
-        border-bottom: 1px solid #CCC;
         padding: 10px 0;
+        
+        &:not(:last-child){
+            border-bottom: 1px solid #CCC;
+        }
 
         ul {
             margin:0;

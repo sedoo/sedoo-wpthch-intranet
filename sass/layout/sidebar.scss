@@ -1,31 +1,27 @@
 .sedoo-intranet-page {
 
     &> section[data-role="sedoo-intranet-page-content"] {
-        flex:1 1 500px;
+        flex:1 1 400px;
         margin-right: 40px;
     }
     &> aside.contextual-sidebar {
-        flex:1 1 200px;
+        flex:1 1 300px;
         
         padding: 0;
 
         > section {
             background-color: #F0F0F0;
+            &:nth-child(2n){
+                background-color: #E0E0E0;
+            } 
             > div {
                 padding:20px;
             }
+            div.description {
+                padding:10px;
+                font-size: .75rem;
+            }
         }
-        // > section:not(:last-child) {
-
-        //     &::after {
-        //         content: "";
-        //         display: block;
-        //         height: 3px;
-        //         width: 25%;
-        //         background: var(--theme-color);
-        //         margin: 30px 0;
-        //     }
-        // }
 
         .h3 {
             font-size: 1.5rem;
@@ -42,13 +38,3 @@
         
     }
 }
-// .userpage-list.users-cards > article figure {
-//     flex: 0 0 75px;
-//     border-radius: 10px;
-//     height: 75px;
-//     overflow: hidden;
-//     margin-right: 20px;
-//     background: #CCC;
-//     line-height: 75px;
-//     text-align: center;
-//   }
