@@ -10,8 +10,10 @@ nav[id="subterms"] {
                 a {
                     color:var(--hover-textcolor);
                     padding:5px 10px;
+                    transition: all .5s ease-in-out;
                     &:hover {
-                        color:#333;
+                        background-color: var(--hover-textcolor);;
+                        color:var(--theme-color);
                     }
                 }
                 
@@ -27,7 +29,8 @@ div#catList div.tag {
         color:var(--hover-textcolor);
         padding:5px 10px;
         &:hover {
-            color:#333;
+            background: var(--hover-textcolor);
+            color:var(--theme-color);
         }
     }
 }

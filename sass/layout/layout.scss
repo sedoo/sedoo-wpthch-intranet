@@ -19,55 +19,45 @@
 
         &.content-list {
             article.post {
-                // box-shadow: 0 3px 5px rgba(0,0,0,0.3);
-                // margin-bottom:20px;
-                padding: 10px 10px 20px;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: flex-start;
-
-                .entry-header {
-                    width: 120px;
-                    ul {
-                        position: static;
-                        list-style: none;
-                        margin-left:0;
-
-                        .tag a {
-                            padding-top:0;
-                        }
-                    }
-                    p {
-                        position: static;
-                        background-color: transparent;
-                        color:inherit;
-                        margin:0;
-                        padding: 0 10px;
-                    }
-                }
+                padding: 10px 10px 20px 0;
 
                 .group-content {
-                    width: calc(100% - 120px);
+                    width: 100%;
                     padding-left: 20px ;
                     border-left: 2px solid var(--theme-color);
                     .entry-content {
+                        display: flex;
+                        justify-content: space-between;
+                        flex-wrap: wrap;
+
                         h2 {
                             margin-top: 0px;
                             font-size: 1rem;
                         }
-                        .date {
-                            font-weight: normal;
+                        ul {
+                            position: static;
+                            list-style: none;
+                            margin-left:0;
+    
+                            .tag {
+                                display: inline-block;
+                                
+                                a {
+                                    padding-top:0;
+                                    font-size: .70rem;
+
+                                    &:hover {
+                                        background-color: var(--theme-color);
+                                        color:var(--hover-textcolor);
+                                    }
+                                }
+                            }
+                        }
+                        p {
+                            width: 100%;
                         }
                     }
                 }
-                
-                // &::after {
-                //     content: "";
-                //     height: 1px;
-                //     margin-left: 120px;
-                //     width: 80%;
-                //     background: #CCC;
-                // }
             }
         }
     }
