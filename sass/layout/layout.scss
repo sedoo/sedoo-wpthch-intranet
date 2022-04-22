@@ -61,5 +61,22 @@
             }
         }
     }
+
+    #taxoNews [role="listNews"], 
+    [role="listNews"].sedoo_blocks_listearticle {
+        justify-content:flex-start;
+
+        &.post-wrapper .post {
+            flex: 0 1 320px;
+        }
+    }
+    #taxoNews {
+        margin-top:30px;
+        border-top:2px solid var(--theme-color);
+        h2 {
+            margin-bottom:20px;
+        }
+    }
+
 }
 

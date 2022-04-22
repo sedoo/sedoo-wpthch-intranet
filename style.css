@@ -106,6 +106,10 @@ div#catList div.tag a:hover { background: var(--hover-textcolor); color: var(--t
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul .tag a, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul .tag a { padding-top: 0; font-size: .70rem; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul .tag a:hover, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul .tag a:hover { background-color: var(--theme-color); color: var(--hover-textcolor); }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content p, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content p { width: 100%; }
+.sedoo-intranet-page #taxoNews [role="listNews"], .sedoo-intranet-page [role="listNews"].sedoo_blocks_listearticle { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
+.sedoo-intranet-page #taxoNews [role="listNews"].post-wrapper .post, .sedoo-intranet-page [role="listNews"].sedoo_blocks_listearticle.post-wrapper .post { -webkit-box-flex: 0; -ms-flex: 0 1 320px; flex: 0 1 320px; }
+.sedoo-intranet-page #taxoNews { margin-top: 30px; border-top: 2px solid var(--theme-color); }
+.sedoo-intranet-page #taxoNews h2 { margin-bottom: 20px; }
 
 section#relatedFiles > div.description { padding: 0; }
 section#relatedFiles .legend { padding: 10px; background-color: #DDD; }
