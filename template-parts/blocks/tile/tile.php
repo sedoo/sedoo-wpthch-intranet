@@ -34,35 +34,13 @@ if ( ! empty( $block['textColor'] ) ) {
 }
 
 // Load values and assign defaults.
-$title = get_field('intranet_tile_block_title');
-$description = get_field('intranet_tile_block_description');
-$external_link = get_field('intranet_tile_block_external_link');
-$internal_link = get_field('intranet_tile_block_internal_link');
-$bgTileColor = get_field('intranet_tile_block_bg_color');
-$textTileColor = get_field('intranet_tile_block_text_color');
+$link = get_field('intranet_tile_block_link');
 $tileIcone = get_field('intranet_tile_block_icone');
-$textBouton = get_field('intranet_tile_block_anchor_value');
-
-if (get_field('intranet_tile_block_external_link')) {
-    $link = $external_link;
-} else {
-    $link = $internal_link; 
-} 
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> intranet-tile">
-    <!-- <a href="<?php echo $link ?>"> -->
+    <a href="<?php echo $link['url'] ?>" <?php if ($link['target']== "_blank"){echo "target=\"_blank\"";}?>>
         <span class="material-icons"><?php echo $tileIcone; ?></span>    
-
-        <h3><?php echo $title; ?>
-            <span class="tooltip">
-                <span class="material-icons"> info
-                    <span class="tooltiptext"><?php echo $description; ?></span>
-                </span>
-            </span>
-        </h3>
-    <!-- </a> -->
-    <!-- <a href="<?php echo $link ?>" class="tileBtn"> <?php echo $textBouton ?> </a> -->
- 
-
+        <h3><?php echo $link['title']; ?></h3>
+    </a>
 </section>
