@@ -82,7 +82,14 @@ function sedoo_wpthch_intranet_block_types() {
             'description'       => __('Tuile interactive permmettant une intégration harmonieuse des liens externes ou internes sur la page de l\'intranet.'),
             'render_template'   => 'template-parts/blocks/tile/tile.php',
             'category'          => 'widgets',
-            'icon'              => 'dashicons-grid-view',
+            'icon'              => 'grid-view',
+			'supports'			=>array(
+				'color' => [
+					'background' => true,
+					'gradients'  => false,
+					'text'       => true,
+				],
+			),
             'keywords'          => array( 'tile', 'lien', 'bouton', 'block', 'intranet' ),
 		));
     }
