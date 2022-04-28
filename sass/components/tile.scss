@@ -1,0 +1,41 @@
+.sedoo-intranet-page,
+[data-role="homepageIntranet"] {
+    [id*="tile"] {
+        width:300px;
+        height:100px;
+        display:inline-block;
+        vertical-align:top;
+        padding:20px;
+        margin:20px;
+        border-radius:10px;
+
+        > .material-icons{
+            font-size: 2.25rem;
+            width: 50px;
+            height: 50px;
+            background: white;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 100%;
+            float: right;
+        }
+
+        > h3{
+            // font-size:25px;
+            margin-top:10px;
+        }
+        > p{ 
+            // font-size:18px;
+            // height:76px;
+        }
+        > .tileBtn{ 
+            border:2px solid;
+            padding:10px 15px;
+            border-radius:5px;
+            transition:ease all 0,3s;
+        }
+        > .tileBtn:hover{
+            border-color:2px solid;
+        }
+    }
+}
