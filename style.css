@@ -5,7 +5,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.20.1
+Version:      0.21.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -139,6 +139,14 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .container, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div > div, .sedoo-intranet-page [id*="filetree"] campaign-product .col, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container > div, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container > div > div, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .col { padding: 0; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .v-application--wrap, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .v-application--wrap { height: auto; min-height: 100px; }
 
+[id*=login-form] > p { font-size: .875rem; background-color: var(--second-theme-color); padding: 10px; }
+[id*=login-form] div form { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
+[id*=login-form] div form > * { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+[id*=login-form] div form > * > * { width: 50%; }
+[id*=login-form] div form .login-remember { display: none; }
+[id*=login-form] div form .login-submit { -ms-flex-item-align: start; align-self: flex-start; }
+[id*=login-form] a { display: block; margin: 0 auto; width: 50%; padding: 5px 20px; border: 1px solid var(--theme-color); text-align: center; }
+
 .material-icons { color: rgba(0, 0, 0, 0.54); }
 .material-icons .tooltiptext { font-family: "Open Sans",sans-serif; font-size: .8rem; }
 
@@ -150,5 +158,3 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page [id*="tile"] h3, [data-role="homepageIntranet"] [id*="tile"] h3 { margin-top: 10px; }
 .sedoo-intranet-page .group-tiles, [data-role="homepageIntranet"] .group-tiles { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
 .sedoo-intranet-page .group-tiles [id*="tile"], [data-role="homepageIntranet"] .group-tiles [id*="tile"] { -webkit-box-flex: 0; -ms-flex: 0 1 300px; flex: 0 1 300px; }
-
-/*# sourceMappingURL=style.css.map */

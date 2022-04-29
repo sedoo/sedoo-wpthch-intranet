@@ -276,7 +276,24 @@ function sedoo_wpthch_intranet_apiext_list($categoryTermID) {
 
 endwhile;
 // var_dump($get_term_value);
-
-  
 }
+
+/************
+ *  login Form
+ */
+function sedoo_wpthch_intranet_login_form($id, $className) {
+    ?>
+    <section id="<?php echo $id; ?>" class="<?php echo esc_attr($className); ?>">
+        <h2><span class="material-icons">login</span> <span>Authentification</span></h2>
+        <p>Pour accéder à plus de contenus, veuillez vous authentifier avec vos identifiants OMP</p>
+        <div>
+        <?php
+            wp_login_form();
+        ?>
+            <a href="https://socle.obs-mip.fr" target="_blank"> Mot de passe oublié </a>
+        </div>
+    </section>
+  <?php 
+}
+
 ?>

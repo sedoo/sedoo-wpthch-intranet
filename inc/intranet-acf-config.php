@@ -73,7 +73,7 @@ function sedoo_wpthch_intranet_block_types() {
             'render_template'   => 'template-parts/blocks/filetree/filetree.php',
             'category'          => 'widgets',
             'icon'              => 'networking',
-            'keywords'          => array( 'file', 'quote', 'intranet' ),
+            'keywords'          => array( 'file', 'intranet' ),
 		));
 
 		acf_register_block_type(array(
@@ -90,7 +90,17 @@ function sedoo_wpthch_intranet_block_types() {
 					'text'       => true,
 				],
 			),
-            'keywords'          => array( 'tile', 'lien', 'bouton', 'block', 'intranet' ),
+            'keywords'          => array( 'tile', 'lien', 'bouton', 'intranet' ),
+		));
+
+		acf_register_block_type(array(
+            'name'              => 'intranet_login_form',
+            'title'             => __('Formulaire de connexion'),
+            'description'       => __('bloc d\'authentification'),
+            'render_template'   => 'template-parts/blocks/login-form/login-form.php',
+            'category'          => 'widgets',
+            'icon'              => 'unlock',
+            'keywords'          => array( 'login', 'intranet' ),
 		));
     }
 }
