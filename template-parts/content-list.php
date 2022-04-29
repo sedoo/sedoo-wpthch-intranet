@@ -10,6 +10,7 @@
 $categories = get_the_category();
 ?>
 
+
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
     <div class="group-content">
         <div class="entry-content">

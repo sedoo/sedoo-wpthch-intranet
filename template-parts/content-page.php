@@ -6,6 +6,16 @@ $themes = get_the_terms( $post->ID, 'category');
 $themeSlugRewrite = "category";
 // var_dump($themes);
 ?>
+<?php 
+ if ( get_post_status ( $ID ) == 'private' ) {
+  if ( is_user_logged_in() ) {
+    echo 'Welcome, registered user!';
+  } else {
+    wp_login_form();
+  }
+  
+}
+ ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 
   <h1> <?php echo get_the_title(); ?> </h1>
