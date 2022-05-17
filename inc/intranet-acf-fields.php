@@ -944,6 +944,242 @@ acf_add_local_field_group(array(
 	'show_in_rest' => 0,
 ));
 
+acf_add_local_field_group(array(
+	'key' => 'group_628206db870c0',
+	'title' => 'super tile field group',
+	'fields' => array(
+		array(
+			'key' => 'field_6282396cf76e8',
+			'label' => 'Type de block',
+			'name' => 'intranet_super_tile_block_type_choice',
+			'type' => 'radio',
+			'instructions' => '<ol>Quel type de bloc/tuile souhaitez-vous créer ? (4 choix possibles)
+			<li> Block Simple ( titre et lien).</li>
+			<li>Block Application - Raccourci vers une page ou une application.</li>
+			<li> Block Contact - ajout des informations de contact ? </li>
+			<li>Block formulaire - raccourci vers un formulaire	?</li>
+			</ol>',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'simple' => 'simple',
+				'contact' => 'contact',
+				'formulaire' => 'formulaire',
+				'application' => 'application',
+			),
+			'allow_null' => 0,
+			'other_choice' => 0,
+			'default_value' => '',
+			'layout' => 'horizontal',
+			'return_format' => 'value',
+			'save_other_choice' => 0,
+		),
+		array(
+			'key' => 'field_628206f0ac20e',
+			'label' => 'Titre',
+			'name' => 'intranet_super_tile_block_title',
+			'type' => 'text',
+			'instructions' => 'Saisissez le titre du block',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => 'Saisissez le titre ici',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_62820730ac20f',
+			'label' => 'Lien / Url',
+			'name' => 'intranet_super_tile_block_link',
+			'type' => 'link',
+			'instructions' => 'Saisissez l\'url vers laquelle vous souhaitez rediriger l\'utilisateur.',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_6282396cf76e8',
+						'operator' => '!=',
+						'value' => 'contact',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'return_format' => 'array',
+		),
+		array(
+			'key' => 'field_628207bbac210',
+			'label' => 'Icone',
+			'name' => 'intranet_super_tile_block_icone',
+			'type' => 'text',
+			'instructions' => 'Saisissez le nom de l’icône que vous souhaitez inclure dans le block. Pour trouver l\'icône vous devez vous rediriger vers https://fonts.google.com/icons. Copier/Coller le nom. Exemple: double_arrow',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_6282396cf76e8',
+						'operator' => '!=',
+						'value' => 'contact',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_62823d3e5f1d7',
+			'label' => 'Contact',
+			'name' => 'intranet_super_tile_block_user',
+			'type' => 'user',
+			'instructions' => 'Sélectionner le contact',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_6282396cf76e8',
+						'operator' => '==',
+						'value' => 'contact',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'role' => '',
+			'allow_null' => 0,
+			'multiple' => 0,
+			'return_format' => 'object',
+		),
+		array(
+			'key' => 'field_62823e6946e78',
+			'label' => 'Numéro de téléphone',
+			'name' => 'intranet_super_tile_block_user_phone',
+			'type' => 'text',
+			'instructions' => 'Saisissez le numéro de téléphone de votre utilisateur',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_6282396cf76e8',
+						'operator' => '==',
+						'value' => 'contact',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '05 61 33 26 92',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_62823ede46e79',
+			'label' => 'Tag',
+			'name' => 'intranet_super_tile_block_tag',
+			'type' => 'text',
+			'instructions' => 'Saisissez le tag de la tuile ( précisez s\'il s\'agit d\'un raccourci vers une application, vers un formulaire ou le nom du service auquel appartient le contact)',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => 'Service RH',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
+		),
+		array(
+			'key' => 'field_62823face690f',
+			'label' => 'Type de fichier',
+			'name' => 'intranet_super_tile_block_type_form',
+			'type' => 'select',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_6282396cf76e8',
+						'operator' => '==',
+						'value' => 'formulaire',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'DOC' => '.DOC ou .DOCX',
+				'HTML' => '.HTML ou .HTM',
+				'ODT' => '.ODT',
+				'PDF' => '.PDF',
+				'XLS' => '.XLS ou .XLSX',
+				'ODS' => '.ODS',
+				'PPT' => 'PPT ou .PPTX',
+				'TXT' => '.TXT',
+			),
+			'default_value' => false,
+			'allow_null' => 0,
+			'multiple' => 0,
+			'ui' => 0,
+			'return_format' => 'value',
+			'ajax' => 0,
+			'placeholder' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'block',
+				'operator' => '==',
+				'value' => 'acf/intranet-tile-super-block',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
 endif;		
 
 ?>

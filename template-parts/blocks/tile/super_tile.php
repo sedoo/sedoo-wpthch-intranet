@@ -10,7 +10,7 @@
  */
 
 // Create id attribute allowing for custom "anchor" value.
-$id = 'tile-' . $block['id'];
+$id = 'super_tile-' . $block['id'];
 if( !empty($block['anchor']) ) {
     $id = $block['anchor'];
 }
@@ -34,13 +34,45 @@ if ( ! empty( $block['textColor'] ) ) {
 }
 
 // Load values and assign defaults.
-$link = get_field('intranet_super-tile_block_link');
-$supertileIcone = get_field('intranet_super-tile_block_icone');
+$typeDeBlock = get_field('intranet_super_tile_block_type_choice');
+$titreBlock = get_field('intranet_super_tile_block_title');
+$superTileIcone = get_field('intranet_super_tile_block_icone');
+$link = get_field('intranet_super_tile_block_link');
+$contact = get_field('intranet_super_tile_block_user');
+$contactMail = get_field('mail', $contact );
+$phoneNumber = get_field('intranet_super_tile_block_user_phone');
+$tag = get_field('intranet_super_tile_block_tag');
+$typeFile = get_field('intranet_super_tile_block_type_form');
 
 ?>
-<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> intranet-super-tile">
-    <a href="<?php echo $link['url'] ?>" <?php if ($link['target']== "_blank"){echo "target=\"_blank\"";}?>>
-        <span class="material-icons"><?php echo $supertileIcone; ?></span>    
-        <h3><?php echo $link['title']; ?></h3>
-    </a>
+<section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> flip-card intranet-super-tile-type-<?php echo $typeDeBlock; ?>">
+
+    <?php get_template_part( 'template-parts/blocks/tile/tile', $typeDeBlock ); ?>
+
 </section>
+
+
+
+<style type="text/css">
+
+#<?php echo $id; ?> h3{
+    color:;
+}
+#<?php echo $id; ?> h4{
+    color:;
+}
+#<?php echo $id; ?> .tag{
+  
+}
+#<?php echo $id; ?> .tag::before{
+  
+}
+#<?php echo $id; ?> .tag::after{
+}
+#<?php echo $id; ?> .flip-card-front {
+
+}
+#<?php echo $id; ?>  .flip-card-front  .material-icons {
+
+}
+</style>
