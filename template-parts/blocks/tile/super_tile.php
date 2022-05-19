@@ -51,28 +51,3 @@ $typeFile = get_field('intranet_super_tile_block_type_form');
 
 </section>
 
-
-
-<style type="text/css">
-
-#<?php echo $id; ?> h3{
-    color:;
-}
-#<?php echo $id; ?> h4{
-    color:;
-}
-#<?php echo $id; ?> .tag{
-  
-}
-#<?php echo $id; ?> .tag::before{
-  
-}
-#<?php echo $id; ?> .tag::after{
-}
-#<?php echo $id; ?> .flip-card-front {
-
-}
-#<?php echo $id; ?>  .flip-card-front  .material-icons {
-
-}
-</style>

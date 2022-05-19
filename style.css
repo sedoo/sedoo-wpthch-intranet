@@ -161,33 +161,41 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 
 
 
-/* Générique */
-
-/* Root */
-:root{
+    /* Générique */
+    /* ========================= */
+    /* Root */
+    :root{
     /* FORMULAIRE */
-    --formulaireBlock-Color:rgb(184, 40, 40);
-    --contactBlock-Color:rgb(13, 59, 150);
-  }
-/* Hn */
-[class*=intranet-super-tile-type] h3{
-    font-size:18px;
+    --formulaireBlock-Color:#1471F5;
+    --applicationBlock-Color:#1165DB;
+    --contactBlock-Color:#0E54B5;
+    --borderRadiusTuile:10px;
+    }
+    /* TUILES */
+    [class*=intranet-super-tile-type] {
+
+    }
+    /* Hn */
+    [class*=intranet-super-tile-type] h3{
+    font-size:20px;
     margin-top:10px; 
-}
-[class*=intranet-super-tile-type]  h4{
+    color:white;
+    }
+    [class*=intranet-super-tile-type]  h4{
     font-size:15px;
-    margin-top:10px; 
-}
-/* tag  */
-[class*=intranet-super-tile-type] .tag{
+    margin-top:10px;
+    color:white;
+    }
+    /* tag  */
+    [class*=intranet-super-tile-type] .tag{
     display:inline-block;
     position:absolute;
-    bottom:-11px; 
+    bottom:-12px; 
     left: 50%;
     transform: translate(-50%, -50%);
     background-color:white;
-}
-[class*=intranet-super-tile-type] .tag::before{
+    }
+    [class*=intranet-super-tile-type] .tag::before{
     content:'';
     display:inline-block;
     position: absolute;
@@ -198,8 +206,8 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
     border-left: 22px solid transparent;
     background-color:transparent;
     border-bottom: 22px solid white;
-}
-[class*=intranet-super-tile-type] .tag::after{
+    }
+    [class*=intranet-super-tile-type] .tag::after{
     content:'';
     display:inline-block;       
     position: absolute;
@@ -210,9 +218,17 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
     border-right: 22px solid transparent;
     background-color:transparent;
     border-bottom: 22px solid white;
-}
-/* icone  */
-.material-icons {
+    }
+    /* LIEN */
+    [class*=intranet-super-tile-type] a{
+    text-decoration:none;
+    }
+    [class*=intranet-super-tile-type] a:hover {
+    background:transparent;
+    color:white!important;
+    }
+    /* icone  */
+    [class*=intranet-super-tile-type] .material-icons {
     font-size:37px;
     width: 50px;
     height: 50px;
@@ -223,23 +239,32 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
     display:inline-block;
     /* Color set up */
     color:var(--contactBlock-Color); 
+    transform:scale(0.8);
+    transform-origin: center;
+    transition:ease all 0.3s;
     }
-/* Tile Contact */
-.intranet-super-tile-type-contact {
+    [class*=intranet-super-tile-type]:hover .material-icons {
+    transform:scale(1);
+    transition:ease all 0.3s;
+    }
+    /* Tile Contact */
+    .intranet-super-tile-type-contact {
     width:200px;
     height:150px;
     display:inline-block;
     vertical-align:top;
     margin:10px;
     box-sizing:border-box;
-   position:relative;
+    position:relative;
     text-align:center;
-}
-.intranet-super-tile-type-contact .tag{
+    }
+    .intranet-super-tile-type-contact h3{
+    margin-top:0;
+    }
+    .intranet-super-tile-type-contact .tag{
     color:var( --contactBlock-Color);
-}
-
-  /* Flip card */
+    }
+    /* Flip card */
     .flip-card {
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
     }
@@ -267,8 +292,9 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
     backface-visibility: hidden;
     padding:10px;
     box-sizing:border-box;
-    border-radius:10px;
+    border-radius:var(--borderRadiusTuile);
     box-sizing:border-box;
+    border: 2px solid white;
     }
     .flip-card-back {
     text-align:center;
@@ -286,115 +312,100 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
     background-color:transparent!important;
     }
     .flip-card-back .material-icons {
-    font-size:22px;
+    font-size:18px;
+    width:30px;
+    height: 30px;
+    line-height: 30px;
     display:inline-block;
     vertical-align:middle;
+    background-color:var(--contactBlock-Color);
+    color:white;
     }
     .flip-card-front  .material-icons {
-    font-size:37px;
-    width: 50px;
-    height: 50px;
-    background: white;
-    line-height: 50px;
-    text-align: center;
-    border-radius: 100%;
-    display:inline-block;
     /* Color set up */
     color:var(--contactBlock-Color); 
     }
-
-
     /* Formulaire */
-
     .intranet-super-tile-type-formulaire {
-        width:200px;
-        height:200px;
-        display:inline-block;
-        vertical-align:top;
-        padding:20px;
-        margin:10px;
-        box-sizing:border-box;
-        border-radius:10px;
-        text-align:center;
-        position:relative;
-        /* color set up */
-        background:var(--formulaireBlock-Color);
-        color:white;
+    width:200px;
+    height:200px;
+    display:inline-block;
+    vertical-align:top;
+    padding:20px;
+    margin:10px;
+    box-sizing:border-box;
+    border-radius:var(--borderRadiusTuile);
+    text-align:center;
+    position:relative;
+    /* color set up */
+    background:var(--formulaireBlock-Color);
+    color:white;
+    border: 2px solid white;
     }
     .intranet-super-tile-type-formulaire .material-icons{
-        font-size: 37px;
-        width: 50px;
-        height: 50px;
-        background: white;
-        line-height: 50px;
-        text-align: center;
-        border-radius: 100%;
-        display:inline-block;
-        color:var(--formulaireBlock-Color);
+    color:var(--formulaireBlock-Color);
     }
     .intranet-super-tile-type-formulaire  h3{
-        font-size:20px;
-        margin-top:10px; 
+    font-size:20px;
+    margin-top:10px; 
     }
     .intranet-super-tile-type-formulaire .tag{
-     
-        display:inline-block;
-        position:absolute;
-        bottom:-12px; 
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color:var(--formulaireBlock-Color);
-        background-color:white;
-
-    
-    }
-    .intranet-super-tile-type-formulaire .tag::after{
-        content:'';
-        display:inline-block;
-        position: absolute;
-        right:-22px;
-        bottom:0;
-        width: 0;
-        height: 0;
-        border-right: 22px solid transparent;
-        background-color:transparent;
-    }
-    .intranet-super-tile-type-formulaire .tag::before{
-        content:'';
-        display:inline-block;
-        position: absolute;
-        left:-22px;
-        bottom:0;
-        width: 0;
-        height: 0;
-        border-left: 22px solid transparent;
-        background-color:transparent;
+    color:var(--formulaireBlock-Color);
     }
     .intranet-super-tile-type-formulaire .typeFile{
-        position: absolute;
-        font-size: 11px;
-        width: 30px;
-        height: 30px;
-        border-radius: 100%;
-        top: 10px;
-        right: 10px;
-        color: rgba(0,0,0,0);
-        transition: ease all 0.3s;
-        background-color: rgba(255,255,255,0);
-        font-weight: bold;
-        line-height: 30px;
-        transform-origin: center;
-        transform: scale(0);
-        color:var(--formulaireBlock-Color);
+    position: absolute;
+    font-size: 11px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    top: 10px;
+    right: 10px;
+    color: rgba(0,0,0,0);
+    transition: ease all 0.3s;
+    background-color: rgba(255,255,255,0);
+    font-weight: bold;
+    line-height: 30px;
+    transform-origin: center;
+    transform: scale(0);
+    color:transparent;
     }
     .intranet-super-tile-type-formulaire:hover .typeFile{
-        top: 10px;
-        color: rgba(0,0,0,1);
-        transition: ease all 0.3s;
-        background-color: rgba(255,255,255,1);
-        width: 30px;
-        height: 30px;
-        font-size: 11px;
-        transform-origin: center;
-        transform: scale(1);
+    top: 10px;
+    color:var(--formulaireBlock-Color);
+    transition: ease all 0.3s;
+    background-color: rgba(255,255,255,1);
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+    transform-origin: center;
+    transform: scale(1);
+    }
+    /* Tile Small */
+    .intranet-super-tile-type-application {
+    width:calc(50% - 25px);
+    height:90px;
+    display:inline-block;
+    vertical-align:top;
+    padding:20px;
+    margin:10px;
+    box-sizing:border-box;
+    border-radius:var(--borderRadiusTuile);
+    /* color set  */
+    background-color:var(--applicationBlock-Color);
+    color:white;
+    }
+    .intranet-super-tile-type-application a {
+    color:white;
+    }
+    .intranet-super-tile-type-application .material-icons{
+    float: left;
+    margin-right:15px;
+    color:var(--applicationBlock-Color);
+    }
+    .intranet-super-tile-type-application{
+    position:relative;
+    margin-top:10px;
+    }
+    .intranet-super-tile-type-application .tag{
+    color:var(--applicationBlock-Color);
     }
