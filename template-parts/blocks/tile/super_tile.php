@@ -38,6 +38,7 @@ $typeDeBlock = get_field('intranet_super_tile_block_type_choice');
 $titreBlock = get_field('intranet_super_tile_block_title');
 $superTileIcone = get_field('intranet_super_tile_block_icone');
 $link = get_field('intranet_super_tile_block_link');
+$link_url = $link['url'];
 $contact = get_field('intranet_super_tile_block_user');
 $contactMail = get_field('mail', $contact );
 $phoneNumber = get_field('intranet_super_tile_block_user_phone');
@@ -47,7 +48,18 @@ $typeFile = get_field('intranet_super_tile_block_type_form');
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> flip-card intranet-super-tile-type-<?php echo $typeDeBlock; ?>">
 
-    <?php get_template_part( 'template-parts/blocks/tile/tile', $typeDeBlock ); ?>
+    <?php 
+        // load template wich are set in functions -> intranet-display-function.php
+        if($typeDeBlock == 'contact'){
+            sedoo_wpthch_intranet_tuile_contact($contact, $tag, $phoneNumber);
+        }
+        if($typeDeBlock == 'formulaire'){
+            sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $titreBlock, $link, $link_url, $tag);
+        }
+        if($typeDeBlock == 'application'){            
+            sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url, $tag);
+        }
+    ?>
 
 </section>
 
