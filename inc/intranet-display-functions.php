@@ -36,7 +36,8 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $tag, $phoneNumber){ ?>
 
       </div>
 
-<?php } 
+<?php 
+} 
 /** tuile Formulaire **/ 
 function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $titreBlock, $link, $link_url, $tag ){ ?> 
 
@@ -51,7 +52,8 @@ function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $tit
       <span class="tag"><?php echo $tag; ?></span>
 
   </a>
-<?php }
+<?php 
+}
 /** tuile application **/ 
 function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url, $tag ){ ?> 
 
@@ -61,13 +63,12 @@ function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $
 
       <h3><?php echo $titreBlock; ?></h3>
 
-      <p><?php echo $description; ?></p>
-
       <span class="tag"><?php echo $tag; ?></span>
 
   </a>
   
-<?php }
+<?php 
+}
 /**
  *  simple panel
  */
