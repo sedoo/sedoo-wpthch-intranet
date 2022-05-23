@@ -1,5 +1,74 @@
 <?php
+/** tuile **/ 
+/** tuile Contact **/ 
+function sedoo_wpthch_intranet_tuile_contact($contact, $tag, $phoneNumber){ ?>
+    <div class="flip-card-inner">
 
+        <div class="flip-card-front">
+                <span class="material-icons">face</span>    
+
+                <h3>
+                
+                <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
+
+                <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
+
+                </h3>
+                
+                <span class="tag">#<?php echo $tag; ?></span>
+        </div>
+
+        <div class="flip-card-back">
+
+            <span class="material-icons">mail</span> </br>
+              
+            <a href="mailto:<?php echo $contact->user_email; ?>"><?php echo $contact->user_email; ?></a>
+
+            <?php if( get_field('intranet_super_tile_block_user_phone') ): ?>
+                
+                <span class="material-icons">call</span> </br>
+              
+                <a href="tel:<?php echo $phoneNumber; ?>"><?php echo $phoneNumber; ?></a>
+          
+            <?php endif; ?>
+
+        </div>
+
+      </div>
+
+<?php 
+} 
+/** tuile Formulaire **/ 
+function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $titreBlock, $link, $link_url, $tag ){ ?> 
+
+  <a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
+
+      <span class="typeFile"><?php echo $typeFile; ?></span>
+
+      <span class="material-icons"><?php echo $superTileIcone; ?></span>    
+
+      <h3><?php echo $titreBlock; ?></h3>
+
+      <span class="tag"><?php echo $tag; ?></span>
+
+  </a>
+<?php 
+}
+/** tuile application **/ 
+function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url, $tag ){ ?> 
+
+<a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
+
+  <span class="material-icons"><?php echo $superTileIcone; ?></span>    
+
+      <h3><?php echo $titreBlock; ?></h3>
+
+      <span class="tag"><?php echo $tag; ?></span>
+
+  </a>
+  
+<?php 
+}
 /**
  *  simple panel
  */
