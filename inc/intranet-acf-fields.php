@@ -954,7 +954,6 @@ acf_add_local_field_group(array(
 			'name' => 'intranet_super_tile_block_type_choice',
 			'type' => 'radio',
 			'instructions' => '<ol>Quel type de bloc/tuile souhaitez-vous créer ? (4 choix possibles)
-			<li> Block Simple ( titre et lien).</li>
 			<li>Block Application - Raccourci vers une page ou une application.</li>
 			<li> Block Contact - ajout des informations de contact ? </li>
 			<li>Block formulaire - raccourci vers un formulaire	?</li>
@@ -967,7 +966,6 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
-				'simple' => 'simple',
 				'contact' => 'contact',
 				'formulaire' => 'formulaire',
 				'application' => 'application',
@@ -986,7 +984,15 @@ acf_add_local_field_group(array(
 			'type' => 'text',
 			'instructions' => 'Saisissez le titre du block',
 			'required' => 0,
-			'conditional_logic' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_6282396cf76e8',
+						'operator' => '!=',
+						'value' => 'contact',
+					),
+				),
+			),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -1043,7 +1049,7 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
-				'10k' => '10k',
+				'10k' => '<span class="material-icons">10k</span>',
 				'10mp' => '10mp',
 				'11mp' => '11mp',
 				'123' => '123',
@@ -3307,7 +3313,7 @@ acf_add_local_field_group(array(
 			'placeholder' => 'Service RH',
 			'prepend' => '',
 			'append' => '',
-			'maxlength' => '',
+			'maxlength' => '18',
 		),
 		array(
 			'key' => 'field_62823face690f',

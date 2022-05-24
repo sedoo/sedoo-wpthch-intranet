@@ -5,24 +5,32 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $tag, $phoneNumber){ ?>
     <div class="flip-card-inner">
 
         <div class="flip-card-front">
-                <span class="material-icons">face</span>    
 
-                <h3>
-                
-                <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
+            <span class="material-icons">face</span>    
 
-                <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
+            <h3>
+            
+            <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
 
-                </h3>
-                
-                <span class="tag">#<?php echo $tag; ?></span>
+            <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
+
+            </h3>
+            
+            <?php if( get_field('intranet_super_tile_block_tag') ): ?>
+            
+              <span class="tag">#<?php echo $tag; ?></span>
+            
+            <?php endif; ?>
+
         </div>
 
         <div class="flip-card-back">
 
             <span class="material-icons">mail</span> </br>
-              
-            <a href="mailto:<?php echo $contact->user_email; ?>"><?php echo $contact->user_email; ?></a>
+            <?php 
+            $user_mail = explode('@', $contact->user_email);
+            echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my domain</span>".$user_mail[1];
+            ?>
 
             <?php if( get_field('intranet_super_tile_block_user_phone') ): ?>
                 
@@ -48,8 +56,12 @@ function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $tit
       <span class="material-icons"><?php echo $superTileIcone; ?></span>    
 
       <h3><?php echo $titreBlock; ?></h3>
-
-      <span class="tag"><?php echo $tag; ?></span>
+      
+      <?php if( get_field('intranet_super_tile_block_tag') ): ?>
+      
+        <span class="tag"><?php echo $tag; ?></span>
+      
+      <?php endif; ?>
 
   </a>
 <?php 
@@ -63,7 +75,11 @@ function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $
 
       <h3><?php echo $titreBlock; ?></h3>
 
-      <span class="tag"><?php echo $tag; ?></span>
+      <?php if( get_field('intranet_super_tile_block_tag') ): ?>
+     
+        <span class="tag"><?php echo $tag; ?></span>
+      
+      <?php endif; ?>
 
   </a>
   
