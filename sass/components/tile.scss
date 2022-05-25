@@ -12,10 +12,12 @@
 	text-align: center;
 	border-radius: var(--borderRadiusTuile);
 	color: white;
+	overflow:hidden;
 	h3 {
-		font-size: 20px;
+		font-size: 17px;
 		margin-top: 10px;
 		color: white;
+		text-transform: uppercase;
 	}
 	h4 {
 		font-size: 15px;
@@ -23,36 +25,15 @@
 		color: white;
 	}
 	.tag {
-		display: inline-block;
+		display:block;
 		position: absolute;
 		bottom: -12px;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		background-color: white;
-		&::before {
-			content: '';
-			display: inline-block;
-			position: absolute;
-			left: -22px;
-			bottom: 0;
-			width: 0;
-			height: 0;
-			border-left: 22px solid transparent;
-			background-color: transparent;
-			border-bottom: 22px solid white;
-		}
-		&::after {
-			content: '';
-			display: inline-block;
-			position: absolute;
-			right: -22px;
-			bottom: 0;
-			width: 0;
-			height: 0;
-			border-right: 22px solid transparent;
-			background-color: transparent;
-			border-bottom: 22px solid white;
-		}
+		width:100%;
+		padding: 0px 10px;
+		text-align:center;
 	}
 	a {
 		text-decoration: none;
@@ -86,7 +67,11 @@
 	width: 200px;
 	height: 150px;
 	h3 {
-		margin-top: 0;
+		margin-bottom: 0px;
+	}
+	p{
+		margin-top: 0px;
+		font-style: italic;	
 	}
 	.tag {
 		color: var( --contactBlock-Color);
@@ -170,7 +155,6 @@
 		color: var(--formulaireBlock-Color);
 	}
 	h3 {
-		font-size: 20px;
 		margin-top: 10px;
 	}
 	.tag {
@@ -214,11 +198,15 @@
 	margin: 10px;
 	text-align: left;
 	background-color: var(--applicationBlock-Color);
-	border: 2px solid white;
+	border: 2px solid var(--applicationBlock-Color);
 	position: relative;
 	margin-top: 10px;
 	a {
 		color: white;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
 	}
 	.material-icons {
 		float: left;
