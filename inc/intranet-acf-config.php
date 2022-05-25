@@ -119,22 +119,6 @@ function sedoo_wpthch_intranet_block_types() {
 			),
             'keywords'          => array( 'tile', 'lien', 'bouton', 'intranet', 'contact' ),
 		));
-		acf_register_block_type(array(
-            'name'              => 'intranet_tile_add_file',
-            'title'             => __('Tuile pour ajouter un fichier - ajouter un fichier'),
-            'description'       => __('Tuile interactive permmettant une intégration harmonieuse des liens externes ou internes sur la page de l\'intranet.'),
-            'render_template'   => 'template-parts/blocks/tile/add_file_tile.php',
-            'category'          => 'widgets',
-            'icon'              => 'grid-view',
-			'supports'			=>array(
-				'color' => [
-					'background' => true,
-					'gradients'  => false,
-					'text'       => true,
-				],
-			),
-            'keywords'          => array( 'tile', 'lien', 'bouton', 'intranet', 'contact', 'file browser' ),
-		));
     }
 }
 

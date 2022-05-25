@@ -8,19 +8,11 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $tag, $phoneNumber){ ?>
 
             <span class="material-icons">face</span>    
 
-            <h3>
-            
-            <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
-
-            <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
-
-            </h3>
-            
-            <?php if( get_field('intranet_super_tile_block_tag') ): ?>
-            
-              <span class="tag">#<?php echo $tag; ?></span>
-            
-            <?php endif; ?>
+            <h3><?php echo $tag; ?></h3>
+            <p>
+              <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
+              <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
+            </p>            
 
         </div>
 
@@ -29,9 +21,9 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $tag, $phoneNumber){ ?>
             <span class="material-icons">mail</span> </br>
             <?php 
             $user_mail = explode('@', $contact->user_email);
-            echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my domain</span>".$user_mail[1];
+            echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
             ?>
-
+            <br />
             <?php if( get_field('intranet_super_tile_block_user_phone') ): ?>
                 
                 <span class="material-icons">call</span> </br>
@@ -56,12 +48,6 @@ function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $tit
       <span class="material-icons"><?php echo $superTileIcone; ?></span>    
 
       <h3><?php echo $titreBlock; ?></h3>
-      
-      <?php if( get_field('intranet_super_tile_block_tag') ): ?>
-      
-        <span class="tag"><?php echo $tag; ?></span>
-      
-      <?php endif; ?>
 
   </a>
 <?php 
@@ -74,13 +60,7 @@ function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $
   <span class="material-icons"><?php echo $superTileIcone; ?></span>    
 
       <h3><?php echo $titreBlock; ?></h3>
-
-      <?php if( get_field('intranet_super_tile_block_tag') ): ?>
-     
-        <span class="tag"><?php echo $tag; ?></span>
       
-      <?php endif; ?>
-
   </a>
   
 <?php 
