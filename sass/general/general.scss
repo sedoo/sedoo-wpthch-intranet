@@ -55,10 +55,6 @@
             &:hover {
                 color:var(--hover-textcolor);
                 background-color: var(--theme-color);
-                // &::after {
-                //     top:0;
-                //     height: auto;
-                // }
             }
         }
     }
@@ -68,3 +64,11 @@
 aside[id="stickyMenu"] {
     border:none;
 }
+.asideHome{
+padding: 20px;
+border-radius: 50px;
+text-align: center;
+
+}
+
+@import "general/colors.scss";

@@ -6,6 +6,17 @@ $service: #E57E10;
 $informatique: #2D4F59;
 $compte-rendu:#118DA0;
 
+/* Générique */
+/* ========================= */
+/* Root */
+:root{
+/* FORMULAIRE */
+--formulaireBlock-Color:#3EABA2;
+--applicationBlock-Color:#276B65;
+--contactBlock-Color:#54EBDE;
+--borderRadiusTuile:20px;
+}
+
 // .finances-bg {
 //     background:$finances;
 //     color:#FFFFFF;

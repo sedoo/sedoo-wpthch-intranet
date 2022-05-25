@@ -102,6 +102,23 @@ function sedoo_wpthch_intranet_block_types() {
             'icon'              => 'unlock',
             'keywords'          => array( 'login', 'intranet' ),
 		));
+
+		acf_register_block_type(array(
+            'name'              => 'intranet_tile_super_block',
+            'title'             => __('Tuile interactive Multifonction - Super Block'),
+            'description'       => __('Tuile interactive permmettant une intégration harmonieuse des liens externes ou internes sur la page de l\'intranet.'),
+            'render_template'   => 'template-parts/blocks/tile/super_tile.php',
+            'category'          => 'widgets',
+            'icon'              => 'grid-view',
+			'supports'			=>array(
+				'color' => [
+					'background' => true,
+					'gradients'  => false,
+					'text'       => true,
+				],
+			),
+            'keywords'          => array( 'tile', 'lien', 'bouton', 'intranet', 'contact' ),
+		));
     }
 }
 

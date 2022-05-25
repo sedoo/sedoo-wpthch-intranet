@@ -1,5 +1,70 @@
 <?php
+/** tuile **/ 
+/** tuile Contact **/ 
+function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userService){ ?>
+    <div class="flip-card-inner">
 
+        <div class="flip-card-front">
+
+            <span class="material-icons">face</span>    
+
+            <h3><?php echo $userService; ?></h3>
+            <p>
+              <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
+              <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
+            </p>            
+
+        </div>
+
+        <div class="flip-card-back">
+
+            <span class="material-icons">mail</span> </br>
+            <?php 
+            $user_mail = explode('@', $contact->user_email);
+            echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
+            ?>
+            <br />
+            <?php if( get_field('intranet_super_tile_block_user_phone') ): ?>
+                
+                <span class="material-icons">call</span> </br>
+              
+                <a href="tel:<?php echo $phoneNumber; ?>"><?php echo $phoneNumber; ?></a>
+          
+            <?php endif; ?>
+
+        </div>
+
+      </div>
+
+<?php 
+} 
+/** tuile Formulaire **/ 
+function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $titreBlock, $link, $link_url){ ?> 
+
+  <a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
+
+      <span class="typeFile"><?php echo $typeFile; ?></span>
+
+      <span class="material-icons"><?php echo $superTileIcone; ?></span>    
+
+      <h3><?php echo $titreBlock; ?></h3>
+
+  </a>
+<?php 
+}
+/** tuile application **/ 
+function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url){ ?> 
+
+<a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
+
+  <span class="material-icons"><?php echo $superTileIcone; ?></span>    
+
+      <h3><?php echo $titreBlock; ?></h3>
+      
+  </a>
+  
+<?php 
+}
 /**
  *  simple panel
  */
