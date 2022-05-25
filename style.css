@@ -189,5 +189,4 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page .intranet-super-tile-type-application a, [data-role="homepageIntranet"] .intranet-super-tile-type-application a { color: white; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 .sedoo-intranet-page .intranet-super-tile-type-application .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-application .material-icons { float: left; margin-right: 15px; color: var(--applicationBlock-Color); }
 .sedoo-intranet-page .intranet-super-tile-type-application .tag, [data-role="homepageIntranet"] .intranet-super-tile-type-application .tag { color: var(--applicationBlock-Color); }
-
 /*# sourceMappingURL=style.css.map */
