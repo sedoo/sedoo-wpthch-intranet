@@ -13,16 +13,16 @@ Text Domain: sedoo-wpthch-intranet
 Domain Path: /languages
 Tags: 
 */
-[data-role="sedoo-intranet-page-content"] { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-delay: 0s; animation-delay: 0s; -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
+[data-role="sedoo-intranet-page-content"] { animation-name: slide_in_left; animation-duration: 0.4s; animation-timing-function: linear; animation-delay: 0s; animation-iteration-count: 1; animation-direction: alternate; animation-fill-mode: none; animation-play-state: running; }
 [data-role="sedoo-intranet-page-content"] ul { margin-left: 40px; }
 [data-role="sedoo-intranet-page-content"] ul li:not(.tag) { list-style-type: disc; }
 
-.legend { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; font-size: .75rem; font-style: italic; }
+.legend { display: flex; justify-content: space-between; font-size: .75rem; font-style: italic; }
 .legend .material-icons { font-size: .8rem; }
 
 .content-area main { padding-left: 20px; }
 .content-area p a, .content-area table a { color: var(--theme-color); display: inline-block; position: relative; z-index: 0; }
-.content-area p a::after, .content-area table a::after { content: ""; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: var(--theme-color); -webkit-transition: all .2s; transition: all .2s; z-index: 1; }
+.content-area p a::after, .content-area table a::after { content: ""; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: var(--theme-color); transition: all .2s; z-index: 1; }
 .content-area p a:hover, .content-area table a:hover { color: var(--hover-textcolor); background-color: var(--theme-color); }
 
 aside[id="stickyMenu"] { border: none; }
@@ -51,27 +51,27 @@ button { border-style: none; }
 
 .Accordion-trigger:focus .Accordion-title { border-color: #79adfb; }
 
-.Accordion-icon { border: solid #9e9e9e; border-width: 0 2px 2px 0; height: 0.5rem; pointer-events: none; position: absolute; right: 2em; top: 50%; -webkit-transform: translateY(-60%) rotate(45deg); transform: translateY(-60%) rotate(45deg); width: 0.5rem; }
+.Accordion-icon { border: solid #9e9e9e; border-width: 0 2px 2px 0; height: 0.5rem; pointer-events: none; position: absolute; right: 2em; top: 50%; transform: translateY(-60%) rotate(45deg); width: 0.5rem; }
 
 .Accordion-trigger:focus .Accordion-icon, .Accordion-trigger:hover .Accordion-icon { border-color: #79adfb; }
 
-.Accordion-trigger[aria-expanded="true"] .Accordion-icon { -webkit-transform: translateY(-50%) rotate(-135deg); transform: translateY(-50%) rotate(-135deg); }
+.Accordion-trigger[aria-expanded="true"] .Accordion-icon { transform: translateY(-50%) rotate(-135deg); }
 
 .Accordion-panel { margin: 0; padding: 1em 1.5em; /* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */ }
 .Accordion-panel[hidden] { display: none; }
 
 nav[id="subterms"] { background: var(--theme-color); }
-nav[id="subterms"] ul { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+nav[id="subterms"] ul { display: flex; flex-wrap: wrap; }
 nav[id="subterms"] ul li { margin-right: 20px; }
-nav[id="subterms"] ul li.tag a { color: var(--hover-textcolor); padding: 5px 10px; -webkit-transition: all .5s ease-in-out; transition: all .5s ease-in-out; }
+nav[id="subterms"] ul li.tag a { color: var(--hover-textcolor); padding: 5px 10px; transition: all .5s ease-in-out; }
 nav[id="subterms"] ul li.tag a:hover { background-color: #EEE; color: var(--theme-color); }
 
 div#catList div.tag { background: var(--theme-color); }
 div#catList div.tag a { color: var(--hover-textcolor); padding: 5px 10px; }
 div#catList div.tag a:hover { background: var(--hover-textcolor); color: var(--theme-color); }
 
-.sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { -webkit-box-flex: 1; -ms-flex: 1 1 400px; flex: 1 1 400px; margin-right: 40px; }
-.sedoo-intranet-page > aside.contextual-sidebar { -webkit-box-flex: 1; -ms-flex: 1 1 300px; flex: 1 1 300px; padding: 0; }
+.sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { flex: 1 1 400px; margin-right: 40px; }
+.sedoo-intranet-page > aside.contextual-sidebar { flex: 1 1 300px; padding: 0; }
 .sedoo-intranet-page > aside.contextual-sidebar > section { background-color: #F0F0F0; }
 .sedoo-intranet-page > aside.contextual-sidebar > section:nth-child(2n) { background-color: #E0E0E0; }
 .sedoo-intranet-page > aside.contextual-sidebar > section > div { padding: 20px; }
@@ -82,10 +82,10 @@ div#catList div.tag a:hover { background: var(--hover-textcolor); color: var(--t
 /*************    TABS    **************/
 .tabs { list-style-type: none; position: relative; max-width: 1200px; overflow: hidden; }
 .tabs nav[role="tablist"] { border-bottom: 1px solid #EEE; }
-.tabs nav[role="tablist"] button[role="tab"] { padding: 5px 20px; margin-top: 5px; cursor: pointer; font-size: 0.875rem; font-weight: 600; -webkit-animation-name: border_slide_in_left; animation-name: border_slide_in_left; -webkit-animation-duration: 0.7s; animation-duration: 0.7s; -webkit-animation-timing-function: linear; animation-timing-function: linear; /* animation-delay: 0s; */ -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; -webkit-transition: border-bottom 0.2s ease-in-out; transition: border-bottom 0.2s ease-in-out; }
+.tabs nav[role="tablist"] button[role="tab"] { padding: 5px 20px; margin-top: 5px; cursor: pointer; font-size: 0.875rem; font-weight: 600; animation-name: border_slide_in_left; animation-duration: 0.7s; animation-timing-function: linear; /* animation-delay: 0s; */ animation-iteration-count: 1; animation-direction: alternate; animation-fill-mode: none; animation-play-state: running; transition: border-bottom 0.2s ease-in-out; }
 .tabs nav[role="tablist"] button[aria-selected="true"] { border-bottom: 2px solid var(--theme-color); }
 .tabs nav[role="tablist"] button:hover { background: #DDD; border-bottom: 2px solid var(--theme-color); }
-.tabs > section { -webkit-animation-name: slide_in_left; animation-name: slide_in_left; -webkit-animation-duration: 0.4s; animation-duration: 0.4s; -webkit-animation-timing-function: linear; animation-timing-function: linear; /* animation-delay: 0s; */ -webkit-animation-iteration-count: 1; animation-iteration-count: 1; -webkit-animation-direction: alternate; animation-direction: alternate; -webkit-animation-fill-mode: none; animation-fill-mode: none; -webkit-animation-play-state: running; animation-play-state: running; }
+.tabs > section { animation-name: slide_in_left; animation-duration: 0.4s; animation-timing-function: linear; /* animation-delay: 0s; */ animation-iteration-count: 1; animation-direction: alternate; animation-fill-mode: none; animation-play-state: running; }
 .tabs section[hidden] { display: none; }
 
 /**
@@ -97,25 +97,25 @@ div#catList div.tag a:hover { background: var(--hover-textcolor); color: var(--t
 .tooltip:hover .tooltiptext { visibility: visible; }
 
 [data-role="homepageIntranet"] > main { padding: 0; }
-[data-role="homepageIntranet"] > main #catList { position: -webkit-sticky; position: sticky; top: 80px; z-index: 3000; }
-[data-role="homepageIntranet"] > main > section { min-height: 80vh; margin: 20px; padding: 60px 2% 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; border: 1px solid #CCC; border-radius: 20px; background: #F0F0F0; }
+[data-role="homepageIntranet"] > main #catList { position: sticky; top: 80px; z-index: 3000; }
+[data-role="homepageIntranet"] > main > section { min-height: 80vh; margin: 20px; padding: 60px 2% 30px; display: flex; flex-wrap: wrap; justify-content: space-evenly; border: 1px solid #CCC; border-radius: 20px; background: #F0F0F0; }
 [data-role="homepageIntranet"] > main > section h2 { height: 80px; width: 100%; padding: 10px 20px; font-size: 3rem; margin-bottom: 20px; }
 [data-role="homepageIntranet"] > main > section > .row1 > section { border: 1px solid #CCC; border-radius: 20px; padding: 20px; margin-bottom: 30px; }
 [data-role="homepageIntranet"] > main > section > .row1 > section .h3 { font-size: 1.7rem; }
 
-.sedoo-intranet-page { margin-top: 30px; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; }
-.sedoo-intranet-page [role="listNews"].post-wrapper .post, .sedoo-intranet-page [class*="apiext"].post-wrapper .post { -webkit-box-flex: 0; -ms-flex: 0 1 250px; flex: 0 1 250px; }
+.sedoo-intranet-page { margin-top: 30px; display: flex; flex-wrap: wrap; justify-content: space-between; }
+.sedoo-intranet-page [role="listNews"].post-wrapper .post, .sedoo-intranet-page [class*="apiext"].post-wrapper .post { flex: 0 1 250px; }
 .sedoo-intranet-page [role="listNews"].content-list article.post, .sedoo-intranet-page [class*="apiext"].content-list article.post { padding: 10px 10px 20px 0; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content { width: 100%; padding-left: 20px; border-left: 2px solid var(--theme-color); }
-.sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content { display: flex; justify-content: space-between; flex-wrap: wrap; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content h2, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content h2 { margin-top: 0px; font-size: 1rem; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul { position: static; list-style: none; margin-left: 0; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul .tag, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul .tag { display: inline-block; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul .tag a, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul .tag a { padding-top: 0; font-size: .70rem; background: #EEE; margin-right: 5px; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul .tag a:hover, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul .tag a:hover { background-color: var(--theme-color); color: var(--hover-textcolor); }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content p, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content p { width: 100%; }
-.sedoo-intranet-page #taxoNews [role="listNews"], .sedoo-intranet-page [role="listNews"].sedoo_blocks_listearticle { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
-.sedoo-intranet-page #taxoNews [role="listNews"].post-wrapper .post, .sedoo-intranet-page [role="listNews"].sedoo_blocks_listearticle.post-wrapper .post { -webkit-box-flex: 0; -ms-flex: 0 1 320px; flex: 0 1 320px; }
+.sedoo-intranet-page #taxoNews [role="listNews"], .sedoo-intranet-page [role="listNews"].sedoo_blocks_listearticle { justify-content: flex-start; }
+.sedoo-intranet-page #taxoNews [role="listNews"].post-wrapper .post, .sedoo-intranet-page [role="listNews"].sedoo_blocks_listearticle.post-wrapper .post { flex: 0 1 320px; }
 .sedoo-intranet-page #taxoNews { margin-top: 30px; border-top: 2px solid var(--theme-color); }
 .sedoo-intranet-page #taxoNews h2 { margin-bottom: 20px; }
 
@@ -130,13 +130,13 @@ section#relatedApiext article ul, section[id^="relatedApiext"] article ul { marg
 section#relatedApiext article ul li, section[id^="relatedApiext"] article ul li { display: inline-block; }
 section#relatedApiext article ul li.tag a, section[id^="relatedApiext"] article ul li.tag a { font-size: .65rem; }
 
-section#contact ul { font-size: calc(1rem / 1.2); display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+section#contact ul { font-size: calc(1rem / 1.2); display: flex; flex-wrap: wrap; }
 section#contact ul[id="gestionnaires"] { margin: 10px 0 20px; }
 section#contact ul[id="gestionnaires"]:not(:last-child) { border-bottom: 1px solid #CCC; }
-section#contact ul[id="gestionnaires"] li { margin-right: 20px; margin-bottom: 10px; -webkit-box-flex: 1; -ms-flex: 1 0 150px; flex: 1 0 150px; }
-section#contact ul[id="gestionnaires"] li a { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+section#contact ul[id="gestionnaires"] li { margin-right: 20px; margin-bottom: 10px; flex: 1 0 150px; }
+section#contact ul[id="gestionnaires"] li a { display: flex; align-items: center; }
 section#contact ul[id="gestionnaires"] li a figure { width: 50px; height: 50px; margin-right: 10px; border-radius: 10px; overflow: hidden; background: #CCC; line-height: 50px; text-align: center; }
-section#contact ul[id="gestionnaires"] li a figure img { margin: 0; -o-object-fit: cover; object-fit: cover; }
+section#contact ul[id="gestionnaires"] li a figure img { margin: 0; object-fit: cover; }
 section#contact ul[id="gestionnaires"] li a figure .userLetters { width: 100%; height: 100%; font-size: 1.8rem; text-transform: uppercase; }
 section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 
@@ -148,34 +148,34 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .v-application--wrap, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .v-application--wrap { height: auto; min-height: 100px; }
 
 [id*=login-form] > p { font-size: .875rem; background-color: var(--second-theme-color); padding: 10px; }
-[id*=login-form] div form { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; max-width: 600px; margin: 0 auto; }
-[id*=login-form] div form > * { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+[id*=login-form] div form { display: flex; flex-wrap: wrap; justify-content: space-evenly; max-width: 600px; margin: 0 auto; }
+[id*=login-form] div form > * { width: 100%; display: flex; flex-wrap: wrap; justify-content: space-evenly; align-items: center; }
 [id*=login-form] div form > * > * { width: 40%; }
 [id*=login-form] div form .login-remember { display: none; }
-[id*=login-form] div form .login-submit { -ms-flex-item-align: start; align-self: flex-start; }
+[id*=login-form] div form .login-submit { align-self: flex-start; }
 [id*=login-form] a { display: block; margin: 0 auto; width: 50%; padding: 5px 20px; border: 1px solid var(--theme-color); text-align: center; }
 
 .material-icons { color: rgba(0, 0, 0, 0.54); }
 .material-icons .tooltiptext { font-family: "Open Sans",sans-serif; font-size: .8rem; }
 
-.sedoo-intranet-page [class*=intranet-super-tile-type], [data-role="homepageIntranet"] [class*=intranet-super-tile-type] { display: inline-block; vertical-align: top; margin: 10px; -webkit-box-sizing: border-box; box-sizing: border-box; position: relative; text-align: center; border-radius: var(--borderRadiusTuile); color: white; overflow: hidden; }
+.sedoo-intranet-page [class*=intranet-super-tile-type], [data-role="homepageIntranet"] [class*=intranet-super-tile-type] { display: inline-block; vertical-align: top; margin: 10px; box-sizing: border-box; position: relative; text-align: center; border-radius: var(--borderRadiusTuile); color: white; overflow: hidden; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] h3, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] h3 { font-size: 17px; margin-top: 10px; color: white; text-transform: uppercase; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] h4, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] h4 { font-size: 15px; margin-top: 10px; color: white; }
-.sedoo-intranet-page [class*=intranet-super-tile-type] .tag, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] .tag { display: block; position: absolute; bottom: -12px; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); background-color: white; width: 100%; padding: 0px 10px; text-align: center; }
+.sedoo-intranet-page [class*=intranet-super-tile-type] .tag, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] .tag { display: block; position: absolute; bottom: -12px; left: 50%; transform: translate(-50%, -50%); background-color: white; width: 100%; padding: 0px 10px; text-align: center; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] a, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] a { text-decoration: none; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] a:hover, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] a:hover { background: transparent; color: white !important; }
-.sedoo-intranet-page [class*=intranet-super-tile-type] .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] .material-icons { font-size: 37px; width: 50px; height: 50px; background: white; line-height: 50px; text-align: center; border-radius: 100%; display: inline-block; color: var(--contactBlock-Color); -webkit-transform: scale(0.8); transform: scale(0.8); -webkit-transform-origin: center; transform-origin: center; -webkit-transition: ease all 0.3s; transition: ease all 0.3s; }
-.sedoo-intranet-page [class*=intranet-super-tile-type]:hover .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type]:hover .material-icons { -webkit-transform: scale(1); transform: scale(1); -webkit-transition: ease all 0.3s; transition: ease all 0.3s; }
+.sedoo-intranet-page [class*=intranet-super-tile-type] .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] .material-icons { font-size: 37px; width: 50px; height: 50px; background: white; line-height: 50px; text-align: center; border-radius: 100%; display: inline-block; color: var(--contactBlock-Color); transform: scale(0.8); transform-origin: center; transition: ease all 0.3s; }
+.sedoo-intranet-page [class*=intranet-super-tile-type]:hover .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type]:hover .material-icons { transform: scale(1); transition: ease all 0.3s; }
 .sedoo-intranet-page .intranet-super-tile-type-contact, [data-role="homepageIntranet"] .intranet-super-tile-type-contact { width: 200px; height: 150px; }
 .sedoo-intranet-page .intranet-super-tile-type-contact h3, [data-role="homepageIntranet"] .intranet-super-tile-type-contact h3 { margin-bottom: 0px; }
 .sedoo-intranet-page .intranet-super-tile-type-contact p, [data-role="homepageIntranet"] .intranet-super-tile-type-contact p { margin-top: 0px; font-style: italic; }
 .sedoo-intranet-page .intranet-super-tile-type-contact .tag, [data-role="homepageIntranet"] .intranet-super-tile-type-contact .tag { color: var(--contactBlock-Color); }
-.sedoo-intranet-page .flip-card, [data-role="homepageIntranet"] .flip-card { -webkit-perspective: 1000px; perspective: 1000px; }
-.sedoo-intranet-page .flip-card:hover .flip-card-inner, [data-role="homepageIntranet"] .flip-card:hover .flip-card-inner { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
-.sedoo-intranet-page .flip-card-inner, [data-role="homepageIntranet"] .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; -webkit-transition: -webkit-transform 0.3s; transition: -webkit-transform 0.3s; transition: transform 0.3s; transition: transform 0.3s, -webkit-transform 0.3s; -webkit-transform-style: preserve-3d; transform-style: preserve-3d; }
-.sedoo-intranet-page .flip-card-front, [data-role="homepageIntranet"] .flip-card-front { background: var(--contactBlock-Color); color: white; position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; padding: 10px; -webkit-box-sizing: border-box; box-sizing: border-box; border-radius: var(--borderRadiusTuile); box-sizing: border-box; border: 2px solid white; }
+.sedoo-intranet-page .flip-card, [data-role="homepageIntranet"] .flip-card { perspective: 1000px; }
+.sedoo-intranet-page .flip-card:hover .flip-card-inner, [data-role="homepageIntranet"] .flip-card:hover .flip-card-inner { transform: rotateY(180deg); }
+.sedoo-intranet-page .flip-card-inner, [data-role="homepageIntranet"] .flip-card-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.3s; transform-style: preserve-3d; }
+.sedoo-intranet-page .flip-card-front, [data-role="homepageIntranet"] .flip-card-front { background: var(--contactBlock-Color); color: white; position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; padding: 10px; box-sizing: border-box; border-radius: var(--borderRadiusTuile); box-sizing: border-box; border: 2px solid white; }
 .sedoo-intranet-page .flip-card-front .material-icons, [data-role="homepageIntranet"] .flip-card-front .material-icons { color: var(--contactBlock-Color); }
-.sedoo-intranet-page .flip-card-back, [data-role="homepageIntranet"] .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; padding: 10px; -webkit-box-sizing: border-box; box-sizing: border-box; border-radius: var(--borderRadiusTuile); box-sizing: border-box; border: 2px solid white; text-align: center; background-color: #fff; color: #323232; -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
+.sedoo-intranet-page .flip-card-back, [data-role="homepageIntranet"] .flip-card-back { position: absolute; width: 100%; height: 100%; -webkit-backface-visibility: hidden; backface-visibility: hidden; padding: 10px; box-sizing: border-box; border-radius: var(--borderRadiusTuile); box-sizing: border-box; border: 2px solid white; text-align: center; background-color: #fff; color: #323232; transform: rotateY(180deg); }
 .sedoo-intranet-page .flip-card-back a, [data-role="homepageIntranet"] .flip-card-back a { color: #323232 !important; display: inline-block; vertical-align: middle; }
 .sedoo-intranet-page .flip-card-back a:hover, [data-role="homepageIntranet"] .flip-card-back a:hover { color: #464646 !important; background-color: transparent !important; }
 .sedoo-intranet-page .flip-card-back .material-icons, [data-role="homepageIntranet"] .flip-card-back .material-icons { font-size: 18px; width: 30px; height: 30px; line-height: 30px; display: inline-block; vertical-align: middle; background-color: var(--contactBlock-Color); color: white; }
@@ -183,10 +183,11 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page .intranet-super-tile-type-formulaire .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire .material-icons { color: var(--formulaireBlock-Color); }
 .sedoo-intranet-page .intranet-super-tile-type-formulaire h3, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire h3 { margin-top: 10px; }
 .sedoo-intranet-page .intranet-super-tile-type-formulaire .tag, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire .tag { color: var(--formulaireBlock-Color); }
-.sedoo-intranet-page .intranet-super-tile-type-formulaire .typeFile, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire .typeFile { position: absolute; font-size: 11px; width: 30px; height: 30px; border-radius: 100%; top: 10px; right: 10px; color: rgba(0, 0, 0, 0); -webkit-transition: ease all 0.3s; transition: ease all 0.3s; background-color: rgba(255, 255, 255, 0); font-weight: bold; line-height: 30px; -webkit-transform-origin: center; transform-origin: center; -webkit-transform: scale(0); transform: scale(0); color: transparent; }
-.sedoo-intranet-page .intranet-super-tile-type-formulaire:hover .typeFile, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire:hover .typeFile { top: 10px; color: var(--formulaireBlock-Color); -webkit-transition: ease all 0.3s; transition: ease all 0.3s; background-color: white; width: 30px; height: 30px; font-size: 11px; -webkit-transform-origin: center; transform-origin: center; -webkit-transform: scale(1); transform: scale(1); }
+.sedoo-intranet-page .intranet-super-tile-type-formulaire .typeFile, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire .typeFile { position: absolute; font-size: 11px; width: 30px; height: 30px; border-radius: 100%; top: 10px; right: 10px; color: rgba(0, 0, 0, 0); transition: ease all 0.3s; background-color: rgba(255, 255, 255, 0); font-weight: bold; line-height: 30px; transform-origin: center; transform: scale(0); color: transparent; }
+.sedoo-intranet-page .intranet-super-tile-type-formulaire:hover .typeFile, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire:hover .typeFile { top: 10px; color: var(--formulaireBlock-Color); transition: ease all 0.3s; background-color: white; width: 30px; height: 30px; font-size: 11px; transform-origin: center; transform: scale(1); }
 .sedoo-intranet-page .intranet-super-tile-type-application, [data-role="homepageIntranet"] .intranet-super-tile-type-application { width: calc(50% - 25px); height: 90px; padding: 20px; margin: 10px; text-align: left; background-color: var(--applicationBlock-Color); border: 2px solid var(--applicationBlock-Color); position: relative; margin-top: 10px; }
-.sedoo-intranet-page .intranet-super-tile-type-application a, [data-role="homepageIntranet"] .intranet-super-tile-type-application a { color: white; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.sedoo-intranet-page .intranet-super-tile-type-application a, [data-role="homepageIntranet"] .intranet-super-tile-type-application a { color: white; display: flex; flex-direction: row; justify-content: flex-start; align-items: center; }
 .sedoo-intranet-page .intranet-super-tile-type-application .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-application .material-icons { float: left; margin-right: 15px; color: var(--applicationBlock-Color); }
 .sedoo-intranet-page .intranet-super-tile-type-application .tag, [data-role="homepageIntranet"] .intranet-super-tile-type-application .tag { color: var(--applicationBlock-Color); }
+
 /*# sourceMappingURL=style.css.map */

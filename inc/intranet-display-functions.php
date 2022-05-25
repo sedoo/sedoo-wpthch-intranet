@@ -1,14 +1,14 @@
 <?php
 /** tuile **/ 
 /** tuile Contact **/ 
-function sedoo_wpthch_intranet_tuile_contact($contact, $tag, $phoneNumber){ ?>
+function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userService){ ?>
     <div class="flip-card-inner">
 
         <div class="flip-card-front">
 
             <span class="material-icons">face</span>    
 
-            <h3><?php echo $tag; ?></h3>
+            <h3><?php echo $userService; ?></h3>
             <p>
               <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
               <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
@@ -39,7 +39,7 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $tag, $phoneNumber){ ?>
 <?php 
 } 
 /** tuile Formulaire **/ 
-function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $titreBlock, $link, $link_url, $tag ){ ?> 
+function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $titreBlock, $link, $link_url){ ?> 
 
   <a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
 
@@ -53,7 +53,7 @@ function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $tit
 <?php 
 }
 /** tuile application **/ 
-function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url, $tag ){ ?> 
+function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url){ ?> 
 
 <a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
 
