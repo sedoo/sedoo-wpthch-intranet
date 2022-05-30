@@ -85,7 +85,7 @@ $themeSlugRewrite = "category";
             $source=get_sub_field('intranet_relatedfile_source');
             // var_dump($source);
               if (get_sub_field('intranet_relatedfile_internal_url') && ($source["value"] == "interne"))  {
-                $file= get_sub_field('intranet_relatedfile_internal_url');
+                $file= str_replace("https://fb2.sedoo.fr/files/", "", get_sub_field('intranet_relatedfile_internal_url'));
                 $api_getfile_url=get_field('intranet_API_getfile_url', 'options');
                 $file_url=$api_getfile_url.$file;
                 $target="_self";

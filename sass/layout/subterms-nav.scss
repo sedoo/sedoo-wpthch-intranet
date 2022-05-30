@@ -29,7 +29,7 @@ div#catList div.tag {
         color:var(--hover-textcolor);
         padding:5px 10px;
         &:hover {
-            background: var(--hover-textcolor);
+            background-color: #EEE;
             color:var(--theme-color);
         }
     }

@@ -35,13 +35,17 @@ $description = get_field('intranet_filetree_block_description');
     <div><?php echo $description;?></div>
     <?php
     if (get_field('intranet_filetree_block_association')) {
-        $baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $term_categories->term_id);   
+        $baseFolder = str_replace("https://fb2.sedoo.fr/files/", "", get_field('intranet_taxo_root', 'category' . '_' . $term_categories->term_id));   
     } else {
-        $baseFolder = get_field('intranet_filetree_block_root');
+        $baseFolder = str_replace("https://fb2.sedoo.fr/files/", "", $baseFolder = get_field('intranet_filetree_block_root'));
     }
     if ( !empty($baseFolder)) {
 
-    sedoo_wpthch_intranet_filetree_section($baseFolder);
+        if ( is_user_logged_in() ) {
+            sedoo_wpthch_intranet_filetree_section($baseFolder);
+        } else {
+            sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
+        }
 
     } else {
         echo "<p><em>Aucun dossier sélectionné dans l'arborescence de fichier</em></p>";

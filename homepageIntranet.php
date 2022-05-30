@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Homepage intranet
+*******++++Template Name : Homepage intranet
  * @package labs_by_Sedoo
  */
 
@@ -110,7 +110,8 @@ $terms = get_terms( $args );
                     <!--------------  FILEBROWSER ---------------->
                     <?php
                     if (get_field('intranet_taxo_root', 'category' . '_' . $term->term_id)) {
-                    $baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $term->term_id);
+                    $baseFolder = str_replace("https://fb2.sedoo.fr/files/", "", get_field('intranet_taxo_root', 'category' . '_' . $term->term_id));
+                    
                     if ( !empty($baseFolder)) {
                     ?>
                         <section id="filetree">
