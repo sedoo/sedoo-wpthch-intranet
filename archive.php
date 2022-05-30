@@ -141,14 +141,19 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					?>
 					<?php
 					/////////////   Arborescence de fichiers de la catégorie    ////////////
-					$baseFolder = get_field('intranet_taxo_root', 'category' . '_' . $term->term_id);
+					$baseFolder = str_replace("https://fb2.sedoo.fr/files/", "", get_field('intranet_taxo_root', 'category' . '_' . $term->term_id));
 					if ( !empty($baseFolder)) {
 					?>
 					<section id="filetree">
 						<?php
 						
 						ob_start(); // création d'un buffer
-						sedoo_wpthch_intranet_filetree_section($baseFolder);
+						if ( is_user_logged_in() ) {
+							sedoo_wpthch_intranet_filetree_section($baseFolder);
+						} else {
+							sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
+						}
+
 						$content = ob_get_contents();
 						ob_end_clean(); //Stops saving things and discards whatever was saved
 						
