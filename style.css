@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.24.0
+Version:      0.24.1
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -72,11 +72,10 @@ div#catList div.tag a:hover { background-color: #EEE; color: var(--theme-color);
 
 .sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { -webkit-box-flex: 1; -ms-flex: 1 1 400px; flex: 1 1 400px; margin-right: 40px; }
 .sedoo-intranet-page > aside.contextual-sidebar { -webkit-box-flex: 1; -ms-flex: 1 1 300px; flex: 1 1 300px; padding: 0; }
-.sedoo-intranet-page > aside.contextual-sidebar > section { background-color: #F0F0F0; }
-.sedoo-intranet-page > aside.contextual-sidebar > section:nth-child(2n) { background-color: #E0E0E0; }
+.sedoo-intranet-page > aside.contextual-sidebar > section { background-color: #f4f4f4; border-radius: 20px; margin-bottom: 20px; }
 .sedoo-intranet-page > aside.contextual-sidebar > section > div { padding: 20px; }
 .sedoo-intranet-page > aside.contextual-sidebar > section div.description { padding: 10px; font-size: .75rem; }
-.sedoo-intranet-page > aside.contextual-sidebar .h3 { font-size: 1.5rem; color: #FFF; font-family: "Open Sans", sans-serif; background-color: var(--theme-color); padding: 9px 10px 5px; margin-bottom: 0; }
+.sedoo-intranet-page > aside.contextual-sidebar .h3 { font-size: 1.5rem; color: #FFF; font-family: "Open Sans", sans-serif; background-color: var(--theme-color); padding: 10px 20px 5px; margin-bottom: 0; border-radius: 20px 20px 0px 0px; }
 .sedoo-intranet-page > aside.contextual-sidebar .h3 .material-icons { color: #FFF; }
 
 /*************    TABS    **************/
@@ -189,5 +188,3 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page .intranet-super-tile-type-application a, [data-role="homepageIntranet"] .intranet-super-tile-type-application a { color: white; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 .sedoo-intranet-page .intranet-super-tile-type-application .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-application .material-icons { float: left; margin-right: 15px; color: var(--applicationBlock-Color); }
 .sedoo-intranet-page .intranet-super-tile-type-application .tag, [data-role="homepageIntranet"] .intranet-super-tile-type-application .tag { color: var(--applicationBlock-Color); }
-
-/*# sourceMappingURL=style.css.map */
