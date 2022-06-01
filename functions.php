@@ -2,8 +2,6 @@
 add_action( 'wp_enqueue_scripts', 'sedoo_wpthch_intranet_enqueue_styles' );
 function sedoo_wpthch_intranet_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css', array(), filemtime(get_template_directory() . '/style.css'), false );
-    wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons');
-
 }
 // Enqueue Javascript files
 function sedoo_wpthch_intranet_js_files() {
