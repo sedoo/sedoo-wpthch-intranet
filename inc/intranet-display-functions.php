@@ -38,33 +38,25 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userServic
 
 <?php 
 } 
-/** tuile Formulaire **/ 
-function sedoo_wpthch_intranet_tuile_formulaire($typeFile, $superTileIcone, $titreBlock, $link, $link_url){ ?> 
+/** tuile Formulaire / application **/ 
+function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url, $typeFile){ ?> 
 
   <a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
-
-      <span class="typeFile"><?php echo $typeFile; ?></span>
-
+      <?php
+      if ($typeFile) {
+        ?>
+        <span class="typeFile"><?php echo $typeFile; ?></span>
+        <?php
+      } 
+      ?>
       <span class="material-icons"><?php echo $superTileIcone; ?></span>    
 
-      <h3><?php echo $titreBlock; ?></h3>
+      <h4><?php echo $titreBlock; ?></h4>
 
   </a>
 <?php 
 }
-/** tuile application **/ 
-function sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url){ ?> 
 
-<a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
-
-  <span class="material-icons"><?php echo $superTileIcone; ?></span>    
-
-      <h3><?php echo $titreBlock; ?></h3>
-      
-  </a>
-  
-<?php 
-}
 /**
  *  simple panel
  */

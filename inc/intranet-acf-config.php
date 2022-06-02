@@ -77,23 +77,6 @@ function sedoo_wpthch_intranet_block_types() {
 		));
 
 		acf_register_block_type(array(
-            'name'              => 'intranet_tile_block',
-            'title'             => __('Tuile interactive'),
-            'description'       => __('Tuile interactive permmettant une intégration harmonieuse des liens externes ou internes sur la page de l\'intranet.'),
-            'render_template'   => 'template-parts/blocks/tile/tile.php',
-            'category'          => 'widgets',
-            'icon'              => 'grid-view',
-			'supports'			=>array(
-				'color' => [
-					'background' => true,
-					'gradients'  => false,
-					'text'       => true,
-				],
-			),
-            'keywords'          => array( 'tile', 'lien', 'bouton', 'intranet' ),
-		));
-
-		acf_register_block_type(array(
             'name'              => 'intranet_login_form',
             'title'             => __('Formulaire de connexion'),
             'description'       => __('bloc d\'authentification'),
@@ -105,8 +88,8 @@ function sedoo_wpthch_intranet_block_types() {
 
 		acf_register_block_type(array(
             'name'              => 'intranet_tile_super_block',
-            'title'             => __('Tuile interactive Multifonction - Super Block'),
-            'description'       => __('Tuile interactive permmettant une intégration harmonieuse des liens externes ou internes sur la page de l\'intranet.'),
+            'title'             => __('Tuile interactive Multifonction'),
+            'description'       => __('Tuile interactive permettant d\intégrer des liens sous forme de bouton.'),
             'render_template'   => 'template-parts/blocks/tile/super_tile.php',
             'category'          => 'widgets',
             'icon'              => 'grid-view',
