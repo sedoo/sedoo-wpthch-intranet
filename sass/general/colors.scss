@@ -1,54 +1,23 @@
-$finances: #90BCD1;
-$rh: #B6CC49;
-$logistique: #DD9946;
-$communication: #7DBF3B;
-$service: #E57E10;
-$informatique: #2D4F59;
-$compte-rendu:#118DA0;
+$blue1: #90BCD1;
+$blue2:#118DA0;
+$blue3:#236f82;
+$blue4: #2D4F59;
+$green1: #B6CC49;
+$green2: #7DBF3B;
+$green3:#3EABA2;
+$green4: #276B65;
+$yellow1: #DD9946;
+$yellow2:#fcb900;
+$orange1: #E57E10;
 
 /* Générique */
 /* ========================= */
 /* Root */
 :root{
 /* FORMULAIRE */
---formulaireBlock-Color:#3EABA2;
---applicationBlock-Color:#276B65;
---contactBlock-Color:#54EBDE;
+// --formulaireBlock-Color:#3EABA2;
+--formulaireBlock-Color:#{$yellow2};
+--applicationBlock-Color:#{$green4};
+--contactBlock-Color:#{$blue3};
 --borderRadiusTuile:20px;
 }
-
-// .finances-bg {
-//     background:$finances;
-//     color:#FFFFFF;
-// }
-
-// .rh-bg {
-//     background:$rh;
-//     color:#FFFFFF;
-// }
-
-// .logistique-bg {
-//     background:$logistique;
-//     color:#FFFFFF;
-// }
-
-// .communication-bg {
-//     background:$communication;
-//     color:#FFFFFF;
-// }
-
-// .service-bg {
-//     background:$service;
-//     color:#FFFFFF;
-// }
-
-// .informatique-bg {
-//     background:$informatique;
-//     color:#FFFFFF;
-// }
-
-// .compte-rendu-bg {
-//     background:$compte-rendu;
-//     color:#FFFFFF;
-// }
-
