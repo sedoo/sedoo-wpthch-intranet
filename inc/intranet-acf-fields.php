@@ -953,7 +953,7 @@ acf_add_local_field_group(array(
 			'label' => 'Type de block',
 			'name' => 'intranet_super_tile_block_type_choice',
 			'type' => 'radio',
-			'instructions' => '<ol>Quel type de bloc/tuile souhaitez-vous créer ? (4 choix possibles)
+			'instructions' => '<ol>Quel type de bloc/tuile souhaitez-vous créer ? (3 choix possibles)
 			<li>Block Application - Raccourci vers une page ou une application.</li>
 			<li> Block Contact - ajout des informations de contact ? </li>
 			<li>Block formulaire - raccourci vers un formulaire	?</li>
@@ -1032,7 +1032,7 @@ acf_add_local_field_group(array(
 			'label' => 'Icone',
 			'name' => 'intranet_super_tile_block_icone',
 			'type' => 'text',
-			'instructions' => 'Saisissez le nom de l’icône que vous souhaitez inclure dans le block. Pour trouver l\'icône vous devez vous rediriger vers https://fonts.google.com/icons.',
+			'instructions' => 'Saisissez le nom de l’icône que vous souhaitez inclure dans le block. Pour trouver le nom de l\'icône, consulter https://fonts.google.com/icons.',
 			'required' => 0,
 			'conditional_logic' => array(
 				array(
@@ -1148,14 +1148,14 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
-				'DOC' => '.DOC ou .DOCX',
-				'HTML' => '.HTML ou .HTM',
-				'ODT' => '.ODT',
-				'PDF' => '.PDF',
-				'XLS' => '.XLS ou .XLSX',
-				'ODS' => '.ODS',
-				'PPT' => 'PPT ou .PPTX',
-				'TXT' => '.TXT',
+				'DOC' => 'DOC',
+				'HTML' => 'HTML',
+				'ODT' => 'ODT',
+				'PDF' => 'PDF',
+				'XLS' => 'XLS',
+				'ODS' => 'ODS',
+				'PPT' => 'PPT',
+				'TXT' => 'TXT',
 			),
 			'default_value' => false,
 			'allow_null' => 0,
