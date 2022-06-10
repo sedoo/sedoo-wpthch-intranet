@@ -71,4 +71,27 @@ text-align: center;
 
 }
 
+.sedoo_404 {
+    h1 {
+        font-size: 7rem;
+    }
+    h2 {
+        margin:20px 0;
+        text-align: center;
+        border:1px solid #000;
+        border-radius: 5px;
+    }
+    p {
+        text-align: left;
+        font-weight: normal;
+    }
+    
+    .row_404 {
+        justify-content: space-evenly;
+    }
+}
+
+
+
 @import "general/colors.scss";
+@import "general/typo.scss";

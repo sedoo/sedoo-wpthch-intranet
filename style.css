@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.24.3
+Version:      0.25.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -29,10 +29,17 @@ aside[id="stickyMenu"] { border: none; }
 
 .asideHome { padding: 20px; border-radius: 50px; text-align: center; }
 
+.sedoo_404 h1 { font-size: 7rem; }
+.sedoo_404 h2 { margin: 20px 0; text-align: center; border: 1px solid #000; border-radius: 5px; }
+.sedoo_404 p { text-align: left; font-weight: normal; }
+.sedoo_404 .row_404 { -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; }
+
 /* Générique */
 /* ========================= */
 /* Root */
 :root { /* FORMULAIRE */ --formulaireBlock-Color:#fcb900; --applicationBlock-Color:#276B65; --contactBlock-Color:#236f82; --borderRadiusTuile:20px; }
+
+h1 > span.material-icons { font-size: 2rem; }
 
 .Accordion h3 { margin: 0; padding: 0; }
 
@@ -146,7 +153,8 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .container, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div > div, .sedoo-intranet-page [id*="filetree"] campaign-product .col, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container > div, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container > div > div, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .col { padding: 0; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .v-application--wrap, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .v-application--wrap { height: auto; min-height: 100px; }
 
-[id*=login-form] > p { font-size: .875rem; background-color: var(--second-theme-color); padding: 10px; }
+[id*=login-form] { border-bottom: 1px solid rgba(0, 0, 0, 0.5); padding-bottom: 20px; }
+[id*=login-form] > p { font-size: .875rem; background-color: #fcb900; padding: 10px; }
 [id*=login-form] div form { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; max-width: 600px; margin: 0 auto; }
 [id*=login-form] div form > * { width: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 [id*=login-form] div form > * > * { width: 40%; }
