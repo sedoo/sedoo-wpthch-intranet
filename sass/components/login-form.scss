@@ -1,8 +1,10 @@
 
 [id*=login-form] {
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    padding-bottom: 20px;
     > p {
         font-size:.875rem;
-        background-color: var(--second-theme-color);
+        background-color: #{$yellow2};
         padding:10px;
     }
     div {

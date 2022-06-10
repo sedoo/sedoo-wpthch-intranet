@@ -17,6 +17,16 @@ function sedoo_wpthch_intranet_categories_to_pages() {
     }
 add_action( 'init', 'sedoo_wpthch_intranet_categories_to_pages' );
 
+/******************************************************************
+ * remove "Private: " from title private pages
+ *
+ */ 
+
+function sedoo_wpthch_intranet_private_prefix() {
+    return '<span class="material-icons">lock</span>  %s';
+}
+add_filter('private_title_format', 'sedoo_wpthch_intranet_private_prefix');
+
 require 'inc/intranet-backoffice-config.php';
 require 'inc/intranet-acf-fields.php';
 require 'inc/intranet-acf-config.php';

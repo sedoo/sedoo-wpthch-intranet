@@ -18,39 +18,43 @@ get_header();
 
 					<div class="sedoo_404">
 						<h1>404</h1>
-						<p>Soit la page n'existe pas, tentez une autre recherche.</p>
-                        <p>Soit vous n'avez pas le droit d'y accéder, authentifiez-vous ci-dessous. </p>
-						<div class="searchform_404">
-							<?php 
-                            get_search_form();
-                            ?>
-                            <hr />
-                            <?php
-                            if(!is_user_logged_in()) {
-                                sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
-                            }
-							?>
+						<h2>la page n'existe pas, ou vous n'avez pas les droits d'accès</h2>
+						<div class="row row_404"> 
+							<div>
+								<p>Soit vous n'avez pas le droit d'y accéder, authentifiez-vous ci-dessous. </p>
+								<?php
+								if(!is_user_logged_in()) {
+								
+									sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
+								}
+								?>
+							</div>
+							<div class="searchform_404">
+								<p>Soit la page n'existe pas, tentez une autre recherche.</p>
+								<?php 
+								get_search_form();
+								?>
+								<div class="widget widget_categories">
+									<h3 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'labs-by-sedoo' ); ?></h2>
+									<ul>
+										<?php
+										wp_list_categories( array(
+											'orderby'    => 'count',
+											'order'      => 'DESC',
+											'show_count' => 1,
+											'title_li'   => '',
+											'number'     => 10,
+										) );
+										?>
+									</ul>
+								</div>
+							</div>
+							
 						</div>
 					</div>
 					<hr />
 					<div class="row row_404">
-                        <div class="widget widget_categories">
-							<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'labs-by-sedoo' ); ?></h2>
-							<ul>
-								<?php
-								wp_list_categories( array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								) );
-								?>
-							</ul>
-						</div><!-- .widget -->
-						<?php
-						the_widget( 'WP_Widget_Recent_Posts' );
-						?>
+                        
 						
 					</div>
 				</div><!-- .page-content -->
