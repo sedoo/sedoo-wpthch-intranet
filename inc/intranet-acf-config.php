@@ -88,8 +88,8 @@ function sedoo_wpthch_intranet_block_types() {
 
 		acf_register_block_type(array(
             'name'              => 'intranet_tile_super_block',
-            'title'             => __('Tuile interactive Multifonction'),
-            'description'       => __('Tuile interactive permettant d\intégrer des liens sous forme de bouton.'),
+            'title'             => __('Tuile cliquable'),
+            'description'       => __('Tuile sous forme de bouton permettant d\intégrer des liens.'),
             'render_template'   => 'template-parts/blocks/tile/super_tile.php',
             'category'          => 'widgets',
             'icon'              => 'grid-view',

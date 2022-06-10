@@ -481,7 +481,7 @@ acf_add_local_field_group(array(
 			'label' => 'Application en ligne externe',
 			'name' => 'intranet_apiext',
 			'type' => 'repeater',
-			'instructions' => 'Pour les icônes, voir https://fonts.google.com/icons?icon.query=car&icon.style=Filled<br>Insérer le nom de l\'icône (voir fenetre droite après selection de l\'icône',
+			'instructions' => 'Pour les icônes, voir <a href="https://fonts.google.com/icons?icon.query=lock&icon.set=Material+Icons" target="_blank">https://fonts.google.com/icons</a><br>Insérer le nom de l\'icône (voir fenetre droite après selection de l\'icône',
 			'required' => 0,
 			'conditional_logic' => 0,
 			'wrapper' => array(
@@ -842,108 +842,6 @@ acf_add_local_field_group(array(
 	'show_in_rest' => 0,
 ));
 
-// Tile Block
-acf_add_local_field_group(array(
-	'key' => 'group_62629ed56c157',
-	'title' => 'intranet tile field',
-	'fields' => array(
-		// array(
-		// 	'key' => 'field_62629f2f9d71c',
-		// 	'label' => 'titre',
-		// 	'name' => 'intranet_tile_block_title',
-		// 	'type' => 'text',
-		// 	'instructions' => 'Saisissez le titre de votre tuile',
-		// 	'required' => 0,
-		// 	'conditional_logic' => 0,
-		// 	'wrapper' => array(
-		// 		'width' => '',
-		// 		'class' => '',
-		// 		'id' => '',
-		// 	),
-		// 	'default_value' => '',
-		// 	'placeholder' => 'Saisir le titre ici',
-		// 	'prepend' => '',
-		// 	'append' => '',
-		// 	'maxlength' => '',
-		// ),
-		// array(
-		// 	'key' => 'field_62629f9a9d71d',
-		// 	'label' => 'Description',
-		// 	'name' => 'intranet_tile_block_description',
-		// 	'type' => 'text',
-		// 	'instructions' => 'Donner une brève description à votre tuile',
-		// 	'required' => 1,
-		// 	'conditional_logic' => 0,
-		// 	'wrapper' => array(
-		// 		'width' => '',
-		// 		'class' => '',
-		// 		'id' => '',
-		// 	),
-		// 	'default_value' => '',
-		// 	'placeholder' => 'Saisir la description ici',
-		// 	'prepend' => '',
-		// 	'append' => '',
-		// 	'maxlength' => '',
-		// ),
-		array(
-			'key' => 'field_6262a1d29d720',
-			'label' => 'Lien',
-			'name' => 'intranet_tile_block_link',
-			'type' => 'link',
-			'instructions' => 'Choisissez le lien vers lequel vous souhaitez rediriger l\'utilisateur',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'post_type' => '',
-			'taxonomy' => '',
-			'allow_null' => 0,
-			'allow_archives' => 1,
-			'multiple' => 0,
-		),
-		array(
-			'key' => 'field_6262a33d9d723',
-			'label' => 'Icone',
-			'name' => 'intranet_tile_block_icone',
-			'type' => 'text',
-			'instructions' => 'Saisissez ici le nom de l’Icône à intégrer - Choisissez parmi les icônes disponible sur la page suivante : <a href="https://fonts.google.com/icons" target="_blank">https://fonts.google.com/icons</a>',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => 'thumb_up',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'block',
-				'operator' => '==',
-				'value' => 'acf/intranet-tile-block',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
-	'show_in_rest' => 0,
-));
-
 acf_add_local_field_group(array(
 	'key' => 'group_628206db870c0',
 	'title' => 'super tile field group',
@@ -1032,7 +930,7 @@ acf_add_local_field_group(array(
 			'label' => 'Icone',
 			'name' => 'intranet_super_tile_block_icone',
 			'type' => 'text',
-			'instructions' => 'Saisissez le nom de l’icône que vous souhaitez inclure dans le block. Pour trouver le nom de l\'icône, consulter https://fonts.google.com/icons.',
+			'instructions' => 'Saisissez le nom de l’icône que vous souhaitez inclure dans le block. Pour trouver le nom de l\'icône, consulter <a href="https://fonts.google.com/icons?icon.query=lock&icon.set=Material+Icons" target="_blank">https://fonts.google.com/icons</a>.',
 			'required' => 0,
 			'conditional_logic' => array(
 				array(
