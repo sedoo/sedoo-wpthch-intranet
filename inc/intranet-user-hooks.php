@@ -38,11 +38,11 @@ function sedoo_intranet_change_usergroup( $user_login, $user ) {
     }
 
     // update group id in  prefix_groups_user_group for user_id
-    global $wpdb;
+    // global $wpdb;
     $data = [ 'group_id' => $group_id ]; 
     // $format = [ %s ];  
     $where = [ 'user_id' => $user_id ];
-    $wpdb->update( $wpdb->prefix . 'groups_user_group', $data, $where );
+    wpdb::update( $wpdb->prefix . 'groups_user_group', $data, $where );
 }
 add_action('wp_login', 'sedoo_intranet_change_usergroup', 10, 2);
 
