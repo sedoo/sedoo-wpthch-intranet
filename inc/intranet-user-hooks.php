@@ -3,6 +3,7 @@
 /**
  * assign group to user from ldap group 
  */
+// sedoo_intranet_change_usergroup('pvert', Object(WP_User)
 
 function sedoo_intranet_change_usergroup( $user_login, $user ) {
     //get user_mail, explode domain
