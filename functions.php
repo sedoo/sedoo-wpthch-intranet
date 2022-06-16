@@ -30,6 +30,7 @@ add_filter('private_title_format', 'sedoo_wpthch_intranet_private_prefix');
 require 'inc/intranet-backoffice-config.php';
 require 'inc/intranet-acf-fields.php';
 require 'inc/intranet-acf-config.php';
-require 'inc/intranet-display-functions.php'
+require 'inc/intranet-display-functions.php';
+require 'inc/intranet-user-hooks.php';
 
 ?>

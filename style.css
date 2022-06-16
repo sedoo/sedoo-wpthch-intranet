@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.25.0
+Version:      0.26.1
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -77,8 +77,8 @@ div#catList div.tag { background: var(--theme-color); }
 div#catList div.tag a { color: var(--hover-textcolor); padding: 5px 10px; }
 div#catList div.tag a:hover { background-color: #EEE; color: var(--theme-color); }
 
-.sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { -webkit-box-flex: 1; -ms-flex: 1 1 400px; flex: 1 1 400px; margin-right: 40px; }
-.sedoo-intranet-page > aside.contextual-sidebar { -webkit-box-flex: 1; -ms-flex: 1 1 300px; flex: 1 1 300px; padding: 0; }
+.sedoo-intranet-page > section[data-role="sedoo-intranet-page-content"] { -webkit-box-flex: 1; -ms-flex: 1 1 500px; flex: 1 1 500px; margin-right: 40px; }
+.sedoo-intranet-page > aside.contextual-sidebar { -webkit-box-flex: 1; -ms-flex: 1 1 200px; flex: 1 1 200px; padding: 0; }
 .sedoo-intranet-page > aside.contextual-sidebar > section { background-color: #f4f4f4; border-radius: 20px; margin-bottom: 20px; }
 .sedoo-intranet-page > aside.contextual-sidebar > section > div { padding: 20px; }
 .sedoo-intranet-page > aside.contextual-sidebar > section div.description { padding: 10px; font-size: .75rem; }
