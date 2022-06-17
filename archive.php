@@ -45,12 +45,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					the_archive_title(); 
 				}?>
 			</h1>
-			<?php 
-				$user_info=get_userdata(get_current_user_id());
-				var_dump($user_info);
-				$user_mail = explode('@', $user_info->user_email);
-				echo $user_mail[1];
-			?>
+
 			<?php
 				if ($termchildren) {
 				?>
