@@ -7,7 +7,8 @@
 
 function sedoo_intranet_change_usergroup( $user_login, $user ) {
     //get user_mail, explode domain
-    $user_info=get_userdata(get_current_user_id());
+    $user_id=get_current_user_id();
+    $user_info=get_userdata($user_id);
     $user_mail = explode('@', $user_info->user_email);
     // switch case 
         
