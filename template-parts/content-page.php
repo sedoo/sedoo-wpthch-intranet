@@ -138,3 +138,30 @@ $themeSlugRewrite = "category";
   ?>
 </div>  
 </article>
+<hr>
+<h2>DEBUG</h2>
+<?php
+
+$ldaphost ="ldap://195.83.20.90";
+$ldapport = 389;
+
+$ds = ldap_connect($ldaphost, $ldapport)
+or die("Could not connect to $ldaphost");
+
+        // $person="pvert";
+        $user_id=get_current_user_id();
+        $user_info=get_userdata($user_id);
+        $uid=$user_info->user_login;
+        $dn = "ou=people,dc=omp";
+        // $filter="(|(uid=".$uid."*)(givenName=".$person."*))";
+        $filter = "(&(uid={$uid}))";
+        $justthese = array("gidNumber");
+
+        $sr=ldap_search($ds, $dn, $filter, $justthese);
+
+        $info = ldap_get_entries($ds, $sr);
+
+         echo "ENTRY RESULTS: ";
+         print_r($info[0]['gidnumber'][0]);
+        echo "<br />";
+?>
