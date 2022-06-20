@@ -45,7 +45,9 @@ function sedoo_intranet_change_usergroup( $user_login, $user ) {
     $data = [ 'group_id' => $group_id ]; 
     // $format = [ %s ];  
     $where = [ 'user_id' => $user_id ];
-    $wpdb->update( $table, $data, $where );
+    $format = array('%d','%s');
+    $where_format = array('%d');
+    $wpdb->update( $table, $data, $where, $format, $where_format );
 /**
  * [Thu Jun 16 18:46:13.405425 2022] [php7:error] [pid 847] 
  * [client 193.52.225.45:35442] PHP Fatal error:  Uncaught Error: Using $this when not in object context in /var/www/html/wplabo/wp-includes/wp-db.php:2439\n
