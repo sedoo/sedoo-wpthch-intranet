@@ -161,7 +161,56 @@ or die("Could not connect to $ldaphost");
 
         $info = ldap_get_entries($ds, $sr);
 
-         echo "ENTRY RESULTS: ";
-         print_r($info[0]['gidnumber'][0]);
+        $gidnumber=$info[0]['gidnumber'][0];
+         echo "ENTRY RESULTS: ".$gidnumber;
+        //  print_r($info[0]['gidnumber'][0]);
+         
         echo "<br />";
+
+/**
+ * 
+ */
+   
+switch ($gidnumber) {
+  // case 'irap.omp.eu':
+  case '1200':
+      $group_id=2;
+      
+      break;
+  case '900':
+      $group_id=3;
+      
+      break;
+  // case 'cesbio.cnes.fr':
+  case '600':
+      $group_id=4;
+      
+      break;
+  // case 'get.omp.eu':
+  case '700':
+      $group_id=5;
+      
+      break;
+  // case 'aero.obs-mip.fr':
+  case '1000':  
+      $group_id=6;
+      
+      break;
+  // case 'legos.obs-mip.fr':
+  case '1100':
+      $group_id=7;
+      
+      break;
+}
+echo "ENTRY WP GROUP: ".$group_id;
+// update group id in  prefix_groups_user_group for user_id
+global $wpdb;
+$table = $wpdb->prefix.'groups_user_group';
+$data = [ 'group_id' => $group_id ]; 
+// $format = [ %s ];  
+$where = [ 'user_id' => $user_id ];
+$format = array('%d','%s');
+$where_format = array('%d');
+$wpdb->update( $table, $data, $where, $format, $where_format );
+
 ?>
