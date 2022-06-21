@@ -18,7 +18,7 @@ function sedoo_intranet_change_usergroup( $user_login, WP_User $user ) {
 
     // $person="pvert";
     // $user_id=get_current_user_id();
-    $user_info=get_userdata($user->ID);
+    // $user_info=get_userdata($user->ID);
     // $uid=$user_info->user_login;
     
     $dn = "ou=people,dc=omp";
