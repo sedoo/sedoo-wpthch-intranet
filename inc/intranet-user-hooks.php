@@ -5,7 +5,7 @@
  */
 // sedoo_intranet_change_usergroup('pvert', Object(WP_User)
 
-function sedoo_intranet_change_usergroup( $user_login, $user ) {
+function sedoo_intranet_change_usergroup( $user_login, WP_User $user ) {
     //get user_mail, explode domain
 
 // function sedoo_intranet_change_usergroup( $user, $username, $password ) {
@@ -17,12 +17,13 @@ function sedoo_intranet_change_usergroup( $user_login, $user ) {
     or die("Could not connect to $ldaphost");
 
     // $person="pvert";
-    $user_id=get_current_user_id();
-    $user_info=get_userdata($user_id);
-    $uid=$user_info->user_login;
+    // $user_id=get_current_user_id();
+    $user_info=get_userdata($user->ID);
+    // $uid=$user_info->user_login;
+    
     $dn = "ou=people,dc=omp";
     // $filter="(|(uid=".$uid."*)(givenName=".$person."*))";
-    $filter = "(&(uid={$uid}))";
+    $filter = "(&(uid={$user_login}))";
     $justthese = array("gidNumber");
 
     $sr=ldap_search($ds, $dn, $filter, $justthese);
@@ -68,7 +69,7 @@ function sedoo_intranet_change_usergroup( $user_login, $user ) {
     $table = $wpdb->prefix.'groups_user_group';
     $data = [ 'group_id' => $group_id ]; 
     // $format = [ %s ];  
-    $where = [ 'user_id' => $user_id ];
+    $where = [ 'user_id' => $user->ID ];
     $format = array('%d','%s');
     $where_format = array('%d');
     $wpdb->update( $table, $data, $where, $format, $where_format );
