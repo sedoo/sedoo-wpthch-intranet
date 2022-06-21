@@ -5,10 +5,10 @@
  */
 // sedoo_intranet_change_usergroup('pvert', Object(WP_User)
 
-// function sedoo_intranet_change_usergroup( $user_login, $user ) {
+function sedoo_intranet_change_usergroup( $user_login, $user ) {
     //get user_mail, explode domain
 
-function sedoo_intranet_change_usergroup( $user, $username, $password ) {
+// function sedoo_intranet_change_usergroup( $user, $username, $password ) {
 
     $ldaphost ="ldap://195.83.20.90";
     $ldapport = 389;
@@ -74,7 +74,7 @@ function sedoo_intranet_change_usergroup( $user, $username, $password ) {
     $wpdb->update( $table, $data, $where, $format, $where_format );
 
 }
-// add_action('wp_login', 'sedoo_intranet_change_usergroup', 10, 2);
-add_filter( 'authenticate', 'sedoo_intranet_change_usergroup', 30, 3 );
+add_action('wp_login', 'sedoo_intranet_change_usergroup', 10, 2);
+// add_filter( 'authenticate', 'sedoo_intranet_change_usergroup', 30, 3 );
 
 ?>
