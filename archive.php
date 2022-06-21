@@ -24,7 +24,6 @@ $no_result_text = get_field('no_results_text_tax');
 $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 
 ?>
-
 	<div id="content-area" class="wrapper archives">
 		<main id="main" class="site-main">
 		<?php
@@ -46,6 +45,27 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					the_archive_title(); 
 				}?>
 			</h1>
+			<?php 
+			// echo "<h2>DEBUG</h2>";
+			// global $wpdb;
+			// $data = [ 'group_id' => $group_id ]; 
+			// // $format = [ %s ];  
+			// $where = [ 'user_id' => $user_id ];
+			// // $wpdb->update( $wpdb->prefix . 'groups_user_group', $data, $where );
+
+			
+			// $user_id=get_current_user_id();
+			// $user_info=get_userdata($user_id);
+
+			// var_dump($user_info);
+			// $user_mail = explode('@', $user_info->user_email);
+			// echo $user_mail[1]."/ID=".$user_id;
+			// echo "<hr>";
+			// var_dump($wpdb);
+			// echo "<br>PREFIX=".$wpdb->prefix;
+			
+			// echo "<hr>";
+			?>
 			<?php
 				if ($termchildren) {
 				?>
