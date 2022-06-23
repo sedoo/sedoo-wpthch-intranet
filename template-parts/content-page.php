@@ -143,11 +143,12 @@ $themeSlugRewrite = "category";
 <?php
 $blog_id = get_current_blog_id();
 $role = 'subscriber';
+echo get_current_user_id()." (user->id=".$user->ID.") is not in ".$blog_id." with this role ".$role;
 // only if user is not in current blog
-if ( !is_user_member_of_blog( $user->ID, $blog_id ) ) {
-    echo get_current_user_id()." (user->id=".$user->ID.") is not in ".$blog_id." with this role ".$role;
-    add_user_to_blog( $blog_id, $user->ID, $role );
-}
+// if ( !is_user_member_of_blog( $user->ID, $blog_id ) ) {
+    
+//     add_user_to_blog( $blog_id, $user->ID, $role );
+// }
 ?>
 </p>
 
