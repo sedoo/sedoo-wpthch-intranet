@@ -129,7 +129,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						<section id="contact">
 						<?php
 						ob_start(); // création d'un buffer
-						sedoo_wpthch_intranet_contact_list($term->slug);
+						sedoo_wpthch_intranet_tuile_contact_list($term->slug);
 						$content = ob_get_contents();
 						ob_end_clean(); //Stops saving things and discards whatever was saved
 
