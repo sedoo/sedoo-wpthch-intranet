@@ -70,7 +70,6 @@ function sedoo_intranet_change_usergroup( $user_login, WP_User $user ) {
     $role = 'subscriber';
     // only if user is not in current blog
     if ( is_user_member_of_blog( $user->ID, $blog_id ) ) {
-
         add_user_to_blog( $blog_id, $user->ID, $role );
     }
 }
