@@ -1,44 +1,44 @@
 <?php
-/** tuile **/ 
+/** 
+ * tuile 
+ * *******************************************/ 
 /** tuile Contact **/ 
 function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userService){ ?>
     <div class="flip-card-inner">
-
         <div class="flip-card-front">
-
             <span class="material-icons">face</span>    
-
             <h3><?php echo $userService; ?></h3>
             <p>
               <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
               <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
             </p>            
-
         </div>
-
         <div class="flip-card-back">
-
-            <span class="material-icons">mail</span> </br>
+          <a href="tel:<?php echo $phoneNumber; ?>">
+            <span class="material-icons">mail</span>
+            <p>
             <?php 
             $user_mail = explode('@', $contact->user_email);
             echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
             ?>
-            <br />
-            <?php if( get_field('intranet_super_tile_block_user_phone') ): ?>
-                
-                <span class="material-icons">call</span> </br>
-              
-                <a href="tel:<?php echo $phoneNumber; ?>"><?php echo $phoneNumber; ?></a>
-          
-            <?php endif; ?>
-
+            </p>
+            <span class="material-icons">call</span>
+            <p>
+            <?php if( !empty($phoneNumber) ) { ?>   
+                <?php echo $phoneNumber; ?>
+            <?php
+            } ?>
+            </p>
+          </a>
         </div>
-
       </div>
-
 <?php 
 } 
-/** tuile Formulaire / application **/ 
+
+
+/** 
+ * tuile Formulaire / application 
+ * **/ 
 function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url, $typeFile){ ?> 
 
   <a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
@@ -59,7 +59,7 @@ function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_
 
 /**
  *  simple panel
- */
+ * *******************************************/ 
 function sedoo_wpthch_intranet_simple_panel($id, $term, $title, $icon, $description, $content) {
   ?>
   <div class="h3 <?php echo $term;?>-bg">
@@ -81,7 +81,7 @@ function sedoo_wpthch_intranet_simple_panel($id, $term, $title, $icon, $descript
 
 /**
  *  accordion panel
- */
+ * *******************************************/ 
 // ne pas oublier d'ajouter sur l'élément parent class="Accordion" data-allow-multiple
 function sedoo_wpthch_intranet_accordion_panel($id,$ariaExpanded, $title, $icon, $description, $content) {
   ?>
@@ -151,7 +151,9 @@ function sedoo_wpthch_intranet_dataOption_exist($acfField, $acfSubField, $attrib
     return $exist;  
 }
 
-// Liste Contact par services
+/** 
+ *   Liste Contact par service
+ * *******************************************/
 function sedoo_wpthch_intranet_contact_list($termSlug) {
   while( have_rows('intranet_service', 'option') ) : the_row();
     // Load sub field value.
@@ -198,6 +200,67 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
         }
         echo "</ul>";
         
+      }
+    }
+  endwhile;
+}
+
+// Liste Contact par services avec tuiles
+function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
+  while( have_rows('intranet_service', 'option') ) : the_row();
+    // Load sub field value.
+    $serviceCategory = get_sub_field('intranet_service_categorie');
+    foreach ($serviceCategory as $service) {
+      // echo $service->slug.' ';
+      if ($service->slug === $termSlug) {	
+        $intranet_service_nom= get_sub_field('intranet_service_nom');
+        $intranet_service_mail= explode('@', get_sub_field('intranet_service_mail'));
+        $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
+
+        // echo "<h3>Adresse générique de contact</h3>";
+        ?>
+        <div class="h4">
+          <strong><?php echo $intranet_service_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$intranet_service_mail[1];?></strong> 
+          <small>(<?php echo $intranet_service_nom;?> )</small>
+          <!--<span class="material-icons">mail</span>-->
+        </div>
+        <section id="gestionnaires">
+        <?php
+        foreach ($intranet_service_gestionnaires as $gestionnaire) {	
+          //quand tel from ldap ready
+          ?>
+          <div class="super-tile intranet-super-tile-type-contact flip-card">
+          <?php
+          // $phoneNumber="0561000000";
+          // sedoo_wpthch_intranet_tuile_contact($gestionnaire, $phoneNumber, $intranet_service_nom);
+          // echo "</div>";
+          ?>
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                  <span class="material-icons">face</span>    
+                  <h3><?php echo $userService; ?></h3>
+                  <p>
+                    <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
+                    <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
+                  </p>            
+              </div>
+              <div class="flip-card-back">
+                <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
+                  <span class="material-icons">mail</span> 
+                  <p>
+                  <?php 
+                  $user_mail = explode('@', $gestionnaire->user_email);
+                  echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
+                  ?> 
+                  </p>    
+                  <span class="material-icons">call</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        <?php
+        }
+        echo "</section>";
       }
     }
   endwhile;
