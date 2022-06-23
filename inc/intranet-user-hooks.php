@@ -7,6 +7,15 @@
 
 function sedoo_intranet_change_usergroup( $user_login, WP_User $user ) {
 
+    // Add user ID to current blog as a subscriber
+    // $user_id = 1; 
+    $blog_id = get_current_blog_id();
+    $role = 'subscriber';
+    // only if user is not in current blog
+    if ( !is_user_member_of_blog( $user->ID, $blog_id ) ) {
+        add_user_to_blog( $blog_id, $user->ID, $role );
+    }
+
     // ldap connect
     $ldaphost ="ldap://195.83.20.90";
     $ldapport = 389;
@@ -64,14 +73,6 @@ function sedoo_intranet_change_usergroup( $user_login, WP_User $user ) {
     $where_format = array('%d');
     $wpdb->update( $table, $data, $where, $format, $where_format );
 
-    // Add user ID to current blog as a subscriber
-    // $user_id = 1; 
-    $blog_id = get_current_blog_id();
-    $role = 'subscriber';
-    // only if user is not in current blog
-    if ( !is_user_member_of_blog( $user->ID, $blog_id ) ) {
-        add_user_to_blog( $blog_id, $user->ID, $role );
-    }
 }
 add_action('wp_login', 'sedoo_intranet_change_usergroup', 10, 2);
 
