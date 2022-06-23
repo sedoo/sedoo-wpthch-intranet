@@ -64,7 +64,7 @@ function sedoo_intranet_change_usergroup( $user_login, WP_User $user ) {
     $where_format = array('%d');
     $wpdb->update( $table, $data, $where, $format, $where_format );
 
-    //ADD USER ID  TO CURRENT BLOG ID AS AN EDITOR
+    // Add user ID to current blog as a subscriber
     // $user_id = 1; 
     $blog_id = get_current_blog_id();
     $role = 'subscriber';
