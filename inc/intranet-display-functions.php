@@ -14,17 +14,22 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userServic
             </p>            
         </div>
         <div class="flip-card-back">
-            <span class="material-icons">mail</span> </br>
+          <a href="tel:<?php echo $phoneNumber; ?>">
+            <span class="material-icons">mail</span>
+            <p>
             <?php 
             $user_mail = explode('@', $contact->user_email);
             echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
             ?>
-            <br />
-            <?php if( !empty($phoneNumber) ) { ?>                
-                <span class="material-icons">call</span></br>
-                <a href="tel:<?php echo $phoneNumber; ?>"><?php echo $phoneNumber; ?></a>
+            </p>
+            <span class="material-icons">call</span>
+            <p>
+            <?php if( !empty($phoneNumber) ) { ?>   
+                <?php echo $phoneNumber; ?>
             <?php
             } ?>
+            </p>
+          </a>
         </div>
       </div>
 <?php 
