@@ -394,7 +394,7 @@ function sedoo_wpthch_intranet_apiext_list($categoryTermID) {
       sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
     }
 
-endwhile;
+  endwhile;
 // var_dump($get_term_value);
 }
 
