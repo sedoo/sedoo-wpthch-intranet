@@ -6,6 +6,7 @@ function sedoo_wpthch_intranet_enqueue_styles() {
 // Enqueue Javascript files
 function sedoo_wpthch_intranet_js_files() {
     wp_enqueue_script( 'sedoo_wpthch_intranet-accordion', get_stylesheet_directory_uri() . '/js/accordion.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'sedoo_wpthch_intranet-global', get_stylesheet_directory_uri() . '/js/global.js',  array('jquery'), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'sedoo_wpthch_intranet_js_files' );
 /******************************************************************
