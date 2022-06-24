@@ -14,8 +14,7 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userServic
             </p>            
         </div>
         <div class="flip-card-back">
-          <a href="tel:<?php echo $phoneNumber; ?>">
-            <span class="material-icons">mail</span>
+            <!-- <span class="material-icons">mail</span> -->
             <p>
             <?php 
             $user_mail = explode('@', $contact->user_email);
@@ -25,11 +24,12 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userServic
             <span class="material-icons">call</span>
             <p>
             <?php if( !empty($phoneNumber) ) { ?>   
+              <a href="tel:<?php echo $phoneNumber; ?>">
                 <?php echo $phoneNumber; ?>
+              </a>
             <?php
             } ?>
             </p>
-          </a>
         </div>
       </div>
 <?php 
@@ -39,15 +39,15 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userServic
 /** 
  * tuile Formulaire / application 
  * **/ 
-function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url, $typeFile){ ?> 
+function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url){ ?> 
 
   <a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
       <?php
-      if ($typeFile) {
+      // if ($typeFile) {
         ?>
-        <span class="typeFile"><?php echo $typeFile; ?></span>
+        <!-- <span class="typeFile"><?php echo $typeFile; ?></span> -->
         <?php
-      } 
+      // } 
       ?>
       <span class="material-icons"><?php echo $superTileIcone; ?></span>    
 
@@ -245,14 +245,14 @@ function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
                   </p>            
               </div>
               <div class="flip-card-back">
+                <!-- <span class="material-icons">mail</span>  -->
+                <p>
+                <?php 
+                $user_mail = explode('@', $gestionnaire->user_email);
+                echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
+                ?> 
+                </p>    
                 <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
-                  <span class="material-icons">mail</span> 
-                  <p>
-                  <?php 
-                  $user_mail = explode('@', $gestionnaire->user_email);
-                  echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
-                  ?> 
-                  </p>    
                   <span class="material-icons">call</span>
                 </a>
               </div>

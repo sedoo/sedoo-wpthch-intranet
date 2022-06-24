@@ -848,13 +848,13 @@ acf_add_local_field_group(array(
 	'fields' => array(
 		array(
 			'key' => 'field_6282396cf76e8',
-			'label' => 'Type de block',
+			'label' => 'Type de tuile',
 			'name' => 'intranet_super_tile_block_type_choice',
 			'type' => 'radio',
-			'instructions' => '<ol>Quel type de bloc/tuile souhaitez-vous créer ? (3 choix possibles)
-			<li>Block Application - Raccourci vers une page ou une application.</li>
-			<li> Block Contact - ajout des informations de contact ? </li>
-			<li>Block formulaire - raccourci vers un formulaire	?</li>
+			'instructions' => '<ol>Quel type de tuile souhaitez-vous créer ? (3 choix possibles)
+			<li>Tuile Contact (Bleu)- ajout des informations de contact</li>
+			<li>Tuile formulaire (Jaune)- raccourci vers un formulaire</li>
+			<li>Tuile application (Verte)- raccourci vers une page ou une application.</li>	
 			</ol>',
 			'required' => 0,
 			'conditional_logic' => 0,
@@ -1024,45 +1024,46 @@ acf_add_local_field_group(array(
 		// 	'append' => '',
 		// 	'maxlength' => '18',
 		// ),
-		array(
-			'key' => 'field_62823face690f',
-			'label' => 'Type de fichier',
-			'name' => 'intranet_super_tile_block_type_form',
-			'type' => 'select',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_6282396cf76e8',
-						'operator' => '==',
-						'value' => 'formulaire',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'choices' => array(
-				'DOC' => 'DOC',
-				'HTML' => 'HTML',
-				'ODT' => 'ODT',
-				'PDF' => 'PDF',
-				'XLS' => 'XLS',
-				'ODS' => 'ODS',
-				'PPT' => 'PPT',
-				'TXT' => 'TXT',
-			),
-			'default_value' => false,
-			'allow_null' => 0,
-			'multiple' => 0,
-			'ui' => 0,
-			'return_format' => 'value',
-			'ajax' => 0,
-			'placeholder' => '',
-		),
+		////////////////////////   UNUSED 
+		// array(
+		// 	'key' => 'field_62823face690f',
+		// 	'label' => 'Type de fichier',
+		// 	'name' => 'intranet_super_tile_block_type_form',
+		// 	'type' => 'select',
+		// 	'instructions' => '',
+		// 	'required' => 0,
+		// 	'conditional_logic' => array(
+		// 		array(
+		// 			array(
+		// 				'field' => 'field_6282396cf76e8',
+		// 				'operator' => '==',
+		// 				'value' => 'formulaire',
+		// 			),
+		// 		),
+		// 	),
+		// 	'wrapper' => array(
+		// 		'width' => '',
+		// 		'class' => '',
+		// 		'id' => '',
+		// 	),
+		// 	'choices' => array(
+		// 		'DOC' => 'DOC',
+		// 		'HTML' => 'HTML',
+		// 		'ODT' => 'ODT',
+		// 		'PDF' => 'PDF',
+		// 		'XLS' => 'XLS',
+		// 		'ODS' => 'ODS',
+		// 		'PPT' => 'PPT',
+		// 		'TXT' => 'TXT',
+		// 	),
+		// 	'default_value' => false,
+		// 	'allow_null' => 0,
+		// 	'multiple' => 0,
+		// 	'ui' => 0,
+		// 	'return_format' => 'value',
+		// 	'ajax' => 0,
+		// 	'placeholder' => '',
+		// ),
 		array(
 			'key' => 'field_628ddf067021c',
 			'label' => 'Service',
