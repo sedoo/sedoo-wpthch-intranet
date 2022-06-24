@@ -122,22 +122,27 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 				</section> 
 				<aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
 					<?php
-					/////////////   CONTACTS    ////////////
-					if( have_rows('intranet_service', 'option') ) {
-						if (sedoo_wpthch_intranet_dataOption_exist('intranet_service', 'intranet_service_categorie', $term->slug)) {
-						?>
-						<section id="contact">
-						<?php
-						ob_start(); // création d'un buffer
-						sedoo_wpthch_intranet_tuile_contact_list($term->slug);
-						$content = ob_get_contents();
-						ob_end_clean(); //Stops saving things and discards whatever was saved
+					if ( is_user_logged_in() ) {
+					
+						/////////////   CONTACTS    ////////////
+						if( have_rows('intranet_service', 'option') ) {
+							if (sedoo_wpthch_intranet_dataOption_exist('intranet_service', 'intranet_service_categorie', $term->slug)) {
+							?>
+							<section id="contact">
+							<?php
+							ob_start(); // création d'un buffer
+							sedoo_wpthch_intranet_tuile_contact_list($term->slug);
+							$content = ob_get_contents();
+							ob_end_clean(); //Stops saving things and discards whatever was saved
 
-						sedoo_wpthch_intranet_simple_panel('Contacts', $term->slug, 'Contacts', 'contacts',  $description, $content);
-						?>
-						</section>
-					<?php
+							sedoo_wpthch_intranet_simple_panel('Contacts', $term->slug, 'Contacts', 'contacts',  $description, $content);
+							?>
+							</section>
+						<?php
+							}
 						}
+					} else {
+						sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
 					}
 					?>
 					<?php
