@@ -33,5 +33,6 @@ require 'inc/intranet-acf-fields.php';
 require 'inc/intranet-acf-config.php';
 require 'inc/intranet-display-functions.php';
 require 'inc/intranet-user-hooks.php';
+require 'inc/intranet-patterns.php';
 
 ?>
