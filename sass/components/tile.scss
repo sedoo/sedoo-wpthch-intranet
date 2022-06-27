@@ -5,20 +5,32 @@
 
 	[class*=intranet-super-tile-type] {
 		display: inline-block;
+		min-width: 200px;
+		width: calc(50% - 25px);
+		padding: 20px;
 		vertical-align: middle;
 		margin: 10px;
 		position: relative;
 		border-radius: var(--borderRadiusTuile);
 		color: white;
+		
 		h4 {
+			width: 100%;
+			text-align: center;
 			font-size: 1rem;
 			margin-top: 10px;
 			color: white;
 			text-transform: uppercase;
 		}
 
-		a {
+		> a {
 			text-decoration: none;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			align-items: center;
+			flex-wrap: wrap;
+
 			&:hover {
 				background: transparent;
 				color: white !important;
@@ -78,6 +90,10 @@
 			border: 2px solid white;
 		}
 		.flip-card-front {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
 			background: var(--contactBlock-Color);
 			color: white;
 
@@ -95,17 +111,21 @@
 			}
 		}
 		.flip-card-back {
-			text-align: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			align-items: center;
+			// text-align: center;
 			background-color: #fff;
 			color: rgb(50,50,50);
 			transform: rotateY(180deg);
 			a {
-				color: rgb(50,50,50) !important;
-				display: inline-block;
+				// color: rgb(50,50,50) !important;
+				
 				vertical-align: middle;
 				&:hover {
-					color: rgb(70,70,70) !important;
-					background-color: transparent !important;
+					color: rgb(50,50,50) !important;
+					background-color: transparent;
 				}
 			}
 			.material-icons {
@@ -122,69 +142,26 @@
 	}
 	
 	.intranet-super-tile-type-formulaire {
-		min-width: 200px;
-		width: calc(50% - 25px);
-		height: 200px;
-		padding: 20px;
 		background: var(--formulaireBlock-Color);
 		border: 2px solid white;
 		text-align: center;
 		.material-icons {
 			color: var(--formulaireBlock-Color);
 		}
-
-		.typeFile {
-			position: absolute;
-			width: 30px;
-			height: 30px;
-			border-radius: 100%;
-			top: 10px;
-			right: 10px;
-			color: rgba(0,0,0,0);
-			transition: ease all 0.3s;
-			background-color: rgba(255,255,255,0);
-			color: transparent;
-			font-size: 11px;
-			font-weight: bold;
-			line-height: 30px;
-			transform-origin: center;
-			transform: scale(0);
-			
-		}
-		&:hover {
-			.typeFile {
-				background-color: rgba(255,255,255,1);
-				color: var(--formulaireBlock-Color);			
-				transform: scale(1);
-			}
-		}
 	}
 	.intranet-super-tile-type-application {
-		min-width: 200px;
-		width: calc(50% - 25px);
-		// height: 90px;
-		padding: 20px;
-		margin: 10px;
-		// text-align: left;
 		background-color: var(--applicationBlock-Color);
 		border: 2px solid var(--applicationBlock-Color);
 		position: relative;
 		a {
 			color: white;
-			display: flex;
-			flex-direction: row;
-			justify-content: flex-start;
-			align-items: center;
-			flex-wrap: wrap;
 		}
 		.material-icons {
-			margin-right: 15px;
 			color: var(--applicationBlock-Color);
 		}
 	}
 	@media (max-width:545px) {
-		.intranet-super-tile-type-application {
-			min-width: 200px;
+		[class*=intranet-super-tile-type] {
 			width: 100%;
 		}
 	}

@@ -43,11 +43,11 @@ $contact = get_field('intranet_super_tile_block_user');
 $userService = get_field('intranet_super_tile_block_user_service');
 $phoneNumber = get_field('intranet_super_tile_block_user_phone');
 $tag = get_field('intranet_super_tile_block_tag');
-if ($typeDeBlock == 'formulaire') {
-    $typeFile = get_field('intranet_super_tile_block_type_form');
-} else {
-    $typeFile=false;
-}
+// if ($typeDeBlock == 'formulaire') {
+//     $typeFile = get_field('intranet_super_tile_block_type_form');
+// } else {
+//     $typeFile=false;
+// }
 
 
 ?>
@@ -60,7 +60,7 @@ if ($typeDeBlock == 'formulaire') {
         }
         if (($typeDeBlock == 'formulaire') || ($typeDeBlock == 'application') ){
             // sedoo_wpthch_intranet_tuile_formulaire($superTileIcone, $titreBlock, $link, $link_url, $typeFile);
-            sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url, $typeFile);
+            sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url);
         }
         // if{            
         //     sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url);

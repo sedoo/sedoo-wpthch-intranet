@@ -1,11 +1,3 @@
-// .Accordion {
-    // margin: 0;
-    // padding: 0;
-    // border: 2px solid hsl(0, 0%, 82%);
-    // border-radius: 7px;
-    // width: 20em;
-  // }
-
 .Accordion {
   h3 {
     margin: 0;
@@ -16,10 +8,6 @@
 .Accordion.focus {
   border-color: hsl(216, 94%, 73%);
 }
-
-// .Accordion > * + * {
-  // border-top: 1px solid hsl(0, 0%, 82%);
-// }
 
 .Accordion-trigger {
   background: none;

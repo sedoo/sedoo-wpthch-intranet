@@ -29,24 +29,29 @@ $themeSlugRewrite = "category";
     if (!is_front_page()){
     ?>
     <aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
-    <?php
-      /////////////   CONTACTS    ////////////
-      if( have_rows('intranet_service', 'option') ) {
-        if (sedoo_wpthch_intranet_dataOption_exist('intranet_service', 'intranet_service_categorie', $themes[0]->slug)) {
-          ?>
-          
-          <section id="contact">
-          <?php
-          ob_start(); // création d'un buffer
-          sedoo_wpthch_intranet_contact_list($themes[0]->slug);
-          $content = ob_get_contents();
-          ob_end_clean(); //Stops saving things and discards whatever was saved
-
-          sedoo_wpthch_intranet_simple_panel('Contacts', $themes[0]->slug, 'Contacts', 'contacts',  $description, $content);
-          ?>
-          </section>
       <?php
+      if ( is_user_logged_in() ) {
+            
+        /////////////   CONTACTS    ////////////
+        if( have_rows('intranet_service', 'option') ) {
+          if (sedoo_wpthch_intranet_dataOption_exist('intranet_service', 'intranet_service_categorie', $themes[0]->slug)) {
+            ?>
+            
+            <section id="contact">
+            <?php
+            ob_start(); // création d'un buffer
+            sedoo_wpthch_intranet_tuile_contact_list($themes[0]->slug);
+            $content = ob_get_contents();
+            ob_end_clean(); //Stops saving things and discards whatever was saved
+
+            sedoo_wpthch_intranet_simple_panel('Contacts', $themes[0]->slug, 'Contacts', 'contacts',  $description, $content);
+            ?>
+            </section>
+        <?php
+          }
         }
+      } else {
+        sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
       }
       ?>
       <?php
@@ -138,79 +143,4 @@ $themeSlugRewrite = "category";
   ?>
 </div>  
 </article>
-<hr>
-<h2>DEBUG</h2>
-<?php
 
-// $ldaphost ="ldap://195.83.20.90";
-// $ldapport = 389;
-
-// $ds = ldap_connect($ldaphost, $ldapport)
-// or die("Could not connect to $ldaphost");
-
-//         // $person="pvert";
-//         $user_id=get_current_user_id();
-//         $user_info=get_userdata($user_id);
-//         $uid=$user_info->user_login;
-//         $dn = "ou=people,dc=omp";
-//         // $filter="(|(uid=".$uid."*)(givenName=".$person."*))";
-//         $filter = "(&(uid={$uid}))";
-//         $justthese = array("gidNumber");
-
-//         $sr=ldap_search($ds, $dn, $filter, $justthese);
-
-//         $info = ldap_get_entries($ds, $sr);
-
-//         $gidnumber=$info[0]['gidnumber'][0];
-//          echo "ENTRY RESULTS: ".$gidnumber;
-//         //  print_r($info[0]['gidnumber'][0]);
-         
-//         echo "<br />";
-
-// /**
-//  * 
-//  */
-   
-// switch ($gidnumber) {
-//   // case 'irap.omp.eu':
-//   case '1200':
-//       $group_id=2;
-      
-//       break;
-//   case '900':
-//       $group_id=3;
-      
-//       break;
-//   // case 'cesbio.cnes.fr':
-//   case '600':
-//       $group_id=4;
-      
-//       break;
-//   // case 'get.omp.eu':
-//   case '700':
-//       $group_id=5;
-      
-//       break;
-//   // case 'aero.obs-mip.fr':
-//   case '1000':  
-//       $group_id=6;
-      
-//       break;
-//   // case 'legos.obs-mip.fr':
-//   case '1100':
-//       $group_id=7;
-      
-//       break;
-// }
-// echo "ENTRY WP GROUP: ".$group_id;
-// // update group id in  prefix_groups_user_group for user_id
-// global $wpdb;
-// $table = $wpdb->prefix.'groups_user_group';
-// $data = [ 'group_id' => $group_id ]; 
-// // $format = [ %s ];  
-// $where = [ 'user_id' => $user_id ];
-// $format = array('%d','%s');
-// $where_format = array('%d');
-// $wpdb->update( $table, $data, $where, $format, $where_format );
-
-?>
