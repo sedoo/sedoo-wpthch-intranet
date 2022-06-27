@@ -191,5 +191,3 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page .intranet-super-tile-type-application a, [data-role="homepageIntranet"] .intranet-super-tile-type-application a { color: white; }
 .sedoo-intranet-page .intranet-super-tile-type-application .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-application .material-icons { color: var(--applicationBlock-Color); }
 @media (max-width: 545px) { .sedoo-intranet-page [class*=intranet-super-tile-type], [data-role="homepageIntranet"] [class*=intranet-super-tile-type] { width: 100%; } }
-
-/*# sourceMappingURL=style.css.map */
