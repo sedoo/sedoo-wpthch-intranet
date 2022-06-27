@@ -4,7 +4,7 @@
 function sedoo_intranet_patterns() {
 
     register_block_pattern(
-        'tutelle-block/intranet-tutelle-block-1',
+        'tutelle-block/intranet-tutelle-block',
         array(
             'title'       => __( 'column tutelle block', 'tutelle-block' ),
             'description' => _x( 'Trois colonnes pour proposer des liens vers les trois tutelles, CNRS, IRD, UT3.', 'Block pattern description', 'tutelle-block' ),
