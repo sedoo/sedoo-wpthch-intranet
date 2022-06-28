@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.30.0
+Version:      0.31.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -185,7 +185,7 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page .intranet-super-tile-type-contact .flip-card-back a, [data-role="homepageIntranet"] .intranet-super-tile-type-contact .flip-card-back a { vertical-align: middle; }
 .sedoo-intranet-page .intranet-super-tile-type-contact .flip-card-back a:hover, [data-role="homepageIntranet"] .intranet-super-tile-type-contact .flip-card-back a:hover { color: #323232 !important; background-color: transparent; }
 .sedoo-intranet-page .intranet-super-tile-type-contact .flip-card-back .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-contact .flip-card-back .material-icons { font-size: 18px; width: 30px; height: 30px; line-height: 30px; display: inline-block; vertical-align: middle; background-color: var(--contactBlock-Color); color: white; }
-.sedoo-intranet-page .intranet-super-tile-type-formulaire, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire { background: var(--formulaireBlock-Color); border: 2px solid white; }
+.sedoo-intranet-page .intranet-super-tile-type-formulaire, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire { background: var(--formulaireBlock-Color); border: 2px solid white; text-align: center; }
 .sedoo-intranet-page .intranet-super-tile-type-formulaire .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire .material-icons { color: var(--formulaireBlock-Color); }
 .sedoo-intranet-page .intranet-super-tile-type-application, [data-role="homepageIntranet"] .intranet-super-tile-type-application { background-color: var(--applicationBlock-Color); border: 2px solid var(--applicationBlock-Color); position: relative; }
 .sedoo-intranet-page .intranet-super-tile-type-application a, [data-role="homepageIntranet"] .intranet-super-tile-type-application a { color: white; }
