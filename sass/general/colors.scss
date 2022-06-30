@@ -9,14 +9,21 @@ $green4: #276B65;
 $yellow1: #DD9946;
 $yellow2:#fcb900;
 $orange1: #E57E10;
+$cnrs: #04365d;//#0660ff;
+
+$ut3:#fbca00;
+$ird:#e20613;
 
 /* Générique */
 /* ========================= */
 /* Root */
 :root{
 /* FORMULAIRE */
---formulaireBlock-Color:#{$yellow2};
---applicationBlock-Color:#{$green4};
---contactBlock-Color:#{$blue3};
+--formulaireBlock-color:#{$green1};
+--applicationBlock-color:#{$green4};
+--contactBlock-color:#{$blue3};
+--cnrs-color:#{$cnrs};
+--ird-color:#{$ird};
+--ut3-color:#{$ut3};
 --borderRadiusTuile:20px;
 }

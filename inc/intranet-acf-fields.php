@@ -51,82 +51,6 @@ acf_add_local_field_group(array(
     'key' => 'group_6231ff4e5fc5e',
     'title' => 'Fichiers en relation',
     'fields' => array(
-        // array(
-        //     'key' => 'field_6231ff65ef70f',
-        //     'label' => 'Contacts',
-        //     'name' => 'intranet_taxo_contacts',
-        //     'type' => 'repeater',
-        //     'instructions' => '',
-        //     'required' => 0,
-        //     'conditional_logic' => 0,
-        //     'wrapper' => array(
-        //         'width' => '',
-        //         'class' => '',
-        //         'id' => '',
-        //     ),
-        //     'collapsed' => 'field_6231ffa1ef30a',
-        //     'min' => 0,
-        //     'max' => 0,
-        //     'layout' => 'table',
-        //     'button_label' => '',
-        //     'sub_fields' => array(
-        //         array(
-        //             'key' => 'field_62320092ef30c',
-        //             'label' => 'Nom du service proposé',
-        //             'name' => 'intranet_taxo_contact_service_name',
-        //             'type' => 'text',
-        //             'instructions' => '',
-        //             'required' => 0,
-        //             'conditional_logic' => 0,
-        //             'wrapper' => array(
-        //                 'width' => '',
-        //                 'class' => '',
-        //                 'id' => '',
-        //             ),
-        //             'default_value' => '',
-        //             'placeholder' => '',
-        //             'prepend' => '',
-        //             'append' => '',
-        //             'maxlength' => '',
-        //         ),
-        //         array(
-        //             'key' => 'field_6231ffa1ef30a',
-        //             'label' => 'Adresse générique du service',
-        //             'name' => 'intranet_taxo_contact_service_mail',
-        //             'type' => 'email',
-        //             'instructions' => '',
-        //             'required' => 0,
-        //             'conditional_logic' => 0,
-        //             'wrapper' => array(
-        //                 'width' => '',
-        //                 'class' => '',
-        //                 'id' => '',
-        //             ),
-        //             'default_value' => '',
-        //             'placeholder' => '',
-        //             'prepend' => '',
-        //             'append' => '',
-        //         ),
-        //         array(
-        //             'key' => 'field_6231ffe1ef30b',
-        //             'label' => 'Liste des gestionnaires',
-        //             'name' => 'intranet_taxo_contact_userlist',
-        //             'type' => 'user',
-        //             'instructions' => '',
-        //             'required' => 0,
-        //             'conditional_logic' => 0,
-        //             'wrapper' => array(
-        //                 'width' => '',
-        //                 'class' => '',
-        //                 'id' => '',
-        //             ),
-        //             'role' => '',
-        //             'allow_null' => 0,
-        //             'multiple' => 1,
-        //             'return_format' => 'array',
-        //         ),
-        //     ),
-        // ),
         array(
             'key' => 'field_6232038f994b5',
             'label' => 'Racine de l\'arborescence de fichiers',
@@ -165,186 +89,6 @@ acf_add_local_field_group(array(
     'active' => true,
     'description' => '',
     'show_in_rest' => 0,
-));
-
-//fichiers en relation sur filebrowser
-acf_add_local_field_group(array(
-	'key' => 'group_623b3e7e0a9c3',
-	'title' => 'Ajout de ressources en relation',
-	'fields' => array(
-		array(
-			'key' => 'field_623b3e8a0aa3a',
-			'label' => 'Fichiers/liens',
-			'name' => 'intranet_relatedfile',
-			'type' => 'repeater',
-			'instructions' => '',
-			'required' => 0,
-			'conditional_logic' => 0,
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'collapsed' => 'field_623b3f460aa3c',
-			'min' => 0,
-			'max' => 0,
-			'layout' => 'row',
-			'button_label' => 'Ajouter un fichier/lien',
-			'sub_fields' => array(
-				array(
-					'key' => 'field_623b3f460aa3c',
-					'label' => 'Nom explicite',
-					'name' => 'intranet_relatedfile_name',
-					'type' => 'text',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-				array(
-					'key' => 'field_623dde4c5e696',
-					'label' => 'Source',
-					'name' => 'intranet_relatedfile_source',
-					'type' => 'select',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => 0,
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'choices' => array(
-						'interne' => 'Interne: Fichier déposé sur filebrowser',
-						'interneForm' => 'Interne: formulaires en ligne',
-						'externe' => 'Externe (page intranet tutelle, autres)',
-					),
-					'default_value' => false,
-					'allow_null' => 0,
-					'multiple' => 0,
-					'ui' => 0,
-					'return_format' => 'array',
-					'ajax' => 0,
-					'placeholder' => '',
-				),
-				array(
-					'key' => 'field_623b3ec00aa3b',
-					'label' => 'URL du fichier interne',
-					'name' => 'intranet_relatedfile_internal_url',
-					'type' => 'text',
-					'instructions' => 'Récupérer l\'url pour accéder au dossier, depuis le gestionnaire de fichiers <a href="https://fb2.sedoo.fr/" target="_blank">"fileBrowser" </a>',
-					'required' => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field' => 'field_623dde4c5e696',
-								'operator' => '==',
-								'value' => 'interne',
-							),
-						),
-					),
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => 'https://fb2.sedoo.fr/files/irap/Finances/Achats/nom_du_fichier.extension',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-				array(
-					'key' => 'field_62456e056cc49',
-					'label' => 'Page de formulaire en relation',
-					'name' => 'intranet_relatedfile_internal_url_form',
-					'type' => 'relationship',
-					'instructions' => '',
-					'required' => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field' => 'field_623dde4c5e696',
-								'operator' => '==',
-								'value' => 'interneForm',
-							),
-						),
-					),
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'post_type' => array(
-						0 => 'page',
-					),
-					'taxonomy' => '',
-					'filters' => array(
-						0 => 'search',
-						1 => 'taxonomy',
-					),
-					'elements' => '',
-					'min' => '',
-					'max' => '1',
-					'return_format' => 'object',
-				),
-				array(
-					'key' => 'field_623ddf213b2ee',
-					'label' => 'URL du fichier externe',
-					'name' => 'intranet_relatedfile_external_url',
-					'type' => 'text',
-					'instructions' => 'Récupérer l\'url complète de la page où est hébergé le fichier',
-					'required' => 0,
-					'conditional_logic' => array(
-						array(
-							array(
-								'field' => 'field_623dde4c5e696',
-								'operator' => '==',
-								'value' => 'externe',
-							),
-						),
-					),
-					'wrapper' => array(
-						'width' => '',
-						'class' => '',
-						'id' => '',
-					),
-					'default_value' => '',
-					'placeholder' => '',
-					'prepend' => '',
-					'append' => '',
-					'maxlength' => '',
-				),
-			),
-		),
-	),
-	'location' => array(
-		array(
-			array(
-				'param' => 'post_type',
-				'operator' => '==',
-				'value' => 'page',
-			),
-		),
-	),
-	'menu_order' => 0,
-	'position' => 'normal',
-	'style' => 'default',
-	'label_placement' => 'top',
-	'instruction_placement' => 'label',
-	'hide_on_screen' => '',
-	'active' => true,
-	'description' => '',
-	'show_in_rest' => 0,
 ));
 
 // Déclarer un service
@@ -842,6 +586,7 @@ acf_add_local_field_group(array(
 	'show_in_rest' => 0,
 ));
 
+// Tuiles cliquables
 acf_add_local_field_group(array(
 	'key' => 'group_628206db870c0',
 	'title' => 'super tile field group',
@@ -854,7 +599,8 @@ acf_add_local_field_group(array(
 			'instructions' => '<ol>Quel type de tuile souhaitez-vous créer ? (3 choix possibles)
 			<li>Tuile Contact (Bleu)- ajout des informations de contact</li>
 			<li>Tuile formulaire (Jaune)- raccourci vers un formulaire</li>
-			<li>Tuile application (Verte)- raccourci vers une page ou une application.</li>	
+			<li>Tuile application (Verte)- raccourci vers une page ou une application.</li>
+			<li>Tuile tutelle (variable en fonction de la tutelle)- raccourci vers une page ou une application.</li>		
 			</ol>',
 			'required' => 0,
 			'conditional_logic' => 0,
@@ -867,6 +613,41 @@ acf_add_local_field_group(array(
 				'contact' => 'contact',
 				'formulaire' => 'formulaire',
 				'application' => 'application',
+				'tutelle' => 'tutelle',
+			),
+			'allow_null' => 0,
+			'other_choice' => 0,
+			'default_value' => '',
+			'layout' => 'horizontal',
+			'return_format' => 'value',
+			'save_other_choice' => 0,
+		),
+		array(
+			'key' => 'field_628206f22220e',
+			'label' => 'Vers quelle tutelle pointera le lien ?',
+			'name' => 'intranet_super_tile_block_tutelle',
+			'type' => 'radio',
+			'instructions' => 'Sélectionner la tutelle',
+			'required' => 0,
+			'conditional_logic' => array(
+				array(
+					array(
+						'field' => 'field_6282396cf76e8',
+						'operator' => '==',
+						'value' => 'tutelle',
+					),
+				),
+			),
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'choices' => array(
+				'cnrs' => 'CNRS',
+				'ut3' => 'UT3',
+				'ird' => 'IRD',
+				'gouv' => 'Gouvernement / ministère',
 			),
 			'allow_null' => 0,
 			'other_choice' => 0,
@@ -1111,6 +892,186 @@ acf_add_local_field_group(array(
 	'description' => '',
 	'show_in_rest' => 0,
 ));
+
+//fichiers en relation sur filebrowser
+// acf_add_local_field_group(array(
+// 	'key' => 'group_623b3e7e0a9c3',
+// 	'title' => 'Ajout de ressources en relation',
+// 	'fields' => array(
+// 		array(
+// 			'key' => 'field_623b3e8a0aa3a',
+// 			'label' => 'Fichiers/liens',
+// 			'name' => 'intranet_relatedfile',
+// 			'type' => 'repeater',
+// 			'instructions' => '',
+// 			'required' => 0,
+// 			'conditional_logic' => 0,
+// 			'wrapper' => array(
+// 				'width' => '',
+// 				'class' => '',
+// 				'id' => '',
+// 			),
+// 			'collapsed' => 'field_623b3f460aa3c',
+// 			'min' => 0,
+// 			'max' => 0,
+// 			'layout' => 'row',
+// 			'button_label' => 'Ajouter un fichier/lien',
+// 			'sub_fields' => array(
+// 				array(
+// 					'key' => 'field_623b3f460aa3c',
+// 					'label' => 'Nom explicite',
+// 					'name' => 'intranet_relatedfile_name',
+// 					'type' => 'text',
+// 					'instructions' => '',
+// 					'required' => 0,
+// 					'conditional_logic' => 0,
+// 					'wrapper' => array(
+// 						'width' => '',
+// 						'class' => '',
+// 						'id' => '',
+// 					),
+// 					'default_value' => '',
+// 					'placeholder' => '',
+// 					'prepend' => '',
+// 					'append' => '',
+// 					'maxlength' => '',
+// 				),
+// 				array(
+// 					'key' => 'field_623dde4c5e696',
+// 					'label' => 'Source',
+// 					'name' => 'intranet_relatedfile_source',
+// 					'type' => 'select',
+// 					'instructions' => '',
+// 					'required' => 0,
+// 					'conditional_logic' => 0,
+// 					'wrapper' => array(
+// 						'width' => '',
+// 						'class' => '',
+// 						'id' => '',
+// 					),
+// 					'choices' => array(
+// 						'interne' => 'Interne: Fichier déposé sur filebrowser',
+// 						'interneForm' => 'Interne: formulaires en ligne',
+// 						'externe' => 'Externe (page intranet tutelle, autres)',
+// 					),
+// 					'default_value' => false,
+// 					'allow_null' => 0,
+// 					'multiple' => 0,
+// 					'ui' => 0,
+// 					'return_format' => 'array',
+// 					'ajax' => 0,
+// 					'placeholder' => '',
+// 				),
+// 				array(
+// 					'key' => 'field_623b3ec00aa3b',
+// 					'label' => 'URL du fichier interne',
+// 					'name' => 'intranet_relatedfile_internal_url',
+// 					'type' => 'text',
+// 					'instructions' => 'Récupérer l\'url pour accéder au dossier, depuis le gestionnaire de fichiers <a href="https://fb2.sedoo.fr/" target="_blank">"fileBrowser" </a>',
+// 					'required' => 0,
+// 					'conditional_logic' => array(
+// 						array(
+// 							array(
+// 								'field' => 'field_623dde4c5e696',
+// 								'operator' => '==',
+// 								'value' => 'interne',
+// 							),
+// 						),
+// 					),
+// 					'wrapper' => array(
+// 						'width' => '',
+// 						'class' => '',
+// 						'id' => '',
+// 					),
+// 					'default_value' => '',
+// 					'placeholder' => 'https://fb2.sedoo.fr/files/irap/Finances/Achats/nom_du_fichier.extension',
+// 					'prepend' => '',
+// 					'append' => '',
+// 					'maxlength' => '',
+// 				),
+// 				array(
+// 					'key' => 'field_62456e056cc49',
+// 					'label' => 'Page de formulaire en relation',
+// 					'name' => 'intranet_relatedfile_internal_url_form',
+// 					'type' => 'relationship',
+// 					'instructions' => '',
+// 					'required' => 0,
+// 					'conditional_logic' => array(
+// 						array(
+// 							array(
+// 								'field' => 'field_623dde4c5e696',
+// 								'operator' => '==',
+// 								'value' => 'interneForm',
+// 							),
+// 						),
+// 					),
+// 					'wrapper' => array(
+// 						'width' => '',
+// 						'class' => '',
+// 						'id' => '',
+// 					),
+// 					'post_type' => array(
+// 						0 => 'page',
+// 					),
+// 					'taxonomy' => '',
+// 					'filters' => array(
+// 						0 => 'search',
+// 						1 => 'taxonomy',
+// 					),
+// 					'elements' => '',
+// 					'min' => '',
+// 					'max' => '1',
+// 					'return_format' => 'object',
+// 				),
+// 				array(
+// 					'key' => 'field_623ddf213b2ee',
+// 					'label' => 'URL du fichier externe',
+// 					'name' => 'intranet_relatedfile_external_url',
+// 					'type' => 'text',
+// 					'instructions' => 'Récupérer l\'url complète de la page où est hébergé le fichier',
+// 					'required' => 0,
+// 					'conditional_logic' => array(
+// 						array(
+// 							array(
+// 								'field' => 'field_623dde4c5e696',
+// 								'operator' => '==',
+// 								'value' => 'externe',
+// 							),
+// 						),
+// 					),
+// 					'wrapper' => array(
+// 						'width' => '',
+// 						'class' => '',
+// 						'id' => '',
+// 					),
+// 					'default_value' => '',
+// 					'placeholder' => '',
+// 					'prepend' => '',
+// 					'append' => '',
+// 					'maxlength' => '',
+// 				),
+// 			),
+// 		),
+// 	),
+// 	'location' => array(
+// 		array(
+// 			array(
+// 				'param' => 'post_type',
+// 				'operator' => '==',
+// 				'value' => 'page',
+// 			),
+// 		),
+// 	),
+// 	'menu_order' => 0,
+// 	'position' => 'normal',
+// 	'style' => 'default',
+// 	'label_placement' => 'top',
+// 	'instruction_placement' => 'label',
+// 	'hide_on_screen' => '',
+// 	'active' => true,
+// 	'description' => '',
+// 	'show_in_rest' => 0,
+// ));
 
 endif;		
 

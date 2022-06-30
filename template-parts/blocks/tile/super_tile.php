@@ -35,37 +35,40 @@ if ( ! empty( $block['textColor'] ) ) {
 
 // Load values and assign defaults.
 $typeDeBlock = get_field('intranet_super_tile_block_type_choice');
+if (get_field('intranet_super_tile_block_tutelle')) {
+    $tutelle = get_field('intranet_super_tile_block_tutelle');
+    $typeDeBlock .= " ".$tutelle;
+}
 $titreBlock = get_field('intranet_super_tile_block_title');
 $superTileIcone = get_field('intranet_super_tile_block_icone');
 $link = get_field('intranet_super_tile_block_link');
 $link_url = $link['url'];
-$contact = get_field('intranet_super_tile_block_user');
-$userService = get_field('intranet_super_tile_block_user_service');
-$phoneNumber = get_field('intranet_super_tile_block_user_phone');
-$tag = get_field('intranet_super_tile_block_tag');
+if (get_field('intranet_super_tile_block_user')) {
+    $contact = get_field('intranet_super_tile_block_user');
+}
+if (get_field('intranet_super_tile_block_user_service')) {
+    $userService = get_field('intranet_super_tile_block_user_service');
+}
+if (get_field('intranet_super_tile_block_user_phone')) {
+    $phoneNumber = get_field('intranet_super_tile_block_user_phone');
+}
 // if ($typeDeBlock == 'formulaire') {
 //     $typeFile = get_field('intranet_super_tile_block_type_form');
 // } else {
 //     $typeFile=false;
 // }
 
-
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> flip-card intranet-super-tile-type-<?php echo $typeDeBlock; ?>">
-
     <?php 
         // load template wich are set in functions -> intranet-display-function.php
         if($typeDeBlock == 'contact'){
             sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userService);
-        }
-        if (($typeDeBlock == 'formulaire') || ($typeDeBlock == 'application') ){
+        } else {
+        // if (($typeDeBlock == 'formulaire') || ($typeDeBlock == 'application') ){
             // sedoo_wpthch_intranet_tuile_formulaire($superTileIcone, $titreBlock, $link, $link_url, $typeFile);
             sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url);
         }
-        // if{            
-        //     sedoo_wpthch_intranet_tuile_application($superTileIcone, $titreBlock, $link, $link_url);
-        // }
     ?>
-
 </section>
 
