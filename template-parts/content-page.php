@@ -55,6 +55,7 @@ $themeSlugRewrite = "category";
       }
       ?>
       <?php
+      /*
       /////////////   RELATED FILES / LINK    ////////////
       if( get_field('intranet_relatedfile') ) {
         ?>
@@ -114,6 +115,7 @@ $themeSlugRewrite = "category";
         </section>
         <?php
       }
+      */
       ?>
       <?php
       if( have_rows('intranet_apiext', 'option') ) {

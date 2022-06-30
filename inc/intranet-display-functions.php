@@ -404,7 +404,10 @@ function sedoo_wpthch_intranet_apiext_list($categoryTermID) {
 function sedoo_wpthch_intranet_login_form($id, $className) {
     ?>
     <section id="<?php echo $id; ?>" class="<?php echo esc_attr($className); ?>">
-        <h3><span class="material-icons">login</span> <span>Authentification</span></h3>
+      <div class="h3">
+        <span class="material-icons">login</span> Authentification
+      </div>
+        <!-- <h3><span class="material-icons">login</span> <span>Authentification</span></h3> -->
         <p>Pour accéder à plus de contenus, veuillez vous authentifier avec vos identifiants OMP</p>
         <div>
         <?php
