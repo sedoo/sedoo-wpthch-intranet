@@ -1,0 +1,11 @@
+.sedoo-pattern-tutelles-columns {
+    > .wp-block-column {
+        > .wp-block-image {
+            height: 60px;
+            > figure img{
+                height: 50px;
+            }
+        }
+    }
+    
+}
