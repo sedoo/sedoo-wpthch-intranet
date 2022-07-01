@@ -205,3 +205,9 @@ section#contact ul[id="gestionnaires"] li a p { text-align: center; }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.gouv .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.gouv .material-icons { color: #333; }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.gouv::before, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.gouv::before { content: "Gouv"; }
 @media (max-width: 545px) { .sedoo-intranet-page [class*=intranet-super-tile-type], [data-role="homepageIntranet"] [class*=intranet-super-tile-type] { width: 100%; } }
+
+.sedoo-pattern-tutelles-columns > .wp-block-column > .wp-block-image { height: 60px; }
+.sedoo-pattern-tutelles-columns > .wp-block-column > .wp-block-image > figure img { height: 50px; }
+
+.sedoo-pattern-tutelles-rows { padding: 0; }
+.sedoo-pattern-tutelles-rows > div > h2 { opacity: 0; height: 0; }
