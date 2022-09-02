@@ -39,10 +39,16 @@ if (get_field('intranet_super_tile_block_tutelle')) {
     $tutelle = get_field('intranet_super_tile_block_tutelle');
     $typeDeBlock .= " ".$tutelle;
 }
+if (get_field('intranet_super_tile_block_title')) {
 $titreBlock = get_field('intranet_super_tile_block_title');
-$superTileIcone = get_field('intranet_super_tile_block_icone');
-$link = get_field('intranet_super_tile_block_link');
-$link_url = $link['url'];
+}
+if (get_field('intranet_super_tile_block_icone')) {
+    $superTileIcone = get_field('intranet_super_tile_block_icone');
+}
+if (get_field('intranet_super_tile_block_link')) {
+    $link = get_field('intranet_super_tile_block_link');
+    $link_url = $link['url'];
+}
 if (get_field('intranet_super_tile_block_user')) {
     $contact = get_field('intranet_super_tile_block_user');
 }
@@ -52,11 +58,6 @@ if (get_field('intranet_super_tile_block_user_service')) {
 if (get_field('intranet_super_tile_block_user_phone')) {
     $phoneNumber = get_field('intranet_super_tile_block_user_phone');
 }
-// if ($typeDeBlock == 'formulaire') {
-//     $typeFile = get_field('intranet_super_tile_block_type_form');
-// } else {
-//     $typeFile=false;
-// }
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> flip-card intranet-super-tile-type-<?php echo $typeDeBlock; ?>">
