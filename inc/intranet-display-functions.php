@@ -41,11 +41,11 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userServic
  * **/ 
 function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url){ ?> 
 
-  <a id="<?php echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
+  <a id="<?php //echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
       <?php
       // if ($typeFile) {
         ?>
-        <!-- <span class="typeFile"><?php echo $typeFile; ?></span> -->
+        <!-- <span class="typeFile"><?php //echo $typeFile; ?></span> -->
         <?php
       // } 
       ?>
