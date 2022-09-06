@@ -241,7 +241,6 @@ function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
           foreach ($contact_results as $contact_result) {
             array_push($contact_group_ID, $contact_result->group_id);
           }
-          // var_dump($contact_group_ID);
 
           $current_user_results = $wpdb->get_results(
             "
@@ -254,9 +253,8 @@ function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
           foreach ($current_user_results as $current_user_result) {
             array_push($current_user_group_ID, $current_user_result->group_id);
           }
-          // var_dump($current_user_group_ID);
           $match_group_ID = array_intersect($current_user_group_ID, $contact_group_ID);
-          // var_dump($match_group_ID);
+
           if (!empty($match_group_ID)) {
           ?>
           <div class="super-tile intranet-super-tile-type-contact flip-card">
@@ -269,7 +267,7 @@ function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
                     <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
                     <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
                   </p>            
-              </div>
+              </div>  
               <div class="flip-card-back">
                 <!-- <span class="material-icons">mail</span>  -->
                 <p>
@@ -403,6 +401,10 @@ function sedoo_wpthch_intranet_apiext_list($categoryTermID) {
     $intranet_apiext_url= get_sub_field('intranet_apiext_application_url');
     $intranet_apiext_application_categorie= get_sub_field('intranet_apiext_application_categorie');
     $intranet_apiext_application_icone= get_sub_field('intranet_apiext_application_icone');
+    $intranet_apiext_application_restrict= get_sub_field('intranet_apiext_application_restrict');
+    if ($intranet_apiext_application_restrict) {
+      $intranet_apiext_application_group= get_sub_field('intranet_apiext_application_group');
+    }
     $get_term_value=array();
     if ( ! empty( $intranet_apiext_application_categorie ) ) {
       foreach ($intranet_apiext_application_categorie as $apiext_category) {
