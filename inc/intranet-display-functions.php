@@ -227,18 +227,44 @@ function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
         <section id="gestionnaires">
         <?php
         foreach ($intranet_service_gestionnaires as $gestionnaire) {	
-          //quand tel from ldap ready
+          
+          // check current user group_id, show only contact with same group_id
+          global $wpdb;
+          $contact_results = $wpdb->get_results(
+            "
+            SELECT group_id 
+            FROM {$wpdb->prefix}groups_user_group
+            WHERE user_id = '".$gestionnaire->ID."'
+            "
+          ) or die(mysql_error());
+          $contact_group_ID = array();
+          foreach ($contact_results as $contact_result) {
+            array_push($contact_group_ID, $contact_result->group_id);
+          }
+          // var_dump($contact_group_ID);
+
+          $current_user_results = $wpdb->get_results(
+            "
+            SELECT group_id 
+            FROM {$wpdb->prefix}groups_user_group
+            WHERE user_id = '".get_current_user_id()."'
+            "
+          ) or die(mysql_error());
+          $current_user_group_ID = array();
+          foreach ($current_user_results as $current_user_result) {
+            array_push($current_user_group_ID, $current_user_result->group_id);
+          }
+          // var_dump($current_user_group_ID);
+          $match_group_ID = array_intersect($current_user_group_ID, $contact_group_ID);
+          // var_dump($match_group_ID);
+          if (!empty($match_group_ID)) {
           ?>
           <div class="super-tile intranet-super-tile-type-contact flip-card">
-          <?php
-          // $phoneNumber="0561000000";
-          // sedoo_wpthch_intranet_tuile_contact($gestionnaire, $phoneNumber, $intranet_service_nom);
-          // echo "</div>";
-          ?>
             <div class="flip-card-inner">
               <div class="flip-card-front">
                   <span class="material-icons">face</span>    
-                  <h3><?php echo $userService; ?></h3>
+                  <h3><?php echo $userService;?> </h3>
+                  
                   <p>
                     <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
                     <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
@@ -258,7 +284,8 @@ function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
               </div>
             </div>
           </div>
-        <?php
+          <?php
+          }
         }
         echo "</section>";
       }
