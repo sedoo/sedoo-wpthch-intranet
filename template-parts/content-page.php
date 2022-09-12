@@ -30,6 +30,7 @@ $themeSlugRewrite = "category";
     ?>
     <aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
       <?php
+      $description="";
       if ( is_user_logged_in() ) {
             
         /////////////   CONTACTS    ////////////

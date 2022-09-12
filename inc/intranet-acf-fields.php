@@ -195,7 +195,7 @@ acf_add_local_field_group(array(
 				array(
 					'key' => 'field_62623199f9f4d',
 					'label' => 'Restreindre à un laboratoire',
-					'name' => 'intranet_apiext_application_restrict',
+					'name' => 'intranet_service_application_restrict',
 					'type' => 'true_false',
 					'instructions' => '',
 					'required' => 0,
@@ -214,7 +214,7 @@ acf_add_local_field_group(array(
 				array(
 					'key' => 'field_624523741dacf',
 					'label' => 'Laboratoire',
-					'name' => 'intranet_apiext_application_group',
+					'name' => 'intranet_service_application_group',
 					'type' => 'select',
 					'instructions' => '',
 					'required' => 0,

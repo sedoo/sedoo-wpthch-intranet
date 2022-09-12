@@ -118,6 +118,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 				</section> 
 				<aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
 					<?php
+					$description=""; // init description
 					if ( is_user_logged_in() ) {
 					
 						/////////////   CONTACTS    ////////////
@@ -130,7 +131,6 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 							sedoo_wpthch_intranet_tuile_contact_list($term->slug);
 							$content = ob_get_contents();
 							ob_end_clean(); //Stops saving things and discards whatever was saved
-
 							sedoo_wpthch_intranet_simple_panel('Contacts', $term->slug, 'Contacts', 'contacts',  $description, $content);
 							?>
 							</section>
