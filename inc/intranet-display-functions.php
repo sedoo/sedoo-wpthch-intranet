@@ -208,6 +208,7 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
 // Liste Contact par services avec tuiles
 function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
   while( have_rows('intranet_service', 'option') ) : the_row();
+    $restrict=FALSE; //set default, update if $intranet_service_application_restrict
     // Load sub field value.
     $serviceCategory = get_sub_field('intranet_service_categorie');
     foreach ($serviceCategory as $service) {
@@ -216,78 +217,49 @@ function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
         $intranet_service_nom= get_sub_field('intranet_service_nom');
         $intranet_service_mail= explode('@', get_sub_field('intranet_service_mail'));
         $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
-
-        // echo "<h3>Adresse générique de contact</h3>";
+        $intranet_service_application_restrict= get_sub_field('intranet_service_application_restrict');
+        if ($intranet_service_application_restrict) {
+          $intranet_service_application_group= get_sub_field('intranet_service_application_group');
+          $restrict = sedoo_wpthch_intranet_get_restrict_value($intranet_service_application_group);
+        }
+        if (!$restrict) {
         ?>
-        <div class="h4">
-          <strong><?php echo $intranet_service_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$intranet_service_mail[1];?></strong> 
-          <small>(<?php echo $intranet_service_nom;?> )</small>
-          <!--<span class="material-icons">mail</span>-->
-        </div>
-        <section id="gestionnaires">
-        <?php
-        foreach ($intranet_service_gestionnaires as $gestionnaire) {	
-          
-          // check current user group_id, show only contact with same group_id
-          global $wpdb;
-          $contact_results = $wpdb->get_results(
-            "
-            SELECT group_id 
-            FROM {$wpdb->prefix}groups_user_group
-            WHERE user_id = '".$gestionnaire->ID."'
-            "
-          ) or die(mysql_error());
-          $contact_group_ID = array();
-          foreach ($contact_results as $contact_result) {
-            array_push($contact_group_ID, $contact_result->group_id);
-          }
-          // var_dump($contact_group_ID);
-
-          $current_user_results = $wpdb->get_results(
-            "
-            SELECT group_id 
-            FROM {$wpdb->prefix}groups_user_group
-            WHERE user_id = '".get_current_user_id()."'
-            "
-          ) or die(mysql_error());
-          $current_user_group_ID = array();
-          foreach ($current_user_results as $current_user_result) {
-            array_push($current_user_group_ID, $current_user_result->group_id);
-          }
-          // var_dump($current_user_group_ID);
-          $match_group_ID = array_intersect($current_user_group_ID, $contact_group_ID);
-          // var_dump($match_group_ID);
-          if (!empty($match_group_ID)) {
-          ?>
-          <div class="super-tile intranet-super-tile-type-contact flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                  <span class="material-icons">face</span>    
-                  <h3><?php echo $userService;?> </h3>
-                  
+          <div class="h4">
+            <strong><?php echo $intranet_service_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$intranet_service_mail[1];?></strong> 
+            <small>(<?php echo $intranet_service_nom;?> )</small>
+          </div>
+          <section id="gestionnaires">
+          <?php
+          foreach ($intranet_service_gestionnaires as $gestionnaire) {	
+            
+            ?>
+            <div class="super-tile intranet-super-tile-type-contact flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <span class="material-icons">face</span>  
+                    
+                    <p>
+                      <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
+                      <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
+                    </p>            
+                </div>  
+                <div class="flip-card-back">
                   <p>
-                    <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
-                    <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
-                  </p>            
-              </div>
-              <div class="flip-card-back">
-                <!-- <span class="material-icons">mail</span>  -->
-                <p>
-                <?php 
-                $user_mail = explode('@', $gestionnaire->user_email);
-                echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
-                ?> 
-                </p>    
-                <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
-                  <span class="material-icons">call</span>
-                </a>
+                  <?php 
+                  $user_mail = explode('@', $gestionnaire->user_email);
+                  echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
+                  ?> 
+                  </p>    
+                  <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
+                    <span class="material-icons">call</span>
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          <?php
+            <?php
           }
+          echo "</section>";
         }
-        echo "</section>";
       }
     }
   endwhile;
@@ -395,34 +367,46 @@ function sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_a
 }
 // list apiext
 function sedoo_wpthch_intranet_apiext_list($categoryTermID) {
+  // $restrict=FALSE; //set default, update if $intranet_apiext_application_restrict
 
   while( have_rows('intranet_apiext', 'option') ) : the_row();
+    $restrict=FALSE; //set default, update if $intranet_apiext_application_restrict
     // Load sub field value.
     $intranet_apiext_nom= get_sub_field('intranet_apiext_application_nom');
     $intranet_apiext_application_description= get_sub_field('intranet_apiext_application_description');
     $intranet_apiext_url= get_sub_field('intranet_apiext_application_url');
     $intranet_apiext_application_categorie= get_sub_field('intranet_apiext_application_categorie');
-    $intranet_apiext_application_icone= get_sub_field('intranet_apiext_application_icone');
+    if (get_sub_field('intranet_apiext_application_icone')) {
+      $intranet_apiext_application_icone= get_sub_field('intranet_apiext_application_icone');
+    }
+    
+    $intranet_apiext_application_restrict= get_sub_field('intranet_apiext_application_restrict');
+    if ($intranet_apiext_application_restrict) {
+      $intranet_apiext_application_group= get_sub_field('intranet_apiext_application_group');
+      $restrict = sedoo_wpthch_intranet_get_restrict_value($intranet_apiext_application_group);
+    }
+
     $get_term_value=array();
     if ( ! empty( $intranet_apiext_application_categorie ) ) {
       foreach ($intranet_apiext_application_categorie as $apiext_category) {
-        // echo "Term ID : ".$apiext_category->term_id." / Parent term ID :".$apiext_category->parent."<br>";
         array_push($get_term_value, $apiext_category->term_id, $apiext_category->parent);
       }
     }
-    // echo "CAT=".$categoryTermID;
-    if ($categoryTermID!=="none") {
-      if ((in_array($categoryTermID, $get_term_value)) && ($categoryTermID!=="none")) {
-        // display
-        sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
+    
+    // if ($categoryTermID!=="none") {
+    if ((in_array($categoryTermID, $get_term_value)) && ($categoryTermID!=="none")) {
+      // display
+      if (!$restrict) {
+        sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone );
       }
+        
     }
-    else {
-      sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
-    }
+    // }
+    // else {
+    //   sedoo_wpthch_intranet_apiext_display2($intranet_apiext_nom, $intranet_apiext_application_description, $intranet_apiext_application_categorie, $intranet_apiext_url, $intranet_apiext_application_icone ); 
+    // }
 
   endwhile;
-// var_dump($get_term_value);
 }
 
 /************
@@ -445,5 +429,35 @@ function sedoo_wpthch_intranet_login_form($id, $className) {
     </section>
   <?php 
 }
+
+/*********** 
+ *  Get Restricted value
+ */
+function sedoo_wpthch_intranet_get_restrict_value($fieldGroup) {
+  $restrict=TRUE;
+  ////////   CHECK CURRENT USER / If restrict group 
+  // check current user group_id, show only api with same group_id
+  global $wpdb;
+  if ( is_user_logged_in() ) {
+    $current_user_results = $wpdb->get_results(
+      "
+      SELECT group_id 
+      FROM {$wpdb->prefix}groups_user_group
+      WHERE user_id = '".get_current_user_id()."'
+      "
+    ) or die(mysql_error());
+    $current_user_group_ID = array();
+    
+    foreach ($current_user_results as $current_user_result) {
+      // var_dump($current_user_result);
+      if (($current_user_result->group_id == $fieldGroup) || ( current_user_can( 'setup_network' ) )) {
+        // user group is same as apiext_group at least one time
+        $restrict=FALSE;
+      }
+    }
+  }
+  return $restrict;
+}
+
 
 ?>

@@ -45,15 +45,21 @@ $titreBlock = get_field('intranet_super_tile_block_title');
 if (get_field('intranet_super_tile_block_icone')) {
     $superTileIcone = get_field('intranet_super_tile_block_icone');
 }
-if (get_field('intranet_super_tile_block_link')) {
+// var_dump(get_field('intranet_super_tile_block_link'));
+if (!empty(get_field('intranet_super_tile_block_link'))) {
     $link = get_field('intranet_super_tile_block_link');
     $link_url = $link['url'];
+} else {
+    $link="";
+    $link_url="";
 }
 if (get_field('intranet_super_tile_block_user')) {
     $contact = get_field('intranet_super_tile_block_user');
 }
-if (get_field('intranet_super_tile_block_user_service')) {
+if (!empty(get_field('intranet_super_tile_block_user_service'))) {
     $userService = get_field('intranet_super_tile_block_user_service');
+} else {
+    $userService="";
 }
 if (get_field('intranet_super_tile_block_user_phone')) {
     $phoneNumber = get_field('intranet_super_tile_block_user_phone');
