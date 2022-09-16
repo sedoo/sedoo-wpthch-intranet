@@ -12,7 +12,13 @@ section#contact {
                 border-bottom: 1px solid #CCC;
             }
 
-           
+            .gestionnaire {
+                p {
+                    line-height: 20px;
+                    height: 20px;
+                }
+
+            }
             li {
                 margin-right: 20px;
                 margin-bottom: 10px;
@@ -50,6 +56,37 @@ section#contact {
                 }
             }
             
+
+        }
+    }
+    [id="gestionnaires"] {
+        margin:10px 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .gestionnaire {
+            min-width: 50%;
+            p {
+                a {
+                    display: flex;
+                    align-items: center;     
+
+                    .material-icons {
+                        margin-right: 5px;
+                    }
+                    span+span {
+                        text-decoration: underline;
+                    }
+                }
+                a:hover {
+                    background-color: transparent;
+                    span+span {
+                        text-decoration: none;
+                        color:var(--theme-color);
+                    }
+                }
+            }
 
         }
     }
