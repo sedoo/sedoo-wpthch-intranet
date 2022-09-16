@@ -35,6 +35,141 @@ function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userServic
 <?php 
 } 
 
+// Used in sidebar
+function sedoo_wpthch_intranet_contacts($slug, $description) {
+  if( have_rows('intranet_service', 'option') ) {
+    if (sedoo_wpthch_intranet_dataOption_exist('intranet_service', 'intranet_service_categorie', $slug)) {
+    ?>
+    <section id="contact">
+    <?php
+    ob_start(); // création d'un buffer
+    // sedoo_wpthch_intranet_tuile_contact_list($slug);
+    sedoo_wpthch_intranet_contact_sidelist($slug);
+    $content = ob_get_contents();
+    ob_end_clean(); //Stops saving things and discards whatever was saved
+    sedoo_wpthch_intranet_simple_panel('Contacts', $slug, 'Contacts', 'contacts',  $description, $content);
+    ?>
+    </section>
+  <?php
+    }
+  }
+}
+
+// Liste Contact par services simple
+function sedoo_wpthch_intranet_contact_sidelist($termSlug) {
+  while( have_rows('intranet_service', 'option') ) : the_row();
+    $restrict=FALSE; //set default, update if $intranet_service_application_restrict
+    // Load sub field value.
+    $serviceCategory = get_sub_field('intranet_service_categorie');
+    foreach ($serviceCategory as $service) {
+      // echo $service->slug.' ';
+      if ($service->slug === $termSlug) {	
+        $intranet_service_nom= get_sub_field('intranet_service_nom');
+        $intranet_service_mail= explode('@', get_sub_field('intranet_service_mail'));
+        $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
+        $intranet_service_application_restrict= get_sub_field('intranet_service_application_restrict');
+        if ($intranet_service_application_restrict) {
+          $intranet_service_application_group= get_sub_field('intranet_service_application_group');
+          $restrict = sedoo_wpthch_intranet_get_restrict_value($intranet_service_application_group);
+        }
+        if (!$restrict) {
+        ?>
+          <div class="h4">
+            <strong><?php echo $intranet_service_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$intranet_service_mail[1];?></strong> 
+            <small>(<?php echo $intranet_service_nom;?> )</small>
+          </div>
+          <section id="gestionnaires">
+          <?php
+          foreach ($intranet_service_gestionnaires as $gestionnaire) {	
+            ?>
+            <div class="gestionnaire">
+                <!-- <span class="material-icons">face</span>   -->
+              <p>
+                <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
+                  <!-- <span class="material-icons">call</span> -->
+                
+                  <span class="material-icons">face</span>
+                  <span>
+                    <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
+                    <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
+                  </span>
+                </a>
+              </p>       
+              
+              <?php 
+              $user_mail = explode('@', $gestionnaire->user_email);
+              //echo "<p>".$user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1]."</p>";
+              ?> 
+    
+            </div>  
+            <?php
+          }
+          echo "</section>";
+        }
+      }
+    }
+  endwhile;
+}
+
+// Liste Contact par services avec tuiles
+function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
+  while( have_rows('intranet_service', 'option') ) : the_row();
+    $restrict=FALSE; //set default, update if $intranet_service_application_restrict
+    // Load sub field value.
+    $serviceCategory = get_sub_field('intranet_service_categorie');
+    foreach ($serviceCategory as $service) {
+      // echo $service->slug.' ';
+      if ($service->slug === $termSlug) {	
+        $intranet_service_nom= get_sub_field('intranet_service_nom');
+        $intranet_service_mail= explode('@', get_sub_field('intranet_service_mail'));
+        $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
+        $intranet_service_application_restrict= get_sub_field('intranet_service_application_restrict');
+        if ($intranet_service_application_restrict) {
+          $intranet_service_application_group= get_sub_field('intranet_service_application_group');
+          $restrict = sedoo_wpthch_intranet_get_restrict_value($intranet_service_application_group);
+        }
+        if (!$restrict) {
+        ?>
+          <div class="h4">
+            <strong><?php echo $intranet_service_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$intranet_service_mail[1];?></strong> 
+            <small>(<?php echo $intranet_service_nom;?> )</small>
+          </div>
+          <section id="gestionnaires">
+          <?php
+          foreach ($intranet_service_gestionnaires as $gestionnaire) {	
+            
+            ?>
+            <div class="super-tile intranet-super-tile-type-contact flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <span class="material-icons">face</span>  
+                    
+                    <p>
+                      <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
+                      <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
+                    </p>            
+                </div>  
+                <div class="flip-card-back">
+                  <p>
+                  <?php 
+                  $user_mail = explode('@', $gestionnaire->user_email);
+                  echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
+                  ?> 
+                  </p>    
+                  <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
+                    <span class="material-icons">call</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <?php
+          }
+          echo "</section>";
+        }
+      }
+    }
+  endwhile;
+}
 
 /** 
  * tuile Formulaire / application 
@@ -205,65 +340,7 @@ function sedoo_wpthch_intranet_contact_list($termSlug) {
   endwhile;
 }
 
-// Liste Contact par services avec tuiles
-function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
-  while( have_rows('intranet_service', 'option') ) : the_row();
-    $restrict=FALSE; //set default, update if $intranet_service_application_restrict
-    // Load sub field value.
-    $serviceCategory = get_sub_field('intranet_service_categorie');
-    foreach ($serviceCategory as $service) {
-      // echo $service->slug.' ';
-      if ($service->slug === $termSlug) {	
-        $intranet_service_nom= get_sub_field('intranet_service_nom');
-        $intranet_service_mail= explode('@', get_sub_field('intranet_service_mail'));
-        $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
-        $intranet_service_application_restrict= get_sub_field('intranet_service_application_restrict');
-        if ($intranet_service_application_restrict) {
-          $intranet_service_application_group= get_sub_field('intranet_service_application_group');
-          $restrict = sedoo_wpthch_intranet_get_restrict_value($intranet_service_application_group);
-        }
-        if (!$restrict) {
-        ?>
-          <div class="h4">
-            <strong><?php echo $intranet_service_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$intranet_service_mail[1];?></strong> 
-            <small>(<?php echo $intranet_service_nom;?> )</small>
-          </div>
-          <section id="gestionnaires">
-          <?php
-          foreach ($intranet_service_gestionnaires as $gestionnaire) {	
-            
-            ?>
-            <div class="super-tile intranet-super-tile-type-contact flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <span class="material-icons">face</span>  
-                    
-                    <p>
-                      <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
-                      <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
-                    </p>            
-                </div>  
-                <div class="flip-card-back">
-                  <p>
-                  <?php 
-                  $user_mail = explode('@', $gestionnaire->user_email);
-                  echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
-                  ?> 
-                  </p>    
-                  <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
-                    <span class="material-icons">call</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <?php
-          }
-          echo "</section>";
-        }
-      }
-    }
-  endwhile;
-}
+
 
 // Liste de page / catégories
 function sedoo_wpthch_intranet_page_list($termSlug) {
