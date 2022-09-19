@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.35.0
+Version:      0.36.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -21,9 +21,9 @@ Tags:
 .legend .material-icons { font-size: .8rem; }
 
 .content-area main { padding-left: 20px; }
-.content-area p a, .content-area table a { color: var(--theme-color); display: inline-block; position: relative; z-index: 0; }
-.content-area p a::after, .content-area table a::after { content: ""; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: var(--theme-color); -webkit-transition: all .2s; transition: all .2s; z-index: 1; }
-.content-area p a:hover, .content-area table a:hover { color: var(--hover-textcolor); background-color: var(--theme-color); }
+.content-area section[data-role="sedoo-intranet-page-content"] p a, .content-area section[data-role="sedoo-intranet-page-content"] table a { color: var(--theme-color); display: inline-block; position: relative; z-index: 0; }
+.content-area section[data-role="sedoo-intranet-page-content"] p a::after, .content-area section[data-role="sedoo-intranet-page-content"] table a::after { content: ""; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: var(--theme-color); -webkit-transition: all .2s; transition: all .2s; z-index: 1; }
+.content-area section[data-role="sedoo-intranet-page-content"] p a:hover, .content-area section[data-role="sedoo-intranet-page-content"] table a:hover { color: var(--hover-textcolor); background-color: var(--theme-color); }
 
 aside[id="stickyMenu"] { border: none; }
 
