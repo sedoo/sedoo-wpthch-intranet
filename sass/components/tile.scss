@@ -13,7 +13,7 @@
 		
 		h4 {
 			width: 100%;
-			text-align: center;
+			text-align: left;
 			font-size: .9rem;
 			margin-top: 10px;
 			color: #111;
@@ -26,7 +26,7 @@
 			flex-direction: row;
 			justify-content: space-evenly;
 			align-items: center;
-			flex-wrap: wrap;
+			// flex-wrap: wrap;
 
 			&:hover {
 				background: transparent;
@@ -45,7 +45,7 @@
 		}
 		&:hover {
 			.material-icons {
-				transform: scale(1);
+				transform: scale(0.9);
 			}
 		}
 	}
@@ -137,7 +137,7 @@
 	.intranet-super-tile-type-formulaire {
 		background: linear-gradient(to right, var(--formulaireBlock-color) 10px, #F0F0F0 10px);
 		border: 2px solid var(--formulaireBlock-color);
-		text-align: center;
+		text-align: left;
 		.material-icons {
 			color: var(--formulaireBlock-color);
 		}
