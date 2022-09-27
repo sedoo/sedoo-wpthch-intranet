@@ -376,7 +376,7 @@ function sedoo_wpthch_intranet_page_list($termSlug) {
 // Filetree 
 function sedoo_wpthch_intranet_filetree_section($baseFolder) {
     ?>
-    <script src="https://services.aeris-data.fr/cdn/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
+    <script src="https://api.sedoo.fr/aeris-cdn-rest/jsrepo/v1_0/download/sandbox/release/sedoocampaigns/0.1.0"></script>
     <campaign-product viewer="tree" service="https://api.sedoo.fr/intranet-omp-service-rest/data/v1_0" campaign="intranetomp" base-folder="<?php echo $baseFolder;?>" product="intranet-filetree">
     </campaign-product>
     <?php
