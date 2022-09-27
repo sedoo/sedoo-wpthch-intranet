@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.37.0
+Version:      0.38.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -175,11 +175,11 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 .material-icons .tooltiptext { font-family: "Open Sans",sans-serif; font-size: .8rem; }
 
 .sedoo-intranet-page [class*=intranet-super-tile-type], [data-role="homepageIntranet"] [class*=intranet-super-tile-type] { display: inline-block; max-width: 200px; padding: 10px; vertical-align: middle; margin: 10px; position: relative; border-radius: var(--borderRadiusTuile); color: #111; }
-.sedoo-intranet-page [class*=intranet-super-tile-type] h4, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] h4 { width: 100%; text-align: center; font-size: .9rem; margin-top: 10px; color: #111; text-transform: uppercase; }
-.sedoo-intranet-page [class*=intranet-super-tile-type] > a, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] > a { text-decoration: none; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-wrap: wrap; flex-wrap: wrap; }
+.sedoo-intranet-page [class*=intranet-super-tile-type] h4, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] h4 { width: 100%; text-align: left; font-size: .9rem; margin-top: 10px; color: #111; text-transform: uppercase; }
+.sedoo-intranet-page [class*=intranet-super-tile-type] > a, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] > a { text-decoration: none; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] > a:hover, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] > a:hover { background: transparent; color: white !important; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] .material-icons { font-size: 4rem; text-align: center; border-radius: 100%; display: inline-block; color: var(--contactBlock-color); -webkit-transform: scale(0.8); transform: scale(0.8); -webkit-transform-origin: center; transform-origin: center; -webkit-transition: ease all 0.3s; transition: ease all 0.3s; }
-.sedoo-intranet-page [class*=intranet-super-tile-type]:hover .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type]:hover .material-icons { -webkit-transform: scale(1); transform: scale(1); }
+.sedoo-intranet-page [class*=intranet-super-tile-type]:hover .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type]:hover .material-icons { -webkit-transform: scale(0.9); transform: scale(0.9); }
 .sedoo-intranet-page .intranet-super-tile-type-contact, [data-role="homepageIntranet"] .intranet-super-tile-type-contact { min-width: 200px; width: calc(50% - 25px); height: 150px; }
 .sedoo-intranet-page .intranet-super-tile-type-contact.flip-card, [data-role="homepageIntranet"] .intranet-super-tile-type-contact.flip-card { -webkit-perspective: 1000px; perspective: 1000px; }
 .sedoo-intranet-page .intranet-super-tile-type-contact.flip-card:hover .flip-card-inner, [data-role="homepageIntranet"] .intranet-super-tile-type-contact.flip-card:hover .flip-card-inner { -webkit-transform: rotateY(180deg); transform: rotateY(180deg); }
@@ -193,7 +193,7 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 .sedoo-intranet-page .intranet-super-tile-type-contact .flip-card-back a, [data-role="homepageIntranet"] .intranet-super-tile-type-contact .flip-card-back a { vertical-align: middle; }
 .sedoo-intranet-page .intranet-super-tile-type-contact .flip-card-back a:hover, [data-role="homepageIntranet"] .intranet-super-tile-type-contact .flip-card-back a:hover { color: #323232 !important; background-color: transparent; }
 .sedoo-intranet-page .intranet-super-tile-type-contact .flip-card-back .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-contact .flip-card-back .material-icons { font-size: 18px; width: 30px; height: 30px; line-height: 30px; display: inline-block; vertical-align: middle; background-color: var(--contactBlock-color); color: white; }
-.sedoo-intranet-page .intranet-super-tile-type-formulaire, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire { background: linear-gradient(to right, var(--formulaireBlock-color) 10px, #F0F0F0 10px); border: 2px solid var(--formulaireBlock-color); text-align: center; }
+.sedoo-intranet-page .intranet-super-tile-type-formulaire, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire { background: linear-gradient(to right, var(--formulaireBlock-color) 10px, #F0F0F0 10px); border: 2px solid var(--formulaireBlock-color); text-align: left; }
 .sedoo-intranet-page .intranet-super-tile-type-formulaire .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire .material-icons { color: var(--formulaireBlock-color); }
 .sedoo-intranet-page .intranet-super-tile-type-application, [data-role="homepageIntranet"] .intranet-super-tile-type-application { background: linear-gradient(to right, var(--applicationBlock-color) 10px, #F0F0F0 10px); border: 2px solid var(--applicationBlock-color); position: relative; }
 .sedoo-intranet-page .intranet-super-tile-type-application a, [data-role="homepageIntranet"] .intranet-super-tile-type-application a { color: white; }
