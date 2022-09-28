@@ -711,7 +711,6 @@ acf_add_local_field_group(array(
 			'name' => 'intranet_super_tile_block_type_choice',
 			'type' => 'radio',
 			'instructions' => '<ol>Quel type de tuile souhaitez-vous créer ? (3 choix possibles)
-			<li>Tuile Contact (Bleu)- ajout des informations de contact</li>
 			<li>Tuile formulaire (Jaune)- raccourci vers un formulaire</li>
 			<li>Tuile application (Verte)- raccourci vers une page ou une application.</li>
 			<li>Tuile tutelle (variable en fonction de la tutelle)- raccourci vers une page ou une application.</li>		
@@ -724,7 +723,6 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'choices' => array(
-				'contact' => 'contact',
 				'formulaire' => 'formulaire',
 				'application' => 'application',
 				'tutelle' => 'tutelle',
@@ -777,15 +775,16 @@ acf_add_local_field_group(array(
 			'type' => 'text',
 			'instructions' => 'Saisissez le titre du block',
 			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_6282396cf76e8',
-						'operator' => '!=',
-						'value' => 'contact',
-					),
-				),
-			),
+			'conditional_logic' => 0,
+			// array(
+			// 	array(
+			// 		array(
+			// 			'field' => 'field_6282396cf76e8',
+			// 			'operator' => '!=',
+			// 			'value' => 'contact',
+			// 		),
+			// 	),
+			// ),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -804,15 +803,16 @@ acf_add_local_field_group(array(
 			'type' => 'link',
 			'instructions' => 'Saisissez l\'url vers laquelle vous souhaitez rediriger l\'utilisateur.',
 			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_6282396cf76e8',
-						'operator' => '!=',
-						'value' => 'contact',
-					),
-				),
-			),
+			'conditional_logic' => 0,
+			// array(
+			// 	array(
+			// 		array(
+			// 			'field' => 'field_6282396cf76e8',
+			// 			'operator' => '!=',
+			// 			'value' => 'contact',
+			// 		),
+			// 	),
+			// ),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -827,15 +827,16 @@ acf_add_local_field_group(array(
 			'type' => 'text',
 			'instructions' => 'Saisissez le nom de l’icône que vous souhaitez inclure dans le block. Pour trouver le nom de l\'icône, consulter <a href="https://fonts.google.com/icons?icon.query=lock&icon.set=Material+Icons" target="_blank">https://fonts.google.com/icons</a>.',
 			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_6282396cf76e8',
-						'operator' => '!=',
-						'value' => 'contact',
-					),
-				),
-			),
+			'conditional_logic' => 0,
+			// array(
+			// 	array(
+			// 		array(
+			// 			'field' => 'field_6282396cf76e8',
+			// 			'operator' => '!=',
+			// 			'value' => 'contact',
+			// 		),
+			// 	),
+			// ),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -847,92 +848,19 @@ acf_add_local_field_group(array(
 			'append' => '',
 			'maxlength' => '',
 		),
-		array(
-			'key' => 'field_62823d3e5f1d7',
-			'label' => 'Contact',
-			'name' => 'intranet_super_tile_block_user',
-			'type' => 'user',
-			'instructions' => 'Sélectionner le contact',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_6282396cf76e8',
-						'operator' => '==',
-						'value' => 'contact',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'role' => '',
-			'allow_null' => 0,
-			'multiple' => 0,
-			'return_format' => 'object',
-		),
-		array(
-			'key' => 'field_62823e6946e78',
-			'label' => 'Numéro de téléphone',
-			'name' => 'intranet_super_tile_block_user_phone',
-			'type' => 'text',
-			'instructions' => 'Saisissez le numéro de téléphone de votre utilisateur',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_6282396cf76e8',
-						'operator' => '==',
-						'value' => 'contact',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '05 61 33 26 92',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => '',
-		),
 		// array(
-		// 	'key' => 'field_62823ede46e79',
-		// 	'label' => 'Tag',
-		// 	'name' => 'intranet_super_tile_block_tag',
-		// 	'type' => 'text',
-		// 	'instructions' => 'Saisissez le tag de la tuile ( précisez s\'il s\'agit d\'un raccourci vers une application, vers un formulaire ou le nom du service auquel appartient le contact)',
-		// 	'required' => 0,
-		// 	'conditional_logic' => 0,
-		// 	'wrapper' => array(
-		// 		'width' => '',
-		// 		'class' => '',
-		// 		'id' => '',
-		// 	),
-		// 	'default_value' => '',
-		// 	'placeholder' => 'Service RH',
-		// 	'prepend' => '',
-		// 	'append' => '',
-		// 	'maxlength' => '18',
-		// ),
-		////////////////////////   UNUSED 
-		// array(
-		// 	'key' => 'field_62823face690f',
-		// 	'label' => 'Type de fichier',
-		// 	'name' => 'intranet_super_tile_block_type_form',
-		// 	'type' => 'select',
-		// 	'instructions' => '',
+		// 	'key' => 'field_62823d3e5f1d7',
+		// 	'label' => 'Contact',
+		// 	'name' => 'intranet_super_tile_block_user',
+		// 	'type' => 'user',
+		// 	'instructions' => 'Sélectionner le contact',
 		// 	'required' => 0,
 		// 	'conditional_logic' => array(
 		// 		array(
 		// 			array(
 		// 				'field' => 'field_6282396cf76e8',
 		// 				'operator' => '==',
-		// 				'value' => 'formulaire',
+		// 				'value' => 'contact',
 		// 			),
 		// 		),
 		// 	),
@@ -941,51 +869,65 @@ acf_add_local_field_group(array(
 		// 		'class' => '',
 		// 		'id' => '',
 		// 	),
-		// 	'choices' => array(
-		// 		'DOC' => 'DOC',
-		// 		'HTML' => 'HTML',
-		// 		'ODT' => 'ODT',
-		// 		'PDF' => 'PDF',
-		// 		'XLS' => 'XLS',
-		// 		'ODS' => 'ODS',
-		// 		'PPT' => 'PPT',
-		// 		'TXT' => 'TXT',
-		// 	),
-		// 	'default_value' => false,
+		// 	'role' => '',
 		// 	'allow_null' => 0,
 		// 	'multiple' => 0,
-		// 	'ui' => 0,
-		// 	'return_format' => 'value',
-		// 	'ajax' => 0,
-		// 	'placeholder' => '',
+		// 	'return_format' => 'object',
 		// ),
-		array(
-			'key' => 'field_628ddf067021c',
-			'label' => 'Service',
-			'name' => 'intranet_super_tile_block_user_service',
-			'type' => 'text',
-			'instructions' => 'Saisissez le service auquel appartient le contact (RH, Web, Technique, Qualité, etc ...)',
-			'required' => 0,
-			'conditional_logic' => array(
-				array(
-					array(
-						'field' => 'field_6282396cf76e8',
-						'operator' => '==',
-						'value' => 'contact',
-					),
-				),
-			),
-			'wrapper' => array(
-				'width' => '',
-				'class' => '',
-				'id' => '',
-			),
-			'default_value' => '',
-			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
-			'maxlength' => 18,
-		),
+		// array(
+		// 	'key' => 'field_62823e6946e78',
+		// 	'label' => 'Numéro de téléphone',
+		// 	'name' => 'intranet_super_tile_block_user_phone',
+		// 	'type' => 'text',
+		// 	'instructions' => 'Saisissez le numéro de téléphone de votre utilisateur',
+		// 	'required' => 0,
+		// 	'conditional_logic' => array(
+		// 		array(
+		// 			array(
+		// 				'field' => 'field_6282396cf76e8',
+		// 				'operator' => '==',
+		// 				'value' => 'contact',
+		// 			),
+		// 		),
+		// 	),
+		// 	'wrapper' => array(
+		// 		'width' => '',
+		// 		'class' => '',
+		// 		'id' => '',
+		// 	),
+		// 	'default_value' => '',
+		// 	'placeholder' => '05 61 33 26 92',
+		// 	'prepend' => '',
+		// 	'append' => '',
+		// 	'maxlength' => '',
+		// ),
+		// array(
+		// 	'key' => 'field_628ddf067021c',
+		// 	'label' => 'Service',
+		// 	'name' => 'intranet_super_tile_block_user_service',
+		// 	'type' => 'text',
+		// 	'instructions' => 'Saisissez le service auquel appartient le contact (RH, Web, Technique, Qualité, etc ...)',
+		// 	'required' => 0,
+		// 	'conditional_logic' => array(
+		// 		array(
+		// 			array(
+		// 				'field' => 'field_6282396cf76e8',
+		// 				'operator' => '==',
+		// 				'value' => 'contact',
+		// 			),
+		// 		),
+		// 	),
+		// 	'wrapper' => array(
+		// 		'width' => '',
+		// 		'class' => '',
+		// 		'id' => '',
+		// 	),
+		// 	'default_value' => '',
+		// 	'placeholder' => '',
+		// 	'prepend' => '',
+		// 	'append' => '',
+		// 	'maxlength' => 18,
+		// ),
 	),
 	'location' => array(
 		array(
