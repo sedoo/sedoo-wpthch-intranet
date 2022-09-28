@@ -3,8 +3,7 @@
 
 	[class*=intranet-super-tile-type] {
 		display: inline-block;
-		min-width: 150px;
-		max-width: 200px;
+		width: 200px;
 		padding: 10px;
 		vertical-align: middle;
 		margin: 10px;
@@ -24,8 +23,6 @@
 		> a {
 			text-decoration: none;
 			display: flex;
-			flex-direction: row;
-			justify-content: space-evenly;
 			align-items: center;
 
 			&:hover {
