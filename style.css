@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.38.1
+Version:      0.38.2
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -21,13 +21,15 @@ Tags:
 .legend .material-icons { font-size: .8rem; }
 
 .content-area main { padding-left: 20px; }
+.content-area section[data-role="sedoo-intranet-page-content"] .entry-content h2 a { color: #000; }
+.content-area section[data-role="sedoo-intranet-page-content"] .entry-content h2:hover { color: #FFF; }
 .content-area section[data-role="sedoo-intranet-page-content"] p a, .content-area section[data-role="sedoo-intranet-page-content"] table a { color: var(--theme-color); display: inline-block; position: relative; z-index: 0; }
 .content-area section[data-role="sedoo-intranet-page-content"] p a::after, .content-area section[data-role="sedoo-intranet-page-content"] table a::after { content: ""; display: block; position: absolute; bottom: 0; left: 0; right: 0; width: 100%; height: 1px; background-color: var(--theme-color); -webkit-transition: all .2s; transition: all .2s; z-index: 1; }
 .content-area section[data-role="sedoo-intranet-page-content"] p a:hover, .content-area section[data-role="sedoo-intranet-page-content"] table a:hover { color: var(--hover-textcolor); background-color: var(--theme-color); }
 
 aside[id="stickyMenu"] { border: none; }
 
-.asideHome { padding: 20px; border-radius: 20px; text-align: center; }
+.asideHome { padding: 10px 30px; border-radius: 20px; }
 
 .sedoo_404 h1 { font-size: 7rem; }
 .sedoo_404 h2 { margin: 20px 0; text-align: center; border: 1px solid #000; border-radius: 5px; }
@@ -115,7 +117,7 @@ div#catList div.tag a:hover { background-color: #EEE; color: var(--theme-color);
 .sedoo-intranet-page [role="listNews"].content-list article.post, .sedoo-intranet-page [class*="apiext"].content-list article.post { padding: 10px 10px 20px 0; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content { width: 100%; padding-left: 20px; border-left: 2px solid var(--theme-color); }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -ms-flex-wrap: wrap; flex-wrap: wrap; }
-.sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content h2, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content h2 { margin-top: 0px; font-size: 1rem; }
+.sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content h2, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content h2 { margin-top: 0; margin-bottom: 0; font-size: 1rem; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul { position: static; list-style: none; margin-left: 0; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul .tag, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul .tag { display: inline-block; }
 .sedoo-intranet-page [role="listNews"].content-list article.post .group-content .entry-content ul .tag a, .sedoo-intranet-page [class*="apiext"].content-list article.post .group-content .entry-content ul .tag a { padding-top: 0; font-size: .70rem; background: #EEE; margin-right: 5px; }
@@ -174,9 +176,9 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 .material-icons { color: rgba(0, 0, 0, 0.54); }
 .material-icons .tooltiptext { font-family: "Open Sans",sans-serif; font-size: .8rem; }
 
-.sedoo-intranet-page [class*=intranet-super-tile-type], [data-role="homepageIntranet"] [class*=intranet-super-tile-type] { display: inline-block; min-width: 150px; max-width: 200px; padding: 10px; vertical-align: middle; margin: 10px; position: relative; -webkit-box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.2); border-radius: var(--borderRadiusTuile); color: #111; }
+.sedoo-intranet-page [class*=intranet-super-tile-type], [data-role="homepageIntranet"] [class*=intranet-super-tile-type] { display: inline-block; width: 200px; padding: 10px; vertical-align: middle; margin: 10px; position: relative; -webkit-box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.2); box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.2); border-radius: var(--borderRadiusTuile); color: #111; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] h4, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] h4 { text-align: left; font-size: .75rem; color: #111; text-transform: uppercase; }
-.sedoo-intranet-page [class*=intranet-super-tile-type] > a, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] > a { text-decoration: none; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-direction: row; flex-direction: row; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+.sedoo-intranet-page [class*=intranet-super-tile-type] > a, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] > a { text-decoration: none; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] > a:hover, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] > a:hover { background: transparent; color: white !important; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] .material-icons { font-size: 4rem; text-align: center; border-radius: 100%; display: inline-block; color: var(--contactBlock-color); -webkit-transform: scale(0.6); transform: scale(0.6); -webkit-transform-origin: center; transform-origin: center; -webkit-transition: ease all 0.3s; transition: ease all 0.3s; }
 .sedoo-intranet-page [class*=intranet-super-tile-type]:hover .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type]:hover .material-icons { -webkit-transform: scale(0.75); transform: scale(0.75); }
