@@ -1,8 +1,12 @@
 <?php
 /** 
  * tuile 
- * *******************************************/ 
-/** tuile Contact **/ 
+ * ******************************************
+ * 
+ * */ 
+/** tuile Contact
+* UNUSED
+* */ 
 function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userService){ ?>
     <div class="flip-card-inner">
         <div class="flip-card-front">
@@ -112,6 +116,9 @@ function sedoo_wpthch_intranet_contact_sidelist($termSlug) {
 }
 
 // Liste Contact par services avec tuiles
+/**
+ * UNUSED
+ */
 function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
   while( have_rows('intranet_service', 'option') ) : the_row();
     $restrict=FALSE; //set default, update if $intranet_service_application_restrict
