@@ -53,29 +53,27 @@ if (!empty(get_field('intranet_super_tile_block_link'))) {
     $link="";
     $link_url="";
 }
-if (get_field('intranet_super_tile_block_user')) {
-    $contact = get_field('intranet_super_tile_block_user');
-}
-if (!empty(get_field('intranet_super_tile_block_user_service'))) {
-    $userService = get_field('intranet_super_tile_block_user_service');
-} else {
-    $userService="";
-}
-if (get_field('intranet_super_tile_block_user_phone')) {
-    $phoneNumber = get_field('intranet_super_tile_block_user_phone');
-}
+// if (get_field('intranet_super_tile_block_user')) {
+//     $contact = get_field('intranet_super_tile_block_user');
+// }
+// if (!empty(get_field('intranet_super_tile_block_user_service'))) {
+//     $userService = get_field('intranet_super_tile_block_user_service');
+// } else {
+//     $userService="";
+// }
+// if (get_field('intranet_super_tile_block_user_phone')) {
+//     $phoneNumber = get_field('intranet_super_tile_block_user_phone');
+// }
 
 ?>
 <section id="<?php echo esc_attr($id); ?>" class="<?php echo esc_attr($className); ?> flip-card intranet-super-tile-type-<?php echo $typeDeBlock; ?>">
     <?php 
         // load template wich are set in functions -> intranet-display-function.php
-        if($typeDeBlock == 'contact'){
-            sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userService);
-        } else {
-        // if (($typeDeBlock == 'formulaire') || ($typeDeBlock == 'application') ){
-            // sedoo_wpthch_intranet_tuile_formulaire($superTileIcone, $titreBlock, $link, $link_url, $typeFile);
+        // if($typeDeBlock == 'contact'){
+        //     sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userService);
+        // } else {
             sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url);
-        }
+        // }
     ?>
 </section>
 
