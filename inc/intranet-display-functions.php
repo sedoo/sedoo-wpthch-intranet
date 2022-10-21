@@ -4,40 +4,6 @@
  * ******************************************
  * 
  * */ 
-/** tuile Contact
-* UNUSED
-* */ 
-function sedoo_wpthch_intranet_tuile_contact($contact, $phoneNumber, $userService){ ?>
-    <div class="flip-card-inner">
-        <div class="flip-card-front">
-            <span class="material-icons">face</span>    
-            <h3><?php echo $userService; ?></h3>
-            <p>
-              <?php echo get_user_meta( $contact->ID,'first_name', true); ?>
-              <?php echo get_user_meta( $contact->ID,'last_name', true); ?>
-            </p>            
-        </div>
-        <div class="flip-card-back">
-            <!-- <span class="material-icons">mail</span> -->
-            <p>
-            <?php 
-            $user_mail = explode('@', $contact->user_email);
-            echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
-            ?>
-            </p>
-            <span class="material-icons">call</span>
-            <p>
-            <?php if( !empty($phoneNumber) ) { ?>   
-              <a href="tel:<?php echo $phoneNumber; ?>">
-                <?php echo $phoneNumber; ?>
-              </a>
-            <?php
-            } ?>
-            </p>
-        </div>
-      </div>
-<?php 
-} 
 
 // Used in sidebar
 function sedoo_wpthch_intranet_contacts($slug, $description) {
@@ -47,7 +13,6 @@ function sedoo_wpthch_intranet_contacts($slug, $description) {
     <section id="contact">
     <?php
     ob_start(); // création d'un buffer
-    // sedoo_wpthch_intranet_tuile_contact_list($slug);
     sedoo_wpthch_intranet_contact_sidelist($slug);
     $content = ob_get_contents();
     ob_end_clean(); //Stops saving things and discards whatever was saved
@@ -181,20 +146,11 @@ function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
 /** 
  * tuile Formulaire / application 
  * **/ 
-function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url){ ?> 
-
-  <a id="<?php //echo esc_attr($id); ?>" href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
-      <?php
-      // if ($typeFile) {
-        ?>
-        <!-- <span class="typeFile"><?php //echo $typeFile; ?></span> -->
-        <?php
-      // } 
-      ?>
+function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url) { 
+  ?> 
+  <a href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
       <span class="material-icons"><?php echo $superTileIcone; ?></span>    
-
       <h4><?php echo $titreBlock; ?></h4>
-
   </a>
 <?php 
 }

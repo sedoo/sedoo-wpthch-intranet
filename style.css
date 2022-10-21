@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.38.2
+Version:      0.40.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -180,7 +180,7 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 .sedoo-intranet-page [class*=intranet-super-tile-type] h4, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] h4 { text-align: left; font-size: .75rem; color: #111; text-transform: uppercase; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] > a, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] > a { text-decoration: none; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 .sedoo-intranet-page [class*=intranet-super-tile-type] > a:hover, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] > a:hover { background: transparent; color: white !important; }
-.sedoo-intranet-page [class*=intranet-super-tile-type] .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] .material-icons { font-size: 4rem; text-align: center; border-radius: 100%; display: inline-block; color: var(--contactBlock-color); -webkit-transform: scale(0.6); transform: scale(0.6); -webkit-transform-origin: center; transform-origin: center; -webkit-transition: ease all 0.3s; transition: ease all 0.3s; }
+.sedoo-intranet-page [class*=intranet-super-tile-type] .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type] .material-icons { font-size: 2rem; text-align: center; border-radius: 100%; display: inline-block; color: var(--contactBlock-color); -webkit-transform: scale(0.6); transform: scale(0.6); -webkit-transform-origin: center; transform-origin: center; -webkit-transition: ease all 0.3s; transition: ease all 0.3s; }
 .sedoo-intranet-page [class*=intranet-super-tile-type]:hover .material-icons, [data-role="homepageIntranet"] [class*=intranet-super-tile-type]:hover .material-icons { -webkit-transform: scale(0.75); transform: scale(0.75); }
 .sedoo-intranet-page .intranet-super-tile-type-formulaire, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire { background: linear-gradient(to right, var(--formulaireBlock-color) 5px, #F0F0F0 5px); text-align: left; }
 .sedoo-intranet-page .intranet-super-tile-type-formulaire .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-formulaire .material-icons { color: var(--formulaireBlock-color); }
