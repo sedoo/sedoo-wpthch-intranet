@@ -774,17 +774,8 @@ acf_add_local_field_group(array(
 			'name' => 'intranet_super_tile_block_title',
 			'type' => 'text',
 			'instructions' => 'Saisissez le titre du block',
-			'required' => 0,
+			'required' => 1,
 			'conditional_logic' => 0,
-			// array(
-			// 	array(
-			// 		array(
-			// 			'field' => 'field_6282396cf76e8',
-			// 			'operator' => '!=',
-			// 			'value' => 'contact',
-			// 		),
-			// 	),
-			// ),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -804,15 +795,6 @@ acf_add_local_field_group(array(
 			'instructions' => 'Saisissez l\'url vers laquelle vous souhaitez rediriger l\'utilisateur.',
 			'required' => 0,
 			'conditional_logic' => 0,
-			// array(
-			// 	array(
-			// 		array(
-			// 			'field' => 'field_6282396cf76e8',
-			// 			'operator' => '!=',
-			// 			'value' => 'contact',
-			// 		),
-			// 	),
-			// ),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -828,15 +810,6 @@ acf_add_local_field_group(array(
 			'instructions' => 'Saisissez le nom de l’icône que vous souhaitez inclure dans le block. Pour trouver le nom de l\'icône, consulter <a href="https://fonts.google.com/icons?icon.query=lock&icon.set=Material+Icons" target="_blank">https://fonts.google.com/icons</a>.',
 			'required' => 0,
 			'conditional_logic' => 0,
-			// array(
-			// 	array(
-			// 		array(
-			// 			'field' => 'field_6282396cf76e8',
-			// 			'operator' => '!=',
-			// 			'value' => 'contact',
-			// 		),
-			// 	),
-			// ),
 			'wrapper' => array(
 				'width' => '',
 				'class' => '',
@@ -848,86 +821,6 @@ acf_add_local_field_group(array(
 			'append' => '',
 			'maxlength' => '',
 		),
-		// array(
-		// 	'key' => 'field_62823d3e5f1d7',
-		// 	'label' => 'Contact',
-		// 	'name' => 'intranet_super_tile_block_user',
-		// 	'type' => 'user',
-		// 	'instructions' => 'Sélectionner le contact',
-		// 	'required' => 0,
-		// 	'conditional_logic' => array(
-		// 		array(
-		// 			array(
-		// 				'field' => 'field_6282396cf76e8',
-		// 				'operator' => '==',
-		// 				'value' => 'contact',
-		// 			),
-		// 		),
-		// 	),
-		// 	'wrapper' => array(
-		// 		'width' => '',
-		// 		'class' => '',
-		// 		'id' => '',
-		// 	),
-		// 	'role' => '',
-		// 	'allow_null' => 0,
-		// 	'multiple' => 0,
-		// 	'return_format' => 'object',
-		// ),
-		// array(
-		// 	'key' => 'field_62823e6946e78',
-		// 	'label' => 'Numéro de téléphone',
-		// 	'name' => 'intranet_super_tile_block_user_phone',
-		// 	'type' => 'text',
-		// 	'instructions' => 'Saisissez le numéro de téléphone de votre utilisateur',
-		// 	'required' => 0,
-		// 	'conditional_logic' => array(
-		// 		array(
-		// 			array(
-		// 				'field' => 'field_6282396cf76e8',
-		// 				'operator' => '==',
-		// 				'value' => 'contact',
-		// 			),
-		// 		),
-		// 	),
-		// 	'wrapper' => array(
-		// 		'width' => '',
-		// 		'class' => '',
-		// 		'id' => '',
-		// 	),
-		// 	'default_value' => '',
-		// 	'placeholder' => '05 61 33 26 92',
-		// 	'prepend' => '',
-		// 	'append' => '',
-		// 	'maxlength' => '',
-		// ),
-		// array(
-		// 	'key' => 'field_628ddf067021c',
-		// 	'label' => 'Service',
-		// 	'name' => 'intranet_super_tile_block_user_service',
-		// 	'type' => 'text',
-		// 	'instructions' => 'Saisissez le service auquel appartient le contact (RH, Web, Technique, Qualité, etc ...)',
-		// 	'required' => 0,
-		// 	'conditional_logic' => array(
-		// 		array(
-		// 			array(
-		// 				'field' => 'field_6282396cf76e8',
-		// 				'operator' => '==',
-		// 				'value' => 'contact',
-		// 			),
-		// 		),
-		// 	),
-		// 	'wrapper' => array(
-		// 		'width' => '',
-		// 		'class' => '',
-		// 		'id' => '',
-		// 	),
-		// 	'default_value' => '',
-		// 	'placeholder' => '',
-		// 	'prepend' => '',
-		// 	'append' => '',
-		// 	'maxlength' => 18,
-		// ),
 	),
 	'location' => array(
 		array(
@@ -949,185 +842,6 @@ acf_add_local_field_group(array(
 	'show_in_rest' => 0,
 ));
 
-//fichiers en relation sur filebrowser
-// acf_add_local_field_group(array(
-// 	'key' => 'group_623b3e7e0a9c3',
-// 	'title' => 'Ajout de ressources en relation',
-// 	'fields' => array(
-// 		array(
-// 			'key' => 'field_623b3e8a0aa3a',
-// 			'label' => 'Fichiers/liens',
-// 			'name' => 'intranet_relatedfile',
-// 			'type' => 'repeater',
-// 			'instructions' => '',
-// 			'required' => 0,
-// 			'conditional_logic' => 0,
-// 			'wrapper' => array(
-// 				'width' => '',
-// 				'class' => '',
-// 				'id' => '',
-// 			),
-// 			'collapsed' => 'field_623b3f460aa3c',
-// 			'min' => 0,
-// 			'max' => 0,
-// 			'layout' => 'row',
-// 			'button_label' => 'Ajouter un fichier/lien',
-// 			'sub_fields' => array(
-// 				array(
-// 					'key' => 'field_623b3f460aa3c',
-// 					'label' => 'Nom explicite',
-// 					'name' => 'intranet_relatedfile_name',
-// 					'type' => 'text',
-// 					'instructions' => '',
-// 					'required' => 0,
-// 					'conditional_logic' => 0,
-// 					'wrapper' => array(
-// 						'width' => '',
-// 						'class' => '',
-// 						'id' => '',
-// 					),
-// 					'default_value' => '',
-// 					'placeholder' => '',
-// 					'prepend' => '',
-// 					'append' => '',
-// 					'maxlength' => '',
-// 				),
-// 				array(
-// 					'key' => 'field_623dde4c5e696',
-// 					'label' => 'Source',
-// 					'name' => 'intranet_relatedfile_source',
-// 					'type' => 'select',
-// 					'instructions' => '',
-// 					'required' => 0,
-// 					'conditional_logic' => 0,
-// 					'wrapper' => array(
-// 						'width' => '',
-// 						'class' => '',
-// 						'id' => '',
-// 					),
-// 					'choices' => array(
-// 						'interne' => 'Interne: Fichier déposé sur filebrowser',
-// 						'interneForm' => 'Interne: formulaires en ligne',
-// 						'externe' => 'Externe (page intranet tutelle, autres)',
-// 					),
-// 					'default_value' => false,
-// 					'allow_null' => 0,
-// 					'multiple' => 0,
-// 					'ui' => 0,
-// 					'return_format' => 'array',
-// 					'ajax' => 0,
-// 					'placeholder' => '',
-// 				),
-// 				array(
-// 					'key' => 'field_623b3ec00aa3b',
-// 					'label' => 'URL du fichier interne',
-// 					'name' => 'intranet_relatedfile_internal_url',
-// 					'type' => 'text',
-// 					'instructions' => 'Récupérer l\'url pour accéder au dossier, depuis le gestionnaire de fichiers <a href="https://fb2.sedoo.fr/" target="_blank">"fileBrowser" </a>',
-// 					'required' => 0,
-// 					'conditional_logic' => array(
-// 						array(
-// 							array(
-// 								'field' => 'field_623dde4c5e696',
-// 								'operator' => '==',
-// 								'value' => 'interne',
-// 							),
-// 						),
-// 					),
-// 					'wrapper' => array(
-// 						'width' => '',
-// 						'class' => '',
-// 						'id' => '',
-// 					),
-// 					'default_value' => '',
-// 					'placeholder' => 'https://fb2.sedoo.fr/files/irap/Finances/Achats/nom_du_fichier.extension',
-// 					'prepend' => '',
-// 					'append' => '',
-// 					'maxlength' => '',
-// 				),
-// 				array(
-// 					'key' => 'field_62456e056cc49',
-// 					'label' => 'Page de formulaire en relation',
-// 					'name' => 'intranet_relatedfile_internal_url_form',
-// 					'type' => 'relationship',
-// 					'instructions' => '',
-// 					'required' => 0,
-// 					'conditional_logic' => array(
-// 						array(
-// 							array(
-// 								'field' => 'field_623dde4c5e696',
-// 								'operator' => '==',
-// 								'value' => 'interneForm',
-// 							),
-// 						),
-// 					),
-// 					'wrapper' => array(
-// 						'width' => '',
-// 						'class' => '',
-// 						'id' => '',
-// 					),
-// 					'post_type' => array(
-// 						0 => 'page',
-// 					),
-// 					'taxonomy' => '',
-// 					'filters' => array(
-// 						0 => 'search',
-// 						1 => 'taxonomy',
-// 					),
-// 					'elements' => '',
-// 					'min' => '',
-// 					'max' => '1',
-// 					'return_format' => 'object',
-// 				),
-// 				array(
-// 					'key' => 'field_623ddf213b2ee',
-// 					'label' => 'URL du fichier externe',
-// 					'name' => 'intranet_relatedfile_external_url',
-// 					'type' => 'text',
-// 					'instructions' => 'Récupérer l\'url complète de la page où est hébergé le fichier',
-// 					'required' => 0,
-// 					'conditional_logic' => array(
-// 						array(
-// 							array(
-// 								'field' => 'field_623dde4c5e696',
-// 								'operator' => '==',
-// 								'value' => 'externe',
-// 							),
-// 						),
-// 					),
-// 					'wrapper' => array(
-// 						'width' => '',
-// 						'class' => '',
-// 						'id' => '',
-// 					),
-// 					'default_value' => '',
-// 					'placeholder' => '',
-// 					'prepend' => '',
-// 					'append' => '',
-// 					'maxlength' => '',
-// 				),
-// 			),
-// 		),
-// 	),
-// 	'location' => array(
-// 		array(
-// 			array(
-// 				'param' => 'post_type',
-// 				'operator' => '==',
-// 				'value' => 'page',
-// 			),
-// 		),
-// 	),
-// 	'menu_order' => 0,
-// 	'position' => 'normal',
-// 	'style' => 'default',
-// 	'label_placement' => 'top',
-// 	'instruction_placement' => 'label',
-// 	'hide_on_screen' => '',
-// 	'active' => true,
-// 	'description' => '',
-// 	'show_in_rest' => 0,
-// ));
 
 endif;		
 

@@ -8,6 +8,7 @@
  */
 
 $categories = get_the_category();
+var_dump($post);
 ?>
 
 
