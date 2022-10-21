@@ -80,69 +80,6 @@ function sedoo_wpthch_intranet_contact_sidelist($termSlug) {
   endwhile;
 }
 
-// Liste Contact par services avec tuiles
-/**
- * UNUSED
- */
-function sedoo_wpthch_intranet_tuile_contact_list($termSlug) {
-  while( have_rows('intranet_service', 'option') ) : the_row();
-    $restrict=FALSE; //set default, update if $intranet_service_application_restrict
-    // Load sub field value.
-    $serviceCategory = get_sub_field('intranet_service_categorie');
-    foreach ($serviceCategory as $service) {
-      // echo $service->slug.' ';
-      if ($service->slug === $termSlug) {	
-        $intranet_service_nom= get_sub_field('intranet_service_nom');
-        $intranet_service_mail= explode('@', get_sub_field('intranet_service_mail'));
-        $intranet_service_gestionnaires= get_sub_field('intranet_service_gestionnaires');
-        $intranet_service_application_restrict= get_sub_field('intranet_service_application_restrict');
-        if ($intranet_service_application_restrict) {
-          $intranet_service_application_group= get_sub_field('intranet_service_application_group');
-          $restrict = sedoo_wpthch_intranet_get_restrict_value($intranet_service_application_group);
-        }
-        if (!$restrict) {
-        ?>
-          <div class="h4">
-            <strong><?php echo $intranet_service_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$intranet_service_mail[1];?></strong> 
-            <small>(<?php echo $intranet_service_nom;?> )</small>
-          </div>
-          <section id="gestionnaires">
-          <?php
-          foreach ($intranet_service_gestionnaires as $gestionnaire) {	
-            
-            ?>
-            <div class="super-tile intranet-super-tile-type-contact flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <span class="material-icons">face</span>  
-                    
-                    <p>
-                      <?php echo get_user_meta( $gestionnaire->ID,'first_name', true); ?>
-                      <?php echo get_user_meta( $gestionnaire->ID,'last_name', true); ?>
-                    </p>            
-                </div>  
-                <div class="flip-card-back">
-                  <p>
-                  <?php 
-                  $user_mail = explode('@', $gestionnaire->user_email);
-                  echo $user_mail[0]."<span class=\"hide\">Dear bot, you won't get my mail</span>@<span class=\"hide\">Dear bot, you won't get my mail</span>".$user_mail[1];
-                  ?> 
-                  </p>    
-                  <a href="<?php echo get_site_url();?>/recherche-dans-lannuaire/?searchUser=<?php echo get_user_meta( $gestionnaire->ID,'last_name', true);?>">
-                    <span class="material-icons">call</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <?php
-          }
-          echo "</section>";
-        }
-      }
-    }
-  endwhile;
-}
-
 /** 
  * tuile Formulaire / application 
  * **/ 
@@ -181,6 +118,7 @@ function sedoo_wpthch_intranet_simple_panel($id, $term, $title, $icon, $descript
  *  accordion panel
  * *******************************************/ 
 // ne pas oublier d'ajouter sur l'élément parent class="Accordion" data-allow-multiple
+// UNUSED
 function sedoo_wpthch_intranet_accordion_panel($id,$ariaExpanded, $title, $icon, $description, $content) {
   ?>
   <!-- <h3> -->
