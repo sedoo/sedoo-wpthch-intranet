@@ -39,7 +39,7 @@ aside[id="stickyMenu"] { border: none; }
 /* Générique */
 /* ========================= */
 /* Root */
-:root { /* FORMULAIRE */ --formulaireBlock-color:#B6CC49; --applicationBlock-color:#276B65; --contactBlock-color:#236f82; --cnrs-color:#04365d; --ird-color:#e20613; --ut3-color:#fbca00; --borderRadiusTuile:5px; }
+:root { /* FORMULAIRE */ --formulaireBlock-color:#B6CC49; --applicationBlock-color:#236f82; --contactBlock-color:#236f82; --cnrs-color:#04365d; --ird-color:#e20613; --ut3-color:#fbca00; --borderRadiusTuile:5px; }
 
 h1 > span.material-icons { font-size: 2rem; }
 
@@ -188,15 +188,19 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 .sedoo-intranet-page .intranet-super-tile-type-application a, [data-role="homepageIntranet"] .intranet-super-tile-type-application a { color: white; }
 .sedoo-intranet-page .intranet-super-tile-type-application .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-application .material-icons { color: var(--applicationBlock-color); }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle { background-color: #F0F0F0; position: relative; }
+.sedoo-intranet-page .intranet-super-tile-type-tutelle:hover::before, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle:hover::before { position: absolute; bottom: -30px; background-color: #111; color: #FFF; padding: 5px 10px; border-radius: var(--borderRadiusTuile); z-index: 3000; font-size: .75rem; }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.cnrs, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.cnrs { background: -webkit-gradient(linear, left top, right top, color-stop(2%, var(--cnrs-color)), color-stop(2%, #F0F0F0)); background: linear-gradient(to right, var(--cnrs-color) 2%, #F0F0F0 2%); }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.cnrs .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.cnrs .material-icons { color: var(--cnrs-color); }
+.sedoo-intranet-page .intranet-super-tile-type-tutelle.cnrs:hover::before, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.cnrs:hover::before { content: "CNRS"; }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.ird, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.ird { background: -webkit-gradient(linear, left top, right top, color-stop(2%, var(--ird-color)), color-stop(2%, #F0F0F0)); background: linear-gradient(to right, var(--ird-color) 2%, #F0F0F0 2%); }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.ird .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.ird .material-icons { color: var(--ird-color); }
+.sedoo-intranet-page .intranet-super-tile-type-tutelle.ird:hover::before, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.ird:hover::before { content: "IRD"; }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.ut3, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.ut3 { background: -webkit-gradient(linear, left top, right top, color-stop(2%, var(--ut3-color)), color-stop(2%, #F0F0F0)); background: linear-gradient(to right, var(--ut3-color) 2%, #F0F0F0 2%); }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.ut3 .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.ut3 .material-icons { color: var(--ut3-color); }
-.sedoo-intranet-page .intranet-super-tile-type-tutelle.gouv, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.gouv { background: -webkit-gradient(linear, left top, right top, color-stop(1%, #1e5799), color-stop(1%, #ffffff), color-stop(2%, #ffffff), color-stop(2%, #cc1622), color-stop(3%, #cc1622), color-stop(3%, #F0F0F0)); background: linear-gradient(to right, #1e5799 1%, #ffffff 1%, #ffffff 2%, #cc1622 2%, #cc1622 3%, #F0F0F0 3%); }
+.sedoo-intranet-page .intranet-super-tile-type-tutelle.ut3:hover::before, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.ut3:hover::before { content: "UT3"; }
+.sedoo-intranet-page .intranet-super-tile-type-tutelle.gouv, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.gouv { background: -webkit-gradient(linear, left top, right top, color-stop(1%, #1e5799), color-stop(1%, #ffffff), color-stop(2%, #ffffff), color-stop(2%, #cc1622), color-stop(3%, #cc1622), color-stop(3%, #F0F0F0)); background: linear-gradient(to right, #1e5799 1%, #ffffff 1%, #ffffff 2%, #cc1622 2%, #cc1622 3%, #F0F0F0 3%); position: relative; }
 .sedoo-intranet-page .intranet-super-tile-type-tutelle.gouv .material-icons, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.gouv .material-icons { color: #333; }
-.sedoo-intranet-page .intranet-super-tile-type-tutelle.gouv::before, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.gouv::before { content: "Gouv"; }
+.sedoo-intranet-page .intranet-super-tile-type-tutelle.gouv:hover::before, [data-role="homepageIntranet"] .intranet-super-tile-type-tutelle.gouv:hover::before { content: "Gouv & autres"; }
 @media (max-width: 545px) { .sedoo-intranet-page [class*=intranet-super-tile-type], [data-role="homepageIntranet"] [class*=intranet-super-tile-type] { width: 100%; } }
 
 .sedoo-pattern-tutelles-columns > .wp-block-column > .wp-block-image { height: 60px; }

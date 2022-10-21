@@ -68,10 +68,25 @@
 	.intranet-super-tile-type-tutelle {
 		background-color: #F0F0F0;
 		position: relative;
+
+		&:hover::before {
+			position: absolute;
+			bottom:-30px;
+			background-color: #111;
+			color: #FFF;
+			padding: 5px 10px;
+			border-radius: var(--borderRadiusTuile);
+			z-index: 3000;
+			font-size: .75rem;
+		}
+
 		&.cnrs {
 			background: linear-gradient(to right, var(--cnrs-color) 2%, #F0F0F0 2%);
 			.material-icons {
 				color: var(--cnrs-color);
+			}
+			&:hover::before {
+				content:"CNRS";
 			}
 
 		}
@@ -80,20 +95,27 @@
 			.material-icons {
 				color: var(--ird-color);
 			}
+			&:hover::before {
+				content:"IRD";
+			}
 		}
 		&.ut3 {
 			background: linear-gradient(to right, var(--ut3-color) 2%, #F0F0F0 2%);
 			.material-icons {
 				color: var(--ut3-color);
 			}
+			&:hover::before {
+				content:"UT3";
+			}
 		}
 		&.gouv {
 			background: linear-gradient(to right, #1e5799 1%, #ffffff 1%,#ffffff 2%, #cc1622 2%,#cc1622 3%, #F0F0F0 3% );
+			position: relative;
 			.material-icons {
 				color: #333;
 			}
-			&::before {
-				content:"Gouv";
+			&:hover::before {
+				content:"Gouv & autres";
 			}
 		}
 	}

@@ -83,11 +83,17 @@ function sedoo_wpthch_intranet_contact_sidelist($termSlug) {
 /** 
  * tuile Formulaire / application 
  * **/ 
-function sedoo_wpthch_intranet_tuile($superTileIcone, $titreBlock, $link, $link_url) { 
+function sedoo_wpthch_intranet_tuile($fieldArgs) { 
   ?> 
-  <a href="<?php echo $link_url; ?>" title="<?php echo $titreBlock; ?>" class="">    
-      <span class="material-icons"><?php echo $superTileIcone; ?></span>    
-      <h4><?php echo $titreBlock; ?></h4>
+  <a href="<?php if (array_key_exists("link_url", $fieldArgs)){echo $fieldArgs["link_url"]; }?>" title="<?php echo $fieldArgs["titreBlock"]; ?>" class="">  
+    <?php
+      if (array_key_exists("superTileIcone", $fieldArgs))  {
+      ?>
+        <span class="material-icons"><?php echo $fieldArgs["superTileIcone"]; ?></span>    
+      <?php 
+      }
+      ?>
+      <h4><?php echo $fieldArgs["titreBlock"]; ?></h4>
   </a>
 <?php 
 }

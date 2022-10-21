@@ -774,7 +774,7 @@ acf_add_local_field_group(array(
 			'name' => 'intranet_super_tile_block_title',
 			'type' => 'text',
 			'instructions' => 'Saisissez le titre du block',
-			'required' => 0,
+			'required' => 1,
 			'conditional_logic' => 0,
 			'wrapper' => array(
 				'width' => '',
