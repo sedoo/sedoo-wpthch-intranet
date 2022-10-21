@@ -443,5 +443,40 @@ function sedoo_wpthch_intranet_get_restrict_value($fieldGroup) {
   return $restrict;
 }
 
+/*********** 
+ *  Get post group
+ */
+
+function sedoo_wpthch_intranet_get_group($postID) {
+
+  $labo = array(
+    '1' => 'OMP',
+    '2' => 'IRAP',
+    '3' => 'UAR831',
+    '4' => 'CESBIO',
+    '5' => 'GET',
+    '6' => 'LAERO',
+    '7' => 'LEGOS',
+    '9' => 'LEFE',
+    '10' => 'RESTRICT',
+  );
+
+  $groups = get_post_meta($postID, 'groups-read');
+
+  if ($groups) {
+    ?>
+    <div class="groupID">
+      <span class="material-icons">lock</span>
+    <?php
+    foreach ($groups as $group) {
+      ?>
+      <span><?php echo $labo[$group];?></span>
+    <?php
+    }
+    ?>
+    </div>
+  <?php
+  }
+}
 
 ?>

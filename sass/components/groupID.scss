@@ -1,0 +1,9 @@
+.groupID {
+    font-size: .70rem;
+    .material-icons {
+        font-size: .80rem;
+    }
+    span:nth-child(n+3)::before {
+        content: "/ ";
+    }
+}
