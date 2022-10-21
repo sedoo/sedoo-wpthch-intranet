@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.40.1
+Version:      0.41.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -163,6 +163,10 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 .sedoo-intranet-page [id*="filetree"] campaign-product .theme--light.v-application, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .theme--light.v-application { background-color: transparent; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .container, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div, .sedoo-intranet-page [id*="filetree"] campaign-product .container > div > div, .sedoo-intranet-page [id*="filetree"] campaign-product .col, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container > div, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .container > div > div, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .col { padding: 0; }
 .sedoo-intranet-page [id*="filetree"] campaign-product .v-application--wrap, [data-role="homepageIntranet"] [id*="filetree"] campaign-product .v-application--wrap { height: auto; min-height: 100px; }
+
+.groupID { font-size: .70rem; }
+.groupID .material-icons { font-size: .80rem; }
+.groupID span:nth-child(n+3)::before { content: "/ "; }
 
 [id*=login-form] { padding-bottom: 20px; }
 [id*=login-form] > p { font-size: .875rem; background-color: #fcb900; padding: 10px; }

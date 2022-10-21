@@ -8,15 +8,16 @@
  */
 
 $categories = get_the_category();
-$test = get_queried_object();
-var_dump($test);
 ?>
 
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('post'); ?>>
     <div class="group-content">
         <div class="entry-content">
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+            <h2>
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                <?php sedoo_wpthch_intranet_get_group($post->ID); ?>
+            </h2>
 
             <ul>
             <?php
