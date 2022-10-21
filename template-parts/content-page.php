@@ -9,7 +9,9 @@ $themeSlugRewrite = "category";
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
 
-  <h1> <?php echo get_the_title(); ?> </h1>
+  <h1> <?php echo get_the_title(); ?> 
+    <?php sedoo_wpthch_intranet_get_group($post->ID); ?>
+  </h1>
   <?php 
   if( function_exists('sedoo_show_categories') && $themes){
   ?>
