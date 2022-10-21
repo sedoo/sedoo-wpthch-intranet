@@ -8,7 +8,6 @@
 		vertical-align: middle;
 		margin: 10px;
 		position: relative;
-		// border: 1px solid;
 		box-shadow: 1px 1px 6px 0px rgba(0,0,0,.2);
 		border-radius: var(--borderRadiusTuile);
 		color: #111;
@@ -31,7 +30,7 @@
 			}
 		}
 		.material-icons {
-			font-size: 4rem;
+			font-size: 2rem;
 			text-align: center;
 			border-radius: 100%;
 			display: inline-block;
@@ -50,7 +49,6 @@
 	
 	.intranet-super-tile-type-formulaire {
 		background: linear-gradient(to right, var(--formulaireBlock-color) 5px, #F0F0F0 5px);
-		// border-color: var(--formulaireBlock-color);
 		text-align: left;
 		.material-icons {
 			color: var(--formulaireBlock-color);
@@ -58,7 +56,6 @@
 	}
 	.intranet-super-tile-type-application {
 		background: linear-gradient(to right, var(--applicationBlock-color) 5px, #F0F0F0 5px);
-		// border-color: var(--applicationBlock-color);
 		position: relative;
 		a {
 			color: white;
@@ -72,52 +69,53 @@
 		background-color: #F0F0F0;
 		position: relative;
 
-		// &::before {
-		// 	position: absolute;
-		// 	top:15px;
-		// 	left: 4%;
-		// 	color:#111;
-		// 	transform: rotate(-30deg);
-		// }
+		&:hover::before {
+			position: absolute;
+			bottom:-30px;
+			background-color: #111;
+			color: #FFF;
+			padding: 5px 10px;
+			border-radius: var(--borderRadiusTuile);
+			z-index: 3000;
+			font-size: .75rem;
+		}
+
 		&.cnrs {
-			// border-color: solid var(--cnrs-color);
 			background: linear-gradient(to right, var(--cnrs-color) 2%, #F0F0F0 2%);
 			.material-icons {
 				color: var(--cnrs-color);
 			}
-			// &::before {
-			// 	content:"CNRS";
-			// }
+			&:hover::before {
+				content:"CNRS";
+			}
 
 		}
 		&.ird {
-			// border-color: var(--ird-color);
 			background: linear-gradient(to right, var(--ird-color) 2%, #F0F0F0 2%);
 			.material-icons {
 				color: var(--ird-color);
 			}
-			// &::before {
-			// 	content:"IRD";
-			// }
+			&:hover::before {
+				content:"IRD";
+			}
 		}
 		&.ut3 {
-			// border-color: var(--ut3-color);
 			background: linear-gradient(to right, var(--ut3-color) 2%, #F0F0F0 2%);
 			.material-icons {
 				color: var(--ut3-color);
 			}
-			// &::before {
-			// 	content:"UT3";
-			// }
+			&:hover::before {
+				content:"UT3";
+			}
 		}
 		&.gouv {
-			// border: 2px solid #1e5799;
 			background: linear-gradient(to right, #1e5799 1%, #ffffff 1%,#ffffff 2%, #cc1622 2%,#cc1622 3%, #F0F0F0 3% );
+			position: relative;
 			.material-icons {
 				color: #333;
 			}
-			&::before {
-				content:"Gouv";
+			&:hover::before {
+				content:"Gouv & autres";
 			}
 		}
 	}
@@ -127,88 +125,3 @@
 		}
 	}
 }
-
-// .intranet-super-tile-type-contact {
-	// 	min-width: 200px;
-	// 	width: calc(50% - 25px);
-	// 	height: 150px;
-
-	// 	&.flip-card {
-	// 		perspective: 1000px;
-	// 		&:hover {
-	// 			.flip-card-inner {
-	// 				transform: rotateY(180deg);
-	// 			}
-	// 		}
-	// 	}
-		
-	// 	.flip-card-inner {
-	// 		position: relative;
-	// 		width: 100%;
-	// 		height: 100%;
-	// 		text-align: center;
-	// 		transition: transform 0.3s;
-	// 		transform-style: preserve-3d;
-	// 	}
-	// 	.flip-card-front,
-	// 	.flip-card-back {
-	// 		position: absolute;
-	// 		width: 100%;
-	// 		height: 100%;
-	// 		-webkit-backface-visibility: hidden;
-	// 		backface-visibility: hidden;
-	// 		padding: 10px;
-	// 		border-radius: var(--borderRadiusTuile);
-	// 		border: 2px solid white;
-	// 	}
-	// 	.flip-card-front {
-	// 		display: flex;
-	// 		flex-direction: column;
-	// 		justify-content: space-evenly;
-	// 		align-items: center;
-	// 		background: var(--contactBlock-color);
-	// 		color: white;
-
-	// 		h3 {
-	// 			margin-bottom: 0px;
-	// 		}
-	// 		p{
-	// 			margin-top: 0px; 
-	// 			text-align: center;
-	// 			font-style: italic;	
-	// 		}
-			
-	// 		.material-icons {
-	// 			color: #FFFFFF;
-	// 		}
-	// 	}
-	// 	.flip-card-back {
-	// 		display: flex;
-	// 		flex-direction: column;
-	// 		justify-content: space-evenly;
-	// 		align-items: center;
-	// 		// text-align: center;
-	// 		background-color: #fff;
-	// 		color: rgb(50,50,50);
-	// 		transform: rotateY(180deg);
-	// 		a {
-	// 			// color: rgb(50,50,50) !important;
-				
-	// 			vertical-align: middle;
-	// 			&:hover {
-	// 				color: rgb(50,50,50) !important;
-	// 				background-color: transparent;
-	// 			}
-	// 		}
-	// 		.material-icons {
-	// 			font-size: 18px;
-	// 			width: 30px;
-	// 			height: 30px;
-	// 			line-height: 30px;
-	// 			display: inline-block;
-	// 			vertical-align: middle;
-	// 			background-color: var(--contactBlock-color);
-	// 			color: white;
-	// 		}
-	// 	}
-	// }
