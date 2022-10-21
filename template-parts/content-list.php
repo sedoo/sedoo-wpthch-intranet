@@ -8,7 +8,8 @@
  */
 
 $categories = get_the_category();
-var_dump($post);
+$test = get_queried_object();
+var_dump($test);
 ?>
 
 
