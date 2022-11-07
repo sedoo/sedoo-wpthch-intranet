@@ -843,6 +843,52 @@ acf_add_local_field_group(array(
 ));
 
 
+// Show page in list option
+acf_add_local_field_group(array(
+	'key' => 'group_6241d877772d1',
+	'title' => 'Hide page in list',
+	'fields' => array(
+		array(
+			'key' => 'field_62624199f9f4d',
+			'label' => 'Caché la page dans les listings',
+			'name' => 'intranet_hide_in_listing',
+			'type' => 'true_false',
+			'instructions' => 'Utile pour les formulaires ou autres procédures ne devant pas être listée dans les catégories',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'message' => '',
+			'default_value' => 0,
+			'ui' => 1,
+			'ui_on_text' => '',
+			'ui_off_text' => '',
+		),
+	),
+	'location' => array(
+		array(
+			array(
+				'param' => 'post_type',
+				'operator' => '==',
+				'value' => 'page',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'side',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => true,
+	'description' => '',
+	'show_in_rest' => 0,
+));
+
+
 endif;		
 
 ?>
