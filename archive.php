@@ -13,6 +13,14 @@ get_header();
 $term = get_queried_object();
 $termchildren = get_term_children( $term->term_id, $term->taxonomy );
 
+global $wp;
+$current_url=home_url( $wp->request );
+if ($_GET['orderby']) {
+	$orderby = $_GET['orderby'];
+} else {
+	$orderby = "title";
+}
+
 $code_color=labs_by_sedoo_main_color();
 if (( function_exists( 'get_field' ) ) && (get_field('tax_layout', $term))) {
 	$tax_layout = get_field('tax_layout', $term);
@@ -72,6 +80,22 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						the_archive_description( '<div class="archive-description">', '</div>' );
 					}
 					?>
+					<nav id="orderby">
+						<span class="tooltip">
+							<a href="<?php echo $current_url."?orderby=title";?>" title="Classer par ordre Alphabétique">
+								<span class="material-icons">
+									sort_by_alpha<span class="tooltiptext tooltiptop">Classer par ordre Alphabétique</span>
+								</span>
+							</a> 
+						</span>
+						<span class="tooltip">
+							<a href="<?php echo $current_url."?orderby=date";?>" title="Classer par date de publication">
+								<span class="material-icons">
+									schedule<span class="tooltiptext tooltiptop">Classer par date de publication</span>
+								</span>
+							</a>
+						</span>
+					</nav>
 					<?php
 					/**
 					 * WP_Query pour lister tous les types de posts
@@ -87,12 +111,47 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						'post_status'           => array( 'publish', 'private' ),
 						'posts_per_page'        => -1,            // -1 pour liste sans limite
 						'paged'					=> $paged,
+						'orderby'				=> $orderby,
+						'order'					=> 'ASC',
 						// 'post__not_in'          => array($postID),    //exclu le post courant
 						'tax_query' => array(
 							array(
 								'taxonomy' => $term->taxonomy,
 								'field'    => 'slug',
 								'terms'    => $term->slug,
+							),
+						),
+						'meta_query' => array(
+							array(
+								'relation' => 'AND',
+								array(
+									'key' => 'intranet_hide_in_listing',
+									'compare' => 'EXISTS',
+								),
+								array(
+									'key'     => 'intranet_hide_in_listing',
+									'value'   => '1',
+									'compare' => 'NOT LIKE',
+								),
+							),
+						),
+						'meta_query' => array(
+							'relation' => 'OR',
+							array(
+								'key' => 'intranet_hide_in_listing',
+								'compare' => 'NOT EXISTS',
+							),
+							array(
+								'relation' => 'AND',
+								array(
+									'key' => 'intranet_hide_in_listing',
+									'compare' => 'EXISTS',
+								),
+								array(
+									'key'     => 'intranet_hide_in_listing',
+									'value'   => '1',
+									'compare' => 'NOT LIKE',
+								),
 							),
 						),
 					);

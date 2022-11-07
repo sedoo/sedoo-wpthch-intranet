@@ -1,0 +1,11 @@
+#orderby {
+    display: flex;
+    justify-content: flex-end;
+    > * {
+        margin-left:10px;
+        .material-icons {
+            font-size: 1.5rem;
+        }
+        
+    }
+}
