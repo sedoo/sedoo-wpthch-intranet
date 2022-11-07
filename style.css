@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      0.42.0
+Version:      0.42.1
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -217,3 +217,5 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 
 .sedoo-pattern-tutelles-rows { padding: 0; }
 .sedoo-pattern-tutelles-rows > div > h2 { opacity: 0; height: 0; }
+
+/*# sourceMappingURL=style.css.map */
