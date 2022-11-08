@@ -1,11 +1,25 @@
-#orderby {
+#sort-options {
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
-    > * {
-        margin-left:10px;
-        .material-icons {
-            font-size: 1.5rem;
+    align-items: flex-end;
+    margin-bottom:20px;
+    > div {
+        display: flex;
+        justify-content: flex-end;
+        > * {
+            margin-left:10px;
+            .material-icons {
+                font-size: 1.5rem;
+            }
+            
         }
-        
+    }
+    &::after{
+        content:"";
+        display: block;
+        height: 1px;
+        width: 100px;
+        background-color: var(--theme-color);
     }
 }

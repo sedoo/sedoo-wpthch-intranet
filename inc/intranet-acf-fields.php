@@ -842,15 +842,14 @@ acf_add_local_field_group(array(
 	'show_in_rest' => 0,
 ));
 
-
-// Show page in list option
+// Hide page in listing
 acf_add_local_field_group(array(
-	'key' => 'group_6241d877772d1',
-	'title' => 'Hide page in list',
+	'key' => 'group_6369364d61726',
+	'title' => 'Hide in list',
 	'fields' => array(
 		array(
-			'key' => 'field_62624199f9f4d',
-			'label' => 'Caché la page dans les listings',
+			'key' => 'field_636936562ebcb',
+			'label' => 'Caché dans les listes',
 			'name' => 'intranet_hide_in_listing',
 			'type' => 'true_false',
 			'instructions' => 'Utile pour les formulaires ou autres procédures ne devant pas être listée dans les catégories',
@@ -861,7 +860,7 @@ acf_add_local_field_group(array(
 				'class' => '',
 				'id' => '',
 			),
-			'message' => '',
+			'message' => 'Cochez la case pour ne pas afficher la page dans les listings',
 			'default_value' => 0,
 			'ui' => 1,
 			'ui_on_text' => '',
@@ -887,7 +886,6 @@ acf_add_local_field_group(array(
 	'description' => '',
 	'show_in_rest' => 0,
 ));
-
 
 endif;		
 
