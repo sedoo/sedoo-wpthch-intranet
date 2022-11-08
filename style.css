@@ -106,9 +106,11 @@ div#catList div.tag a:hover { background-color: #EEE; color: var(--theme-color);
 .tooltip .tooltiptext.tooltiptop { top: -25px; left: 0; }
 .tooltip:hover .tooltiptext { visibility: visible; }
 
-#orderby { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; }
-#orderby > * { margin-left: 10px; }
-#orderby > * .material-icons { font-size: 1.5rem; }
+#sort-options { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; -webkit-box-align: end; -ms-flex-align: end; align-items: flex-end; margin-bottom: 20px; }
+#sort-options > div { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; }
+#sort-options > div > * { margin-left: 10px; }
+#sort-options > div > * .material-icons { font-size: 1.5rem; }
+#sort-options::after { content: ""; display: block; height: 1px; width: 100px; background-color: var(--theme-color); }
 
 [data-role="homepageIntranet"] > main { padding: 0; }
 [data-role="homepageIntranet"] > main #catList { position: -webkit-sticky; position: sticky; top: 80px; z-index: 3000; }
@@ -217,5 +219,3 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 
 .sedoo-pattern-tutelles-rows { padding: 0; }
 .sedoo-pattern-tutelles-rows > div > h2 { opacity: 0; height: 0; }
-
-/*# sourceMappingURL=style.css.map */

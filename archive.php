@@ -15,7 +15,7 @@ $termchildren = get_term_children( $term->term_id, $term->taxonomy );
 
 global $wp;
 $current_url=home_url( $wp->request );
-if ($_GET['orderby']) {
+if (array_key_exists("orderby", $_GET)) { //$_GET['orderby'])
 	$orderby = $_GET['orderby'];
 } else {
 	$orderby = "title";
@@ -80,21 +80,23 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						the_archive_description( '<div class="archive-description">', '</div>' );
 					}
 					?>
-					<nav id="orderby">
-						<span class="tooltip">
-							<a href="<?php echo $current_url."?orderby=title";?>" title="Classer par ordre Alphabétique">
-								<span class="material-icons">
-									sort_by_alpha<span class="tooltiptext tooltiptop">Classer par ordre Alphabétique</span>
-								</span>
-							</a> 
-						</span>
-						<span class="tooltip">
-							<a href="<?php echo $current_url."?orderby=date";?>" title="Classer par date de publication">
-								<span class="material-icons">
-									schedule<span class="tooltiptext tooltiptop">Classer par date de publication</span>
-								</span>
-							</a>
-						</span>
+					<nav id="sort-options">
+						<div>
+							<span class="tooltip">
+								<a href="<?php echo $current_url."?orderby=title";?>" title="Classer par ordre Alphabétique">
+									<span class="material-icons">
+										sort_by_alpha<span class="tooltiptext tooltiptop">Classer par ordre Alphabétique</span>
+									</span>
+								</a> 
+							</span>
+							<span class="tooltip">
+								<a href="<?php echo $current_url."?orderby=date";?>" title="Classer par date de publication">
+									<span class="material-icons">
+										schedule<span class="tooltiptext tooltiptop">Classer par date de publication</span>
+									</span>
+								</a>
+							</span>
+						</div>
 					</nav>
 					<?php
 					/**

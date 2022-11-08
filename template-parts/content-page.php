@@ -36,15 +36,16 @@ $themeSlugRewrite = "category";
       if ( is_user_logged_in() ) {
             
         /////////////   CONTACTS    ////////////
+        if ($themes) {
         sedoo_wpthch_intranet_contacts($themes[0]->slug, $description);
-        
+        }   
       } else {
         sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
       }
       ?>
 
       <?php
-      if( have_rows('intranet_apiext', 'option') ) {
+      if( (have_rows('intranet_apiext', 'option')) && ($themes) ) {
         if (sedoo_wpthch_intranet_dataOption_exist('intranet_apiext', 'intranet_apiext_application_categorie', $themes[0]->term_id)) {
           ?>
           <section id="relatedApiext" class="content-list" role="listNews">
