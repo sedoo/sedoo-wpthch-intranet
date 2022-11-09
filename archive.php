@@ -15,12 +15,13 @@ $termchildren = get_term_children( $term->term_id, $term->taxonomy );
 
 global $wp;
 $current_url=home_url( $wp->request );
-if (array_key_exists("orderby", $_GET)) { //$_GET['orderby'])
-	$orderby = $_GET['orderby'];
+if (array_key_exists('orderby', $_GET)) { //$_GET['orderby'])
+	$orderby = esc_html($_GET['orderby']);
+	// $orderby = $_GET['orderby'];
 } else {
 	$orderby = "title";
 }
-
+var_dump($_POST);
 $code_color=labs_by_sedoo_main_color();
 if (( function_exists( 'get_field' ) ) && (get_field('tax_layout', $term))) {
 	$tax_layout = get_field('tax_layout', $term);
