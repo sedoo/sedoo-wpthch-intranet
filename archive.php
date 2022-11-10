@@ -19,17 +19,27 @@ $current_url=home_url( $wp->request );
 if (array_key_exists('orderby', $_GET)) {
 	$orderby = esc_html($_GET['orderby']);
 	$sort = esc_html($_GET['sort']);
+	echo "<h1>GET : ".$sort."</h1>";
 	if(($orderby == "title")&&($sort == "ASC")) {
+		echo "<h1>1- Before : ".$sort."</h1>";
 		$sort = "DESC";
+		echo "<h1>after :  ".$sort."</h1>";
 	}
 	if(($orderby == "title")&&($sort == "DESC")) {
+
+		echo "<h1>3- Before : ".$sort."</h1>";
 		$sort = "ASC";
+		echo "<h1>after :  ".$sort."</h1>";
 	}
 	if(($orderby == "date")&&($sort == "ASC")) {
+		echo "<h1>3- Before : ".$sort."</h1>";
 		$sort = "DESC";
+		echo "<h1>after :  ".$sort."</h1>";
 	}
 	if(($orderby == "date")&&($sort == "DESC")) {
+		echo "<h1>3- Before : ".$sort."</h1>";
 		$sort = "ASC";
+		echo "<h1>after :  ".$sort."</h1>";
 	}
 } else {
 	$orderby = "title";
