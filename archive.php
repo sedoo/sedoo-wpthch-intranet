@@ -18,8 +18,21 @@ global $wp;
 $current_url=home_url( $wp->request );
 if (array_key_exists('orderby', $_GET)) {
 	$orderby = esc_html($_GET['orderby']);
+	if(($orderby == "title")&&($sort == "ASC")) {
+		$sort = "DESC";
+	}
+	if(($orderby == "title")&&($sort == "DESC")) {
+		$sort = "ASC";
+	}
+	if(($orderby == "date")&&($sort == "ASC")) {
+		$sort = "DESC";
+	}
+	if(($orderby == "date")&&($sort == "DESC")) {
+		$sort = "ASC";
+	}
 } else {
 	$orderby = "title";
+	$sort = "ASC";
 }
 $code_color=labs_by_sedoo_main_color();
 if (( function_exists( 'get_field' ) ) && (get_field('tax_layout', $term))) {
@@ -83,14 +96,14 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					<nav id="sort-options">
 						<div>
 							<span class="tooltip">
-								<a href="<?php echo $current_url."?orderby=title";?>" title="Classer par ordre Alphabétique">
+								<a href="<?php echo $current_url."?orderby=title&sort=".$sort;?>" title="Classer par ordre Alphabétique">
 									<span class="material-icons">
 										sort_by_alpha<span class="tooltiptext tooltiptop">Classer par ordre Alphabétique</span>
 									</span>
 								</a> 
 							</span>
 							<span class="tooltip">
-								<a href="<?php echo $current_url."?orderby=date";?>" title="Classer par date de publication">
+								<a href="<?php echo $current_url."?orderby=date&sort=".$sort;;?>" title="Classer par date de publication">
 									<span class="material-icons">
 										schedule<span class="tooltiptext tooltiptop">Classer par date de publication</span>
 									</span>
@@ -114,7 +127,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						'posts_per_page'        => -1,            // -1 pour liste sans limite
 						'paged'					=> $paged,
 						'orderby'				=> $orderby,
-						'order'					=> 'ASC',
+						'order'					=> $sort,
 						// 'post__not_in'          => array($postID),    //exclu le post courant
 						'tax_query' => array(
 							array(
