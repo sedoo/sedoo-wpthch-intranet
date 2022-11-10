@@ -18,6 +18,7 @@ global $wp;
 $current_url=home_url( $wp->request );
 if (array_key_exists('orderby', $_GET)) {
 	$orderby = esc_html($_GET['orderby']);
+	$sort = esc_html($_GET['sort']);
 	if(($orderby == "title")&&($sort == "ASC")) {
 		$sort = "DESC";
 	}
