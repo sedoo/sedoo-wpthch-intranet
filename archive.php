@@ -19,25 +19,21 @@ $current_url=home_url( $wp->request );
 if (array_key_exists('orderby', $_GET)) {
 	$orderby = esc_html($_GET['orderby']);
 	$sort = esc_html($_GET['sort']);
-	if(($orderby == "title")&&($sort == "ASC")) {
-		echo "<h1>1- Before : ".$sort."</h1>";
+	// if(($orderby == "title")&&($sort == "ASC")) {
+	// 	$newsort = "DESC";
+	// } elseif(($orderby == "title")&&($sort == "DESC")) {
+	// 	$newsort = "ASC";
+	// } elseif(($orderby == "date")&&($sort == "ASC")) {
+	// 	$newsort = "DESC";
+	// } elseif(($orderby == "date")&&($sort == "DESC")) {
+	// 	$newsort = "ASC";
+	// }
+	if ($sort == "ASC") {
 		$newsort = "DESC";
-		echo "<h1>after :  ".$newsort."</h1>";
-	} elseif(($orderby == "title")&&($sort == "DESC")) {
-		echo "<h1>3- Before : ".$sort."</h1>";
+	} else {
 		$newsort = "ASC";
-		echo "<h1>after :  ".$newsort."</h1>";
-	} elseif(($orderby == "date")&&($sort == "ASC")) {
-		echo "<h1>3- Before : ".$sort."</h1>";
-		$newsort = "DESC";
-		echo "<h1>after :  ".$newsort."</h1>";
-	} elseif(($orderby == "date")&&($sort == "DESC")) {
-		echo "<h1>3- Before : ".$sort."</h1>";
-		$newsort = "ASC";
-		echo "<h1>after :  ".$newsort."</h1>";
-	}
+	} 
 	$sort = $newsort;
-	echo "<h1>Final :".$sort."</h1>";
 } else {
 	$orderby = "title";
 	$sort = "ASC";
