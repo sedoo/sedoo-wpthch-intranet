@@ -9,8 +9,8 @@ $green4: #276B65;
 $yellow1: #DD9946;
 $yellow2:#fcb900;
 $orange1: #E57E10;
-$cnrs: #04365d;//#0660ff;
 
+$cnrs: #04365d;//#0660ff;
 $ut3:#fbca00;
 $ird:#e20613;
 
@@ -26,4 +26,16 @@ $ird:#e20613;
 --ird-color:#{$ird};
 --ut3-color:#{$ut3};
 --borderRadiusTuile:5px;
+/* ---------------  */
+--blue1:#{$blue1};
+--blue2:#{$blue2};
+--blue3:#{$blue3};
+--blue4:#{$blue4};
+--green1:#{$green1};
+--green2:#{$green2};
+--green3:#{$green3};
+--green4:#{$green4};
+--yellow1:#{$yellow1};
+--yellow2:#{$yellow2};
+--orange1:#{$orange1};
 }
