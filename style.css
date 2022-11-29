@@ -39,7 +39,7 @@ aside[id="stickyMenu"] { border: none; }
 /* Générique */
 /* ========================= */
 /* Root */
-:root { /* FORMULAIRE */ --formulaireBlock-color:#B6CC49; --applicationBlock-color:#236f82; --contactBlock-color:#236f82; --cnrs-color:#04365d; --ird-color:#e20613; --ut3-color:#fbca00; --borderRadiusTuile:5px; }
+:root { /* FORMULAIRE */ --formulaireBlock-color:#B6CC49; --applicationBlock-color:#236f82; --contactBlock-color:#236f82; --cnrs-color:#04365d; --ird-color:#e20613; --ut3-color:#fbca00; --borderRadiusTuile:5px; /* ---------------  */ --blue1:#90BCD1; --blue2:#118DA0; --blue3:#236f82; --blue4:#2D4F59; --green1:#B6CC49; --green2:#7DBF3B; --green3:#3EABA2; --green4:#276B65; --yellow1:#DD9946; --yellow2:#fcb900; --orange1:#E57E10; }
 
 h1 > span.material-icons { font-size: 2rem; }
 
@@ -182,7 +182,7 @@ section#contact [id="gestionnaires"] .gestionnaire p a:hover span + span { text-
 [id*=login-form] div form > * > * { width: 40%; }
 [id*=login-form] div form .login-remember { display: none; }
 [id*=login-form] div form .login-submit { -ms-flex-item-align: start; align-self: flex-start; }
-[id*=login-form] a { display: block; margin: 0 auto; width: 50%; font-size: .8rem; padding: 5px 20px; border: 1px solid var(--theme-color); text-align: center; }
+[id*=login-form] a { display: block; background-color: var(--yellow2); margin: 0 auto; width: 50%; font-size: .8rem; padding: 5px 20px; border: 1px solid var(--yellow1); color: #000; text-align: center; }
 
 .material-icons { color: rgba(0, 0, 0, 0.54); }
 .material-icons .tooltiptext { font-family: "Open Sans",sans-serif; font-size: .8rem; }
