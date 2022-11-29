@@ -408,7 +408,7 @@ function sedoo_wpthch_intranet_login_form($id, $className) {
         <?php
             wp_login_form();
         ?>
-            <a href="https://socle.obs-mip.fr" target="_blank"> Mot de passe oublié </a>
+            <a href="https://socle.obs-mip.fr" target="_blank"> Mot de passe oublié<br>Récupérer mes identifiants OMP</a>
         </div>
     </section>
   <?php 
