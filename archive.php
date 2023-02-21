@@ -19,15 +19,7 @@ $current_url=home_url( $wp->request );
 if (array_key_exists('orderby', $_GET)) {
 	$orderby = esc_html($_GET['orderby']);
 	$sort = esc_html($_GET['sort']);
-	// if(($orderby == "title")&&($sort == "ASC")) {
-	// 	$newsort = "DESC";
-	// } elseif(($orderby == "title")&&($sort == "DESC")) {
-	// 	$newsort = "ASC";
-	// } elseif(($orderby == "date")&&($sort == "ASC")) {
-	// 	$newsort = "DESC";
-	// } elseif(($orderby == "date")&&($sort == "DESC")) {
-	// 	$newsort = "ASC";
-	// }
+
 	if ($sort == "ASC") {
 		$newsort = "DESC";
 	} else {
@@ -113,6 +105,13 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 									</span>
 								</a>
 							</span>
+							<span class="tooltip">
+								<a href="<?php echo $current_url."?orderby=menu_order&sort=".$sort;;?>" title="Classer par pertinence">
+									<span class="material-icons">
+										stars<span class="tooltiptext tooltiptop">Classer par pertinence (si définie!)</span>
+									</span>
+								</a>
+							</span>
 						</div>
 					</nav>
 					<?php
@@ -122,9 +121,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 					if ($term) {				
-					/* sedoo_wpth_labs_get_queried_content_arguments(post_types, taxonomy, slug, display, paged) */
-					//sedoo_wpth_labs_get_queried_content_arguments(array('page'), $term->taxonomy, $term->slug, $tax_layout, $paged);
-					
+				
 					$args = array(
 						'post_type'             => array('page'),
 						'post_status'           => array( 'publish', 'private' ),
@@ -222,28 +219,6 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						</section>
 						<?php
 						}
-					}
-					?>
-					<?php
-					/////////////   Arborescence de fichiers de la catégorie    ////////////
-					$baseFolder = str_replace("https://fb2.sedoo.fr/files/", "", get_field('intranet_taxo_root', 'category' . '_' . $term->term_id));
-					if ( (!empty($baseFolder)) && ( is_user_logged_in() )) {
-					?>
-						<section id="relatedApiext" class="content-list" role="listNews">
-						<?php
-						
-						ob_start(); // création d'un buffer
-						sedoo_wpthch_intranet_filetree_section($baseFolder);
-
-						$content = ob_get_contents();
-						ob_end_clean(); //Stops saving things and discards whatever was saved
-						
-						$title="Fichiers de la catégorie ". $term->name;
-						$description="<em>Ne concerne que les documents internes hors officiels des tutelles</em>";
-						sedoo_wpthch_intranet_simple_panel('filetreemap', 'false', $title, 'account_tree',  $description, $content);
-						?>
-						</section>
-					<?php
 					}
 					?>
 				</aside>
