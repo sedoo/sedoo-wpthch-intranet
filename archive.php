@@ -105,6 +105,13 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 									</span>
 								</a>
 							</span>
+							<span class="tooltip">
+								<a href="<?php echo $current_url."?orderby=menu_order&sort=".$sort;;?>" title="Classer par pertinence">
+									<span class="material-icons">
+										stars<span class="tooltiptext tooltiptop">Classer par pertinence (si définie!)</span>
+									</span>
+								</a>
+							</span>
 						</div>
 					</nav>
 					<?php
@@ -114,9 +121,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 					if ($term) {				
-					/* sedoo_wpth_labs_get_queried_content_arguments(post_types, taxonomy, slug, display, paged) */
-					//sedoo_wpth_labs_get_queried_content_arguments(array('page'), $term->taxonomy, $term->slug, $tax_layout, $paged);
-					
+				
 					$args = array(
 						'post_type'             => array('page'),
 						'post_status'           => array( 'publish', 'private' ),
