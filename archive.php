@@ -108,7 +108,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 							<span class="tooltip">
 								<a href="<?php echo $current_url."?orderby=menu_order&sort=".$sort;;?>" title="Classer par pertinence">
 									<span class="material-icons">
-										stars<span class="tooltiptext tooltiptop">Classer par pertinence (si définie!)</span>
+										stars<span class="tooltiptext tooltiptop">Classer par pertinence (si définie / version Beta test !)</span>
 									</span>
 								</a>
 							</span>
