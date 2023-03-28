@@ -11,6 +11,10 @@ function sedoo_intranet_menu() {
     add_menu_page( 'sedoo-intranet-main-admin-page', 'Intranet Settings', $capability,
      'sedoo-intranet-admin-main-page', ''); // in sedoo-intranet-mainadmin.php
 }
+
+if (!current_user_can( 'edit_posts' )) {
+	add_filter('show_admin_bar', '__return_false');
+}
 // END THE MAIN ADMINISTRATION PAGE
 //////
 
