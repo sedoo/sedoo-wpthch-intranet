@@ -25,7 +25,14 @@ $themeSlugRewrite = "category";
   ?>
   <div class="sedoo-intranet-page">
     <section data-role="sedoo-intranet-page-content">
-      <?php the_content() ?>
+      <?php 
+      the_content();
+
+      wp_link_pages( array(
+      'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'labs-by-sedoo' ),
+      'after'  => '</div>',
+        ) ); 
+      ?>
     </section>
     <?php
     if (!is_front_page()){
