@@ -6,7 +6,7 @@ Description:  Intranet OMP, Labs by sedoo Child Theme
 Author:       Pierre Vert, Sedoo
 Author URI: https://github.com/sedoo 
 Template:     sedoo-wpth-labs
-Version:      1.3.2
+Version:      1.4.0
 License: Creative Commons, CC-by-nc-sa
 License URI: https://creativecommons.org/licenses/by-nc-sa/4.0/
 Text Domain: sedoo-wpthch-intranet
@@ -133,7 +133,7 @@ div#catList div.tag a:hover { background-color: #EEE; color: var(--theme-color);
 .sedoo-intranet-page #taxoNews [role="listNews"], .sedoo-intranet-page [role="listNews"].sedoo_blocks_listearticle { -webkit-box-pack: start; -ms-flex-pack: start; justify-content: flex-start; }
 .sedoo-intranet-page #taxoNews [role="listNews"].post-wrapper .post, .sedoo-intranet-page [role="listNews"].sedoo_blocks_listearticle.post-wrapper .post { -webkit-box-flex: 0; -ms-flex: 0 1 320px; flex: 0 1 320px; }
 .sedoo-intranet-page #taxoNews { margin-top: 30px; border-top: 2px solid var(--theme-color); }
-.sedoo-intranet-page #taxoNews h2 { margin-bottom: 20px; }
+.sedoo-intranet-page #taxoNews h2 { margin-bottom: 5px; }
 
 section#relatedFiles > div.description { padding: 0; }
 section#relatedFiles .legend { padding: 10px; background-color: #DDD; }
