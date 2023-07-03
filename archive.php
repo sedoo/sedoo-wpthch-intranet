@@ -190,7 +190,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						} 
 					}
 					?>
-					<div id="taxoNews">
+					
 					<?php
 					$args = array(
 						'post_type'             => 'post',
@@ -211,6 +211,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 			
 					if ($postsList){       
 					?>
+					<div id="taxoNews">
 					<h2>Actus de la catégorie <?php echo $term->name;?></h2>
 					<section role="listNews" class="content-list sedoo_blocks_listearticle">
 						
@@ -226,7 +227,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						endforeach;
 						?>	
 					</section>
-
+					</div>
 					<?php
 					} else {
 						// no posts found
@@ -234,7 +235,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 					/* Restore original Post Data */
 					wp_reset_postdata();
 					?>     
-					</div>
+					
 				</section> 
 				<aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
 					<?php
