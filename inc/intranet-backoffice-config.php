@@ -7,7 +7,7 @@ if ( is_multisite() )
 // THE MAIN ADMINISTRATION PAGE
 add_action('admin_menu', 'sedoo_intranet_menu');
 
-function sedoo_intranet_menu() {
+function sedoo_intranet_menu($capability) {
     add_menu_page( 'sedoo-intranet-main-admin-page', 'Intranet Settings', $capability,
      'sedoo-intranet-admin-main-page', ''); // in sedoo-intranet-mainadmin.php
 }
