@@ -23,9 +23,6 @@
                 padding: 10px 10px 20px 0;
 
                 .group-content {
-                    width: 100%;
-                    padding-left: 20px ;
-                    border-left: 2px solid var(--theme-color);
                     .entry-content {
                         display: flex;
                         justify-content: space-between;
@@ -78,7 +75,7 @@
         margin-top:30px;
         border-top:2px solid var(--theme-color);
         h2 {
-            margin-bottom:20px;
+            margin-bottom:5px;
         }
     }
 

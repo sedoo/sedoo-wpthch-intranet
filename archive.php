@@ -190,6 +190,51 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						} 
 					}
 					?>
+					<div id="taxoNews">
+					<?php
+					$args = array(
+						'post_type'             => 'post',
+						'post_status'           => array( 'publish' ),
+						'posts_per_page'        => '4',     
+						// 'post__not_in'          => array(get_the_ID()), 
+						'orderby'               => 'date',
+						'order'                 => 'DESC',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'category',
+								'field'    => 'slug',
+								'terms'    => $term->slug,
+							),
+						),
+					);
+					$postsList = get_posts ($args);
+			
+					if ($postsList){       
+					?>
+					<h2>Actus de la catégorie <?php echo $term->name;?></h2>
+					<section role="listNews" class="content-list sedoo_blocks_listearticle">
+						
+						<?php
+
+						foreach ($postsList as $post) :
+						setup_postdata( $post );
+							?>
+							<?php
+							get_template_part( 'template-parts/content', 'list-news' );
+							?>
+							<?php
+						endforeach;
+						?>	
+					</section>
+
+					<?php
+					} else {
+						// no posts found
+					}
+					/* Restore original Post Data */
+					wp_reset_postdata();
+					?>     
+					</div>
 				</section> 
 				<aside id="accordionGroup" class="Accordion contextual-sidebar" data-allow-multiple>
 					<?php
@@ -221,53 +266,7 @@ $affichage_portfolio = get_field('sedoo_affichage_en_portfolio', $term);
 						}
 					}
 					?>
-				</aside>
-				<div id="taxoNews">
-				<?php
-				$args = array(
-					'post_type'             => 'post',
-					'post_status'           => array( 'publish' ),
-					'posts_per_page'        => '4',     
-					// 'post__not_in'          => array(get_the_ID()), 
-					'orderby'               => 'date',
-					'order'                 => 'DESC',
-					'tax_query' => array(
-						array(
-							'taxonomy' => 'category',
-							'field'    => 'slug',
-							'terms'    => $term->slug,
-						),
-					),
-				);
-				$postsList = get_posts ($args);
-		
-				if ($postsList){       
-				?>
-				<h2>Actus de la catégorie <?php echo $term->name;?></h2>
-				<section role="listNews" class="post-wrapper">
-					
-					<?php
-
-					foreach ($postsList as $post) :
-					setup_postdata( $post );
-						?>
-						<?php
-						get_template_part( 'template-parts/content', 'grid' );
-						?>
-						<?php
-					endforeach;
-					?>	
-				</section>
-
-				<?php
-				} else {
-					// no posts found
-				}
-				/* Restore original Post Data */
-				wp_reset_postdata();
-				?>     
-				</div>
-				
+				</aside>	
 			</div>
 			
 		
