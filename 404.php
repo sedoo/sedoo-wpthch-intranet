@@ -17,20 +17,27 @@ get_header();
 				<div class="page-content">
 
 					<div class="sedoo_404">
-						<h1>404</h1>
-						<h2>la page n'existe pas, ou vous n'avez pas les droits d'accès</h2>
-						<div class="row row_404"> 
-							<div>
-								<p>Soit vous n'avez pas le droit d'y accéder, authentifiez-vous ci-dessous. </p>
-								<?php
-								if(!is_user_logged_in()) {
-								
-									sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
-								}
+						<h1>
+							<span class="material-icons">dangerous</span>
+						</h1>
+						<h2>Vous n'avez pas les droits d'accès, ou la page n'existe pas</h2>
+						<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+						<div class="wp-block-columns are-vertically-aligned-top is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex">
+							<?php
+							if(!is_user_logged_in()) {
 								?>
+							<div class="wp-block-column is-vertically-aligned-top is-layout-flow wp-block-column-is-layout-flow">
+								<h3>Vous n'avez pas le droit d'y accéder, authentifiez-vous ci-dessous. </h3>
+								<?php														
+									sedoo_wpthch_intranet_login_form('login-form-404', 'login-form');
+								?>
+								
 							</div>
-							<div class="searchform_404">
-								<p>Soit la page n'existe pas, tentez une autre recherche.</p>
+							<?php
+							}
+							?>
+							<div class="searchform_404 wp-block-column is-vertically-aligned-top is-layout-flow wp-block-column-is-layout-flow">
+								<h3>La page n'existe pas, tentez une autre recherche.</h3>
 								<?php 
 								get_search_form();
 								?>
